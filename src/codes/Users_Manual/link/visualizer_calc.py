@@ -11,5 +11,5 @@ g = Focus(center)
 autd.send(g)
 
 points = [center]
-p = autd.link.calc_field(points, autd.geometry, Segment.S0, 0)
+p = autd.link.calc_field(points, Segment.S0, 0)
 print(f"Acoustic pressure at ({center[0]}, {center[1]}, {center[2]}) = {p[0]}")

@@ -41,9 +41,9 @@ To disable the silencer, send `Silencer::disable`.
 To configure the silencer more finely, you need to choose from the following two modes.
 
 - [Fixed update rate mode](#fixed-update-rate-mode)
-- [Fixed completion steps mode](#fixed-completion-steps-mode)
+- [Fixed completion time mode](#fixed-completion-time-mode)
 
-The default is fixed completion steps mode.
+The default is fixed completion time mode.
 
 ### Fixed update rate mode
 
@@ -98,13 +98,13 @@ Examples of phase changes at this time are shown below.
 <figcaption>Comparison against moving average filter</figcaption>
 </figure>
 
-## Amplitude change by Silencer in Fixed update rate mode
+## intensity change by Silencer in Fixed update rate mode
 
-Amplitude modulation of ultrasound produces audible sound.
-So, AM noise can be reduced by applying a filter to the amplitude parameter $D$.
+intensity modulation of ultrasound produces audible sound.
+So, AM noise can be reduced by applying a filter to the intensity parameter $D$.
 
-Unlike the phase, the amplitude parameter $D$ is not periodic with respect to the period $T$.
-Therefore, the amplitude parameter $D$ is updated as follows for the current $D$ and the target value $D_r$.
+Unlike the phase, the intensity parameter $D$ is not periodic with respect to the period $T$.
+Therefore, the intensity parameter $D$ is updated as follows for the current $D$ and the target value $D_r$.
 $$
     D \leftarrow D + \mathrm{sign}(D_r - D) \min (|D_r - D|, \Delta),
 $$
@@ -113,9 +113,6 @@ $$
 
 To configure the fixed update rate mode, do as follows.
 The arguments correspond to $\Delta$ described above.
-Note that internally, Silencer is applied to,
-- for phase, phase parameter multiplied by $256$
-- for amplitude, amplitude parameter multiplied by `Modulation` data
 
 ```rust,edition2021
 {{#include ../../codes/Users_Manual/silencer/silencer_fixed_update_rate.rs}}
@@ -133,14 +130,13 @@ Note that internally, Silencer is applied to,
 {{#include ../../codes/Users_Manual/silencer/silencer_fixed_update_rate.py}}
 ```
 
-### Fixed completion steps mode
+### Fixed completion time mode
 
-In fixed completion steps mode, change of phase/amplitude is completed in a fixed duration.
+In fixed completion time mode, change of phase/intensity is completed in a fixed duration.
 
-#### Configure fixed completion steps mode
+#### Configure fixed completion time mode
 
-To configure the fixed completion steps mode, do as follows.
-The arguments correspond to the number of steps until the completion of the amplitude/phase change, respectively, where one step correspond to $\SI{25}{us}$.
+To configure the fixed completion time mode, do as follows.
 
 ```rust,edition2021
 {{#include ../../codes/Users_Manual/silencer/silencer_fixed_completion_steps.rs}}
@@ -158,14 +154,13 @@ The arguments correspond to the number of steps until the completion of the ampl
 {{#include ../../codes/Users_Manual/silencer/silencer_fixed_completion_steps.py}}
 ```
 
-The default values are $40$ steps for phase change and $10$ steps for amplitude change.
-Note that disabling Silencer is equivalent to phase/amplitude change in $1$ step.
+The default values are $\SI{1}{ms}$ for phase change and $\SI{0.25}{ms}$ for intensity change.
 
-In this mode, an error is returned if the phase/amplitude change of `Modulation`, `FociSTM`, or `GainSTM` cannot be completed in the time specified by Silencer.
+In this mode, an error is returned if the phase/intensity change of `Modulation`, `FociSTM`, or `GainSTM` cannot be completed in the time specified by Silencer.
 That is, the following conditions must be satisfied.
-- Silencer's amplitude change completion steps $\times \SI{25}{us} \le$ sampling period of `Modulation` 
-- Silencer's amplitude change completion steps $\times \SI{25}{us} \le$ sampling period of `FociSTM`/`GainSTM`
-- Silencer's phase change completion steps $\times \SI{25}{us} \le$ sampling period of `FociSTM`/`GainSTM`
+- Silencer's intensity change completion time $\le$ sampling period of `Modulation` 
+- Silencer's intensity change completion time $\le$ sampling period of `FociSTM`/`GainSTM`
+- Silencer's phase change completion time $\le$ sampling period of `FociSTM`/`GainSTM`
 
 If you set `strict_mode` to `false`, you can ignore these restrictions, but it's not recommended.
 

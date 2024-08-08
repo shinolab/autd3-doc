@@ -21,7 +21,6 @@ autd.link.plot_field(
         z_end=center[2],
         resolution=1,
     ),
-    autd.geometry,
     Segment.S0,
     0,
 )

@@ -10,5 +10,5 @@ var g = new Focus(center);
 autd.Send(g);
 
 var points = new List<Vector3> { center };
-var p = autd.Link.CalcField(points, autd.Geometry, Segment.S0, 0);
+var p = autd.Link.CalcField(points, Segment.S0, 0);
 Console.WriteLine($"Acoustic pressure at ({center.X}, {center.Y}, {center.Z}) = ({p[0]})");

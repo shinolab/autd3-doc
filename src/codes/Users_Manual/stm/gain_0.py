@@ -7,7 +7,7 @@
 center = autd.geometry.center + np.array([0.0, 0.0, 150.0])
 point_num = 200
 radius = 30.0
-stm = GainSTM.from_freq(
+stm = GainSTM(
     1.0 * Hz,
     map(
         lambda theta: Focus(

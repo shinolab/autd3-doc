@@ -7,7 +7,7 @@
 center = autd.geometry.center + np.array([0.0, 0.0, 150.0])
 point_num = 200
 radius = 30.0
-stm = FociSTM.from_freq(
+stm = FociSTM(
     1.0 * Hz,
     map(
         lambda theta: center + radius * np.array([np.cos(theta), np.sin(theta), 0]),

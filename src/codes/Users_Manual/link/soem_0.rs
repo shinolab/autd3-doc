@@ -1,3 +1,5 @@
+use std::num::{NonZeroUsize, NonZeroU64};
+use std::time::Duration;
 use autd3::prelude::*;
 use autd3_link_soem::{SOEM, TimerStrategy, Status};
 
@@ -8,7 +10,7 @@ use autd3_link_soem::{SOEM, TimerStrategy, Status};
 #            .open(
 SOEM::builder()
     .with_ifname("")
-    .with_buf_size(32)
+    .with_buf_size(NonZeroUsize::new(32).unwrap())
     .with_err_handler(|slave, status| match status {
         Status::Error => eprintln!("Error [{}]: {}", slave, status),
         Status::Lost => {
@@ -18,12 +20,12 @@ SOEM::builder()
         }
         Status::StateChanged => eprintln!("StateChanged [{}]: {}", slave, status),
     })
-    .with_state_check_interval(std::time::Duration::from_millis(100))
-    .with_sync0_cycle(2)
-    .with_send_cycle(2)
+    .with_state_check_interval(Duration::from_millis(100))
+    .with_sync0_cycle(NonZeroU64::new(2).unwrap())
+    .with_send_cycle(NonZeroU64::new(2).unwrap())
     .with_timer_strategy(TimerStrategy::BusyWait)
-    .with_sync_tolerance(std::time::Duration::from_micros(1))
-    .with_sync_timeout(std::time::Duration::from_secs(10))
+    .with_sync_tolerance(Duration::from_micros(1))
+    .with_sync_timeout(Duration::from_secs(10))
 # ).await?;
 # Ok(())
 # }

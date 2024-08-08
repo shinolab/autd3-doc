@@ -46,9 +46,9 @@ Silencerを無効化する場合は, `disable`を送信する.
 より細く設定する場合は, 以下2つのモードから選択する必要がある.
 
 - [位相/振幅変化速度がすべての振動子で同一のモード (Fixed update rate mode)](#fixed-update-rate-mode)
-- [位相/振幅変化が完了するまで時間がすべての振動子で同一のモード (Fixed completion steps mode)](#fixed-completion-steps-mode)
+- [位相/振幅変化が完了するまで時間がすべての振動子で同一のモード (Fixed completion time mode)](#fixed-completion-time-mode)
 
-なお, デフォルトではFixed completion steps modeに設定されている.
+なお, デフォルトではFixed completion time modeに設定されている.
 
 ### Fixed update rate mode
 
@@ -118,11 +118,6 @@ $$
 
 Fixed update rate modeを設定するには, 以下のようにする.
 引数はそれぞれ, 上述の$\Delta$に対応する.
-なお, 内部では, Silencerは
-- 位相は$\SI{8}{bit}$の値に$256$をかけたもの
-- 振幅は変調データとかけ合わされたもの
-
-に対して適用される.
 
 ```rust,edition2021
 {{#include ../../codes/Users_Manual/silencer/silencer_fixed_update_rate.rs}}
@@ -140,18 +135,15 @@ Fixed update rate modeを設定するには, 以下のようにする.
 {{#include ../../codes/Users_Manual/silencer/silencer_fixed_update_rate.py}}
 ```
 
-### Fixed completion steps mode
+### Fixed completion time mode
 
 このモードでは, 位相/振幅変化が一定の時間で完了するようになる.
 
-#### Fixed completion steps modeの設定
+#### Fixed completion time modeの設定
 
-Fixed completion steps modeを設定するには, 以下のようにする.
-なお, `from_completion_steps`の引数はそれぞれ, 振幅/位相変化の完了までのステップ数に対応する.
-1ステップの時間間隔は超音波の周期に等しい.
-
-時間で指定する場合は, `from_completion_time`を使用する.
-`from_completion_time`を使用する場合, 引数は超音波周期の整数倍である必要がある.
+Fixed completion time modeを設定するには, 以下のようにする.
+なお, `from_completion_time`の引数はそれぞれ, 振幅/位相変化の完了まで時間に対応する.
+これらの引数は超音波周期 ($\SI{25}{us}$) の整数倍である必要がある.
 
 ```rust,edition2021
 {{#include ../../codes/Users_Manual/silencer/silencer_fixed_completion_steps.rs}}
@@ -169,14 +161,14 @@ Fixed completion steps modeを設定するには, 以下のようにする.
 {{#include ../../codes/Users_Manual/silencer/silencer_fixed_completion_steps.py}}
 ```
 
-デフォルト値は, 位相変化が$40$ステップ, 振幅変化が$10$ステップである.
-なお, Silencerの無効化は, 位相/振幅変化が$1$ステップで終わることと等価である.
+デフォルト値は, 位相変化が$\SI{1}{ms}$, 振幅変化が$\SI{0.25}{ms}$である.
+なお, Silencerの無効化は, 位相/振幅変化が超音波周期 ($\SI{25}{us}$) で終わることと等価である.
 
 なお, このモードでは, `Modulation`や`FociSTM`, `GainSTM`の位相/振幅がSilencerに指定した時間で完了できない場合にエラーが返される.
 すなわち, 以下の条件が満たされる必要がある.
-- Silencerの振幅変化完了ステップ $\times \text{超音波周期} \le$ `Modulation`のサンプリング周期
-- Silencerの振幅変化完了ステップ $\times \text{超音波周期} \le$ `FociSTM`/`GainSTM`のサンプリング周期
-- Silencerの位相変化完了ステップ $\times \text{超音波周期} \le$ `FociSTM`/`GainSTM`のサンプリング周期
+- Silencerの振幅変化完了時間 $\le$ `Modulation`のサンプリング周期
+- Silencerの振幅変化完了時間 $\le$ `FociSTM`/`GainSTM`のサンプリング周期
+- Silencerの位相変化完了時間 $\le$ `FociSTM`/`GainSTM`のサンプリング周期
 
 `strict_mode`を無効にすれば, この条件を満たさない場合でもエラーを返さないようになるが, 推奨はされない.
 

@@ -11,5 +11,5 @@ autd.send(g);
 
 autd3::link::PlotConfig config;
 config.fname = "phase.png";
-autd.link().plot_phase(config, autd.geometry(), autd3::Segment::S0, 0);
+autd.link().plot_phase(config, autd3::Segment::S0, 0);
 //~return 0; }

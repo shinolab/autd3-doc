@@ -1,6 +1,5 @@
 import pathlib
 import platform
-import shutil
 import subprocess
 from glob import glob
 
@@ -23,7 +22,19 @@ def python_module(cmd):
     return r
 
 
+def install_pyautd3():
+    version = "27.0.0-rc.7"
+    subprocess.run(
+        python_module(["pip", "install", f"pyautd3=={version}"]),
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+    ).check_returncode()
+
+
 if __name__ == "__main__":
+    install_pyautd3()
+
     base_path = pathlib.Path(__file__).parent.parent / "src" / "codes"
 
     srcs = list(glob(str(base_path / "**/*.py"), recursive=True))

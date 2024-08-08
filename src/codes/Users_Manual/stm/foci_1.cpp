@@ -9,7 +9,7 @@ const autd3::Vector3 center =
     autd.geometry().center() + autd3::Vector3(0, 0, 150);
 const auto points_num = 200;
 const auto radius = 30.0f;
-auto stm = autd3::FociSTM<2>::from_freq(
+autd3::FociSTM stm(
     1.0f * autd3::Hz,
     iota(0) | take(points_num) | transform([&](auto i) {
       const auto theta = 2.0f * autd3::pi * static_cast<float>(i) /

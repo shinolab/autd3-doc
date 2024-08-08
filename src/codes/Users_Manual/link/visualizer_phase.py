@@ -11,4 +11,4 @@ center = autd.geometry.center + np.array([0, 0, 150])
 g = Focus(center)
 autd.send(g)
 
-autd.link.plot_phase(PlotConfig(fname="phase.png"), autd.geometry, Segment.S0, 0)
+autd.link.plot_phase(PlotConfig(fname="phase.png"), Segment.S0, 0)

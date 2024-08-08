@@ -12,7 +12,7 @@ For example, if you use `Sine` with $\SI{1}{kHz}$, the sound pressure amplitude 
 Currently, `Modulation` has the following restrictions.
 
 - The buffer size is up to 32768.
-- The sampling rate is $\clkf/N$, where $N$ is a 32-bit unsigned integer and must be at least 512.
+- The sampling rate is $\ufreq/N$, where $N$ is a non-zero 16-bit unsigned integer.
 
 The SDK has `Modulation` by default to generate several types of AM.
 
@@ -32,8 +32,23 @@ The SDK has `Modulation` by default to generate several types of AM.
 
 You can get the sampling frequency with `sampling_config`.
 
+```rust,edition2021
+{{#include ../../codes/Users_Manual/modulation_prop.rs}}
+```
+
+```cpp
+{{#include ../../codes/Users_Manual/modulation_prop.cpp}}
+```
+
+```cs
+{{#include ../../codes/Users_Manual/modulation_prop.cs}}
+```
+
+```python
+{{#include ../../codes/Users_Manual/modulation_prop.py}}
+```
+
 Some `Modulation` can set the sampling configuration with `with_sampling_config`.
-However, due to the constraints of `Modulation`, the sampling frequency may not be exactly the specified value.
 
 ```rust,edition2021
 {{#include ../../codes/Users_Manual/modulation_0.rs}}

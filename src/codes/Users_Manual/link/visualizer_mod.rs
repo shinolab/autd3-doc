@@ -10,7 +10,7 @@ let mut autd = Controller::builder([AUTD3::new(Vector3::zeros())])
 let m = Sine::new(150. * Hz);
 autd.send(m).await?;
 
-autd.link.plot_modulation(
+autd.link().plot_modulation(
     PlotConfig {
         fname: Path::new("mod.png").into(),
         ..PlotConfig::default()
