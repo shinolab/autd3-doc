@@ -8,7 +8,7 @@ from glob import glob
 import joblib
 
 if __name__ == "__main__":
-    version = "27.0.0-rc.7"
+    version = "27.0.0"
     print(f"Testing with AUTD3Sharp {version}")
 
     base_path = pathlib.Path(__file__).parent.parent / "src" / "codes"

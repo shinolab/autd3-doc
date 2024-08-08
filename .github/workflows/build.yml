@@ -26,15 +26,20 @@ jobs:
         with:
           files_yaml: |
             cs:
+              - tools/cs_test.py
               - src/codes/Users_Manual/*.cs
               - src/codes/Users_Manual/**/*.cs
             cpp:
+              - tools/cpp_test.py
+              - src/codes/Users_Manual/Tutorial/CMakeLists.txt
               - src/codes/Users_Manual/*.cpp
               - src/codes/Users_Manual/**/*.cpp
             py:
+              - tools/python_test.py
               - src/codes/Users_Manual/*.py
               - src/codes/Users_Manual/**/*.py
             rs:
+              - tools/rs_test.py
               - src/codes/Users_Manual/*.rs
               - src/codes/Users_Manual/**/*.rs
 
