@@ -23,7 +23,7 @@ def python_module(cmd):
 
 
 def install_pyautd3():
-    version = "27.0.0-rc.7"
+    version = "27.0.0"
     subprocess.run(
         python_module(["pip", "install", f"pyautd3=={version}"]),
         capture_output=True,
