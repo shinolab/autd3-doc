@@ -141,6 +141,56 @@ def util_update_ver(args):
         with open("book.toml", "w") as f:
             f.write(content)
 
+        with open("tools/rs_test.py", "r") as f:
+            content = f.read()
+            content = re.sub(
+                r'autd3_version = "(.*)"',
+                f'autd3_version = "{version}"',
+                content,
+                flags=re.MULTILINE,
+            )
+            content = re.sub(
+                r'autd3_link_vis_version = "(.*)"',
+                f'autd3_link_vis_version = "{version}"',
+                content,
+                flags=re.MULTILINE,
+            )
+        with open("tools/rs_test.py", "w") as f:
+            f.write(content)
+
+        with open("tools/cpp_test.py", "r") as f:
+            content = f.read()
+            content = re.sub(
+                r'version = "(.*)"',
+                f'version = "{version}"',
+                content,
+                flags=re.MULTILINE,
+            )
+        with open("tools/cpp_test.py", "w") as f:
+            f.write(content)
+
+        with open("tools/cs_test.py", "r") as f:
+            content = f.read()
+            content = re.sub(
+                r'version = "(.*)"',
+                f'version = "{version}"',
+                content,
+                flags=re.MULTILINE,
+            )
+        with open("tools/cs_test.py", "w") as f:
+            f.write(content)
+
+        with open("tools/python_test.py", "r") as f:
+            content = f.read()
+            content = re.sub(
+                r'version = "(.*)"',
+                f'version = "{version}"',
+                content,
+                flags=re.MULTILINE,
+            )
+        with open("tools/python_test.py", "w") as f:
+            f.write(content)
+
 
 def command_help(args):
     print(parser.parse_args([args.command, "--help"]))

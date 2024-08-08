@@ -2,10 +2,10 @@
 # #[allow(unused_variables)]
 # fn main() {
 # let s = 
-SamplingConfig::FreqNearest(4000.0 * Hz)
+SamplingConfig::new_nearest(4000.0 * Hz)
 # ;
 // or
 # let s = 
-SamplingConfig::PeriodNearest(std::time::Duration::from_micros(250))
+SamplingConfig::new_nearest(std::time::Duration::from_micros(250))
 # ;
 # }

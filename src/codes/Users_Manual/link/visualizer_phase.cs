@@ -12,4 +12,4 @@ autd.Send(g);
 autd.Link.PlotPhase(new PlotConfig
 {
     Fname = "phase.png"
-}, autd.Geometry, Segment.S0, 0);
+}, Segment.S0, 0);

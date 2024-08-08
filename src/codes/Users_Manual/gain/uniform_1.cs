@@ -1,3 +1,3 @@
 ~using AUTD3Sharp;
 ~using AUTD3Sharp.Gain;
-var g = new Uniform(0xFF).WithPhase(0x00);
+var g = new Uniform((new EmitIntensity(0xFF), new Phase(0x00)));

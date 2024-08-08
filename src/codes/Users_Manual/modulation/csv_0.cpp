@@ -4,5 +4,5 @@
 
 //~int main() {
 const auto path = "path/to/foo.csv";
-const auto m = autd3::modulation::audio_file::Csv(path, 4000 * autd3::Hz);
+const auto m = autd3::modulation::audio_file::Csv(path, 4000u * autd3::Hz);
 //~return 0; }

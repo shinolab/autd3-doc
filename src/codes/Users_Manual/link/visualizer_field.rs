@@ -7,11 +7,11 @@
 let mut autd = Controller::builder([AUTD3::new(Vector3::zeros())])
     .open(Visualizer::builder()).await?;
 
-let center = autd.geometry.center() + Vector3::new(0., 0., 150.0 * mm);
+let center = autd.geometry().center() + Vector3::new(0., 0., 150.0 * mm);
 
 autd.send(Focus::new(center)).await?;
 
-autd.link.plot_field(
+autd.link().plot_field(
     PlotConfig {
         fname: Path::new("xy.png").into(),
         ..PlotConfig::default()
@@ -22,7 +22,6 @@ autd.link.plot_field(
         z_range: center.z..center.z,
         resolution: 1.
     },
-    &autd.geometry,
     Segment::S0,
     0
 )?;

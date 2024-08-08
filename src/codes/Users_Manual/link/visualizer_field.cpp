@@ -14,5 +14,5 @@ autd.link().plot_field(config,
                        autd3::link::PlotRange(center.x() - 20, center.x() + 20,
                                               center.y() - 30, center.y() + 30,
                                               center.z(), center.z(), 1),
-                       autd.geometry(), autd3::Segment::S0, 0);
+                       autd3::Segment::S0, 0);
 //~return 0; }

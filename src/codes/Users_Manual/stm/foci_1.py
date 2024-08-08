@@ -8,7 +8,7 @@ from pyautd3 import ControlPoint, ControlPoints2
 center = autd.geometry.center + np.array([0.0, 0.0, 150.0])
 point_num = 200
 radius = 30.0
-stm = FociSTM.from_freq(
+stm = FociSTM(
     1.0 * Hz,
     (
         ControlPoints2(

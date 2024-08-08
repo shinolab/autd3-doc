@@ -9,20 +9,20 @@ import joblib
 import requests
 
 
-def get_version(crate: str) -> str:
+def get_latest_version(crate: str) -> str:
     res = requests.get(f"https://crates.io/api/v1/crates/{crate}")
     return res.json()["crate"]["newest_version"]
 
 
 if __name__ == "__main__":
-    autd3_version = get_version("autd3")
-    autd3_link_vis_version = get_version("autd3-link-visualizer")
-    tokio_version = get_version("tokio")
+    autd3_version = "27.0.0-rc.8"
+    autd3_link_vis_version = "27.0.0-rc.4"
+    tokio_version = get_latest_version("tokio")
     print(f"Testing with autd3-rs {autd3_version}")
 
     base_path = pathlib.Path(__file__).parent.parent / "src" / "codes"
 
-    # n_jobs = multiprocessing.cpu_count()
+    n_jobs = multiprocessing.cpu_count() // 2
     n_jobs = 1
     srcs = list(glob(str(base_path / "**/*.rs"), recursive=True))
     N = len(srcs)

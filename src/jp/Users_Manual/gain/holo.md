@@ -3,7 +3,6 @@
 `Holo`は多焦点を生成するための`Gain`である.
 多焦点を生成するアルゴリズムが幾つか提案されており, SDKには以下のアルゴリズムが実装されている.
 
-* `SDP` - Semidefinite programming, 井上らの論文[^inoue2015]に基づく
 * `Naive` - 単一焦点解の重ね合わせ
 * `GS` - Gershberg-Saxon, Marzoらの論文[^marzo2019]に基づく
 * `GSPAT` - Gershberg-Saxon for Phased Arrays of Transducers, Plasenciaらの論文[^plasencia2020]に基づく
@@ -86,8 +85,6 @@ SDKには以下の`Backend`が用意されている
 ```
 
 各パラメータの詳細はそれぞれの論文を参照されたい.
-
-[^inoue2015]: Inoue, Seki, Yasutoshi Makino, and Hiroyuki Shinoda. "Active touch perception produced by airborne ultrasonic haptic hologram." 2015 IEEE World Haptics Conference (WHC). IEEE, 2015.
 
 [^marzo2019]: Marzo, Asier, and Bruce W. Drinkwater. "Holographic acoustic tweezers." Proceedings of the National Academy of Sciences 116.1 (2019): 84-89.
 

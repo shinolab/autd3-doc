@@ -1,4 +1,4 @@
 ~using AUTD3Sharp;
-ushort updateRateIntensity = 256;
-ushort updateRatePhase = 256;
+byte updateRateIntensity = 1;
+byte updateRatePhase = 1;
 var config = Silencer.FromUpdateRate(updateRateIntensity, updateRatePhase);

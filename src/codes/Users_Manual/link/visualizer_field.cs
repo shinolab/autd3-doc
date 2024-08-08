@@ -23,7 +23,6 @@ autd.Link.PlotField(new PlotConfig
         ZEnd = center.Z,
         Resolution = 1
     },
-    autd.Geometry,
     Segment.S0,
     0
 );

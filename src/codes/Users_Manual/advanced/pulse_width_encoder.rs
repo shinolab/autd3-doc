@@ -3,6 +3,6 @@
 # #[tokio::main]
 # async fn main() -> Result<(), Box<dyn std::error::Error>> {
 # let mut autd = Controller::builder([AUTD3::new(Vector3::zeros())]).open(autd3::link::Nop::builder()).await?;
-autd.send(PulseWidthEncoder::new(|_dev| |_i| 0u16)).await?;
+autd.send(PulseWidthEncoder::new(|_dev| |_i| 0u8)).await?;
 # Ok(())
 # }

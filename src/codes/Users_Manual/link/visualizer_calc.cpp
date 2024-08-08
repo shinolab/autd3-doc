@@ -10,8 +10,7 @@ autd3::gain::Focus g(center);
 autd.send(g);
 
 std::vector points{center};
-const auto p =
-    autd.link().calc_field(points, autd.geometry(), autd3::Segment::S0, 0);
+const auto p = autd.link().calc_field(points, autd3::Segment::S0, 0);
 std::cout << "Acoustic pressure at (" << center.x() << ", " << center.y()
           << ", " << center.z() << ") = " << p[0] << std::endl;
 //~return 0; }

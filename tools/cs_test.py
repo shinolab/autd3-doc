@@ -6,16 +6,9 @@ from functools import reduce
 from glob import glob
 
 import joblib
-import requests
-
-
-def get_version() -> str:
-    res = requests.get("https://api.nuget.org/v3/flatcontainer/autd3sharp/index.json")
-    return res.json()["versions"][-1]
-
 
 if __name__ == "__main__":
-    version = get_version()
+    version = "27.0.0-rc.7"
     print(f"Testing with AUTD3Sharp {version}")
 
     base_path = pathlib.Path(__file__).parent.parent / "src" / "codes"

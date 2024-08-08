@@ -11,7 +11,7 @@ class BurstModulation final
   }
 
   explicit BurstModulation(const size_t buf_size = 4000) noexcept
-      : Modulation(4000 * autd3::Hz), _buf_size(buf_size) {}
+      : Modulation(4000u * autd3::Hz), _buf_size(buf_size) {}
 
  private:
   size_t _buf_size;

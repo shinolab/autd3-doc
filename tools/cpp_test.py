@@ -6,22 +6,14 @@ from functools import reduce
 from glob import glob
 
 import joblib
-import requests
-
-
-def get_version() -> str:
-    res = requests.get("https://api.github.com/repos/shinolab/autd3-cpp/tags")
-    return res.json()[0]["name"]
-
 
 if __name__ == "__main__":
-    version = get_version()
+    version = "27.0.0-rc.7"
     print(f"Testing with autd3-cpp {version}")
 
     base_path = pathlib.Path(__file__).parent.parent / "src" / "codes"
 
-    # n_jobs = multiprocessing.cpu_count()
-    n_jobs = 4
+    n_jobs = multiprocessing.cpu_count() // 2
     srcs = list(glob(str(base_path / "**/*.cpp"), recursive=True))
     N = len(srcs)
     block = N // n_jobs
@@ -59,17 +51,17 @@ include(FetchContent)
 if(WIN32)
   FetchContent_Declare(
     autd3
-    URL https://github.com/shinolab/autd3-cpp/releases/download/{version}/autd3-{version}-win-x64.zip
+    URL https://github.com/shinolab/autd3-cpp/releases/download/v{version}/autd3-v{version}-win-x64.zip
   )
 elseif(APPLE)
   FetchContent_Declare(
     autd3
-    URL https://github.com/shinolab/autd3-cpp/releases/download/{version}/autd3-{version}-macos-aarch64.tar.gz
+    URL https://github.com/shinolab/autd3-cpp/releases/download/v{version}/autd3-v{version}-macos-aarch64.tar.gz
   )
 else()
   FetchContent_Declare(
     autd3
-    URL https://github.com/shinolab/autd3-cpp/releases/download/{version}/autd3-{version}-linux-x64.tar.gz
+    URL https://github.com/shinolab/autd3-cpp/releases/download/v{version}/autd3-v{version}-linux-x64.tar.gz
   )
 endif()
 set(USE_SYSTEM_EIGEN ON)

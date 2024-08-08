@@ -3,7 +3,6 @@
 Holo is a `Gain` for generating multiple foci.
 Several algorithms for generating multiple foci have been proposed, and the following algorithms are implemented in SDK.
 
-* `SDP` - Semi-definite programming, based on Inoue et al.[^inoue2015]
 * `Naive` - Linear synthesis of single-focus solutions
 * `GS` - Gershberg-Saxon, based on Marzo et al.[^marzo2019]
 * `GSPAT` - Gershberg-Saxon for Phased Arrays of Transducers, based on Plasencia et al.[^plasencia2020]
@@ -83,8 +82,6 @@ These are all specified by `with_xxx`.
 ```
 
 Please refar to each paper for more details.
-
-[^inoue2015]: Inoue, Seki, Yasutoshi Makino, and Hiroyuki Shinoda. "Active touch perception produced by airborne ultrasonic haptic hologram." 2015 IEEE World Haptics Conference (WHC). IEEE, 2015.
 
 [^marzo2019]: Marzo, Asier, and Bruce W. Drinkwater. "Holographic acoustic tweezers." Proceedings of the National Academy of Sciences 116.1 (2019): 84-89.
 

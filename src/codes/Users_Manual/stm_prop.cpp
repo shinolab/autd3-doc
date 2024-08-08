@@ -7,7 +7,7 @@ std::vector<std::array<autd3::Vector3, 1>> foci = {
     std::array{autd3::Vector3(0, 0, 0)},
     std::array{autd3::Vector3(0, 0, 0)},
 };
-const auto stm = autd3::FociSTM<1>::from_freq(1.0f * autd3::Hz, foci);
+autd3::FociSTM stm(1.0f * autd3::Hz, foci);
 const auto f = stm.freq();                     // -> 1Hz
 const auto p = stm.period();                   // -> 1s
 const auto fs = stm.sampling_config().freq();  // -> 2Hz

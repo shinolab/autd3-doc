@@ -1,2 +1,2 @@
-~from pyautd3 import Uniform
-g = Uniform(0xFF).with_phase(0x00)
+~from pyautd3 import Uniform, EmitIntensity, Phase
+g = Uniform((EmitIntensity(0xFF), Phase(0x00)))

@@ -1,7 +1,7 @@
 # FociSTM
 
 - The maximum number of sampling points is $8192$.
-- The sampling frequency is $\clkf/N$.
+- The sampling frequency is $\ufreq/N$.
 
 THe following is an example of using `FociSTM` to focus on a point $\SI{150}{mm}$ directly above the center of the array with a radius of $\SI{30}{mm}$ centered on the center of the array.
 

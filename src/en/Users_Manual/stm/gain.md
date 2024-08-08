@@ -1,9 +1,7 @@
 # GainSTM
 
 `GainSTM` can handle arbitrary `Gain`s, unlike `FociSTM`.
-However, the number of `Gain`s that can be used is
-- 2048 in Legacy mode
-- 1024 in Advanced/AdvancedPhase mode
+However, the number of `Gain`s that can be used is 1024.
 
 The following is an example of how to use `GainSTM`.
 This is a sample that rotates the focus on a circle with a radius of $\SI{30}{mm}$ centered on a point $\SI{150}{mm}$ directly above the center of the array.
@@ -27,7 +25,7 @@ This is a sample that rotates the focus on a circle with a radius of $\SI{30}{mm
 
 ## Specify the sampling configuration
 
-You can specify the sampling frequency by `from_sampling_config` instead of frequency.
+You can also specify the sampling frequency instead of frequency.
 
 ```rust,edition2021
 {{#include ../../../codes/Users_Manual/stm/gain_1.rs}}
@@ -68,7 +66,7 @@ This mode can be switched with `with_mode`.
 {{#include ../../../codes/Users_Manual/stm/gain_2.py}}
 ```
 
-The default is `PhaseDutyFull` mode, which sends all information.
+The default is `PhaseIntensityFull` mode, which sends all information.
 
 [^fn_gain_seq]: About 75 times of `FociSTM<1>`
 
