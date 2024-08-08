@@ -1,0 +1,98 @@
+name: pr
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  changed-files:
+    name: changed-files
+    runs-on: ubuntu-latest
+    outputs:
+      cs: ${{ steps.changed-files-yaml.outputs.cs_any_changed }}
+      cpp: ${{ steps.changed-files-yaml.outputs.cpp_any_changed }}
+      py: ${{ steps.changed-files-yaml.outputs.py_any_changed }}
+      rs: ${{ steps.changed-files-yaml.outputs.rs_any_changed }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: changed-files-yaml
+        uses: tj-actions/changed-files@v44
+        with:
+          files_yaml: |
+            cs:
+              - tools/cs_test.py
+              - src/codes/Users_Manual/*.cs
+              - src/codes/Users_Manual/**/*.cs
+            cpp:
+              - tools/cpp_test.py
+              - src/codes/Users_Manual/Tutorial/CMakeLists.txt
+              - src/codes/Users_Manual/*.cpp
+              - src/codes/Users_Manual/**/*.cpp
+            py:
+              - tools/python_test.py
+              - src/codes/Users_Manual/*.py
+              - src/codes/Users_Manual/**/*.py
+            rs:
+              - tools/rs_test.py
+              - src/codes/Users_Manual/*.rs
+              - src/codes/Users_Manual/**/*.rs
+
+  test-cs:
+    needs: [changed-files]
+    if: ${{ needs.changed-files.outputs.cs == 'true' }}
+    name: test-cs
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - run: |
+          pip install joblib
+          cd tools
+          python3 cs_test.py
+        
+  test-cpp:
+    needs: [changed-files]
+    if: ${{ needs.changed-files.outputs.cpp == 'true' }}
+    name: test-cpp
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v4
+      - run: |
+          sudo apt-get update
+          sudo apt-get -y install libeigen3-dev
+          pip install joblib
+          cd tools
+          python3 cpp_test.py 
+
+  test-python:
+    needs: [changed-files]
+    if: ${{ needs.changed-files.outputs.py == 'true' }}
+    name: test-python
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v4
+      - run: |
+          python3 -m pip install -U mypy ruff
+          cd tools
+          python3 python_test.py 
+
+  test-rust:
+    needs: [changed-files]
+    if: ${{ needs.changed-files.outputs.rs == 'true' }}
+    name: test-rust
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions-rust-lang/setup-rust-toolchain@v1
+        with:
+          toolchain: 'stable'
+      - run: |
+          pip install joblib
+          cd tools
+          python3 rs_test.py 
