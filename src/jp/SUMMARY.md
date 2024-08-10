@@ -63,7 +63,6 @@
   - [FPGAファームウェア](./Developer_Manual/fpga.md)
     - [開発環境構築](./Developer_Manual/fpga/develop.md)
     - [概要](./Developer_Manual/fpga/overview.md)
-    - [Clocking](./Developer_Manual/fpga/clk.md)
     - [PWM](./Developer_Manual/fpga/pwm.md)
     - [Pulse Witdth Encoder](./Developer_Manual/fpga/pulse_width_encoder.md)
     - [Silencer](./Developer_Manual/fpga/silencer.md)

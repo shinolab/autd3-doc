@@ -10,14 +10,14 @@
 | CLK                           | In     | 1     | メインクロック                                     | 
 | SETTINGS                      | In     | -     |                                                    | 
 | ├─ MODE                       | In     | 1     | モード                                             | 
-| ├─ UPDATE_RATE_INTENSITY      | In     | 16    | 固定更新幅 (強度)                                  | 
-| ├─ UPDATE_RATE_PHASE          | In     | 16    | 固定更新幅 (位相)                                  | 
-| ├─ COMPLETION_STEPS_INTENSITY | In     | 16    | 固定完了ステップ (強度)                            | 
-| └─ COMPLETION_STEPS_PHASE     | In     | 16    | 固定完了ステップ (位相)                            | 
+| ├─ UPDATE_RATE_INTENSITY      | In     | 8     | 固定更新幅 (強度)                                  | 
+| ├─ UPDATE_RATE_PHASE          | In     | 8     | 固定更新幅 (位相)                                  | 
+| ├─ COMPLETION_STEPS_INTENSITY | In     | 8     | 固定完了ステップ (強度)                            | 
+| └─ COMPLETION_STEPS_PHASE     | In     | 8     | 固定完了ステップ (位相)                            | 
 | DIN_VALID                     | In     | 1     | 強度/位相データ有効フラグ                          | 
-| INTENSITY_IN                  | In     | 16    | 強度                                               | 
+| INTENSITY_IN                  | In     | 8     | 強度                                               | 
 | PHASE_IN                      | In     | 8     | 位相                                               | 
-| INTENSITY_OUT                 | Out    | 16    | 強度                                               | 
+| INTENSITY_OUT                 | Out    | 8     | 強度                                               | 
 | PHASE_OUT                     | Out    | 8     | 位相                                               | 
 | DOUT_VALID                    | Out    | 1     | 強度/位相データ有効フラグ                          | 
 
@@ -48,11 +48,6 @@ $\Delta$の決定方法に2つのモードがある.
     を, 目標値が変化したタイミングでここの振動子に対して設定する.
 
 これらのモードは`MODE`にて切り替える.
-
-このモジュール内部では, 位相データは$256$倍されている.
-これは, 強度データと位相データのスケールを揃えるためである.
-
-> NOTE: 強度データの最大値は$255\times 255$なので, 若干異なるが, 面倒なので$256$倍にしている.
 
 このモジュールの処理もパイプライン的に行われる.
 入力として, `DIN_VALID`は249クロックの間1であり, その間`INTENSITY_IN`, `PHASE_IN`から強度/位相データが順番に流れてくることを想定している.
