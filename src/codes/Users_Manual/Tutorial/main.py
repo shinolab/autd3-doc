@@ -11,7 +11,6 @@ def err_handler(slave: int, status: Status, msg: str) -> None:
             print(f"Error [{slave}]: {msg}")
         case Status.Lost:
             print(f"Lost [{slave}]: {msg}")
-            # You can also wait for the link to recover, without exiting the process
             os._exit(-1)
         case Status.StateChanged:
             print(f"StateChanged  [{slave}]: {msg}")
