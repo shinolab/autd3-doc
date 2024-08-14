@@ -15,7 +15,6 @@ using var autd = Controller.Builder([new AUTD3(Vector3.Zero)])
                     break;
                 case Status.Lost:
                     Console.Error.WriteLine($"Lost [{slave}]: {msg}");
-                    // You can also wait for the link to recover, without exiting the process
                     Environment.Exit(-1);
                     break;
                 case Status.StateChanged:
