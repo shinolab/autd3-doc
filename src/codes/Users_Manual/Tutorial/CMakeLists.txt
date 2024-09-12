@@ -37,6 +37,7 @@ else()
   )
 endif()
 set(USE_SYSTEM_EIGEN OFF)
+set(AUTD3_USE_PCH OFF)
 FetchContent_MakeAvailable(autd3)
 
 add_executable(main main.cpp)
