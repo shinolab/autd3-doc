@@ -2,6 +2,8 @@
 
 `Group`は振動子ごとに別々の`Gain`を使用するための`Gain`である.
 
+> NOTE: デバイスごとの分割で良いのであれば, [Controller::group](../controller.md#group)の使用を推奨する.
+
 `Group`では, 振動子に対してキーを割り当て, その各キーに`Gain`を紐付けて使用する.
 
 ```rust,edition2021
