@@ -23,7 +23,8 @@ PCのイーサネットポートとAUTD3デバイスのEtherCAT In ([Concept](co
 なお, Vivado 2024.1, 及び, J-Link Software v7.94d (x64)での動作を確認している.
 
 > NOTE: 古いJ-Linkを使用する場合, "**Install legacy USB Driver for J-Link (requires admin rights)**"にチェックを入れること.
-> 例えば, J-Link Plusの場合はv11より前のversionの場合はlegacy USB Driveが必要になる. (バージョンは本体背面に書かれている.)
+> 例えば, J-Link Plusの場合, V10以前はlegacy USB Driverが必要になる. (バージョンはJ-Link Plusデバイスの背面に書かれている.)
+> 詳しくは[Segger Wiki](https://wiki.segger.com/J-Link_Model_Overview)を参照されたい. 使用しているデバイスにWinUSB featureがあれば, legacy USB Driverは不要.
 
 > NOTE: ファームウェアのアップデートだけが目的であれば, "Vivado Lab Edition"の使用を強く推奨する. 
 > ML Edition はインストールに60 GB以上のディスク容量を要求する. Lab Edition は6 GB程度のディスク容量で済む. 
