@@ -1,7 +1,7 @@
 use autd3::prelude::*;
 use autd3::derive::*;
 
-#[derive(Modulation)]
+#[derive(Modulation, Debug)]
 pub struct Burst {
     config: SamplingConfig,
     loop_behavior: LoopBehavior,
