@@ -1,7 +1,7 @@
 use autd3::prelude::*;
 use autd3::derive::*;
 
-#[derive(Gain)]
+#[derive(Gain, Debug)]
 pub struct FocalPoint {
     position: Vector3,
 }
@@ -13,13 +13,13 @@ impl FocalPoint {
 }
 
 impl Gain for FocalPoint {
-    fn calc(&self, _geometry: &Geometry) -> GainCalcResult {
+    fn calc(&self, _geometry: &Geometry) -> Result<GainCalcFn, AUTDInternalError> {
         let position = self.position;
         Ok(Self::transform(move |dev| {
             let wavenumber = dev.wavenumber();
             move |tr| {
                 Drive::new(
-                    Phase::from((position - tr.position()).norm() * wavenumber * rad),
+                    Phase::from(-(position - tr.position()).norm() * wavenumber * rad),
                     EmitIntensity::MAX,
                 )
             }
