@@ -20,13 +20,13 @@ Specify the frequency $f$ as an integer in the constructor.
 {{#include ../../../codes/Users_Manual/modulation/sine_0.py}}
 ```
 
-## Set amplitude and offset
+## Set intensity and offset
 
 `Sine` applies AM so that the waveform of the sound pressure is
 $$
-    \frac{amplitude}{2} \times \sin(2\pi ft) + offset
+    \frac{intensity}{2} \times \sin(2\pi ft) + \frac{offset}{2}
 $$
-Here, $amplitude$ and $offset$ can be specified by `with_intensity` and `with_offset`, respectively (default is `0xFF` and `0x7F`, respectively).
+Here, $intensity$ and $offset$ can be specified by `with_intensity` and `with_offset`, respectively (defaults are `0xFF`).
 
 ```rust,edition2021
 {{#include ../../../codes/Users_Manual/modulation/sine_1.rs}}

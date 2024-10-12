@@ -20,7 +20,6 @@ SDKにはデフォルトでいくつかの種類のAMを生成するための`Mo
 * [Static](./modulation/static.md) - 変調なし
 * [Sine](./modulation/sine.md) - 正弦波
   * [Fourier](./modulation/fourier.md) - 正弦波の重ね合わせ
-  * [Mixer](./modulation/mixer.md) - 正弦波の掛け合わせ
 * [Square](./modulation/square.md) - 矩形波
 * [Wav](./modulation/wav.md) - Wavファイルをもとにした変調
 * [Csv](./modulation/csv.md) - Csvファイルをもとにした変調
@@ -28,7 +27,6 @@ SDKにはデフォルトでいくつかの種類のAMを生成するための`Mo
 * [Custom](./modulation/custom.md) - ユーザー定義の変調
 * [Cache](./modulation/cache.md) - 他の`Modulation`の計算結果をキャッシュする
 * [RadiationPressure](./modulation/radiation.md) - 放射圧に対して変調を適用する
-* [Transform](./modulation/transform.md) - 他の`Modulation`の計算結果に何らかの後処理を加える
 
 ## Modulationの共通API
 

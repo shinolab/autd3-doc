@@ -8,7 +8,7 @@ from glob import glob
 import joblib
 
 if __name__ == "__main__":
-    version = "27.0.0"
+    version = "28.0.0"
     print(f"Testing with autd3-cpp {version}")
 
     base_path = pathlib.Path(__file__).parent.parent / "src" / "codes"
@@ -72,7 +72,6 @@ add_executable(main main.cpp)
 target_link_libraries(main PRIVATE autd3::autd3)
 target_link_libraries(main PRIVATE autd3::link::soem)
 target_link_libraries(main PRIVATE autd3::link::twincat)
-target_link_libraries(main PRIVATE autd3::link::visualizer)
 target_link_libraries(main PRIVATE autd3::link::simulator)
 target_link_libraries(main PRIVATE autd3::gain::holo)
 target_link_libraries(main PRIVATE autd3::modulation::audio_file)

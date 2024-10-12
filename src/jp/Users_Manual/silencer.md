@@ -117,7 +117,7 @@ $$
 #### Fixed update rate modeの設定
 
 Fixed update rate modeを設定するには, 以下のようにする.
-引数はそれぞれ, 上述の$\Delta$に対応する.
+引数はそれぞれ, 上述の$\Delta$に対応する (単位は$2\pi/65536$).
 
 ```rust,edition2021
 {{#include ../../codes/Users_Manual/silencer/silencer_fixed_update_rate.rs}}

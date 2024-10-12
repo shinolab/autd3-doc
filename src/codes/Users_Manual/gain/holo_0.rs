@@ -1,5 +1,5 @@
 # use autd3::prelude::*;
-use autd3_gain_holo::{NalgebraBackend, GSPAT, Pa, Sphere};
+use autd3_gain_holo::{NalgebraBackend, GSPAT, Pa};
 
 # #[allow(unused_variables)]
 # fn main() {
@@ -9,7 +9,7 @@ use autd3_gain_holo::{NalgebraBackend, GSPAT, Pa, Sphere};
 # let x2 = 0.;
 # let y2 = 0.;
 # let z2 = 0.;
-let backend = NalgebraBackend::<Sphere>::new()?;
+let backend = std::sync::Arc::new(NalgebraBackend::default());
 let g = GSPAT::new(
       backend,
       [

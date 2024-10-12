@@ -1,8 +1,7 @@
 //~#include<chrono>
 //~#include<autd3.hpp>
 //~int main() {
-const auto time_intensity = std::chrono::microseconds(250);
-const auto time_phase = std::chrono::microseconds(250);
-const auto config =
-    autd3::Silencer::from_completion_time(time_intensity, time_phase);
+const auto config = autd3::Silencer{
+    autd3::FixedCompletionTime{.intensity = std::chrono::microseconds(250),
+                               .phase = std::chrono::microseconds(250)}};
 //~return 0; }
