@@ -12,7 +12,7 @@ Several algorithms for generating multiple foci have been proposed, and the foll
 You can select the backend for the calculation of the algorithm from the following.
 
 * `NalgebraBackend` - uses [Nalgebra](hthttps://nalgebra.org/)
-* `CUDABackend` - uses CUDA, which runs on GPUs
+* `CUDABackend` - uses CUDA, which runs on GPUs (only available in Rust)
 
 ```rust,edition2021
 {{#include ../../../codes/Users_Manual/gain/holo_0.rs}}
