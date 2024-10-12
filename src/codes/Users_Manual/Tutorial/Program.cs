@@ -27,7 +27,7 @@ var firmList = autd.FirmwareVersion();
 foreach (var firm in firmList)
     Console.WriteLine(firm);
 
-autd.Send(Silencer.Default());
+autd.Send(new Silencer());
 
 var g = new Focus(autd.Geometry.Center + new Vector3(0, 0, 150));
 var m = new Sine(150u * Hz);

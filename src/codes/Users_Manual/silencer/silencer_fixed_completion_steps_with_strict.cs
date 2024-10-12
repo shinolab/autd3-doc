@@ -1,2 +1,2 @@
 ~using AUTD3Sharp;
-var config = Silencer.Default().WithStrictMode(false);
+var config = new Silencer().WithStrictMode(false);

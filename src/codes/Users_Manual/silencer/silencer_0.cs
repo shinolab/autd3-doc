@@ -1,6 +1,6 @@
 ~using AUTD3Sharp;
 ~{
-var config = Silencer.Default();
+var config = new Silencer();
 ~}
 ~{
 var config = Silencer.Disable();

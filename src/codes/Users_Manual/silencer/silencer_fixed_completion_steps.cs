@@ -1,4 +1,6 @@
 ~using AUTD3Sharp;
-var timeIntensity = TimeSpan.FromMicroseconds(250);
-var timePhase = TimeSpan.FromMicroseconds(250);
-var config = Silencer.FromCompletionTime(timeIntensity, timePhase);
+var config = new Silencer(new FixedCompletionTime
+{
+    Intensity = TimeSpan.FromMicroseconds(250),
+    Phase = TimeSpan.FromMicroseconds(250)
+});

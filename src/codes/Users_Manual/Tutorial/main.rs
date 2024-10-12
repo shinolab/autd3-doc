@@ -22,7 +22,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             })).await?;
 
     // Check firmware version
-    // This code assumes that the version is v9.0.0
+    // This code assumes that the version is v10.0.0
     autd.firmware_version().await?.iter().for_each(|firm_info| {
         println!("{}", firm_info);
     });

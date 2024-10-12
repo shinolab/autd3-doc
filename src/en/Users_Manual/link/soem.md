@@ -45,8 +45,6 @@ Following options can be specified for SOEM link.
 - `timer_strategy`: Timer strategy. The default is `Sleep`.
     - `Sleep`       : Use standard library sleep
     - `BusyWait`    : Use busy wait. High resolution but high CPU load.
-    - `NativeTimer` : Use OS timer function
-        - TimerQueueTimer on Windows, POSIX timer on linux, Grand Central Dispatch Timer on macOS
 - `sync_mode`: Synchronization mode. See [Beckhoff's explanation](https://infosys.beckhoff.com/english.php?content=../content/1033/ethercatsystem/2469122443.html&id=) for details.
 
 # RemoteSOEM

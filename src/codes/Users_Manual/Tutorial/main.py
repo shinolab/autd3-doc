@@ -23,7 +23,7 @@ if __name__ == "__main__":
         firmware_version = autd.firmware_version()
         print("\n".join([f"[{i}]: {firm}" for i, firm in enumerate(firmware_version)]))
 
-        autd.send(Silencer.default())
+        autd.send(Silencer())
 
         g = Focus(autd.geometry.center + np.array([0.0, 0.0, 150.0]))
         m = Sine(150 * Hz)

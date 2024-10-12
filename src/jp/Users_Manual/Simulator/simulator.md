@@ -43,7 +43,7 @@ SliceタブではSliceの大きさと位置, 回転を変えられる.
 回転はXYZのオイラー角で指定する.
 なお, 「xy」, 「yz」, 「zx」ボタンを押すと, Sliceを各平面に平行な状態へ回転させる.
 
-また, 「Color settings」の項目ではカラーリングのパレットの変更や, Max pressure, Slice自体のアルファ値の変更ができる.
+また, 「Color settings」の項目ではカラーリングのパレットの変更や, Max pressureの変更ができる.
 大量のデバイスを使用すると色が飽和する場合があるので, その時は「Max pressure」の値を大きくすれば良い.
 
 ### Cameraタブ
@@ -60,8 +60,6 @@ showをOffにした場合は, 表示されないだけで音場に寄与する.
 enableをOffにすると音場に寄与しなくなる.
 また, overheatをOnにすると, 温度センサがアサートされた状態を模擬できる.
 
-「View as device」をOnにすると, 振動子を単なる円ではなく, AUTD3の3Dモデルで表示する.
-
 ### Infoタブ
 
 Infoタブでは, FPSや各デバイス毎のSilencerやModulation, STMの情報が確認できる.
@@ -75,15 +73,3 @@ ModulationとSTMは実時間を元にどのインデックスのデータを出�
 
 「Auto play」をOnにすると「System time」が自動的に設定される.
 そうでない場合は, 手動で時間を進めることができる.
-
-### その他
-
-「Save image as file」にて, 現在のSliceに表示されている音場を画像で保存できる.
-
-「Auto」ボタンはカメラを自動的に適当な場所に移動させる.
-「Reset」は起動時の状態にリセットする.
-「Default」はデフォルトの設定にリセットする.
-
-また, 設定は"settings.json"に保存される.
-このファイルからしか変更できないものとして`vsync`がある.
-`vsync`を`false`にすると垂直同期が無効になる.
