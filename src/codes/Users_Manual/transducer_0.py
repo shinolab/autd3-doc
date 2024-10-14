@@ -3,4 +3,5 @@
 ~autd: Controller[Audit] = Controller.builder([AUTD3([0.0, 0.0, 0.0])]).open(Audit.builder())
 tr = autd.geometry[0][0]
 idx = tr.idx
+dev_idx = tr.dev_idx
 position = tr.position
