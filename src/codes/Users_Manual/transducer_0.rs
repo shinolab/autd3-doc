@@ -7,6 +7,7 @@
 #    .open(autd3::link::Nop::builder()).await?;
 let tr = &autd.geometry()[0][0];
 let idx = tr.idx();
+let dev_idx = tr.dev_idx();
 let position = tr.position();
 # Ok(())
 # }

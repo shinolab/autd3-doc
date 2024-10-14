@@ -4,4 +4,5 @@
 ~using var autd = Controller.Builder([new AUTD3(Vector3.Zero)]).Open(Nop.Builder());
 var tr = autd.Geometry[0][0];
 var trIdx = tr.Idx;
+var devIdx = tr.DevIdx;
 var position = tr.Position;
