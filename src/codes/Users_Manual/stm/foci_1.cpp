@@ -17,8 +17,9 @@ autd3::FociSTM stm(
       autd3::Vector3 p = center + autd3::Vector3(radius * std::cos(theta),
                                                  radius * std::sin(theta), 0);
       return autd3::ControlPoints<2>(
-                 std::array{autd3::ControlPoint(center + p).with_offset(0x00),
-                            autd3::ControlPoint(center - p).with_offset(0x00)})
+                 std::array{
+                     autd3::ControlPoint(center + p).with_phase_offset(0x00),
+                     autd3::ControlPoint(center - p).with_phase_offset(0x00)})
           .with_intensity(0xFF);
     }));
 //~return 0; }
