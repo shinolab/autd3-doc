@@ -1,13 +1,12 @@
-use std::num::{NonZeroUsize, NonZeroU64};
-use std::time::Duration;
-use autd3::prelude::*;
-use autd3_link_soem::{SOEM, TimerStrategy, Status, ThreadPriority, ProcessPriority};
+# use std::num::{NonZeroUsize, NonZeroU64};
+# use std::time::Duration;
+use autd3_link_soem::{SOEM, TimerStrategy, Status, ThreadPriority};
+#[cfg(target_os = "windows")]
+use autd3_link_soem::ProcessPriority;
 
 # #[allow(unused_variables)]
-# #[tokio::main]
-# async fn main() -> Result<(), Box<dyn std::error::Error>> {
-# let autd = Controller::builder([AUTD3::new(Vector3::zeros())])
-#            .open(
+# fn main() {
+# let builder =
 SOEM::builder()
     .with_ifname("")
     .with_buf_size(NonZeroUsize::new(32).unwrap())
@@ -27,7 +26,13 @@ SOEM::builder()
     .with_sync_tolerance(Duration::from_micros(1))
     .with_sync_timeout(Duration::from_secs(10))
     .with_thread_priority(ThreadPriority::Max)
+# ;
+# #[cfg(target_os = "windows")]
+# {
+# let builder = 
+# builder
+    // Only available on Windows 
     .with_process_priority(ProcessPriority::High)
-# ).await?;
-# Ok(())
+# ;
+# }
 # }
