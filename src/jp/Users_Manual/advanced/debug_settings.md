@@ -35,4 +35,5 @@
 - `StmIdx(u16)`: STMのインデックスが指定した値のときにHighになる
 - `IsStmMode`: FociSTM/GainSTMが使用されているかどうか
 - `PwmOut(&Transducer)`: 指定した振動子のPWM出力
+- `SysTimeEq(DcSysTime)`: 指定したシステム時間の間Highになる
 - `Direct(bool)`: 指定した値を出力する
