@@ -26,10 +26,10 @@
 
 `Sine`は音圧の波形が
 $$
-    \frac{intensity}{2} \times \sin(2\pi ft) + \frac{offset}{2}
+    \frac{\text{intensity}}{2} \times \sin(2\pi ft) + \frac{\text{offset}}{2}
 $$
 となるようなAMをかける.
-ここで, $intensity$と$offset$はそれぞれ, `with_intensity`と`with_offset`で指定できる (デフォルトはどちらも$255$).
+ここで, intensityとoffsetはそれぞれ, `with_intensity`と`with_offset`で指定できる (デフォルトはどちらも$255$).
 
 ```rust,edition2021
 {{#include ../../../codes/Users_Manual/modulation/sine_1.rs}}
@@ -67,4 +67,25 @@ $$
 
 ```python
 {{#include ../../../codes/Users_Manual/modulation/sine_2.py}}
+```
+
+## 値のクランプ
+
+デフォルトだと, 上記の式において$[0,255]$の範囲外の値になるような`intensity, offset`が指定された場合にエラーを返す.
+エラーを返すのではなく, 範囲外の値を$[0,255]$にクランプする場合は, `with_clamp`に`true`を指定する.
+
+```rust,edition2021
+{{#include ../../../codes/Users_Manual/modulation/sine_3.rs}}
+```
+
+```cpp
+{{#include ../../../codes/Users_Manual/modulation/sine_3.cpp}}
+```
+
+```cs
+{{#include ../../../codes/Users_Manual/modulation/sine_3.cs}}
+```
+
+```python
+{{#include ../../../codes/Users_Manual/modulation/sine_3.py}}
 ```
