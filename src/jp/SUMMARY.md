@@ -49,6 +49,7 @@
   - [上級者向け設定](./Users_Manual/advanced/advanced.md)
     - [Gainの自作](./Users_Manual/advanced/custom_gain.md)
     - [Modulationの自作](./Users_Manual/advanced/custom_modulation.md)
+    - [PhaseCorrection](./Users_Manual/advanced/phase_corr.md)
     - [PulseWidthEncoder](./Users_Manual/advanced/pulse_width_encoder.md)
     - [GPIO出力の設定](./Users_Manual/advanced/debug_settings.md)
     - [ロギングの有効化](./Users_Manual/advanced/logging.md)
