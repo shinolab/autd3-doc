@@ -188,4 +188,26 @@ Fixed completion time modeを設定するには, 以下のようにする.
 {{#include ../../codes/Users_Manual/silencer/silencer_fixed_completion_steps_with_strict.py}}
 ```
 
+## Silencerの確認
+
+`Silencer`が`Modulation`, `FociSTM`, および, `GainSTM`に対して有効かどうかは`is_valid`関数で確認できる.
+
+
+```rust,edition2021
+{{#include ../../codes/Users_Manual/silencer/silencer_is_valid.rs}}
+```
+
+```cpp
+{{#include ../../codes/Users_Manual/silencer/silencer_is_valid.cpp}}
+```
+
+```cs
+{{#include ../../codes/Users_Manual/silencer/silencer_is_valid.cs}}
+```
+
+```python
+{{#include ../../codes/Users_Manual/silencer/silencer_is_valid.py}}
+```
+
+
 [^suzuki2020]: Suzuki, Shun, et al. "Reducing amplitude fluctuation by gradual phase shift in midair ultrasound haptics." IEEE transactions on haptics 13.1 (2020): 87-93.

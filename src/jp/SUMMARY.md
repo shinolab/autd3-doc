@@ -54,6 +54,7 @@
     - [GPIO出力の設定](./Users_Manual/advanced/debug_settings.md)
     - [ロギングの有効化](./Users_Manual/advanced/logging.md)
   - [シミュレータ](./Users_Manual/Simulator/simulator.md)
+  - [エミュレータ](./Users_Manual/Emulator/emulator.md)
   - [FAQ](./Users_Manual/FAQ/faq.md)
   - [引用](./Users_Manual/Citation/citation.md)
   - [ライセンス](./Users_Manual/LICENSE.md)

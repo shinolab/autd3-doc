@@ -73,7 +73,7 @@ SDKで複数台のデバイスを使用する場合は`Controller::builder`関�
 ### デバイスの回転
 
 デバイスの回転を指定する場合は`with_rotation`で使用する.
-ここで回転はZYZのオイラー角, または, クオータニオンで指定する.
+ここで回転はXYZ, ZYZのオイラー角, または, クオータニオンで指定する.
 
 <figure>
   <img src="../fig/Users_Manual/vert.png"/>

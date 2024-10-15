@@ -2,7 +2,7 @@
 
 `with_fir`にて, FIRフィルタを適用することができる.
 
-以下は, サンプリング周波数$\SI{20}{kHz}$, タップ数$199$, カットオフ周波数$\SI{200}{Hz}$のFIRフィルタを適用する例である. 
+以下は, サンプリング周波数$\SI{20}{kHz}$, タップ数$199$, カットオフ周波数$\SI{200}{Hz}$のLPFを適用する例である. 
 
 ```rust,edition2021
 {{#include ../../../codes/Users_Manual/modulation/fir.rs}}
