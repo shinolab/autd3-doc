@@ -31,4 +31,6 @@ SOEM.Builder()
     .WithTimerStrategy(TimerStrategy.BusyWait)
     .WithSyncTolerance(TimeSpan.FromMicroseconds(1))
     .WithSyncTimeout(TimeSpan.FromSeconds(10))
+    .WithThreadPriority(AUTD3Sharp.Link.ThreadPriority.Max)
+    .WithProcessPriority(ProcessPriority.High)
 ~);

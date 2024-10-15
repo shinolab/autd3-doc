@@ -43,6 +43,8 @@ SOEMリンクで指定できるオプションは以下の通りである.
     - `BusyWait`    : ビジーウェイトを用いる. 高解像度だが, CPU負荷が高い.
 - `sync_tolerance`: 同期許容レベル. 初期化時, 各デバイスのシステム時間差がこの値以下になるまで待機する. 以下のタイムアウト時間が経過しても同期が完了しない場合はエラーとなる. デフォルトは$\SI{1}{us}$であり, 変えることは推奨されない.
 - `sync_timeout`: 同期タイムアウト. 上記のシステム時間差測定のタイムアウト時間. デフォルトは$\SI{10}{s}$.
+- `thread_priority`: スレッドの優先度. デフォルトは`ThreadPriority::MAX`である.
+- `process_priority`: (Windowsのみ) プロセスの優先度. デフォルトは`ProcessPriority::High`である.
 
 # RemoteSOEM
 

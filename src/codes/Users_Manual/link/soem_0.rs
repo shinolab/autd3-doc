@@ -1,7 +1,7 @@
 use std::num::{NonZeroUsize, NonZeroU64};
 use std::time::Duration;
 use autd3::prelude::*;
-use autd3_link_soem::{SOEM, TimerStrategy, Status};
+use autd3_link_soem::{SOEM, TimerStrategy, Status, ThreadPriority, ProcessPriority};
 
 # #[allow(unused_variables)]
 # #[tokio::main]
@@ -26,6 +26,8 @@ SOEM::builder()
     .with_timer_strategy(TimerStrategy::BusyWait)
     .with_sync_tolerance(Duration::from_micros(1))
     .with_sync_timeout(Duration::from_secs(10))
+    .with_thread_priority(ThreadPriority::Max)
+    .with_process_priority(ProcessPriority::High)
 # ).await?;
 # Ok(())
 # }

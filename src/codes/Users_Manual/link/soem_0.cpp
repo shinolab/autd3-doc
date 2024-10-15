@@ -8,7 +8,8 @@
 autd3::link::SOEM::builder()
     .with_ifname("")
     .with_buf_size(32)
-    .with_err_handler([](const uint16_t slave, const autd3::link::Status status, const std::string& msg) {
+    .with_err_handler([](const uint16_t slave, const autd3::link::Status status,
+                         const std::string& msg) {
       switch (status) {
         case autd3::link::Status::Error:
           std::cout << "Error [" << slave << "]: " << msg << std::endl;
@@ -29,5 +30,7 @@ autd3::link::SOEM::builder()
     .with_timer_strategy(autd3::link::TimerStrategy::BusyWait)
     .with_sync_tolerance(std::chrono::microseconds(1))
     .with_sync_timeout(std::chrono::seconds(10))
+    .with_thread_priority(autd3::link::ThreadPriority::Max)
+    .with_process_priority(autd3::link::ProcessPriority::High)
     //~                    );
     //~return 0; }

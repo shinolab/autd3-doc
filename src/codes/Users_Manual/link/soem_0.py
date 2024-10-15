@@ -1,6 +1,6 @@
 ~import os
 ~from datetime import timedelta
-from pyautd3.link.soem import SOEM, Status, TimerStrategy
+from pyautd3.link.soem import SOEM, Status, TimerStrategy, ThreadPriority, ProcessPriority
 
 
 def err_handler(slave: int, status: Status, msg: str) -> None:
@@ -26,4 +26,6 @@ SOEM.builder()\
     .with_send_cycle(2)\
     .with_timer_strategy(TimerStrategy.BusyWait)\
     .with_sync_tolerance(timedelta(microseconds=1))\
-    .with_sync_timeout(timedelta(seconds=10))
+    .with_sync_timeout(timedelta(seconds=10))\
+    .with_thread_priority(ThreadPriority.Max)\
+    .with_process_priority(ProcessPriority.High)

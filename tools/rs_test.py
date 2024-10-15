@@ -15,7 +15,8 @@ def get_latest_version(crate: str) -> str:
 
 
 if __name__ == "__main__":
-    autd3_version = "28.0.1"
+    autd3_version = "28.1.0"
+    emulator_version = "28.0.0"
     tokio_version = get_latest_version("tokio")
     print(f"Testing with autd3-rs {autd3_version}")
 
@@ -56,6 +57,7 @@ autd3-link-simulator = {{ version = "{autd3_version}" }}
 autd3-link-soem = {{ version = "{autd3_version}", features = ["remote"] }}
 autd3-link-twincat = {{ version = "{autd3_version}", features = ["remote"] }}
 autd3-modulation-audio-file = {{ version = "{autd3_version}" }}
+autd3-emulator = {{ version = "{emulator_version}", features = ["gpu"] }}
 tokio = {{ version = "{tokio_version}", features = ["full"] }}
 """
             )
