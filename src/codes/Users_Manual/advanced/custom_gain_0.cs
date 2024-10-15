@@ -21,7 +21,7 @@ public partial class FocalPoint
         {
             var tp = tr.Position;
             var dist = (tp - _point).L2Norm;
-            var phase = dist * dev.Wavenumber;
+            var phase = -dist * dev.Wavenumber;
             return new Drive { Phase = new Phase(phase * rad), Intensity = EmitIntensity.Max };
         });
     }
