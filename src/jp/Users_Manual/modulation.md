@@ -27,6 +27,7 @@ SDKにはデフォルトでいくつかの種類のAMを生成するための`Mo
 * [Custom](./modulation/custom.md) - ユーザー定義の変調
 * [Cache](./modulation/cache.md) - 他の`Modulation`の計算結果をキャッシュする
 * [RadiationPressure](./modulation/radiation.md) - 放射圧に対して変調を適用する
+* [Fir](./modulation/fir.md) - Firフィルタを適用する
 
 ## Modulationの共通API
 
