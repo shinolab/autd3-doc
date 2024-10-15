@@ -18,6 +18,31 @@
 {{#include ../../../codes/Users_Manual/modulation/wav_0.py}}
 ```
 
-> NOTE: AUTD3のサンプリング周波数に関する制約により, 出力できない可能性があるので注意されたい.
-> その場合は, 元のファイルを適当な周波数で各自リサンプリングすること. **本SDKでは, リサンプリング機能は提供しない.**
-> Modulationのサンプリング周波数の設定と制約は[Modulation](../modulation.md)を参照されたい.
+## リサンプリング
+
+[サンプリング周波数に関する制約](../modulation.md)により, 指定されたWavファイルを出力できない可能性がある.
+そのため, リサンプリング機能が提供されている.
+リサンプリングする場合は, 以下のようにする.
+
+```rust,edition2021
+{{#include ../../../codes/Users_Manual/modulation/wav_1.rs}}
+```
+
+```cpp
+{{#include ../../../codes/Users_Manual/modulation/wav_1.cpp}}
+```
+
+```cs
+{{#include ../../../codes/Users_Manual/modulation/wav_1.cs}}
+```
+
+```python
+{{#include ../../../codes/Users_Manual/modulation/wav_1.py}}
+```
+
+第2引数に目標サンプリング設定を指定する.
+第3引数には, リサンプリングの方法を指定する.
+現在は, `SincInterpolation`のみが実装されている.
+`SincInterpolation`では, 窓関数を指定できる.
+現在は, 窓関数として, `Rectangular`と`BlackMan`のみが用意されている.
+窓関数では, 窓関数の幅を指定できる.
