@@ -37,6 +37,7 @@
     - [Custom](./Users_Manual/modulation/custom.md)
     - [Cache](./Users_Manual/modulation/cache.md)
     - [Radiation](./Users_Manual/modulation/radiation.md)
+    - [Fir](./Users_Manual/modulation/fir.md)
   - [Spatio-Temporal Modulation](./Users_Manual/stm.md)
     - [FociSTM](./Users_Manual/stm/focus.md)
     - [GainSTM](./Users_Manual/stm/gain.md)
