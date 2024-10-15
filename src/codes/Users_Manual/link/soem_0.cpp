@@ -3,8 +3,7 @@
 #include "autd3/link/soem.hpp"
 
 //~int main() {
-//~auto autd = autd3::ControllerBuilder({autd3::AUTD3(autd3::Vector3::Zero())})
-//~                .open(
+//~(void)
 autd3::link::SOEM::builder()
     .with_ifname("")
     .with_buf_size(32)
@@ -31,6 +30,11 @@ autd3::link::SOEM::builder()
     .with_sync_tolerance(std::chrono::microseconds(1))
     .with_sync_timeout(std::chrono::seconds(10))
     .with_thread_priority(autd3::link::ThreadPriority::Max)
+//~;
+//~#ifdef WIN32
+//~autd3::link::SOEM::builder()
+    // Only available on Windows 
     .with_process_priority(autd3::link::ProcessPriority::High)
-    //~                    );
+    //~;
+//~#endif
     //~return 0; }
