@@ -12,7 +12,7 @@ class Focus(Gain):
             lambda dev: lambda tr: Drive(
                 (
                     Phase(
-                        float(np.linalg.norm(tr.position - self.point))
+                        float(-np.linalg.norm(tr.position - self.point))
                         * dev.wavenumber
                         * rad
                     ),

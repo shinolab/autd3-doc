@@ -9,7 +9,7 @@ class FocalPoint final : public autd3::derive::Gain<FocalPoint> {
       const autd3::Geometry& geometry) const override {
     return transform([&](const auto& dev) {
       return [&](const auto& tr) {
-        const auto phase = (tr.position() - _point).norm() * dev.wavelength();
+        const auto phase = -(tr.position() - _point).norm() * dev.wavelength();
         return autd3::Drive{autd3::Phase(phase * autd3::rad),
                             std::numeric_limits<autd3::EmitIntensity>::max()};
       };
