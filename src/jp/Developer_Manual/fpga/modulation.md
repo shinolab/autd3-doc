@@ -15,7 +15,7 @@
 | ├─ REP[$n$]                   | In     | 16    | 第$n$セグメントの繰り返し回数$-1$                  | 
 | ├─ TRANSITION_MODE            | In     | 8     | 遷移モード                                         | 
 | └─ TRANSITION_VALUE           | In     | 64    | 遷移値                                             | 
-| SYS_TIME                      | In     | 64    | システム時刻                                       | 
+| SYS_TIME                      | In     | 56    | システム時刻                                       | 
 | DIN_VALID                     | In     | 1     | 強度/位相データ有効フラグ                          | 
 | INTENSITY_IN                  | In     | 8     | 強度                                               | 
 | PHASE_IN                      | In     | 8     | 位相                                               | 
