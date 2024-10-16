@@ -16,7 +16,7 @@
 | ├─ SOUND_SPEED[$n$]           | In     | 16    | 第$n$セグメントの音速                              | 
 | ├─ TRANSITION_MODE            | In     | 8     | 遷移モード                                         | 
 | └─ TRANSITION_VALUE           | In     | 64    | 遷移値                                             | 
-| SYS_TIME                      | In     | 64    | システム時刻                                       | 
+| SYS_TIME                      | In     | 56    | システム時刻                                       | 
 | INTENSITY                     | Out    | 8     | 強度                                               | 
 | PHASE                         | Out    | 8     | 位相                                               | 
 | DOUT_VALID                    | Out    | 1     | 強度/位相データ有効フラグ                          | 
