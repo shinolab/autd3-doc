@@ -17,10 +17,10 @@ impl Burst {
 }
 
 impl Modulation for Burst {
-    fn calc(&self) -> Result<Arc<Vec<u8>>, AUTDInternalError> {
-        Ok(Arc::new((0..4000)
+    fn calc(self) -> Result<Vec<u8>, AUTDInternalError> {
+        Ok((0..4000)
             .map(|i| if i == 3999 { u8::MAX } else { u8::MIN })
-            .collect()))
+            .collect())
     }
 }
 # #[allow(unused_variables)]

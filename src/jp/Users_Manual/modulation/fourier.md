@@ -42,7 +42,7 @@
 
 `Fourier`の計算は, 以下の式で行われる,
 $$
-    \frac{\text{offset}}{2} + \text{scale\_factor} \times \sum_i \text{Sine}[i].
+    \left\lfloor\text{offset} + \text{scale\_factor} \times \sum_i \text{Sine}[i]\right\rfloor.
 $$
 スケールファクタはデフォルトでは$1/\text{コンポーネント数}$に設定されている.
 また, offsetはデフォルトでは$0$に設定されている.

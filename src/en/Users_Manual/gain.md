@@ -11,4 +11,3 @@ AUTD can control the phase/amplitude of each transducer individually, which enab
 - [Group](./gain/grouped.md)
 - [Holo](./gain/holo.md)
 - [Cache](./gain/cache.md)
-- [Transform](./gain/transform.md)

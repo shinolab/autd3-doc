@@ -1,4 +1,5 @@
 # use autd3::prelude::*;
+# use autd3::driver::geometry::UnitVector3;
 # #[allow(unused_variables)]
 # fn main() {
 # let x = 0.;
@@ -10,7 +11,7 @@
 # let theta = 0.;
 let g = Bessel::new(
             Vector3::new(x, y, z), 
-            Vector3::new(nx, ny, nz), 
+            UnitVector3::new_normalize(Vector3::new(nx, ny, nz)), 
             theta * rad,
         );
 # }

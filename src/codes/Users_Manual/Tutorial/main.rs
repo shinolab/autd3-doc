@@ -11,18 +11,16 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut autd = Controller::builder([AUTD3::new(Vector3::zeros())])
         // Open controller with SOEM link
         // The callback specified by with_err_handler is called when error occurs
-        .open(SOEM::builder().with_err_handler(|slave, status| match status {
-                Status::Error => eprintln!("Error [{}]: {}", slave, status),
-                Status::Lost => {
-                    eprintln!("Lost [{}]: {}", slave, status);
+        .open(SOEM::builder().with_err_handler(|slave, status| {
+                eprintln!("slave [{}]: {}", slave, status);
+                if status == Status::Lost {
                     // You can also wait for the link to recover, without exitting the process
                     std::process::exit(-1);
                 }
-                Status::StateChanged => eprintln!("StateChanged [{}]: {}", slave, status),
             })).await?;
 
     // Check firmware version
-    // This code assumes that the version is v10.0.0
+    // This code assumes that the version is v10.0.1
     autd.firmware_version().await?.iter().for_each(|firm_info| {
         println!("{}", firm_info);
     });

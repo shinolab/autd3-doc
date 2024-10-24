@@ -26,10 +26,10 @@
 
 `Sine`は音圧の波形が
 $$
-    \frac{\text{intensity}}{2} \times \sin(2\pi ft) + \frac{\text{offset}}{2}
+    \left\lfloor\frac{\text{intensity}}{2} \times \sin(2\pi ft) + \text{offset}\right\rfloor
 $$
 となるようなAMをかける.
-ここで, intensityとoffsetはそれぞれ, `with_intensity`と`with_offset`で指定できる (デフォルトはどちらも$255$).
+ここで, intensityとoffsetはそれぞれ, `with_intensity`と`with_offset`で指定できる (デフォルトはそれぞれ$255$, $128$).
 
 ```rust,edition2021
 {{#include ../../../codes/Users_Manual/modulation/sine_1.rs}}
