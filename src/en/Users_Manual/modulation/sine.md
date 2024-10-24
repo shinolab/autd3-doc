@@ -24,9 +24,9 @@ Specify the frequency $f$ as an integer in the constructor.
 
 `Sine` applies AM so that the waveform of the sound pressure is
 $$
-    \frac{intensity}{2} \times \sin(2\pi ft) + \frac{offset}{2}
+    \frac{intensity}{2} \times \sin(2\pi ft) + offset
 $$
-Here, $intensity$ and $offset$ can be specified by `with_intensity` and `with_offset`, respectively (defaults are `0xFF`).
+Here, $intensity$ and $offset$ can be specified by `with_intensity` and `with_offset`, respectively (defaults are `0xFF` and `0x80`).
 
 ```rust,edition2021
 {{#include ../../../codes/Users_Manual/modulation/sine_1.rs}}

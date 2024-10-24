@@ -1,8 +1,9 @@
 # Gainの自作
 
-> NOTE: 同様の目的で, [Custom](../gain/custom.md)を使用することもできる.
+Rust版のライブラリでは自前の`Gain`を作成することができる.
 
-ライブラリでは自前の`Gain`を作成することができる.
+> NOTE: C++, C#, Python版のライブラリでは, この機能は提供されていない.
+> しかし, 同様の目的で, [Custom](../gain/custom.md)を使用することができる.
 
 ここでは, `Focus`と同じように単一焦点を生成する`FocalPoint`を実際に定義してみることにする.
 
@@ -10,20 +11,8 @@
 {{#include ../../../codes/Users_Manual/advanced/custom_gain_0.rs}}
 ```
 
-```cpp
-{{#include ../../../codes/Users_Manual/advanced/custom_gain_0.cpp}}
-```
+`Controller::send`関数は`Gain`型を継承したクラスを引数に取ることができる.
+`Gain`型は`Geometry`とfilter (後述) を引数に取り, 各デバイス毎に`GainContext`を生成する`GainContextGenerator`を返す.
+実際の位相, 振幅の計算は`GainContext::calc`関数内で行う.
 
-```cs
-{{#include ../../../codes/Users_Manual/advanced/custom_gain_0.cs}}
-```
-
-```python
-{{#include ../../../codes/Users_Manual/advanced/custom_gain_0.py}}
-```
-
-`send`関数は`Gain`型を継承したクラスを引数に取ることができる.
-そのため, `Gain`型を継承をしておく.
-
-`send`関数内部では`Geometry`を引数にした`calc`メソッドが呼ばれる.
-`calc`の返り値は, `Fn(&Device) -> Fn(&Transducer) -> Drive`であり, この関数を元に振幅/位相データが送信される.
+なお, filterは[Group](../gain/grouped.md)で使用される, 各デバイス毎に各振動子が有効化否かを表すデータである.

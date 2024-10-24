@@ -1,31 +1,49 @@
-use autd3::prelude::*;
+# use autd3::prelude::*;
 use autd3::derive::*;
 
 #[derive(Gain, Debug)]
 pub struct FocalPoint {
-    position: Vector3,
+    pos: Vector3,
 }
 
-impl FocalPoint {
-    pub fn new(position: Vector3) -> Self {
-        Self { position }
+pub struct Context {
+    pos: Vector3,
+    wavenumber: f32,
+}
+
+impl GainContext for Context {
+    fn calc(&self, tr: &Transducer) -> Drive {
+        (
+            Phase::from(-(self.pos - tr.position()).norm() * self.wavenumber * rad),
+            EmitIntensity::MAX,
+        )
+            .into()
+    }
+}
+
+impl GainContextGenerator for FocalPoint {
+    type Context = Context;
+
+    fn generate(&mut self, device: &Device) -> Self::Context {
+        Context {
+            pos: self.pos,
+            wavenumber: device.wavenumber(),
+        }
     }
 }
 
 impl Gain for FocalPoint {
-    fn calc(&self, _geometry: &Geometry) -> Result<GainCalcFn, AUTDInternalError> {
-        let position = self.position;
-        Ok(Self::transform(move |dev| {
-            let wavenumber = dev.wavenumber();
-            move |tr| {
-                Drive::new(
-                    Phase::from(-(position - tr.position()).norm() * wavenumber * rad),
-                    EmitIntensity::MAX,
-                )
-            }
-        }))
+    type G = FocalPoint;
+
+    fn init_with_filter(
+        self,
+        _geometry: &Geometry,
+        _filter: Option<HashMap<usize, BitVec<u32>>>,
+    ) -> Result<Self::G, AUTDInternalError> {
+        Ok(self)
     }
 }
+
 # #[allow(unused_variables)]
 # fn main() { 
 # }

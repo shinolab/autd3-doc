@@ -6,48 +6,6 @@
 
 データを書き込む`Segment`は, `with_segment`で指定する.
 
-## Gain
-
-```rust,edition2021
-{{#include ../../codes/Users_Manual/segment/segment.rs}}
-```
-
-```cpp
-{{#include ../../codes/Users_Manual/segment/segment.cpp}}
-```
-
-```cs
-{{#include ../../codes/Users_Manual/segment/segment.cs}}
-```
-
-```python
-{{#include ../../codes/Users_Manual/segment/segment.py}}
-```
-
-第二引数は, データを書き込んだ後に`Segment`を切り替えるかどうかを指定する.
-
-### Segmentの切り替え
-
-`Segment`を切り替えたいだけの場合は, `SwapSegment::Gain`を使用する.
-
-```rust,edition2021
-{{#include ../../codes/Users_Manual/segment/segment_change.rs}}
-```
-
-```cpp
-{{#include ../../codes/Users_Manual/segment/segment_change.cpp}}
-```
-
-```cs
-{{#include ../../codes/Users_Manual/segment/segment_change.cs}}
-```
-
-```python
-{{#include ../../codes/Users_Manual/segment/segment_change.py}}
-```
-
-## Modulation/GainSTM/FociSTM
-
 ```rust,edition2021
 {{#include ../../codes/Users_Manual/segment/segment_transition.rs}}
 ```
@@ -75,11 +33,13 @@
     - `SysTime(DcSysTime)`    : 指定した時刻になったときに切り替える
     - `GPIO(GPIOIn)`          : 指定したGPIOピンに信号が入力されたときに切り替える
 
+> NOTE: `Gain`は`Immediate`のみサポートしている.
+
 データの書き込みのみを行い, `Segment`を切り替えたくない場合は`None`を指定する.
 
 ### Segmentの切り替え
 
-`Segment`を切り替えたいだけの場合は, `SwapSegment::Modulation,FocusSTM,GainSTM`を使用する.
+`Segment`を切り替えたいだけの場合は, `SwapSegment`を使用する.
 
 ```rust,edition2021
 {{#include ../../codes/Users_Manual/segment/segment_change_transition.rs}}
