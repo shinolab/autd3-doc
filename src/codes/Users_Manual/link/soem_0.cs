@@ -8,27 +8,19 @@ using AUTD3Sharp.Link;
 SOEM.Builder()
     .WithIfname("")
     .WithBufSize(32)
-    .WithErrHandler((slave, status, msg) =>
+    .WithErrHandler((slave, status) =>
     {
-        switch (status)
+        Console.Error.WriteLine($"slave [{slave}]: {status}");
+        if (status == Status.Lost)
         {
-            case Status.Error:
-                Console.Error.WriteLine($"Error [{slave}]: {msg}");
-                break;
-            case Status.Lost:
-                Console.Error.WriteLine($"Lost [{slave}]: {msg}");
-                // You can also wait for the link to recover, without exiting the process
-                Environment.Exit(-1);
-                break;
-            case Status.StateChanged:
-                Console.Error.WriteLine($"StateChanged [{slave}]: {msg}");
-                break;
-        };
+            // You can also wait for the link to recover, without exiting the process
+            Environment.Exit(-1);
+        }
     })
     .WithStateCheckInterval(TimeSpan.FromMilliseconds(100))
-    .WithSync0Cycle(2)
-    .WithSendCycle(2)
-    .WithTimerStrategy(TimerStrategy.BusyWait)
+    .WithSync0Cycle(TimeSpan.FromMilliseconds(1))
+    .WithSendCycle(TimeSpan.FromMilliseconds(1))
+    .WithTimerStrategy(TimerStrategy.SpinSleep)
     .WithSyncTolerance(TimeSpan.FromMicroseconds(1))
     .WithSyncTimeout(TimeSpan.FromSeconds(10))
     .WithThreadPriority(AUTD3Sharp.Link.ThreadPriority.Max)

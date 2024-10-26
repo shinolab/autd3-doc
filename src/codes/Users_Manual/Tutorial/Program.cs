@@ -6,21 +6,11 @@ using AUTD3Sharp.Modulation;
 using static AUTD3Sharp.Units;
 
 using var autd = Controller.Builder([new AUTD3(Vector3.Zero)])
-        .Open(SOEM.Builder().WithErrHandler((slave, status, msg) =>
+        .Open(SOEM.Builder().WithErrHandler((slave, status) =>
         {
-            switch (status)
-            {
-                case Status.Error:
-                    Console.Error.WriteLine($"Error [{slave}]: {msg}");
-                    break;
-                case Status.Lost:
-                    Console.Error.WriteLine($"Lost [{slave}]: {msg}");
-                    Environment.Exit(-1);
-                    break;
-                case Status.StateChanged:
-                    Console.Error.WriteLine($"StateChanged [{slave}]: {msg}");
-                    break;
-            };
+            Console.Error.WriteLine($"slave [{slave}]: {status}");
+            if (status == Status.Lost)
+                Environment.Exit(-1);
         }));
 
 var firmList = autd.FirmwareVersion();
