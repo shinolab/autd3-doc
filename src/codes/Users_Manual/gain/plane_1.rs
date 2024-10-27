@@ -1,5 +1,4 @@
 # use autd3::prelude::*;
-# use autd3::driver::geometry::UnitVector3;
 # #[allow(unused_variables)]
 # fn main() {
 # let x = 0.;

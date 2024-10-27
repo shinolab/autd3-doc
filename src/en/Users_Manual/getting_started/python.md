@@ -3,7 +3,7 @@
 First, install `pyautd3` library.
 
 ```shell
-pip install pyautd3
+pip install pyautd3==29.0.0rc1
 ```
 
 Next, make `main.py` file as follows.
