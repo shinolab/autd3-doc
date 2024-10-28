@@ -46,3 +46,14 @@ os.environ["RUST_LOG"] = "autd3=INFO"
 
 tracing_init()
 ```
+
+## Unity
+
+Unityでは, `Tracing.Init`の引数にログファイルへのパスを指定することでログ出力を有効化できる.
+
+```cs
+System.Environment.SetEnvironmentVariable("RUST_LOG", "autd3=INFO");
+
+AUTD3Sharp.Tracing.Init("<path to log file>");
+```
+
