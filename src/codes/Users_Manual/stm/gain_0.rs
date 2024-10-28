@@ -3,7 +3,7 @@
 # #[tokio::main]
 # async fn main() -> Result<(), Box<dyn std::error::Error>> {
 # let autd = Controller::builder([AUTD3::new(Vector3::zeros())]).open(autd3::link::Nop::builder()).await?;
-let center = autd.geometry().center() + Vector3::new(0., 0., 150.0 * mm);
+let center = autd.center() + Vector3::new(0., 0., 150.0 * mm);
 let point_num = 200;
 let radius = 30.0 * mm;
 let stm = GainSTM::new(

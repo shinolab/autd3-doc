@@ -15,12 +15,12 @@ if(WIN32)
   if(${CMAKE_SYSTEM_PROCESSOR} MATCHES "AMD64")
     FetchContent_Declare(
       autd3
-      URL https://github.com/shinolab/autd3-cpp/releases/download/v29.0.0-rc.1/autd3-v29.0.0-rc.1-win-x64.zip
+      URL https://github.com/shinolab/autd3-cpp/releases/download/v29.0.0-rc.2/autd3-v29.0.0-rc.2-win-x64.zip
     )
   elseif(${CMAKE_SYSTEM_PROCESSOR} MATCHES "ARM64")
     FetchContent_Declare(
       autd3
-      URL https://github.com/shinolab/autd3-cpp/releases/download/v29.0.0-rc.1/autd3-v29.0.0-rc.1-win-arm.zip
+      URL https://github.com/shinolab/autd3-cpp/releases/download/v29.0.0-rc.2/autd3-v29.0.0-rc.2-win-arm.zip
     )
   else()
       message(FATAL_ERROR "Unsupported platform: ${CMAKE_SYSTEM_PROCESSOR}")
@@ -28,12 +28,12 @@ if(WIN32)
 elseif(APPLE)
   FetchContent_Declare(
     autd3
-    URL https://github.com/shinolab/autd3-cpp/releases/download/v29.0.0-rc.1/autd3-v29.0.0-rc.1-macos-aarch64.tar.gz
+    URL https://github.com/shinolab/autd3-cpp/releases/download/v29.0.0-rc.2/autd3-v29.0.0-rc.2-macos-aarch64.tar.gz
   )
 else()
   FetchContent_Declare(
     autd3
-    URL https://github.com/shinolab/autd3-cpp/releases/download/v29.0.0-rc.1/autd3-v29.0.0-rc.1-linux-x64.tar.gz
+    URL https://github.com/shinolab/autd3-cpp/releases/download/v29.0.0-rc.2/autd3-v29.0.0-rc.2-linux-x64.tar.gz
   )
 endif()
 set(USE_SYSTEM_EIGEN OFF)

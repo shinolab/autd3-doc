@@ -5,7 +5,7 @@ from pyautd3 import ControlPoint, ControlPoints2
 ~autd: Controller[Audit] = Controller.builder([AUTD3([0.0, 0.0, 0.0])]).open(
 ~    Audit.builder()
 ~)
-center = autd.geometry.center + np.array([0.0, 0.0, 150.0])
+center = autd.center + np.array([0.0, 0.0, 150.0])
 point_num = 200
 radius = 30.0
 stm = FociSTM(

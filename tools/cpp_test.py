@@ -8,7 +8,7 @@ from glob import glob
 import joblib
 
 if __name__ == "__main__":
-    version = "29.0.0-rc.1"
+    version = "29.0.0-rc.2"
     print(f"Testing with autd3-cpp {version}")
 
     base_path = pathlib.Path(__file__).parent.parent / "src" / "codes"

@@ -88,8 +88,8 @@ Controllerには以下の設定が存在する.
 
 |       | 並列計算スレッショルド値   | 
 | ----- | -------------- | 
-| `Clear`/`DebugSettings`/<br>`ForceFan`/`PhaseCorrection`/<br>`ReadsFPGAState`/`SwapSegment`/<br>`Silencer`/`Synchronize`/<br>`FociSTM` (パターン数が4000以下)/<br>`Modulation` | 18446744073709551615 | 
-| `PulseWidthEncoder`/<br>`FociSTM` (パターン数が4000より多い)/<br>/`GainSTM`/`Gain` | `None` | 
+| `Clear`/`DebugSettings`/<br>`ForceFan`/`PhaseCorrection`/<br>`ReadsFPGAState`/`SwapSegment`/<br>`Silencer`/`Synchronize`/<br>`FociSTM` (焦点数が4000未満)/<br>`Modulation` | 18446744073709551615 | 
+| `PulseWidthEncoder`/<br>`FociSTM` (焦点数が4000以上)/<br>/`GainSTM`/`Gain` | `None` | 
 | (`a`, `b`) | `a`と`b`で小さい方, 片方が`None`の場合はもう片方, 両方`None`の場合は`None` | 
 
 この値は`with_parallel_threshold`で上書きできる.

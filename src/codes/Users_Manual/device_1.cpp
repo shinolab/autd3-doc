@@ -5,10 +5,10 @@
 //~auto autd =
 //~autd3::ControllerBuilder({autd3::AUTD3(autd3::Vector3::Zero())}).open(autd3::link::Nop::builder());
 //~{
-auto tr = autd.geometry()[0][0];
+auto tr = autd[0][0];
 //~}
 //~{
-for (auto& tr : autd.geometry()[0]) {
+for (auto& tr : autd[0]) {
   // do something
 }
 //~}

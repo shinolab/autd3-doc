@@ -3,7 +3,7 @@
 ~using AUTD3Sharp.Link;
 ~using static AUTD3Sharp.Units;
 ~using var autd = Controller.Builder([new AUTD3(Vector3.Zero)]).Open(Nop.Builder());
-var center = autd.Geometry.Center + new Vector3(0, 0, 150);
+var center = autd.Center + new Vector3(0, 0, 150);
 const int pointNum = 200;
 const float radius = 30.0f;
 var stm = new FociSTM(1.0f * Hz, Enumerable.Range(0, pointNum).Select(i =>

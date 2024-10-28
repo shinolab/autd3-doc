@@ -19,7 +19,7 @@ foreach (var firm in firmList)
 
 autd.Send(new Silencer());
 
-var g = new Focus(autd.Geometry.Center + new Vector3(0, 0, 150));
+var g = new Focus(autd.Center + new Vector3(0, 0, 150));
 var m = new Sine(150u * Hz);
 autd.Send((m, g));
 
