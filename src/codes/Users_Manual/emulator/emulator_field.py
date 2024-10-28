@@ -1,10 +1,10 @@
 ~from datetime import timedelta
 ~import numpy as np
 from pyautd3 import AUTD3, Controller, Focus, Silencer, Static
-from pyautd3.emulator import Emulator, Range, Recorder, RecordOption
+from pyautd3.emulator import Range, Recorder, RecordOption
 
-with Emulator([AUTD3([0.0, 0.0, 0.0])]) as emulator:
-    focus = emulator.geometry.center + np.array([0.0, 0.0, 150.0])
+with Controller.builder([AUTD3([0.0, 0.0, 0.0])]).into_emulator() as emulator:
+    focus = emulator.center + np.array([0.0, 0.0, 150.0])
 
     def f(autd: Controller[Recorder]) -> Controller[Recorder]:
         autd.send(Silencer.disable())

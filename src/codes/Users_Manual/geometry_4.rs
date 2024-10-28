@@ -5,8 +5,8 @@
 # async fn main() -> Result<(), Box<dyn std::error::Error>> {
 # let autd = Controller::builder([AUTD3::new(Vector3::zeros())])
 #    .open(autd3::link::Nop::builder()).await?;
-let dev = &autd.geometry()[0];
-for dev in autd.geometry() {
+let dev = &autd[0];
+for dev in autd.iter() {
     // do something
 }
 # Ok(())

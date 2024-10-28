@@ -1,8 +1,8 @@
 ~from datetime import timedelta
 from pyautd3 import AUTD3, Controller, EmitIntensity,  Silencer,  Uniform, Static, Phase
-from pyautd3.emulator import Emulator, Recorder
+from pyautd3.emulator import Recorder
 
-with Emulator([AUTD3([0.0, 0.0, 0.0])]) as emulator:
+with Controller.builder([AUTD3([0.0, 0.0, 0.0])]).into_emulator() as emulator:
 
     def f(autd: Controller[Recorder]) -> Controller[Recorder]:
         autd.send(Silencer.disable())

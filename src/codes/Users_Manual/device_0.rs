@@ -5,7 +5,7 @@
 # async fn main() -> Result<(), Box<dyn std::error::Error>> {
 # let mut autd = Controller::builder([AUTD3::new(Vector3::zeros())])
 #    .open(autd3::link::Nop::builder()).await?;
-let dev = &mut autd.geometry_mut()[0];
+let dev = &mut autd[0];
 let idx = dev.idx();
 dev.enable = false;
 dev.sound_speed = 340e3;
