@@ -15,4 +15,4 @@ Rust版のライブラリでは自前の`Gain`を作成することができる.
 `Gain`型は`Geometry`とfilter (後述) を引数に取り, 各デバイス毎に`GainContext`を生成する`GainContextGenerator`を返す.
 実際の位相, 振幅の計算は`GainContext::calc`関数内で行う.
 
-なお, filterは[Group](../gain/grouped.md)で使用される, 各デバイス毎に各振動子が有効化否かを表すデータである.
+なお, filterは[Group](../gain/grouped.md)で使用される, 各デバイス毎に各振動子が有効か否かを表すデータである.

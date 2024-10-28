@@ -6,8 +6,7 @@
 # let z = 0.;
 let g = Group::new(|_dev| |tr| match tr.idx() {
                 0..=100 => Some("null"),
-                101..=200 => Some("focus"),
-                _ => None,
+                _ => Some("focus"),
             })
             .set("null", Null::new())
             .set("focus", Focus::new(Vector3::new(x, y, z)));

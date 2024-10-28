@@ -27,7 +27,11 @@ Controllerには以下の設定が存在する.
 - `fallback_timeout`: タイムアウトのフォールバック値. デフォルトは$\SI{20}{ms}$. 詳しくは[以下](#タイムアウト)を参照.
 - `send_interval`: 送信間隔. デフォルトは$\SI{1}{ms}$.
 - `receive_interval`: 受信間隔. デフォルトは$\SI{1}{ms}$.
-- `timer_strategy`: 送受信
+- `timer_strategy`: 送受信のタイミングを決定する方法. デフォルトは`TimerStrategy::Spin`.
+    - `TimerStrategy::Std(StdSleeper)`: 標準ライブラリのsleepを使用する.
+    - `TimerStrategy::Spin(SpinSleeper)`: [spin_sleep](https://docs.rs/spin_sleep/latest/spin_sleep/) crateを使用する. OSネイティブのスリープ (Windowsの場合は[WaitableTimer](https://learn.microsoft.com/en-us/windows/win32/sync/waitable-timer-objects)) とスピンループを組み合わせ.
+    - `TimerStrategy::Async(AsyncSleeper)`: [tokio](https://docs.rs/tokio/latest/tokio/time/struct.Sleep.html) crateの非同期スリープを使用する.
+    - `TimerStrategy::Waitable(WaitableTimer)`: (Windowsのみ) [WaitableTimer](https://learn.microsoft.com/en-us/windows/win32/sync/waitable-timer-objects)を使用する.
 
 ## send
 
@@ -47,9 +51,13 @@ Controllerには以下の設定が存在する.
 
 確実にデータを送信したい場合はこれを適当な値に設定しておくことをおすすめする.
 
-各データに設定されているデフォルト値は以下の通りである.
+各データに設定されている値は以下の通りである.
 
-// TODO
+|       | タイムアウト値   | 
+| ----- | -------------- | 
+| `Clear`/`DebugSettings`/<br>`ForceFan`/`PhaseCorrection`/<br>`PulseWidthEncoder`/`ReadsFPGAState`/<br>`SwapSegment`/`Silencer`/<br>`Synchronize`/`FociSTM`/<br>`GainSTM`/`Modulation` | $\SI{200}{ms}$ | 
+| `Gain`  | `None` | 
+| (`a`, `b`) | `a`と`b`で大きい方, 片方が`None`の場合はもう片方, 両方`None`の場合は`None` | 
 
 タイムアウトは`with_timeout`で上書きできる.
 
@@ -75,9 +83,14 @@ Controllerには以下の設定が存在する.
 
 各データの内部での計算は, デバイスの数が並列計算スレッショルドより大きい場合に, デバイス単位で並列に実行される.
 
-各データに設定されているデフォルト値は以下の通りである.
+各データに設定されている値は以下の通りである.
 
-// TODO
+
+|       | 並列計算スレッショルド値   | 
+| ----- | -------------- | 
+| `Clear`/`DebugSettings`/<br>`ForceFan`/`PhaseCorrection`/<br>`ReadsFPGAState`/`SwapSegment`/<br>`Silencer`/`Synchronize`/<br>`FociSTM` (パターン数が4000以下)/<br>`Modulation` | 18446744073709551615 | 
+| `PulseWidthEncoder`/<br>`FociSTM` (パターン数が4000より多い)/<br>/`GainSTM`/`Gain` | `None` | 
+| (`a`, `b`) | `a`と`b`で小さい方, 片方が`None`の場合はもう片方, 両方`None`の場合は`None` | 
 
 この値は`with_parallel_threshold`で上書きできる.
 

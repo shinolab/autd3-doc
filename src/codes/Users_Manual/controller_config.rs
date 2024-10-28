@@ -1,6 +1,7 @@
 # use std::time::Duration;
 # use autd3::prelude::*;
 use autd3::controller::timer::{TimerStrategy, SpinSleeper};
+
 # #[allow(unused_variables)]
 # fn main() {
 # let _ = 

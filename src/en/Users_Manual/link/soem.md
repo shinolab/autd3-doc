@@ -39,12 +39,13 @@ Following options can be specified for SOEM link.
 - `buf_size`: Send queue buffer size. Usually, you don't need to change it.
 - `err_handler`: Callback when an error occurs. The callback function takes the device number where the error occurred, the type of error, and the error message as arguments.
 - `state_check_interval`: Interval to check if there is an error. The default is $\SI{100}{ms}$.
-- `sync0_cycle`: Synchronization signal cycle. The default is 2 (unit is $\SI{500}{us}$).
-- `send_cycle`: Send cycle. The default is 2 (unit is $\SI{500}{us}$).
-    - `SOEM` may become unstable when a large number of devices are connected[^fn_soem]. In this case, increase the values of `sync0_cycle` and `send_cycle`. These values should be as small as possible without causing errors. The default is 2, and the value depends on the number of devices connected. For example, if there are 9 devices, set the value to 3 or 4.
-- `timer_strategy`: Timer strategy. The default is `Sleep`.
-    - `Sleep`       : Use standard library sleep
-    - `BusyWait`    : Use busy wait. High resolution but high CPU load.
+- `sync0_cycle`: Synchronization signal cycle. The default is $\SI{1}{ms}$.
+- `send_cycle`: Send cycle. The default is 2 is $\SI{1}{ms}$.
+    - `SOEM` may become unstable when a large number of devices are connected[^fn_soem]. In this case, increase the values of `sync0_cycle` and `send_cycle`. These values should be as small as possible without causing errors. The value depends on the number of devices connected. For example, if there are 9 devices, set the value to $\SI{1.5}{ms}$ or $\SI{2}{ms}$.
+- `timer_strategy`: Timer strategy. The default is `SpinSleep`.
+    - `StdSleep`    : Use standard library sleep.
+    - `SpinSleep`   : Use [spin_sleep](https://docs.rs/spin_sleep/latest/spin_sleep/) crate.
+    - `SpinWait`    : Use spin loop. High resolution but high CPU load.
 - `sync_mode`: Synchronization mode. See [Beckhoff's explanation](https://infosys.beckhoff.com/english.php?content=../content/1033/ethercatsystem/2469122443.html&id=) for details.
 
 # RemoteSOEM
