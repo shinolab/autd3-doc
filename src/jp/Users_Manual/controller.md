@@ -61,7 +61,7 @@ Controllerには以下の設定が存在する.
 
 タイムアウトは`with_timeout`で上書きできる.
 
-タイムアウト値が`None`の場合は, [Controller](./link.md)で設定したファールバックタイムアウトが使用される.
+タイムアウト値が`None`の場合は, [Controller](./link.md)で設定したフォールバックタイムアウトが使用される.
 
 ```rust,edition2021
 {{#include ../../codes/Users_Manual/controller_1.rs}}

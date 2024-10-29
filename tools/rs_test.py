@@ -15,8 +15,8 @@ def get_latest_version(crate: str) -> str:
 
 
 if __name__ == "__main__":
-    autd3_version = "29.0.0-rc.2"
-    emulator_version = "29.0.0-rc.2"
+    autd3_version = "29.0.0-rc.3"
+    emulator_version = "29.0.0-rc.3"
     tokio_version = get_latest_version("tokio")
     print(f"Testing with autd3-rs {autd3_version}")
 
@@ -70,17 +70,13 @@ tokio = {{ version = "{tokio_version}", features = ["full"] }}
                 f.write(content)
 
             try:
-                subprocess.run(
-                    ["cargo", "rustc", "--", "-D", "warnings"], cwd=test_dir
-                ).check_returncode()
+                subprocess.run(["cargo", "rustc", "--", "-D", "warnings"], cwd=test_dir).check_returncode()
             except subprocess.CalledProcessError:
                 error_files.append(src)
 
         return error_files
 
-    result = joblib.Parallel(n_jobs=n_jobs)(
-        joblib.delayed(test)(i, len(srcs)) for i in range(n_jobs)
-    )
+    result = joblib.Parallel(n_jobs=n_jobs)(joblib.delayed(test)(i, len(srcs)) for i in range(n_jobs))
     err_files = reduce(lambda a, b: a + b, result)
     if len(err_files) == 0:
         print("All files are OK")

@@ -6,7 +6,7 @@ use autd3_emulator::*;
 # async fn main() -> Result<(), Box<dyn std::error::Error>> {
 let emulator = Controller::builder([AUTD3::new(Vector3::zeros())]).into_emulator();
 
-let focus = emulator.geometry().center() + Vector3::new(0., 0., 150. * mm);
+let focus = emulator.center() + Vector3::new(0., 0., 150. * mm);
 
 let record = emulator
     .record(|mut autd| async {
