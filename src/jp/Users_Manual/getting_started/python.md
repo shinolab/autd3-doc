@@ -3,7 +3,7 @@
 ## pyautd3ライブラリのインストール
 
 ```shell
-pip install pyautd3==29.0.0rc3.post2
+pip install pyautd3==29.0.0rc3.post3
 ```
 
 次に, `main.py`を作成し, 以下のようにする.
