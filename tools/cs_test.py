@@ -8,7 +8,7 @@ from glob import glob
 import joblib
 
 if __name__ == "__main__":
-    version = "29.0.0-rc.3"
+    version = "29.0.0-rc.3.1"
     print(f"Testing with AUTD3Sharp {version}")
 
     base_path = pathlib.Path(__file__).parent.parent / "src" / "codes"
@@ -79,9 +79,7 @@ if __name__ == "__main__":
                 error_files.append((cs_src, err))
         return error_files
 
-    result = joblib.Parallel(n_jobs=n_jobs)(
-        joblib.delayed(test)(i, len(cs_srcs)) for i in range(n_jobs)
-    )
+    result = joblib.Parallel(n_jobs=n_jobs)(joblib.delayed(test)(i, len(cs_srcs)) for i in range(n_jobs))
     err_files = reduce(lambda a, b: a + b, result)
     if len(err_files) == 0:
         print("All files are OK")
