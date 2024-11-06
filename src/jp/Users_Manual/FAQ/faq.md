@@ -23,7 +23,7 @@
 - WSL等の仮想マシンは対応していない
    - VirtualBoxなどで動く場合があるが, 挙動は不安定になる
 
-## "One ore more slaves are not responding"と表示される
+## "One ore more slaves are not responding", または, "Slow network was detected"と表示される
 
 - Driverを更新する
    - WindowsでRealtekを利用している場合, [公式サイト](https://www.realtek.com/ja/component/zoo/category/network-interface-controllers-10-100-1000m-gigabit-ethernet-pci-express-software)から`Win10 Auto Installation Program (NDIS)`と書かれた方のDriverをインストールすること (Windows 11でも).
@@ -31,6 +31,8 @@
 - (Windows) 最新のnpcapを使用する
 
 - `send_cycle`と`sync0_cycle`の値を増やす
+
+- (Windows) デバイスマネージャーの当該ネットワークアダプタのプロパティから, 「電源の管理」タブで「電力の節約のために、コンピューターでこのデバイスの電源をオフにできるようにする」のチェックを外す
 
 ## `link::SOEM`使用時に送信が頻繁に失敗する
 
