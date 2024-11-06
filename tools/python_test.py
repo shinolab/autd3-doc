@@ -1,35 +1,30 @@
 import pathlib
-import platform
+import re
 import subprocess
-from glob import glob
+import sys
+
+from autd3_build_utils.autd3_build_utils import (
+    BaseConfig,
+    run_command,
+    substitute_in_file,
+)
 
 
-def is_windows():
-    return platform.system() == "Windows"
+class Config(BaseConfig):
+    def __init__(self) -> None:
+        super().__init__(None)
 
 
-def is_macos():
-    return platform.system() == "Darwin"
+def python_module(cmd: list[str]) -> list[str]:
+    config = Config()
+    return ["python" if config.is_windows() else "python3", "-m", *cmd]
 
 
-def is_linux():
-    return platform.system() == "Linux"
-
-
-def python_module(cmd):
-    r = ["python" if is_windows() else "python3", "-m"]
-    r.extend(cmd)
-    return r
-
-
-def install_pyautd3():
-    version = "29.0.0rc3.post4"
-    subprocess.run(
-        python_module(["pip", "install", "-U", f"pyautd3=={version}"]),
-        capture_output=True,
-        text=True,
-        encoding="utf-8",
-    ).check_returncode()
+def install_pyautd3() -> None:
+    version = "29.0.0-rc.5.post1"
+    link_soem_version = "29.0.0-rc.5.post1"
+    run_command(python_module(["pip", "install", "-U", f"pyautd3=={version}"]))
+    run_command(python_module(["pip", "install", "-U", f"pyautd3_link_soem=={link_soem_version}"]))
 
 
 if __name__ == "__main__":
@@ -37,49 +32,46 @@ if __name__ == "__main__":
 
     base_path = pathlib.Path(__file__).parent.parent / "src" / "codes"
 
-    srcs = list(glob(str(base_path / "**/*.py"), recursive=True))
+    srcs = list(base_path.rglob("*.py"))
 
     test_dir = pathlib.Path(__file__).parent / "test-python"
     if not test_dir.exists():
         test_dir.mkdir()
 
     for src in srcs:
-        src = pathlib.Path(src)
-        with open(src, "r") as f:
-            content = f.read()
-        content = content.replace("~", "")
         dst = test_dir / src.relative_to(base_path)
         if not dst.parent.exists():
             dst.parent.mkdir(parents=True)
-            with open(dst.parent / "__init__.py", "w") as f:
+            with (dst.parent / "__init__.py").open("w") as f:
                 pass
-        with open(dst, "w") as f:
-            f.write(content)
+        substitute_in_file(src, [("~", "")], target_file=dst, flags=re.MULTILINE)
 
     r = subprocess.run(
         python_module(["mypy", str(test_dir), "--check-untyped-defs"]),
         capture_output=True,
         text=True,
         encoding="utf-8",
+        check=False,
     )
     try:
         r.check_returncode()
     except subprocess.CalledProcessError:
         err = r.stdout
         print(err.replace("test-python", str(base_path)))
-        exit(1)
+        sys.exit(1)
 
     r = subprocess.run(
         python_module(["ruff", "check", str(test_dir)]),
         capture_output=True,
         text=True,
         encoding="utf-8",
+        check=False,
     )
     try:
         r.check_returncode()
     except subprocess.CalledProcessError:
         err = r.stdout
         print(err.replace("test-python", str(base_path)))
-        exit(1)
+        sys.exit(1)
 
     print("All tests passed.")

@@ -10,6 +10,7 @@ You can install the library via Unity Package Manager.
 1. Click "+" button in upper left corner, then "Add package from git URL".
 1. Enter `https://github.com/shinolab/AUTD3Sharp.git#upm/latest` and click "Add".
     1. If you need a specific version, specify `#upm/vX.X.X`.
+1. If you want to use `AUTD3Sharp.Link.SOEM`, add `https://github.com/shinolab/AUTD3Sharp.Link.SOEM.git#upm/latest` as well.
 
 ## Sample
 

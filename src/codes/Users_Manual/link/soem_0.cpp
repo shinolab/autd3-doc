@@ -1,6 +1,6 @@
 //~#include<autd3.hpp>
 //~#include <iostream>
-#include "autd3/link/soem.hpp"
+#include <autd3_link_soem.hpp>
 
 //~int main() {
 //~(void)
