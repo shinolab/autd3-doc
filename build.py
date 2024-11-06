@@ -18,7 +18,7 @@ def doc_build(args) -> None:  # noqa: ANN001
     command = ["mdbook", "build", "--dest-dir", f"book/{args.target}"]
     if args.open:
         command.append("--open")
-    with with_env({"MDBOOK_BOOK__src": f"src/{args.target}"}):
+    with with_env(MDBOOK_BOOK__src=f"src/{args.target}"):
         run_command(command)
 
 
@@ -26,7 +26,7 @@ def doc_serve(args) -> None:  # noqa: ANN001
     command = ["mdbook", "serve", "--dest-dir", f"book/{args.target}"]
     if args.open:
         command.append("--open")
-    with with_env({"MDBOOK_BOOK__src": f"src/{args.target}"}):
+    with with_env(MDBOOK_BOOK__src=f"src/{args.target}"):
         run_command(command)
 
 
