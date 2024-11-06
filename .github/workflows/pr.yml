@@ -113,6 +113,6 @@ jobs:
         with:
           toolchain: 'stable'
       - run: |
-          pip install joblib
+          pip install joblib requests
           cd tools
           python3 rs_test.py 
