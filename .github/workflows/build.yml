@@ -14,6 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@v4
+        with:
+          submodules: true
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
@@ -27,6 +29,8 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@v4
+        with:
+          submodules: true
       - run: |
           sudo apt-get update
           sudo apt-get -y install libeigen3-dev
@@ -39,6 +43,8 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@v4
+        with:
+          submodules: true
       - uses: actions/setup-python@v5
         with:
           python-version: "3.13"
@@ -52,6 +58,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          submodules: true
       - uses: actions-rust-lang/setup-rust-toolchain@v1
         with:
           toolchain: 'stable'
