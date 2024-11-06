@@ -1,230 +1,190 @@
 #!/usr/bin/env python3
 
 import argparse
-import contextlib
 import datetime
-import os
+import pathlib
 import re
-import subprocess
+
+from tools.autd3_build_utils.autd3_build_utils import (
+    remove,
+    run_command,
+    substitute_in_file,
+    with_env,
+    working_dir,
+)
 
 
-def err(msg: str):
-    print("\033[91mERR \033[0m: " + msg)
+def doc_build(args) -> None:  # noqa: ANN001
+    command = ["mdbook", "build", "--dest-dir", f"book/{args.target}"]
+    if args.open:
+        command.append("--open")
+    with with_env({"MDBOOK_BOOK__src": f"src/{args.target}"}):
+        run_command(command)
 
 
-def warn(msg: str):
-    print("\033[93mWARN\033[0m: " + msg)
+def doc_serve(args) -> None:  # noqa: ANN001
+    command = ["mdbook", "serve", "--dest-dir", f"book/{args.target}"]
+    if args.open:
+        command.append("--open")
+    with with_env({"MDBOOK_BOOK__src": f"src/{args.target}"}):
+        run_command(command)
 
 
-def info(msg: str):
-    print("\033[92mINFO\033[0m: " + msg)
+def doc_clear(_) -> None:  # noqa: ANN001
+    remove("book")
+    remove("tools/.mypy_cache")
+    remove("tools/.ruff_cache")
+    remove("tools/test-cs")
+    remove("tools/test-python")
+    remove("tools/test-rs")
+    remove("tools/test-cpp")
 
 
-@contextlib.contextmanager
-def set_env(key, value):
-    env = os.environ.copy()
-    os.environ[key] = value
-    try:
-        yield
-    finally:
-        os.environ.clear()
-        os.environ.update(env)
-
-
-@contextlib.contextmanager
-def working_dir(path):
-    cwd = os.getcwd()
-    os.chdir(path)
-    try:
-        yield
-    finally:
-        os.chdir(cwd)
-
-
-def env_exists(value):
-    return value in os.environ and os.environ[value] != ""
-
-
-def doc_build(args):
-    with working_dir("."):
-        command = ["mdbook", "build", "--dest-dir", f"book/{args.target}"]
-        if args.open:
-            command.append("--open")
-        with set_env("MDBOOK_BOOK__src", f"src/{args.target}"):
-            subprocess.run(command).check_returncode()
-
-
-def doc_serve(args):
-    with working_dir("."):
-        command = ["mdbook", "serve", "--dest-dir", f"book/{args.target}"]
-        if args.open:
-            command.append("--open")
-        with set_env("MDBOOK_BOOK__src", f"src/{args.target}"):
-            subprocess.run(command).check_returncode()
-
-
-def util_update_ver(args):
+def util_update_ver(args) -> None:  # noqa: ANN001
     version = args.version
 
-    with working_dir("."):
-        with open("src/codes/Users_Manual/Tutorial/CMakeLists.txt", "r") as f:
-            content = f.read()
-            content = re.sub(
-                r"v(.*)/autd3-v(\d*\.\d*\.\d*)",
-                f"v{version}/autd3-v{version}",
-                content,
-                flags=re.MULTILINE,
-            )
-        with open("src/codes/Users_Manual/Tutorial/CMakeLists.txt", "w") as f:
-            f.write(content)
+    substitute_in_file(
+        "src/codes/Users_Manual/Tutorial/CMakeLists.txt",
+        [
+            (
+                r"v.*/autd3-v.*-(win|macos|linux)",
+                rf"v{version}/autd3-v{version}-\1",
+            ),
+        ],
+        flags=re.MULTILINE,
+    )
 
-        now = datetime.datetime.now().strftime("%Y/%m/%d")
+    now = datetime.datetime.now().strftime("%Y/%m/%d")  # noqa: DTZ005
 
-        with open("src/en/Users_Manual/release_notes.md", "r") as f:
-            content = f.read().rstrip()
-        with open("src/en/Users_Manual/release_notes.md", "w") as f:
-            lines = content.split("\n")
-            i = 0
-            for _ in range(4):
-                f.write(lines[i] + "\n")
-                i += 1
-            last_firm_ver = lines[i].split("|")[3].strip()
-            f.write(f"| {now}  | {version:16} | {last_firm_ver:16} |\n")
-            for line in lines[i:]:
-                f.write(line + "\n")
+    def update_release_note(path: str) -> None:
+        f = pathlib.Path(path)
+        content = f.read_text().strip()
+        lines = content.split("\n")
+        content: list[str] = []
+        i = 0
+        for _ in range(4):
+            content.append(lines[i])
+            i += 1
+        last_firm_ver = lines[i].split("|")[3].strip()
+        content.append(f"| {now}  | {version:16} | {last_firm_ver:16} |")
+        for line in lines[i:]:
+            content.append(line)
+        f.write_text("\n".join(content))
 
-        with open("src/jp/Users_Manual/release_notes.md", "r") as f:
-            content = f.read().rstrip()
-        with open("src/jp/Users_Manual/release_notes.md", "w") as f:
-            lines = content.split("\n")
-            i = 0
-            for _ in range(4):
-                f.write(lines[i] + "\n")
-                i += 1
-            last_firm_ver = lines[i].split("|")[3].strip()
-            f.write(f"| {now}  | {version:16} | {last_firm_ver:16} |\n")
-            for line in lines[i:]:
-                f.write(line + "\n")
+    update_release_note("src/en/Users_Manual/release_notes.md")
+    update_release_note("src/jp/Users_Manual/release_notes.md")
 
-        with open("src/en/document_history.md", "r") as f:
-            content = f.read().rstrip()
-        with open("src/en/document_history.md", "w") as f:
-            lines = content.split("\n")
-            i = 0
-            for _ in range(4):
-                f.write(lines[i] + "\n")
-                i += 1
-            f.write(f"| {now} | Version {version} Initial release                |\n")
-            for line in lines[i:]:
-                f.write(line + "\n")
+    def update_document_history(path: str, text: str) -> None:
+        f = pathlib.Path(path)
+        content = f.read_text(encoding="utf-8").strip()
+        lines = content.split("\n")
+        content: list[str] = []
+        i = 0
+        for _ in range(4):
+            content.append(lines[i])
+            i += 1
+        content.append(f"| {now} | Version {version} {text}|")
+        for line in lines[i:]:
+            content.append(line)
+        f.write_text("\n".join(content), encoding="utf-8")
 
-        with open("src/jp/document_history.md", "r", encoding="utf-8") as f:
-            content = f.read().rstrip()
-        with open("src/jp/document_history.md", "w", encoding="utf-8") as f:
-            lines = content.split("\n")
-            i = 0
-            for _ in range(4):
-                f.write(lines[i] + "\n")
-                i += 1
-            f.write(f"| {now} | Version {version} 初版                           |\n")
-            for line in lines[i:]:
-                f.write(line + "\n")
+    update_document_history("src/en/document_history.md", "Initial release                ")
+    update_document_history("src/jp/document_history.md", "初版                           ")
 
-        with open("book.toml", "r") as f:
-            content = f.read()
-            content = re.sub(
+    substitute_in_file(
+        "book.toml",
+        [
+            (
                 r'^title = "AUTD3 Developers Manual v(.*)"',
                 f'title = "AUTD3 Developers Manual v{version}"',
-                content,
-                flags=re.MULTILINE,
-            )
-        with open("book.toml", "w") as f:
-            f.write(content)
+            ),
+        ],
+        flags=re.MULTILINE,
+    )
 
-        with open("tools/rs_test.py", "r") as f:
-            content = f.read()
-            content = re.sub(
+    substitute_in_file(
+        "tools/rs_test.py",
+        [
+            (
                 r'autd3_version = "(.*)"',
                 f'autd3_version = "{version}"',
-                content,
-                flags=re.MULTILINE,
-            )
-            content = re.sub(
-                r'autd3_link_vis_version = "(.*)"',
-                f'autd3_link_vis_version = "{version}"',
-                content,
-                flags=re.MULTILINE,
-            )
-        with open("tools/rs_test.py", "w") as f:
-            f.write(content)
+            ),
+            (
+                r'autd3_emulator_version = "(.*)"',
+                f'autd3_emulator_version = "{version}"',
+            ),
+            (
+                r'autd3_link_soem_version = "(.*)"',
+                f'autd3_link_soem_version = "{version}"',
+            ),
+        ],
+    )
 
-        with open("tools/cpp_test.py", "r") as f:
-            content = f.read()
-            content = re.sub(
+    substitute_in_file(
+        "tools/cpp_test.py",
+        [
+            (
                 r'version = "(.*)"',
                 f'version = "{version}"',
-                content,
-                flags=re.MULTILINE,
-            )
-        with open("tools/cpp_test.py", "w") as f:
-            f.write(content)
+            ),
+        ],
+        flags=re.MULTILINE,
+    )
 
-        with open("tools/cs_test.py", "r") as f:
-            content = f.read()
-            content = re.sub(
+    substitute_in_file(
+        "tools/cs_test.py",
+        [
+            (
                 r'version = "(.*)"',
                 f'version = "{version}"',
-                content,
-                flags=re.MULTILINE,
-            )
-        with open("tools/cs_test.py", "w") as f:
-            f.write(content)
+            ),
+        ],
+        flags=re.MULTILINE,
+    )
 
-        with open("tools/python_test.py", "r") as f:
-            content = f.read()
-            content = re.sub(
+    substitute_in_file(
+        "tools/python_test.py",
+        [
+            (
                 r'version = "(.*)"',
                 f'version = "{version}"',
-                content,
-                flags=re.MULTILINE,
-            )
-        with open("tools/python_test.py", "w") as f:
-            f.write(content)
+            ),
+        ],
+        flags=re.MULTILINE,
+    )
 
 
-def command_help(args):
+def command_help(args) -> None:  # noqa: ANN001
     print(parser.parse_args([args.command, "--help"]))
 
 
 if __name__ == "__main__":
-    with working_dir(os.path.dirname(os.path.abspath(__file__))):
+    with working_dir(pathlib.Path(__file__).parent):
         parser = argparse.ArgumentParser(description="autd3 library build script")
         subparsers = parser.add_subparsers()
 
         # build
         parser_doc_build = subparsers.add_parser("build", help="see `build -h`")
         parser_doc_build.add_argument("target", help="build target [jp|en]")
-        parser_doc_build.add_argument(
-            "--open", help="open browser after build", action="store_true"
-        )
+        parser_doc_build.add_argument("--open", help="open browser after build", action="store_true")
         parser_doc_build.set_defaults(handler=doc_build)
 
         # serve
         parser_doc_serve = subparsers.add_parser("serve", help="see `serve -h`")
         parser_doc_serve.add_argument("target", help="build target [jp|en]")
-        parser_doc_serve.add_argument(
-            "--open", help="open browser after build", action="store_true"
-        )
+        parser_doc_serve.add_argument("--open", help="open browser after build", action="store_true")
         parser_doc_serve.set_defaults(handler=doc_serve)
+
+        # clear
+        parser_doc_clear = subparsers.add_parser("clear", help="see `clear -h`")
+        parser_doc_clear.set_defaults(handler=doc_clear)
 
         # util
         parser_util = subparsers.add_parser("util", help="see `util -h`")
         subparsers_util = parser_util.add_subparsers()
 
         # util update version
-        parser_util_upver = subparsers_util.add_parser(
-            "upver", help="see `util upver -h`"
-        )
+        parser_util_upver = subparsers_util.add_parser("upver", help="see `util upver -h`")
         parser_util_upver.add_argument("version", help="version")
         parser_util_upver.set_defaults(handler=util_update_ver)
 

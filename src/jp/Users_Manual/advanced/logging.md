@@ -57,3 +57,8 @@ System.Environment.SetEnvironmentVariable("RUST_LOG", "autd3=INFO");
 AUTD3Sharp.Tracing.Init("<path to log file>");
 ```
 
+また, `AUTD3Sharp.Link.SOEM`を使用する場合は, `SOEM`のログ出力も有効化すること.
+
+```cs
+AUTD3Sharp.Link.SOEM.Tracing.Init("<path to log file>");
+```

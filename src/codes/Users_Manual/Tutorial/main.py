@@ -2,7 +2,7 @@ import os
 
 import numpy as np
 from pyautd3 import AUTD3, Controller, Focus, Hz, Silencer, Sine
-from pyautd3.link.soem import SOEM, Status
+from pyautd3_link_soem import SOEM, Status
 
 
 def err_handler(slave: int, status: Status) -> None:
@@ -17,7 +17,11 @@ if __name__ == "__main__":
         SOEM.builder().with_err_handler(err_handler),
     ) as autd:
         firmware_version = autd.firmware_version()
-        print("\n".join([f"[{i}]: {firm}" for i, firm in enumerate(firmware_version)]))
+        print(
+            "\n".join(
+                [f"[{i}]: {firm}" for i, firm in enumerate(firmware_version)],
+            ),
+        )
 
         autd.send(Silencer())
 

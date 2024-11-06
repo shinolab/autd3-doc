@@ -1,17 +1,20 @@
+#include <autd3_link_soem.hpp>
 #include <iostream>
 
 #include "autd3.hpp"
-#include "autd3/link/soem.hpp"
 
 int main() try {
-  auto autd = autd3::ControllerBuilder({autd3::AUTD3(autd3::Vector3::Zero())})
-                  .open(autd3::link::SOEM::builder().with_err_handler([](const uint16_t slave, const autd3::link::Status status) {
-                    std::cout << "slave [" << slave << "]: " << status << std::endl;
-                    if (status == autd3::link::Status::Lost()) exit(-1);
-                  }));
+  auto autd =
+      autd3::ControllerBuilder({autd3::AUTD3(autd3::Vector3::Zero())})
+          .open(autd3::link::SOEM::builder().with_err_handler(
+              [](const uint16_t slave, const autd3::link::Status status) {
+                std::cout << "slave [" << slave << "]: " << status << std::endl;
+                if (status == autd3::link::Status::Lost()) exit(-1);
+              }));
 
   const auto firm_version = autd.firmware_version();
-  std::copy(firm_version.begin(), firm_version.end(), std::ostream_iterator<autd3::FirmwareVersion>(std::cout, "\n"));
+  std::copy(firm_version.begin(), firm_version.end(),
+            std::ostream_iterator<autd3::FirmwareVersion>(std::cout, "\n"));
 
   autd.send(autd3::Silencer());
 

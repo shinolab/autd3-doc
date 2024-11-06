@@ -1,5 +1,5 @@
 //~#include<autd3.hpp>
-#include "autd3/link/soem.hpp"
+#include <autd3_link_soem.hpp>
 
 //~int main() {
 //~auto autd = autd3::ControllerBuilder({autd3::AUTD3(autd3::Vector3::Zero())})

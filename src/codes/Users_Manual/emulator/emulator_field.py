@@ -1,4 +1,5 @@
 ~from datetime import timedelta
+~
 ~import numpy as np
 from pyautd3 import AUTD3, Controller, Focus, Silencer, Static
 from pyautd3.emulator import Range, Recorder, RecordOption
@@ -30,5 +31,7 @@ with Controller.builder([AUTD3([0.0, 0.0, 0.0])]).into_emulator() as emulator:
             gpu=True,
         ),
     )
-    df = sound_field.skip(timedelta(microseconds=500)).next(timedelta(microseconds=500))
+    df = sound_field.skip(timedelta(microseconds=500)).next(
+        timedelta(microseconds=500),
+    )
     print(df)

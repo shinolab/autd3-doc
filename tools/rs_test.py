@@ -1,12 +1,17 @@
 import multiprocessing
 import pathlib
+import re
 import subprocess
 import sys
 from functools import reduce
-from glob import glob
 
 import joblib
 import requests
+from autd3_build_utils.autd3_build_utils import (
+    run_command,
+    substitute_in_file,
+    working_dir,
+)
 
 
 def get_latest_version(crate: str) -> str:
@@ -15,16 +20,16 @@ def get_latest_version(crate: str) -> str:
 
 
 if __name__ == "__main__":
-    autd3_version = "29.0.0-rc.3"
-    emulator_version = "29.0.0-rc.3"
+    autd3_version = "29.0.0-rc.5"
+    autd3_emulator_version = "29.0.0-rc.5"
+    autd3_link_soem_version = "29.0.0-rc.5"
     tokio_version = get_latest_version("tokio")
     print(f"Testing with autd3-rs {autd3_version}")
 
     base_path = pathlib.Path(__file__).parent.parent / "src" / "codes"
 
-    n_jobs = multiprocessing.cpu_count() // 2
     n_jobs = 1
-    srcs = list(glob(str(base_path / "**/*.rs"), recursive=True))
+    srcs = list(base_path.rglob("*.rs"))
     N = len(srcs)
     block = N // n_jobs
 
@@ -32,10 +37,10 @@ if __name__ == "__main__":
     if not base_test_dir.exists():
         base_test_dir.mkdir()
 
-    def test(i, N):
+    def test(i: int, n: int) -> list[str]:
         error_files = []
         start = i * block
-        end = (i + 1) * block if i != n_jobs - 1 else N
+        end = (i + 1) * block if i != n_jobs - 1 else n
 
         test_dir = base_test_dir / str(i)
         if not test_dir.exists():
@@ -43,7 +48,7 @@ if __name__ == "__main__":
         src_dir = test_dir / "src"
         if not src_dir.exists():
             src_dir.mkdir()
-        with open(test_dir / "Cargo.toml", "w") as f:
+        with (test_dir / "Cargo.toml").open("w") as f:
             f.write(
                 f"""[package]
 name = "thirdparties"
@@ -54,25 +59,22 @@ edition = "2021"
 autd3 = {{ version = "{autd3_version}" }}
 autd3-gain-holo = {{ version = "{autd3_version}" }}
 autd3-link-simulator = {{ version = "{autd3_version}" }}
-autd3-link-soem = {{ version = "{autd3_version}", features = ["remote"] }}
+autd3-link-soem = {{ version = "{autd3_link_soem_version}", features = ["remote"] }}
 autd3-link-twincat = {{ version = "{autd3_version}", features = ["remote"] }}
 autd3-modulation-audio-file = {{ version = "{autd3_version}" }}
-autd3-emulator = {{ version = "{emulator_version}", features = ["gpu"] }}
+autd3-emulator = {{ version = "{autd3_emulator_version}", features = ["gpu"] }}
 tokio = {{ version = "{tokio_version}", features = ["full"] }}
-"""
+""",
             )
 
         for src in srcs[start:end]:
-            with open(src, "r") as f:
-                content = f.read()
-            content = content.replace("# ", "")
-            with open(src_dir / "main.rs", "w") as f:
-                f.write(content)
+            substitute_in_file(src, [("# ", "")], target_file=src_dir / "main.rs", flags=re.MULTILINE)
 
-            try:
-                subprocess.run(["cargo", "rustc", "--", "-D", "warnings"], cwd=test_dir).check_returncode()
-            except subprocess.CalledProcessError:
-                error_files.append(src)
+            with working_dir(test_dir):
+                try:
+                    run_command(["cargo", "rustc", "--", "-D", "warnings"])
+                except subprocess.CalledProcessError:
+                    error_files.append(src)
 
         return error_files
 

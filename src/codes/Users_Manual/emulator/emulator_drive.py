@@ -1,5 +1,14 @@
 ~from datetime import timedelta
-from pyautd3 import AUTD3, Controller, EmitIntensity, Hz, Silencer, Sine, Uniform
+~
+from pyautd3 import (
+    AUTD3,
+    Controller,
+    EmitIntensity,
+    Hz,
+    Silencer,
+    Sine,
+    Uniform,
+)
 from pyautd3.emulator import Recorder
 
 with Controller.builder([AUTD3([0.0, 0.0, 0.0])]).into_emulator() as emulator:

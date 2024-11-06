@@ -1,6 +1,13 @@
 ~import os
 ~from datetime import timedelta
-from pyautd3.link.soem import SOEM, Status, TimerStrategy, ThreadPriority, ProcessPriority
+~
+from pyautd3_link_soem import (
+    SOEM,
+    ProcessPriority,
+    Status,
+    ThreadPriority,
+    TimerStrategy,
+)
 
 
 def err_handler(slave: int, status: Status) -> None:

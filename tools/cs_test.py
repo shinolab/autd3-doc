@@ -1,20 +1,23 @@
 import multiprocessing
 import pathlib
+import re
 import subprocess
 import sys
 from functools import reduce
-from glob import glob
 
 import joblib
 
+from autd3_build_utils.autd3_build_utils import substitute_in_file
+
 if __name__ == "__main__":
-    version = "29.0.0-rc.3.1"
+    version = "29.0.0-rc.5"
+    link_soem_version = "29.0.0-rc.5"
     print(f"Testing with AUTD3Sharp {version}")
 
     base_path = pathlib.Path(__file__).parent.parent / "src" / "codes"
 
     n_jobs = multiprocessing.cpu_count()
-    cs_srcs = list(glob(str(base_path / "**/*.cs"), recursive=True))
+    cs_srcs = list(base_path.rglob("*.cs"))
     N = len(cs_srcs)
     block = N // n_jobs
 
@@ -22,15 +25,15 @@ if __name__ == "__main__":
     if not base_test_dir.exists():
         base_test_dir.mkdir()
 
-    def test(i, N):
+    def test(i: int, n: int) -> list[pathlib.Path]:
         error_files = []
         start = i * block
-        end = (i + 1) * block if i != n_jobs - 1 else N
+        end = (i + 1) * block if i != n_jobs - 1 else n
 
         test_dir = base_test_dir / str(i)
         if not test_dir.exists():
             test_dir.mkdir()
-        with open(test_dir / "test.csproj", "w") as f:
+        with (test_dir / "test.csproj").open("w") as f:
             f.write(
                 f"""<Project Sdk="Microsoft.NET.Sdk">
 
@@ -46,17 +49,19 @@ if __name__ == "__main__":
     <ItemGroup>
         <PackageReference Include="AUTD3Sharp" Version="{version}" />
         <PackageReference Include="AUTD3Sharp.Derive" Version="{version}" />
+        <PackageReference Include="AUTD3Sharp.Link.SOEM" Version="{link_soem_version}" />
     </ItemGroup>
 
-    </Project>"""
+    </Project>""",
             )
 
         for cs_src in cs_srcs[start:end]:
-            with open(cs_src, "r") as f:
-                content = f.read()
-            content = content.replace("~", "")
-            with open(test_dir / "test.cs", "w") as f:
-                f.write(content)
+            substitute_in_file(
+                cs_src,
+                [("~", "")],
+                target_file=test_dir / "test.cs",
+                flags=re.MULTILINE,
+            )
 
             r = subprocess.run(
                 ["dotnet", "build"],
@@ -64,6 +69,7 @@ if __name__ == "__main__":
                 capture_output=True,
                 text=True,
                 encoding="utf-8",
+                check=False,
             )
             try:
                 r.check_returncode()

@@ -10,6 +10,7 @@ Unity Package Manager経由でインストールする.
 1. 左上の「+」ボタンから, 「Add package from git URL」を選択する
 1. `https://github.com/shinolab/AUTD3Sharp.git#upm/latest`を入力し, 「Add」をクリックする
     1. 特定のバージョンが必要な場合は, `#upm/vX.X.X`を指定する.
+1. `AUTD3Sharp.Link.SOEM`を使用する場合は, `https://github.com/shinolab/AUTD3Sharp.Link.SOEM.git#upm/latest`も追加する
 
 ## Sample
 
