@@ -7,6 +7,7 @@ from functools import reduce
 
 import joblib
 import requests
+
 from autd3_build_utils.autd3_build_utils import (
     run_command,
     substitute_in_file,
@@ -20,9 +21,9 @@ def get_latest_version(crate: str) -> str:
 
 
 if __name__ == "__main__":
-    autd3_version = "29.0.0-rc.5"
-    autd3_emulator_version = "29.0.0-rc.5"
-    autd3_link_soem_version = "29.0.0-rc.5"
+    autd3_version = "29.0.0-rc.8"
+    autd3_emulator_version = "29.0.0-rc.8"
+    autd3_link_soem_version = "29.0.0-rc.8"
     tokio_version = get_latest_version("tokio")
     print(f"Testing with autd3-rs {autd3_version}")
 
@@ -69,12 +70,10 @@ tokio = {{ version = "{tokio_version}", features = ["full"] }}
 
         for src in srcs[start:end]:
             substitute_in_file(src, [("# ", "")], target_file=src_dir / "main.rs", flags=re.MULTILINE)
-
-            with working_dir(test_dir):
-                try:
-                    run_command(["cargo", "rustc", "--", "-D", "warnings"])
-                except subprocess.CalledProcessError:
-                    error_files.append(src)
+            try:
+                subprocess.run(["cargo", "rustc", "--", "-D", "warnings"], cwd=test_dir).check_returncode()
+            except subprocess.CalledProcessError:
+                error_files.append(src)
 
         return error_files
 

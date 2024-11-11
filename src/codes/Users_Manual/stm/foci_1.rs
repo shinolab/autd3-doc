@@ -12,8 +12,8 @@ let stm = FociSTM::new(
         let theta = 2.0 * PI * i as f32 / point_num as f32;
         let p = radius * Vector3::new(theta.cos(), theta.sin(), 0.0);
         ControlPoints::new([
-            ControlPoint::new(center + p).with_phase_offset(0x00),
-            ControlPoint::new(center - p).with_phase_offset(0x00),
+            ControlPoint::from(center + p).with_phase_offset(0x00),
+            ControlPoint::from(center - p).with_phase_offset(0x00),
         ]).with_intensity(0xFF)
     }),
 )?;

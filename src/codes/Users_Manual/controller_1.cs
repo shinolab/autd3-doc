@@ -7,4 +7,4 @@
 ~using var autd = Controller.Builder([new AUTD3(Vector3.Zero)]).Open(Nop.Builder());
 ~var m = new Static();
 ~var g = new Null();
-autd.Send((m, g).WithTimeout(TimeSpan.FromMilliseconds(20)));
+autd.Send((m, g).WithTimeout(Duration.FromMillis(20)));

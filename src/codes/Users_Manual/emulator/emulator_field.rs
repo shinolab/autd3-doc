@@ -26,11 +26,12 @@ let mut sound_field = record
             z: focus.z..=focus.z,
             resolution: 1.,
         },
-        RecordOption {
+        InstantRecordOption {
+            sound_speed: 340e3 * mm,
             time_step: Duration::from_micros(1),
             print_progress: true,
-            gpu: true,
-            ..Default::default()
+            memory_limits_hint_mb: 128,
+            gpu: true,        
         },
     )
     .await?;
