@@ -14,8 +14,8 @@ from autd3_build_utils.autd3_build_utils import (
 )
 
 if __name__ == "__main__":
-    version = "29.0.0-rc.5"
-    link_soem_version = "29.0.0-rc.5"
+    version = "29.0.0-rc.8"
+    link_soem_version = "29.0.0-rc.8"
     print(f"Testing with autd3-cpp {version}")
 
     base_path = pathlib.Path(__file__).parent.parent / "src" / "codes"
@@ -103,11 +103,10 @@ target_link_libraries(main PRIVATE autd3::modulation::audio_file)
             run_command(["cmake", "..", "-DCMAKE_C_COMPILER=gcc-12", "-DCMAKE_CXX_COMPILER=g++-12"])
         for src in srcs[start:end]:
             substitute_in_file(src, [("//~", "")], target_file=test_dir / "main.cpp", flags=re.MULTILINE)
-            with working_dir(build_dir):
-                try:
-                    run_command(["cmake", "--build", ".", "--config", "release"])
-                except subprocess.CalledProcessError:
-                    error_files.append(src)
+            try:
+                subprocess.run(["cmake", "--build", ".", "--config", "release"], cwd=build_dir).check_returncode()
+            except subprocess.CalledProcessError:
+                error_files.append(src)
 
         return error_files
 

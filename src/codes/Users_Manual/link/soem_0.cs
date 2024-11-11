@@ -17,12 +17,12 @@ SOEM.Builder()
             Environment.Exit(-1);
         }
     })
-    .WithStateCheckInterval(TimeSpan.FromMilliseconds(100))
-    .WithSync0Cycle(TimeSpan.FromMilliseconds(1))
-    .WithSendCycle(TimeSpan.FromMilliseconds(1))
+    .WithStateCheckInterval(Duration.FromMillis(100))
+    .WithSync0Cycle(Duration.FromMillis(1))
+    .WithSendCycle(Duration.FromMillis(1))
     .WithTimerStrategy(TimerStrategy.SpinSleep)
-    .WithSyncTolerance(TimeSpan.FromMicroseconds(1))
-    .WithSyncTimeout(TimeSpan.FromSeconds(10))
+    .WithSyncTolerance(Duration.FromMicros(1))
+    .WithSyncTimeout(Duration.FromSecs(10))
     .WithThreadPriority(AUTD3Sharp.Link.ThreadPriority.Max)
     .WithProcessPriority(ProcessPriority.High)
 ~);

@@ -1,8 +1,7 @@
-~from datetime import timedelta
-~
 from pyautd3 import (
     AUTD3,
     Controller,
+    Duration,
     EmitIntensity,
     Phase,
     Silencer,
@@ -21,7 +20,7 @@ with Controller.builder([AUTD3([0.0, 0.0, 0.0])]).into_emulator() as emulator:
                 Uniform((Phase(0x40), EmitIntensity(0xFF))),
             ),
         )
-        autd.tick(timedelta(milliseconds=1))
+        autd.tick(Duration.from_millis(1))
         return autd
 
     record = emulator.record(f)

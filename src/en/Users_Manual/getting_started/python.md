@@ -3,8 +3,8 @@
 First, install `pyautd3` library.
 
 ```shell
-pip install pyautd3==29.0.0rc5.post1
-pip install pyautd3_link_soem==29.0.0rc5.post1
+pip install pyautd3==29.0.0rc8
+pip install pyautd3_link_soem==29.0.0rc8
 ```
 
 Next, make `main.py` file as follows.

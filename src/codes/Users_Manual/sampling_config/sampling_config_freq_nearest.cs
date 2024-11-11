@@ -6,5 +6,5 @@ SamplingConfig.Nearest(4000.0f * Hz)
 ~;
 // or
 ~var sp =
-SamplingConfig.Nearest(TimeSpan.FromMicroseconds(250))
+SamplingConfig.Nearest(Duration.FromMicros(250))
 ~;

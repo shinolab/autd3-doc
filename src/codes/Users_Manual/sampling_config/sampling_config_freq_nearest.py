@@ -1,5 +1,4 @@
-~from pyautd3 import SamplingConfig, Hz
-~from datetime import timedelta
+~from pyautd3 import Duration, Hz, SamplingConfig
 SamplingConfig.nearest(4000.0 * Hz)
 # or
-SamplingConfig.nearest(timedelta(microseconds=250))
+SamplingConfig.nearest(Duration.from_micros(250))
