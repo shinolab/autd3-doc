@@ -7,8 +7,8 @@
 ```shell
 cargo new --bin autd3-sample
 cd autd3-sample
-cargo add autd3@29.0.0-rc.8
-cargo add autd3-link-soem@29.0.0-rc.8
+cargo add autd3@29.0.0-rc.9
+cargo add autd3-link-soem@29.0.0-rc.9
 cargo add tokio --features full
 ```
 
