@@ -1,6 +1,6 @@
 ~import numpy as np
 from pyautd3 import AUTD3, Controller, Duration, Focus, Silencer, Static
-from pyautd3.emulator import Range, Recorder, RmsRecordOption
+from pyautd3.emulator import RangeXYZ, Recorder, RmsRecordOption
 
 with Controller.builder([AUTD3([0.0, 0.0, 0.0])]).into_emulator() as emulator:
     focus = emulator.center + np.array([0.0, 0.0, 150.0])
@@ -14,7 +14,7 @@ with Controller.builder([AUTD3([0.0, 0.0, 0.0])]).into_emulator() as emulator:
     record = emulator.record(f)
 
     sound_field = record.sound_field(
-        Range(
+        RangeXYZ(
             x_start=focus[0] - 20.0,
             x_end=focus[0] + 20.0,
             y_start=focus[1] - 20.0,
