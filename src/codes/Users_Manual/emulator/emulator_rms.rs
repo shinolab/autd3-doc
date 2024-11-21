@@ -20,10 +20,10 @@ let record = emulator
 
 let mut sound_field = record
     .sound_field(
-        Range {
+        RangeXY {
             x: focus.x - 20.0..=focus.x + 20.0,
             y: focus.y - 20.0..=focus.y + 20.0,
-            z: focus.z..=focus.z,
+            z: focus.z,
             resolution: 1.,
         },
         RmsRecordOption {

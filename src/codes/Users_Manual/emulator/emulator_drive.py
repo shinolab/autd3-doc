@@ -20,5 +20,8 @@ with Controller.builder([AUTD3([0.0, 0.0, 0.0])]).into_emulator() as emulator:
 
     record = emulator.record(f)
 
-    df = record.drive()
+    df = record.phase()
+    print(df)
+
+    df = record.pulse_width()
     print(df)

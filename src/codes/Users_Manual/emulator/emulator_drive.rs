@@ -15,8 +15,15 @@ let record = emulator
         Ok(autd)
     })
     .await?;
-
-let df = record.drive();
+# {
+let df = record.phase();
 dbg!(df);
+# }
+
+# {
+let df = record.pulse_width();
+dbg!(df);
+# }
+
 #     Ok(())
 # }
