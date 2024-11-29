@@ -31,6 +31,10 @@ with Controller.builder([AUTD3([0.0, 0.0, 0.0])]).into_emulator() as emulator:
             gpu=True,
         ),
     )
+
+    df = sound_field.observe_points()
+    print(df)
+
     df = sound_field.skip(Duration.from_micros(500)).next(
         Duration.from_micros(500),
     )

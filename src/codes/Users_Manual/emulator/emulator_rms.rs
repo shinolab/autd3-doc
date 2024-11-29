@@ -33,7 +33,10 @@ let mut sound_field = record
         },
     )
     .await?;
-   
+
+let df = sound_field.observe_points();
+dbg!(df);
+
 let df = sound_field.next(Duration::from_micros(25)).await?;
 dbg!(df);
 #     Ok(())
