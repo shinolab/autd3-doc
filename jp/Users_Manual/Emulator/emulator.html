@@ -1,0 +1,810 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>エミュレータ - AUTD3 Developers Manual v29.0.0-rc.10</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../theme/codeblock_filename.css">
+        <link rel="stylesheet" href="../../theme/lightbox.css">
+        <link rel="stylesheet" href="../../open-in.css">
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "navy";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../about_AUTD3.html"><strong aria-hidden="true">1.</strong> AUTD3について</a></li><li class="chapter-item expanded "><a href="../../Users_Manual/users_manual.html"><strong aria-hidden="true">2.</strong> ユーザーズマニュアル</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../Users_Manual/concept.html"><strong aria-hidden="true">2.1.</strong> コンセプト</a></li><li class="chapter-item "><a href="../../Users_Manual/getting_started.html"><strong aria-hidden="true">2.2.</strong> チュートリアル</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../Users_Manual/getting_started/rust.html"><strong aria-hidden="true">2.2.1.</strong> Rust</a></li><li class="chapter-item "><a href="../../Users_Manual/getting_started/cpp.html"><strong aria-hidden="true">2.2.2.</strong> C++</a></li><li class="chapter-item "><a href="../../Users_Manual/getting_started/cs.html"><strong aria-hidden="true">2.2.3.</strong> C#</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../Users_Manual/getting_started/unity.html"><strong aria-hidden="true">2.2.3.1.</strong> Unity</a></li></ol></li><li class="chapter-item "><a href="../../Users_Manual/getting_started/python.html"><strong aria-hidden="true">2.2.4.</strong> Python</a></li></ol></li><li class="chapter-item "><a href="../../Users_Manual/versioning.html"><strong aria-hidden="true">2.3.</strong> バージョニング</a></li><li class="chapter-item "><a href="../../Users_Manual/geometry.html"><strong aria-hidden="true">2.4.</strong> Geometry</a></li><li class="chapter-item "><a href="../../Users_Manual/link.html"><strong aria-hidden="true">2.5.</strong> Link</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../Users_Manual/link/twincat.html"><strong aria-hidden="true">2.5.1.</strong> TwinCAT</a></li><li class="chapter-item "><a href="../../Users_Manual/link/soem.html"><strong aria-hidden="true">2.5.2.</strong> SOEM</a></li><li class="chapter-item "><a href="../../Users_Manual/link/simulator.html"><strong aria-hidden="true">2.5.3.</strong> Simulator</a></li></ol></li><li class="chapter-item "><a href="../../Users_Manual/gain.html"><strong aria-hidden="true">2.6.</strong> Gain</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../Users_Manual/gain/null.html"><strong aria-hidden="true">2.6.1.</strong> Null</a></li><li class="chapter-item "><a href="../../Users_Manual/gain/focus.html"><strong aria-hidden="true">2.6.2.</strong> Focus</a></li><li class="chapter-item "><a href="../../Users_Manual/gain/bessel.html"><strong aria-hidden="true">2.6.3.</strong> Bessel</a></li><li class="chapter-item "><a href="../../Users_Manual/gain/plane.html"><strong aria-hidden="true">2.6.4.</strong> Plane</a></li><li class="chapter-item "><a href="../../Users_Manual/gain/uniform.html"><strong aria-hidden="true">2.6.5.</strong> Uniform</a></li><li class="chapter-item "><a href="../../Users_Manual/gain/custom.html"><strong aria-hidden="true">2.6.6.</strong> Custom</a></li><li class="chapter-item "><a href="../../Users_Manual/gain/grouped.html"><strong aria-hidden="true">2.6.7.</strong> Group</a></li><li class="chapter-item "><a href="../../Users_Manual/gain/holo.html"><strong aria-hidden="true">2.6.8.</strong> Holo</a></li><li class="chapter-item "><a href="../../Users_Manual/gain/cache.html"><strong aria-hidden="true">2.6.9.</strong> Cache</a></li></ol></li><li class="chapter-item "><a href="../../Users_Manual/modulation.html"><strong aria-hidden="true">2.7.</strong> Modulation</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../Users_Manual/modulation/static.html"><strong aria-hidden="true">2.7.1.</strong> Static</a></li><li class="chapter-item "><a href="../../Users_Manual/modulation/sine.html"><strong aria-hidden="true">2.7.2.</strong> Sine</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../Users_Manual/modulation/fourier.html"><strong aria-hidden="true">2.7.2.1.</strong> Fourier</a></li></ol></li><li class="chapter-item "><a href="../../Users_Manual/modulation/square.html"><strong aria-hidden="true">2.7.3.</strong> Square</a></li><li class="chapter-item "><a href="../../Users_Manual/modulation/wav.html"><strong aria-hidden="true">2.7.4.</strong> Wav</a></li><li class="chapter-item "><a href="../../Users_Manual/modulation/csv.html"><strong aria-hidden="true">2.7.5.</strong> Csv</a></li><li class="chapter-item "><a href="../../Users_Manual/modulation/rawpcm.html"><strong aria-hidden="true">2.7.6.</strong> RawPCM</a></li><li class="chapter-item "><a href="../../Users_Manual/modulation/custom.html"><strong aria-hidden="true">2.7.7.</strong> Custom</a></li><li class="chapter-item "><a href="../../Users_Manual/modulation/cache.html"><strong aria-hidden="true">2.7.8.</strong> Cache</a></li><li class="chapter-item "><a href="../../Users_Manual/modulation/radiation.html"><strong aria-hidden="true">2.7.9.</strong> Radiation</a></li><li class="chapter-item "><a href="../../Users_Manual/modulation/fir.html"><strong aria-hidden="true">2.7.10.</strong> Fir</a></li></ol></li><li class="chapter-item "><a href="../../Users_Manual/stm.html"><strong aria-hidden="true">2.8.</strong> Spatio-Temporal Modulation</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../Users_Manual/stm/focus.html"><strong aria-hidden="true">2.8.1.</strong> FociSTM</a></li><li class="chapter-item "><a href="../../Users_Manual/stm/gain.html"><strong aria-hidden="true">2.8.2.</strong> GainSTM</a></li></ol></li><li class="chapter-item "><a href="../../Users_Manual/sampling_config.html"><strong aria-hidden="true">2.9.</strong> サンプリング設定について</a></li><li class="chapter-item "><a href="../../Users_Manual/silencer.html"><strong aria-hidden="true">2.10.</strong> Silencer</a></li><li class="chapter-item "><a href="../../Users_Manual/controller.html"><strong aria-hidden="true">2.11.</strong> Controller</a></li><li class="chapter-item "><a href="../../Users_Manual/fan.html"><strong aria-hidden="true">2.12.</strong> ファン制御</a></li><li class="chapter-item "><a href="../../Users_Manual/segment.html"><strong aria-hidden="true">2.13.</strong> Segment</a></li><li class="chapter-item "><a href="../../Users_Manual/advanced/advanced.html"><strong aria-hidden="true">2.14.</strong> 上級者向け設定</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../Users_Manual/advanced/custom_gain.html"><strong aria-hidden="true">2.14.1.</strong> Gainの自作</a></li><li class="chapter-item "><a href="../../Users_Manual/advanced/custom_modulation.html"><strong aria-hidden="true">2.14.2.</strong> Modulationの自作</a></li><li class="chapter-item "><a href="../../Users_Manual/advanced/phase_corr.html"><strong aria-hidden="true">2.14.3.</strong> PhaseCorrection</a></li><li class="chapter-item "><a href="../../Users_Manual/advanced/pulse_width_encoder.html"><strong aria-hidden="true">2.14.4.</strong> PulseWidthEncoder</a></li><li class="chapter-item "><a href="../../Users_Manual/advanced/debug_settings.html"><strong aria-hidden="true">2.14.5.</strong> GPIO出力の設定</a></li><li class="chapter-item "><a href="../../Users_Manual/advanced/logging.html"><strong aria-hidden="true">2.14.6.</strong> ロギングの有効化</a></li></ol></li><li class="chapter-item "><a href="../../Users_Manual/Simulator/simulator.html"><strong aria-hidden="true">2.15.</strong> シミュレータ</a></li><li class="chapter-item expanded "><a href="../../Users_Manual/Emulator/emulator.html" class="active"><strong aria-hidden="true">2.16.</strong> エミュレータ</a></li><li class="chapter-item "><a href="../../Users_Manual/FAQ/faq.html"><strong aria-hidden="true">2.17.</strong> FAQ</a></li><li class="chapter-item "><a href="../../Users_Manual/Citation/citation.html"><strong aria-hidden="true">2.18.</strong> 引用</a></li><li class="chapter-item "><a href="../../Users_Manual/LICENSE.html"><strong aria-hidden="true">2.19.</strong> ライセンス</a></li><li class="chapter-item "><a href="../../Users_Manual/release_notes.html"><strong aria-hidden="true">2.20.</strong> リリースノート</a></li></ol></li><li class="chapter-item expanded "><a href="../../Developer_Manual/Developer_manual.html"><strong aria-hidden="true">3.</strong> デベロッパーズマニュアル</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../Developer_Manual/fpga.html"><strong aria-hidden="true">3.1.</strong> FPGAファームウェア</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../Developer_Manual/fpga/develop.html"><strong aria-hidden="true">3.1.1.</strong> 開発環境構築</a></li><li class="chapter-item "><a href="../../Developer_Manual/fpga/overview.html"><strong aria-hidden="true">3.1.2.</strong> 概要</a></li><li class="chapter-item "><a href="../../Developer_Manual/fpga/pwm.html"><strong aria-hidden="true">3.1.3.</strong> PWM</a></li><li class="chapter-item "><a href="../../Developer_Manual/fpga/pulse_width_encoder.html"><strong aria-hidden="true">3.1.4.</strong> Pulse Witdth Encoder</a></li><li class="chapter-item "><a href="../../Developer_Manual/fpga/silencer.html"><strong aria-hidden="true">3.1.5.</strong> Silencer</a></li><li class="chapter-item "><a href="../../Developer_Manual/fpga/modulation.html"><strong aria-hidden="true">3.1.6.</strong> Modulation</a></li><li class="chapter-item "><a href="../../Developer_Manual/fpga/stm.html"><strong aria-hidden="true">3.1.7.</strong> STM</a></li><li class="chapter-item "><a href="../../Developer_Manual/fpga/sync.html"><strong aria-hidden="true">3.1.8.</strong> Synchronizer</a></li><li class="chapter-item "><a href="../../Developer_Manual/fpga/time_cnt.html"><strong aria-hidden="true">3.1.9.</strong> Time Count Generator</a></li><li class="chapter-item "><a href="../../Developer_Manual/fpga/controller.html"><strong aria-hidden="true">3.1.10.</strong> Controller</a></li><li class="chapter-item "><a href="../../Developer_Manual/fpga/memory.html"><strong aria-hidden="true">3.1.11.</strong> Memory</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../Developer_Manual/fpga/cpu_interface.html"><strong aria-hidden="true">3.1.11.1.</strong> CPUボードとのインターフェース</a></li></ol></li></ol></li><li class="chapter-item "><a href="../../Developer_Manual/cpu.html"><strong aria-hidden="true">3.2.</strong> CPUファームウェア</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../Developer_Manual/cpu/develop.html"><strong aria-hidden="true">3.2.1.</strong> 開発環境構築</a></li></ol></li><li class="chapter-item "><a href="../../Developer_Manual/software.html"><strong aria-hidden="true">3.3.</strong> ソフトウェア</a></li></ol></li><li class="chapter-item expanded "><a href="../../Theory/theory.html"><strong aria-hidden="true">4.</strong> 理論と考察</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../Theory/pwm.html"><strong aria-hidden="true">4.1.</strong> PWM</a></li><li class="chapter-item "><a href="../../Theory/phasedarray.html"><strong aria-hidden="true">4.2.</strong> フェーズドアレイについて</a></li><li class="chapter-item "><a href="../../Theory/linear.html"><strong aria-hidden="true">4.3.</strong> フェーズドアレイの線形性</a></li><li class="chapter-item "><a href="../../Theory/resolution.html"><strong aria-hidden="true">4.4.</strong> 分解能に関する考察</a></li><li class="chapter-item "><a href="../../Theory/holo/holo.html"><strong aria-hidden="true">4.5.</strong> 多焦点生成</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../Theory/holo/partitioning.html"><strong aria-hidden="true">4.5.1.</strong> 空間分割スキーム</a></li><li class="chapter-item "><a href="../../Theory/holo/fourier.html"><strong aria-hidden="true">4.5.2.</strong> 逆フーリエ変換</a></li><li class="chapter-item "><a href="../../Theory/holo/sdp.html"><strong aria-hidden="true">4.5.3.</strong> 半正定値緩和法</a></li><li class="chapter-item "><a href="../../Theory/holo/evp.html"><strong aria-hidden="true">4.5.4.</strong> 固有値問題と行列方程式</a></li><li class="chapter-item "><a href="../../Theory/holo/back_prop.html"><strong aria-hidden="true">4.5.5.</strong> 逆伝搬法</a></li><li class="chapter-item "><a href="../../Theory/holo/nlsp.html"><strong aria-hidden="true">4.5.6.</strong> 非線形最小二乗法</a></li><li class="chapter-item "><a href="../../Theory/holo/apo.html"><strong aria-hidden="true">4.5.7.</strong> 音響パワー最適化法</a></li><li class="chapter-item "><a href="../../Theory/holo/greedy.html"><strong aria-hidden="true">4.5.8.</strong> 貪欲法</a></li></ol></li><li class="chapter-item "><a href="../../Theory/multi-freq.html"><strong aria-hidden="true">4.6.</strong> 複数周波数の応用</a></li><li class="chapter-item "><a href="../../Theory/radiation_pressure.html"><strong aria-hidden="true">4.7.</strong> 音響放射圧</a></li></ol></li><li class="chapter-item expanded "><a href="../../document_history.html"><strong aria-hidden="true">5.</strong> ドキュメント履歴</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">AUTD3 Developers Manual v29.0.0-rc.10</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/shinolab/autd3-doc" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="エミュレータ"><a class="header" href="#エミュレータ">エミュレータ</a></h1>
+<p><code>Emulator</code>を使用すると, <code>Simulator</code>よりも詳細な出力位相/パルス幅, 出力電圧, 出力音波, および, 音場の計算が行える.</p>
+<blockquote>
+<p>NOTE: 現在, <code>Emulator</code>はRust, 及び, Pythonからのみ使用可能である.
+C++, C#へ移植する予定はない.</p>
+</blockquote>
+<p><code>Emulator</code>が出力するデータはPolarsのDataFrameである.
+詳しくは, <a href="https://pola.rs/">Polarsのドキュメント</a>を参照されたい.</p>
+<h2 id="振動子テーブル"><a class="header" href="#振動子テーブル">振動子テーブル</a></h2>
+<p>振動子の一覧を表示する.</p>
+<p>各列には, デバイスインデックス, 振動子の(ローカル)インデックス, 位置, 極方向が格納される.</p>
+<pre><code class="language-rust edition2021"><span class="boring">use autd3::prelude::*;
+</span><span class="boring">use autd3_emulator::*;
+</span><span class="boring">fn main() {
+</span>let emulator = Controller::builder([AUTD3::new(Vector3::zeros())]).into_emulator();
+let df = emulator.transducer_table();
+dbg!(df);
+<span class="boring">}</span></code></pre>
+<pre><code class="language-python"><span class="boring">from pyautd3 import AUTD3, Controller
+</span><span class="boring">import pyautd3.emulator # noqa: F401
+</span>with Controller.builder([AUTD3([0.0, 0.0, 0.0])]).into_emulator() as emulator:
+    df = emulator.transducer_table()
+    print(df)
+</code></pre>
+<pre><code>┌─────────┬────────┬────────────┬────────────┬───────┬─────┬─────┬─────┐
+│ dev_idx ┆ tr_idx ┆ x[mm]      ┆ y[mm]      ┆ z[mm] ┆ nx  ┆ ny  ┆ nz  │
+│ ---     ┆ ---    ┆ ---        ┆ ---        ┆ ---   ┆ --- ┆ --- ┆ --- │
+│ u16     ┆ u8     ┆ f32        ┆ f32        ┆ f32   ┆ f32 ┆ f32 ┆ f32 │
+╞═════════╪════════╪════════════╪════════════╪═══════╪═════╪═════╪═════╡
+│ 0       ┆ 0      ┆ 0.0        ┆ 0.0        ┆ 0.0   ┆ 0.0 ┆ 0.0 ┆ 1.0 │
+│ 0       ┆ 1      ┆ 10.16      ┆ 0.0        ┆ 0.0   ┆ 0.0 ┆ 0.0 ┆ 1.0 │
+│ 0       ┆ 2      ┆ 20.32      ┆ 0.0        ┆ 0.0   ┆ 0.0 ┆ 0.0 ┆ 1.0 │
+│ 0       ┆ 3      ┆ 30.48      ┆ 0.0        ┆ 0.0   ┆ 0.0 ┆ 0.0 ┆ 1.0 │
+│ 0       ┆ 4      ┆ 40.639999  ┆ 0.0        ┆ 0.0   ┆ 0.0 ┆ 0.0 ┆ 1.0 │
+│ …       ┆ …      ┆ …          ┆ …          ┆ …     ┆ …   ┆ …   ┆ …   │
+│ 0       ┆ 244    ┆ 132.080002 ┆ 132.080002 ┆ 0.0   ┆ 0.0 ┆ 0.0 ┆ 1.0 │
+│ 0       ┆ 245    ┆ 142.23999  ┆ 132.080002 ┆ 0.0   ┆ 0.0 ┆ 0.0 ┆ 1.0 │
+│ 0       ┆ 246    ┆ 152.399994 ┆ 132.080002 ┆ 0.0   ┆ 0.0 ┆ 0.0 ┆ 1.0 │
+│ 0       ┆ 247    ┆ 162.559998 ┆ 132.080002 ┆ 0.0   ┆ 0.0 ┆ 0.0 ┆ 1.0 │
+│ 0       ┆ 248    ┆ 172.720001 ┆ 132.080002 ┆ 0.0   ┆ 0.0 ┆ 0.0 ┆ 1.0 │
+└─────────┴────────┴────────────┴────────────┴───────┴─────┴─────┴─────┘
+</code></pre>
+<h2 id="出力位相パルス幅の計算"><a class="header" href="#出力位相パルス幅の計算">出力位相/パルス幅の計算</a></h2>
+<pre><code class="language-rust edition2021"><span class="boring">use std::time::Duration;
+</span><span class="boring">use autd3::prelude::*;
+</span>use autd3_emulator::*;
+
+<span class="boring">#[tokio::main]
+</span><span class="boring">async fn main() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
+</span>let emulator = Controller::builder([AUTD3::new(Vector3::zeros())]).into_emulator();
+
+let record = emulator
+    .record(|mut autd| async {
+        autd.send(Silencer::default()).await?;
+        autd.send((Sine::new(200. * Hz), Uniform::new(EmitIntensity::new(0xFF))))
+            .await?;
+        autd.tick(Duration::from_millis(10))?;
+        Ok(autd)
+    })
+    .await?;
+<span class="boring">{
+</span>let df = record.phase();
+dbg!(df);
+<span class="boring">}
+</span>
+<span class="boring">{
+</span>let df = record.pulse_width();
+dbg!(df);
+<span class="boring">}
+</span>
+<span class="boring">    Ok(())
+</span><span class="boring">}</span></code></pre>
+<pre><code class="language-python">from pyautd3 import (
+    AUTD3,
+    Controller,
+    Duration,
+    EmitIntensity,
+    Hz,
+    Silencer,
+    Sine,
+    Uniform,
+)
+from pyautd3.emulator import Recorder
+
+with Controller.builder([AUTD3([0.0, 0.0, 0.0])]).into_emulator() as emulator:
+
+    def f(autd: Controller[Recorder]) -&gt; Controller[Recorder]:
+        autd.send(Silencer())
+        autd.send((Sine(200.0 * Hz), Uniform(EmitIntensity(0xFF))))
+        autd.tick(Duration.from_millis(10))
+        return autd
+
+    record = emulator.record(f)
+
+    df = record.phase()
+    print(df)
+
+    df = record.pulse_width()
+    print(df)
+</code></pre>
+<blockquote>
+<p>NOTE: <code>tick</code>で指定する時間間隔は, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord"><span class="mord">25</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathrm">us</span></span></span></span></span></span>の倍数である必要がある.</p>
+</blockquote>
+<p>各時刻 (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord"><span class="mord">25</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathrm">us</span></span></span></span></span></span>単位) における, 位相/パルス幅が各列に格納される.
+各列の名前は<code>&lt;phase/pulse_width&gt;@&lt;時刻&gt;[ns]</code>である.</p>
+<p>各行は<a href="#%E6%8C%AF%E5%8B%95%E5%AD%90%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB">振動子テーブル</a>の行と対応している.</p>
+<pre><code>┌─────────────┬────────────────┬────────────────┬────────────────┬───┬────────────────┬───────────────┬───────────────┬───────────────┐
+│ phase@0[ns] ┆ phase@25000[ns ┆ phase@50000[ns ┆ phase@75000[ns ┆ … ┆ phase@9900000[ ┆ phase@9925000 ┆ phase@9950000 ┆ phase@9975000 │
+│ ---         ┆ ]              ┆ ]              ┆ ]              ┆   ┆ ns]            ┆ [ns]          ┆ [ns]          ┆ [ns]          │
+│ u8          ┆ ---            ┆ ---            ┆ ---            ┆   ┆ ---            ┆ ---           ┆ ---           ┆ ---           │
+│             ┆ u8             ┆ u8             ┆ u8             ┆   ┆ u8             ┆ u8            ┆ u8            ┆ u8            │
+╞═════════════╪════════════════╪════════════════╪════════════════╪═══╪════════════════╪═══════════════╪═══════════════╪═══════════════╡
+│ 0           ┆ 0              ┆ 0              ┆ 0              ┆ … ┆ 0              ┆ 0             ┆ 0             ┆ 0             │
+│ 0           ┆ 0              ┆ 0              ┆ 0              ┆ … ┆ 0              ┆ 0             ┆ 0             ┆ 0             │
+│ 0           ┆ 0              ┆ 0              ┆ 0              ┆ … ┆ 0              ┆ 0             ┆ 0             ┆ 0             │
+│ 0           ┆ 0              ┆ 0              ┆ 0              ┆ … ┆ 0              ┆ 0             ┆ 0             ┆ 0             │
+│ 0           ┆ 0              ┆ 0              ┆ 0              ┆ … ┆ 0              ┆ 0             ┆ 0             ┆ 0             │
+│ …           ┆ …              ┆ …              ┆ …              ┆ … ┆ …              ┆ …             ┆ …             ┆ …             │
+│ 0           ┆ 0              ┆ 0              ┆ 0              ┆ … ┆ 0              ┆ 0             ┆ 0             ┆ 0             │
+│ 0           ┆ 0              ┆ 0              ┆ 0              ┆ … ┆ 0              ┆ 0             ┆ 0             ┆ 0             │
+│ 0           ┆ 0              ┆ 0              ┆ 0              ┆ … ┆ 0              ┆ 0             ┆ 0             ┆ 0             │
+│ 0           ┆ 0              ┆ 0              ┆ 0              ┆ … ┆ 0              ┆ 0             ┆ 0             ┆ 0             │
+│ 0           ┆ 0              ┆ 0              ┆ 0              ┆ … ┆ 0              ┆ 0             ┆ 0             ┆ 0             │
+└─────────────┴────────────────┴────────────────┴────────────────┴───┴────────────────┴───────────────┴───────────────┴───────────────┘
+</code></pre>
+<pre><code>┌────────────────┬────────────────┬───────────────┬───────────────┬───┬───────────────┬───────────────┬───────────────┬───────────────┐
+│ pulse_width@0[ ┆ pulse_width@25 ┆ pulse_width@5 ┆ pulse_width@7 ┆ … ┆ pulse_width@9 ┆ pulse_width@9 ┆ pulse_width@9 ┆ pulse_width@9 │
+│ ns]            ┆ 000[ns]        ┆ 0000[ns]      ┆ 5000[ns]      ┆   ┆ 900000[ns]    ┆ 925000[ns]    ┆ 950000[ns]    ┆ 975000[ns]    │
+│ ---            ┆ ---            ┆ ---           ┆ ---           ┆   ┆ ---           ┆ ---           ┆ ---           ┆ ---           │
+│ u8             ┆ u8             ┆ u8            ┆ u8            ┆   ┆ u8            ┆ u8            ┆ u8            ┆ u8            │
+╞════════════════╪════════════════╪═══════════════╪═══════════════╪═══╪═══════════════╪═══════════════╪═══════════════╪═══════════════╡
+│ 4              ┆ 8              ┆ 12            ┆ 16            ┆ … ┆ 25            ┆ 26            ┆ 27            ┆ 29            │
+│ 4              ┆ 8              ┆ 12            ┆ 16            ┆ … ┆ 25            ┆ 26            ┆ 27            ┆ 29            │
+│ 4              ┆ 8              ┆ 12            ┆ 16            ┆ … ┆ 25            ┆ 26            ┆ 27            ┆ 29            │
+│ 4              ┆ 8              ┆ 12            ┆ 16            ┆ … ┆ 25            ┆ 26            ┆ 27            ┆ 29            │
+│ 4              ┆ 8              ┆ 12            ┆ 16            ┆ … ┆ 25            ┆ 26            ┆ 27            ┆ 29            │
+│ …              ┆ …              ┆ …             ┆ …             ┆ … ┆ …             ┆ …             ┆ …             ┆ …             │
+│ 4              ┆ 8              ┆ 12            ┆ 16            ┆ … ┆ 25            ┆ 26            ┆ 27            ┆ 29            │
+│ 4              ┆ 8              ┆ 12            ┆ 16            ┆ … ┆ 25            ┆ 26            ┆ 27            ┆ 29            │
+│ 4              ┆ 8              ┆ 12            ┆ 16            ┆ … ┆ 25            ┆ 26            ┆ 27            ┆ 29            │
+│ 4              ┆ 8              ┆ 12            ┆ 16            ┆ … ┆ 25            ┆ 26            ┆ 27            ┆ 29            │
+│ 4              ┆ 8              ┆ 12            ┆ 16            ┆ … ┆ 25            ┆ 26            ┆ 27            ┆ 29            │
+└────────────────┴────────────────┴───────────────┴───────────────┴───┴───────────────┴───────────────┴───────────────┴───────────────┘
+</code></pre>
+<h2 id="出力電圧"><a class="header" href="#出力電圧">出力電圧</a></h2>
+<pre><code class="language-rust edition2021"><span class="boring">use std::time::Duration;
+</span><span class="boring">use autd3::prelude::*;
+</span>use autd3_emulator::*;
+
+<span class="boring">#[tokio::main]
+</span><span class="boring">async fn main() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
+</span>let emulator = Controller::builder([AUTD3::new(Vector3::zeros())]).into_emulator();
+
+let record = emulator
+    .record(|mut autd| async {
+        autd.send(Silencer::disable()).await?;
+        autd.send((
+            Static::with_intensity(0xFF),
+            Uniform::new((Phase::new(0x40), EmitIntensity::new(0xFF))),
+        ))
+        .await?;
+        autd.tick(Duration::from_millis(1))?;
+        Ok(autd)
+    })
+    .await?;
+
+let df = record.output_voltage();
+dbg!(df);
+<span class="boring">    Ok(())
+</span><span class="boring">}</span></code></pre>
+<pre><code class="language-python">from pyautd3 import (
+    AUTD3,
+    Controller,
+    Duration,
+    EmitIntensity,
+    Phase,
+    Silencer,
+    Static,
+    Uniform,
+)
+from pyautd3.emulator import Recorder
+
+with Controller.builder([AUTD3([0.0, 0.0, 0.0])]).into_emulator() as emulator:
+
+    def f(autd: Controller[Recorder]) -&gt; Controller[Recorder]:
+        autd.send(Silencer.disable())
+        autd.send(
+            (
+                Static.with_intensity(0xFF),
+                Uniform((Phase(0x40), EmitIntensity(0xFF))),
+            ),
+        )
+        autd.tick(Duration.from_millis(1))
+        return autd
+
+    record = emulator.record(f)
+
+    df = record.output_voltage()
+    print(df)
+</code></pre>
+<p>各時刻 (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord">25</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathrm">us</span></span></span><span class="mord">/256</span></span></span></span>単位) における, 出力電圧が各列に格納される.
+各列の名前は<code>voltage[V]@&lt;時刻&gt;[25us/256]</code>である.</p>
+<p>各行は<a href="#%E6%8C%AF%E5%8B%95%E5%AD%90%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB">振動子テーブル</a>の行と対応している.</p>
+<pre><code>┌────────────────┬────────────────┬───────────────┬───────────────┬───┬───────────────┬───────────────┬───────────────┬───────────────┐
+│ voltage[V]@0[2 ┆ voltage[V]@1[2 ┆ voltage[V]@2[ ┆ voltage[V]@3[ ┆ … ┆ voltage[V]@10 ┆ voltage[V]@10 ┆ voltage[V]@10 ┆ voltage[V]@10 │
+│ 5us/256]       ┆ 5us/256]       ┆ 25us/256]     ┆ 25us/256]     ┆   ┆ 236[25us/256] ┆ 237[25us/256] ┆ 238[25us/256] ┆ 239[25us/256] │
+│ ---            ┆ ---            ┆ ---           ┆ ---           ┆   ┆ ---           ┆ ---           ┆ ---           ┆ ---           │
+│ f32            ┆ f32            ┆ f32           ┆ f32           ┆   ┆ f32           ┆ f32           ┆ f32           ┆ f32           │
+╞════════════════╪════════════════╪═══════════════╪═══════════════╪═══╪═══════════════╪═══════════════╪═══════════════╪═══════════════╡
+│ 12.0           ┆ 12.0           ┆ 12.0          ┆ 12.0          ┆ … ┆ -12.0         ┆ -12.0         ┆ -12.0         ┆ -12.0         │
+│ 12.0           ┆ 12.0           ┆ 12.0          ┆ 12.0          ┆ … ┆ -12.0         ┆ -12.0         ┆ -12.0         ┆ -12.0         │
+│ 12.0           ┆ 12.0           ┆ 12.0          ┆ 12.0          ┆ … ┆ -12.0         ┆ -12.0         ┆ -12.0         ┆ -12.0         │
+│ 12.0           ┆ 12.0           ┆ 12.0          ┆ 12.0          ┆ … ┆ -12.0         ┆ -12.0         ┆ -12.0         ┆ -12.0         │
+│ 12.0           ┆ 12.0           ┆ 12.0          ┆ 12.0          ┆ … ┆ -12.0         ┆ -12.0         ┆ -12.0         ┆ -12.0         │
+│ …              ┆ …              ┆ …             ┆ …             ┆ … ┆ …             ┆ …             ┆ …             ┆ …             │
+│ 12.0           ┆ 12.0           ┆ 12.0          ┆ 12.0          ┆ … ┆ -12.0         ┆ -12.0         ┆ -12.0         ┆ -12.0         │
+│ 12.0           ┆ 12.0           ┆ 12.0          ┆ 12.0          ┆ … ┆ -12.0         ┆ -12.0         ┆ -12.0         ┆ -12.0         │
+│ 12.0           ┆ 12.0           ┆ 12.0          ┆ 12.0          ┆ … ┆ -12.0         ┆ -12.0         ┆ -12.0         ┆ -12.0         │
+│ 12.0           ┆ 12.0           ┆ 12.0          ┆ 12.0          ┆ … ┆ -12.0         ┆ -12.0         ┆ -12.0         ┆ -12.0         │
+│ 12.0           ┆ 12.0           ┆ 12.0          ┆ 12.0          ┆ … ┆ -12.0         ┆ -12.0         ┆ -12.0         ┆ -12.0         │
+└────────────────┴────────────────┴───────────────┴───────────────┴───┴───────────────┴───────────────┴───────────────┴───────────────┘
+</code></pre>
+<h2 id="出力音圧"><a class="header" href="#出力音圧">出力音圧</a></h2>
+<pre><code class="language-rust edition2021"><span class="boring">use std::time::Duration;
+</span><span class="boring">use autd3::prelude::*;
+</span>use autd3_emulator::*;
+
+<span class="boring">#[tokio::main]
+</span><span class="boring">async fn main() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
+</span>let emulator = Controller::builder([AUTD3::new(Vector3::zeros())]).into_emulator();
+
+let record = emulator
+    .record(|mut autd| async {
+        autd.send(Silencer::disable()).await?;
+        autd.send((
+            Static::with_intensity(0xFF),
+            Uniform::new((Phase::new(0x40), EmitIntensity::new(0xFF))),
+        ))
+        .await?;
+        autd.tick(Duration::from_millis(1))?;
+        Ok(autd)
+    })
+    .await?;
+
+let df = record.output_ultrasound();
+dbg!(df);
+<span class="boring">    Ok(())
+</span><span class="boring">}</span></code></pre>
+<pre><code class="language-python">from pyautd3 import (
+    AUTD3,
+    Controller,
+    Duration,
+    EmitIntensity,
+    Phase,
+    Silencer,
+    Static,
+    Uniform,
+)
+from pyautd3.emulator import Recorder
+
+with Controller.builder([AUTD3([0.0, 0.0, 0.0])]).into_emulator() as emulator:
+
+    def f(autd: Controller[Recorder]) -&gt; Controller[Recorder]:
+        autd.send(Silencer.disable())
+        autd.send(
+            (
+                Static.with_intensity(0xFF),
+                Uniform((Phase(0x40), EmitIntensity(0xFF))),
+            ),
+        )
+        autd.tick(Duration.from_millis(1))
+        return autd
+
+    record = emulator.record(f)
+
+    df = record.output_ultrasound()
+    print(df)
+</code></pre>
+<p>各時刻 (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord">25</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathrm">us</span></span></span><span class="mord">/256</span></span></span></span>単位) における, 規格化された出力音圧が各列に格納される.
+各列の名前は<code>p[a.u.]@&lt;時刻&gt;[25us/256]</code>である.</p>
+<p>各行は<a href="#%E6%8C%AF%E5%8B%95%E5%AD%90%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB">振動子テーブル</a>の行と対応している.</p>
+<pre><code>┌────────────────┬────────────────┬───────────────┬───────────────┬───┬───────────────┬───────────────┬───────────────┬───────────────┐
+│ p[a.u.]@0[25us ┆ p[a.u.]@1[25us ┆ p[a.u.]@2[25u ┆ p[a.u.]@3[25u ┆ … ┆ p[a.u.]@10236 ┆ p[a.u.]@10237 ┆ p[a.u.]@10238 ┆ p[a.u.]@10239 │
+│ /256]          ┆ /256]          ┆ s/256]        ┆ s/256]        ┆   ┆ [25us/256]    ┆ [25us/256]    ┆ [25us/256]    ┆ [25us/256]    │
+│ ---            ┆ ---            ┆ ---           ┆ ---           ┆   ┆ ---           ┆ ---           ┆ ---           ┆ ---           │
+│ f32            ┆ f32            ┆ f32           ┆ f32           ┆   ┆ f32           ┆ f32           ┆ f32           ┆ f32           │
+╞════════════════╪════════════════╪═══════════════╪═══════════════╪═══╪═══════════════╪═══════════════╪═══════════════╪═══════════════╡
+│ 0.0            ┆ -0.000527      ┆ -0.000817     ┆ -0.000865     ┆ … ┆ -0.411363     ┆ -0.389469     ┆ -0.367366     ┆ -0.345066     │
+│ 0.0            ┆ -0.000527      ┆ -0.000817     ┆ -0.000865     ┆ … ┆ -0.411363     ┆ -0.389469     ┆ -0.367366     ┆ -0.345066     │
+│ 0.0            ┆ -0.000527      ┆ -0.000817     ┆ -0.000865     ┆ … ┆ -0.411363     ┆ -0.389469     ┆ -0.367366     ┆ -0.345066     │
+│ 0.0            ┆ -0.000527      ┆ -0.000817     ┆ -0.000865     ┆ … ┆ -0.411363     ┆ -0.389469     ┆ -0.367366     ┆ -0.345066     │
+│ 0.0            ┆ -0.000527      ┆ -0.000817     ┆ -0.000865     ┆ … ┆ -0.411363     ┆ -0.389469     ┆ -0.367366     ┆ -0.345066     │
+│ …              ┆ …              ┆ …             ┆ …             ┆ … ┆ …             ┆ …             ┆ …             ┆ …             │
+│ 0.0            ┆ -0.000527      ┆ -0.000817     ┆ -0.000865     ┆ … ┆ -0.411363     ┆ -0.389469     ┆ -0.367366     ┆ -0.345066     │
+│ 0.0            ┆ -0.000527      ┆ -0.000817     ┆ -0.000865     ┆ … ┆ -0.411363     ┆ -0.389469     ┆ -0.367366     ┆ -0.345066     │
+│ 0.0            ┆ -0.000527      ┆ -0.000817     ┆ -0.000865     ┆ … ┆ -0.411363     ┆ -0.389469     ┆ -0.367366     ┆ -0.345066     │
+│ 0.0            ┆ -0.000527      ┆ -0.000817     ┆ -0.000865     ┆ … ┆ -0.411363     ┆ -0.389469     ┆ -0.367366     ┆ -0.345066     │
+│ 0.0            ┆ -0.000527      ┆ -0.000817     ┆ -0.000865     ┆ … ┆ -0.411363     ┆ -0.389469     ┆ -0.367366     ┆ -0.345066     │
+└────────────────┴────────────────┴───────────────┴───────────────┴───┴───────────────┴───────────────┴───────────────┴───────────────┘
+</code></pre>
+<h2 id="音場の計算-瞬時値"><a class="header" href="#音場の計算-瞬時値">音場の計算 (瞬時値)</a></h2>
+<pre><code class="language-rust edition2021"><span class="boring">use std::time::Duration;
+</span><span class="boring">use autd3::prelude::*;
+</span>use autd3_emulator::*;
+
+<span class="boring">#[tokio::main]
+</span><span class="boring">async fn main() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
+</span>let emulator = Controller::builder([AUTD3::new(Vector3::zeros())]).into_emulator();
+
+let focus = emulator.center() + Vector3::new(0., 0., 150. * mm);
+
+let record = emulator
+    .record(|mut autd| async {
+        autd.send(Silencer::disable()).await?;
+        autd.send((Static::with_intensity(0xFF), Focus::new(focus)))
+            .await?;
+        autd.tick(Duration::from_millis(1))?;
+        Ok(autd)
+    })
+    .await?;
+
+let mut sound_field = record
+    .sound_field(
+        RangeXY {
+            x: focus.x - 20.0..=focus.x + 20.0,
+            y: focus.y - 20.0..=focus.y + 20.0,
+            z: focus.z,
+            resolution: 1.,
+        },
+        InstantRecordOption {
+            sound_speed: 340e3 * mm,
+            time_step: Duration::from_micros(1),
+            print_progress: true,
+            memory_limits_hint_mb: 128,
+            gpu: true,        
+        },
+    )
+    .await?;
+
+let df = sound_field.observe_points();
+dbg!(df);
+
+let df = sound_field
+    .skip(Duration::from_micros(500))
+    .await?
+    .next(Duration::from_micros(500))
+    .await?;
+dbg!(df);
+<span class="boring">    Ok(())
+</span><span class="boring">}</span></code></pre>
+<blockquote>
+<p>NOTE: <code>gpu</code>オプションは, <code>gpu</code> featureを有効にしている場合のみ使用可能である.</p>
+</blockquote>
+<pre><code class="language-python"><span class="boring">import numpy as np
+</span>from pyautd3 import AUTD3, Controller, Focus, Silencer, Static, Duration
+from pyautd3.emulator import RangeXYZ, Recorder, InstantRecordOption
+
+with Controller.builder([AUTD3([0.0, 0.0, 0.0])]).into_emulator() as emulator:
+    focus = emulator.center + np.array([0.0, 0.0, 150.0])
+
+    def f(autd: Controller[Recorder]) -&gt; Controller[Recorder]:
+        autd.send(Silencer.disable())
+        autd.send((Static.with_intensity(0xFF), Focus(focus)))
+        autd.tick(Duration.from_millis(1))
+        return autd
+
+    record = emulator.record(f)
+
+    sound_field = record.sound_field(
+        RangeXYZ(
+            x_start=focus[0] - 20.0,
+            x_end=focus[0] + 20.0,
+            y_start=focus[1] - 20.0,
+            y_end=focus[1] + 20.0,
+            z_start=focus[2],
+            z_end=focus[2],
+            resolution=1.0,
+        ),
+        InstantRecordOption(
+            sound_speed=340e3,
+            time_step=Duration.from_micros(1),
+            print_progress=True,
+            memory_limits_hint_mb=128,
+            gpu=True,
+        ),
+    )
+
+    df = sound_field.observe_points()
+    print(df)
+
+    df = sound_field.skip(Duration.from_micros(500)).next(
+        Duration.from_micros(500),
+    )
+    print(df)
+</code></pre>
+<blockquote>
+<p>NOTE: 計測点を指定する方法として, Rust版は, <code>RangeXYZ</code>以外に, 列挙順の異なる<code>RangeZXY</code>等や, 2次元専用の<code>RangeXY</code>等, 1次元専用の<code>RangeX</code>等が使用できる.
+あるいは, 任意の点を指定するために, <code>Vec&lt;Vector3&gt;</code>が使用できる.
+Python版は, <code>RangeXYZ</code>のみが使用できる.</p>
+</blockquote>
+<p><code>print_progress</code>オプションを有効にすると計算の進捗が表示される.
+また, <code>gpu</code>オプションを有効にすると, 計算がGPU上で実行される.</p>
+<p>膨大なメモリが消費される可能性があるため, <code>next</code>関数によって, 一部時刻のみを取得するようになっている.
+なお, <code>skip</code>関数を使用することで, 指定した時間だけスキップすることができる.</p>
+<p>各観測点における, 出力音圧が時系列順 (単位は<code>time_step</code>で指定) に各列に格納される.
+各列の名前は, <code>p[Pa]@&lt;時刻&gt;[ns]</code>である.
+各行は, <code>observe_points</code>で取得できる観測点と対応している.</p>
+<pre><code>┌────────────┬───────────┬───────┐
+│ x[mm]      ┆ y[mm]     ┆ z[mm] │
+│ ---        ┆ ---       ┆ ---   │
+│ f32        ┆ f32       ┆ f32   │
+╞════════════╪═══════════╪═══════╡
+│ 66.625267  ┆ 46.713196 ┆ 150.0 │
+│ 67.625267  ┆ 46.713196 ┆ 150.0 │
+│ 68.625267  ┆ 46.713196 ┆ 150.0 │
+│ 69.625267  ┆ 46.713196 ┆ 150.0 │
+│ 70.625267  ┆ 46.713196 ┆ 150.0 │
+│ …          ┆ …         ┆ …     │
+│ 102.625267 ┆ 86.713196 ┆ 150.0 │
+│ 103.625267 ┆ 86.713196 ┆ 150.0 │
+│ 104.625267 ┆ 86.713196 ┆ 150.0 │
+│ 105.625267 ┆ 86.713196 ┆ 150.0 │
+│ 106.625267 ┆ 86.713196 ┆ 150.0 │
+└────────────┴───────────┴───────┘
+</code></pre>
+<pre><code>┌──────────────────┬──────────────────┬──────────────────┬──────────────────┬───┬──────────────────┬──────────────────┬──────────────────┬──────────────────┐
+│ p[Pa]@500000[ns] ┆ p[Pa]@501000[ns] ┆ p[Pa]@502000[ns] ┆ p[Pa]@503000[ns] ┆ … ┆ p[Pa]@996000[ns] ┆ p[Pa]@997000[ns] ┆ p[Pa]@998000[ns] ┆ p[Pa]@999000[ns] │
+│ ---              ┆ ---              ┆ ---              ┆ ---              ┆   ┆ ---              ┆ ---              ┆ ---              ┆ ---              │
+│ f32              ┆ f32              ┆ f32              ┆ f32              ┆   ┆ f32              ┆ f32              ┆ f32              ┆ f32              │
+╞══════════════════╪══════════════════╪══════════════════╪══════════════════╪═══╪══════════════════╪══════════════════╪══════════════════╪══════════════════╡
+│ 22.331444        ┆ 15.113414        ┆ 11.268572        ┆ 3.648403         ┆ … ┆ 167.86937        ┆ 144.105682       ┆ 115.743851       ┆ 79.71566         │
+│ 23.059395        ┆ 17.771036        ┆ 14.700949        ┆ 6.728968         ┆ … ┆ 129.20639        ┆ 102.939316       ┆ 73.772278        ┆ 40.195816        │
+│ 23.036217        ┆ 20.603218        ┆ 15.886523        ┆ 9.236392         ┆ … ┆ 72.646172        ┆ 50.596272        ┆ 26.145405        ┆ -0.767438        │
+│ 21.584925        ┆ 20.037151        ┆ 16.766323        ┆ 12.116624        ┆ … ┆ 6.95821          ┆ -7.790637        ┆ -21.844841       ┆ -34.399242       │
+│ 17.394489        ┆ 18.289755        ┆ 16.776503        ┆ 13.057217        ┆ … ┆ -61.41378        ┆ -64.008453       ┆ -62.781563       ┆ -57.108852       │
+│ …                ┆ …                ┆ …                ┆ …                ┆ … ┆ …                ┆ …                ┆ …                ┆ …                │
+│ 14.815317        ┆ 14.747643        ┆ 13.346919        ┆ 9.872995         ┆ … ┆ -72.806496       ┆ -84.871483       ┆ -92.019981       ┆ -93.667465       │
+│ 17.50769         ┆ 15.932329        ┆ 12.446443        ┆ 8.104702         ┆ … ┆ -27.582397       ┆ -60.443016       ┆ -89.675652       ┆ -113.377426      │
+│ 18.189577        ┆ 15.313375        ┆ 11.066986        ┆ 5.55983          ┆ … ┆ 20.950169        ┆ -27.42453        ┆ -72.527397       ┆ -114.272224      │
+│ 18.886011        ┆ 12.433009        ┆ 7.827704         ┆ 3.812024         ┆ … ┆ 67.13327         ┆ 10.793316        ┆ -47.206505       ┆ -97.70639        │
+│ 16.812843        ┆ 10.601947        ┆ 4.084629         ┆ 0.993495         ┆ … ┆ 103.386879       ┆ 45.764156        ┆ -15.166505       ┆ -69.37468        │
+└──────────────────┴──────────────────┴──────────────────┴──────────────────┴───┴──────────────────┴──────────────────┴──────────────────┴──────────────────┘
+</code></pre>
+<h2 id="音場の計算-rms"><a class="header" href="#音場の計算-rms">音場の計算 (RMS)</a></h2>
+<pre><code class="language-rust edition2021"><span class="boring">use std::time::Duration;
+</span><span class="boring">use autd3::prelude::*;
+</span>use autd3_emulator::*;
+
+<span class="boring">#[tokio::main]
+</span><span class="boring">async fn main() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
+</span>let emulator = Controller::builder([AUTD3::new(Vector3::zeros())]).into_emulator();
+
+let focus = emulator.center() + Vector3::new(0., 0., 150. * mm);
+
+let record = emulator
+    .record(|mut autd| async {
+        autd.send(Silencer::disable()).await?;
+        autd.send((Static::with_intensity(0xFF), Focus::new(focus)))
+            .await?;
+        autd.tick(Duration::from_micros(25))?;
+        Ok(autd)
+    })
+    .await?;
+
+let mut sound_field = record
+    .sound_field(
+        RangeXY {
+            x: focus.x - 20.0..=focus.x + 20.0,
+            y: focus.y - 20.0..=focus.y + 20.0,
+            z: focus.z,
+            resolution: 1.,
+        },
+        RmsRecordOption {
+            sound_speed: 340e3 * mm,
+            print_progress: true,
+            gpu: true,        
+        },
+    )
+    .await?;
+
+let df = sound_field.observe_points();
+dbg!(df);
+
+let df = sound_field.next(Duration::from_micros(25)).await?;
+dbg!(df);
+<span class="boring">    Ok(())
+</span><span class="boring">}</span></code></pre>
+<blockquote>
+<p>NOTE: <code>gpu</code>オプションは, <code>gpu</code> featureを有効にしている場合のみ使用可能である.</p>
+</blockquote>
+<pre><code class="language-python"><span class="boring">import numpy as np
+</span>from pyautd3 import AUTD3, Controller, Duration, Focus, Silencer, Static
+from pyautd3.emulator import RangeXYZ, Recorder, RmsRecordOption
+
+with Controller.builder([AUTD3([0.0, 0.0, 0.0])]).into_emulator() as emulator:
+    focus = emulator.center + np.array([0.0, 0.0, 150.0])
+
+    def f(autd: Controller[Recorder]) -&gt; Controller[Recorder]:
+        autd.send(Silencer.disable())
+        autd.send((Static.with_intensity(0xFF), Focus(focus)))
+        autd.tick(Duration.from_micros(25))
+        return autd
+
+    record = emulator.record(f)
+
+    sound_field = record.sound_field(
+        RangeXYZ(
+            x_start=focus[0] - 20.0,
+            x_end=focus[0] + 20.0,
+            y_start=focus[1] - 20.0,
+            y_end=focus[1] + 20.0,
+            z_start=focus[2],
+            z_end=focus[2],
+            resolution=1.0,
+        ),
+        RmsRecordOption(
+            sound_speed=340e3,
+            print_progress=True,
+            gpu=False,
+        ),
+    )
+
+    df = sound_field.observe_points()
+    print(df)
+
+    df = sound_field.next(Duration.from_micros(25))
+    print(df)
+</code></pre>
+<blockquote>
+<p>NOTE: 最低, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord"><span class="mord">25</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathrm">us</span></span></span></span></span></span>は時刻を進める必要がある.</p>
+</blockquote>
+<blockquote>
+<p>NOTE: RMSで計算される値は, <strong>上記の瞬時音場のRMSではない</strong>. 伝搬遅延や振動子の応答を無視した線形重ね合わせである.</p>
+</blockquote>
+<p>各観測点における, 出力音圧のRMSが時系列順 (単位は<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord"><span class="mord">25</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathrm">us</span></span></span></span></span></span>) で各列に格納される.
+各列の名前は, <code>rms[Pa]@&lt;時刻&gt;[ns]</code>である.
+各行は, <code>observe_points</code>で取得できる観測点と対応している.</p>
+<pre><code>┌────────────┬───────────┬───────┐
+│ x[mm]      ┆ y[mm]     ┆ z[mm] │
+│ ---        ┆ ---       ┆ ---   │
+│ f32        ┆ f32       ┆ f32   │
+╞════════════╪═══════════╪═══════╡
+│ 66.625267  ┆ 46.713196 ┆ 150.0 │
+│ 67.625267  ┆ 46.713196 ┆ 150.0 │
+│ 68.625267  ┆ 46.713196 ┆ 150.0 │
+│ 69.625267  ┆ 46.713196 ┆ 150.0 │
+│ 70.625267  ┆ 46.713196 ┆ 150.0 │
+│ …          ┆ …         ┆ …     │
+│ 102.625267 ┆ 86.713196 ┆ 150.0 │
+│ 103.625267 ┆ 86.713196 ┆ 150.0 │
+│ 104.625267 ┆ 86.713196 ┆ 150.0 │
+│ 105.625267 ┆ 86.713196 ┆ 150.0 │
+│ 106.625267 ┆ 86.713196 ┆ 150.0 │
+└────────────┴───────────┴───────┘
+</code></pre>
+<pre><code>┌───────────────┐
+│ rms[Pa]@0[ns] │
+│ ---           │
+│ f32           │
+╞═══════════════╡
+│ 97.675339     │
+│ 83.525314     │
+│ 60.54364      │
+│ 34.229084     │
+│ 33.827206     │
+│ …             │
+│ 51.324219     │
+│ 75.84668      │
+│ 102.852501    │
+│ 120.575188    │
+│ 125.698715    │
+└───────────────┘
+</code></pre>
+<p>さらなる, Exampleは<a href="https://github.com/shinolab/autd3-emulator/tree/main/examples">autd3-emulator (Rust)</a>, 及び, <a href="https://github.com/shinolab/pyautd3/tree/main/example/emulator">pyautd3 (Python)</a>を参照されたい.</p>
+<footer id="open-on-gh">Found a bug? <a href="https://github.com/shinolab/autd3-doc/edit/main/src/jp/Users_Manual/Emulator/emulator.md">Edit this page on GitHub.</a></footer>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../Users_Manual/Simulator/simulator.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../Users_Manual/FAQ/faq.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../Users_Manual/Simulator/simulator.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../Users_Manual/FAQ/faq.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../theme/codeblock_filename.js"></script>
+        <script src="../../theme/lightbox-plus-jquery.min.js"></script>
+
+
+    </div>
+    </body>
+</html>
