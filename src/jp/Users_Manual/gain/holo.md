@@ -1,6 +1,27 @@
 # Holo
 
 `Holo`は多焦点を生成するための`Gain`である.
+
+## Install
+
+### Rust
+
+```shell
+cargo add autd3-gain-holo@29.0.0-rc.11
+```
+
+### C++ (CMake)
+
+```ignore,filename=CMakeLists.txt
+target_link_libraries(<TARGET> PRIVATE autd3::gain::holo)
+```
+
+### C#/Unity/Python
+
+メインライブラリに含まれている.
+
+## APIs
+
 多焦点を生成するアルゴリズムが幾つか提案されており, SDKには以下のアルゴリズムが実装されている.
 
 * `Naive` - 単一焦点解の重ね合わせ

@@ -2,6 +2,26 @@
 
 `Csv`はCsvファイルをもとに構成される`Modulation`である.
 
+## Install
+
+### Rust
+
+```shell
+cargo add autd3-modulation-audio-file@29.0.0-rc.11
+```
+
+### C++ (CMake)
+
+```ignore,filename=CMakeLists.txt
+target_link_libraries(<TARGET> PRIVATE autd3::modulation::audio_file)
+```
+
+### C#/Unity/Python
+
+メインライブラリに含まれている.
+
+## APIs
+
 第1引数にデータファイルへのパスを指定する.
 データファイルはdeliminator (デフォルトはカンマ",". `with_deliminator`で変更可.) で区切られた行データか, 列データであり, データ値は符号なし8bit整数である必要がある.
 また, 第2引数には, サンプリング周波数を指定する.
