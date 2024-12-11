@@ -15,20 +15,20 @@ if(WIN32)
   if(${CMAKE_SYSTEM_PROCESSOR} MATCHES "AMD64")
     FetchContent_Declare(
       autd3
-      URL https://github.com/shinolab/autd3-cpp/releases/download/v29.0.0-rc.10/autd3-v29.0.0-rc.10-win-x64.zip
+      URL https://github.com/shinolab/autd3-cpp/releases/download/v29.0.0-rc.11/autd3-v29.0.0-rc.11-win-x64.zip
     )
     FetchContent_Declare(
       autd3-link-soem
-      URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0-rc.10/autd3-link-soem-v29.0.0-rc.10-win-x64.zip
+      URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0-rc.11/autd3-link-soem-v29.0.0-rc.11-win-x64.zip
     )
   elseif(${CMAKE_SYSTEM_PROCESSOR} MATCHES "ARM64")
     FetchContent_Declare(
       autd3
-      URL https://github.com/shinolab/autd3-cpp/releases/download/v29.0.0-rc.10/autd3-v29.0.0-rc.10-win-arm.zip
+      URL https://github.com/shinolab/autd3-cpp/releases/download/v29.0.0-rc.11/autd3-v29.0.0-rc.11-win-arm.zip
     )
     FetchContent_Declare(
       autd3-link-soem
-      URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0-rc.10/autd3-link-soem-v29.0.0-rc.10-win-arm.zip
+      URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0-rc.11/autd3-link-soem-v29.0.0-rc.11-win-arm.zip
     )
   else()
       message(FATAL_ERROR "Unsupported platform: ${CMAKE_SYSTEM_PROCESSOR}")
@@ -36,20 +36,20 @@ if(WIN32)
 elseif(APPLE)
   FetchContent_Declare(
     autd3
-    URL https://github.com/shinolab/autd3-cpp/releases/download/v29.0.0-rc.10/autd3-v29.0.0-rc.10-macos-aarch64.tar.gz
+    URL https://github.com/shinolab/autd3-cpp/releases/download/v29.0.0-rc.11/autd3-v29.0.0-rc.11-macos-aarch64.tar.gz
   )
   FetchContent_Declare(
     autd3-link-soem
-    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0-rc.10/autd3-link-soem-v29.0.0-rc.10-macos-aarch64.tar.gz
+    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0-rc.11/autd3-link-soem-v29.0.0-rc.11-macos-aarch64.tar.gz
   )
 else()
   FetchContent_Declare(
     autd3
-    URL https://github.com/shinolab/autd3-cpp/releases/download/v29.0.0-rc.10/autd3-v29.0.0-rc.10-linux-x64.tar.gz
+    URL https://github.com/shinolab/autd3-cpp/releases/download/v29.0.0-rc.11/autd3-v29.0.0-rc.11-linux-x64.tar.gz
   )
   FetchContent_Declare(
     autd3-link-soem
-    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0-rc.10/autd3-link-soem-v29.0.0-rc.10-linux-x64.tar.gz
+    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0-rc.11/autd3-link-soem-v29.0.0-rc.11-linux-x64.tar.gz
   )
 endif()
 set(USE_SYSTEM_EIGEN OFF)

@@ -3,8 +3,8 @@
 ## pyautd3ライブラリのインストール
 
 ```shell
-pip install pyautd3==29.0.0rc10
-pip install pyautd3_link_soem==29.0.0rc10
+pip install pyautd3==29.0.0rc11
+pip install pyautd3_link_soem==29.0.0rc11
 ```
 
 次に, `main.py`を作成し, 以下のようにする.
