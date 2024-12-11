@@ -23,8 +23,8 @@ Controllerには以下の設定が存在する.
 ```python
 {{#include ../../codes/Users_Manual/controller_config.py}}
 ```
-- `fallback_parallel_threshold`: 並列化スレッショルドのフォールバック値. デフォルトは4. 詳しくは[以下](#並列計算)を参照.
-- `fallback_timeout`: タイムアウトのフォールバック値. デフォルトは$\SI{20}{ms}$. 詳しくは[以下](#タイムアウト)を参照.
+- `default_parallel_threshold`: 並列化スレッショルドのデフォルト値. デフォルトは4. 詳しくは[以下](#並列計算)を参照.
+- `default_timeout`: タイムアウトのデフォルト値. デフォルトは$\SI{20}{ms}$. 詳しくは[以下](#タイムアウト)を参照.
 - `send_interval`: 送信間隔. デフォルトは$\SI{1}{ms}$.
 - `receive_interval`: 受信間隔. デフォルトは$\SI{1}{ms}$.
 - `timer_strategy`: 送受信のタイミングを決定する方法. デフォルトは`TimerStrategy::Spin`.
@@ -61,7 +61,7 @@ Controllerには以下の設定が存在する.
 
 タイムアウトは`with_timeout`で上書きできる.
 
-タイムアウト値が`None`の場合は, [Controller](./link.md)で設定したフォールバックタイムアウトが使用される.
+タイムアウト値が`None`の場合は, [Controller](./link.md)で設定したデフォルトタイムアウトが使用される.
 
 ```rust,edition2021
 {{#include ../../codes/Users_Manual/controller_1.rs}}
@@ -94,7 +94,7 @@ Controllerには以下の設定が存在する.
 
 この値は`with_parallel_threshold`で上書きできる.
 
-スレッショルドが`None`の場合は, [Controller](./link.md)で設定したフォールバック値が使用される.
+スレッショルドが`None`の場合は, [Controller](./link.md)で設定したデフォルト値が使用される.
 
 ```rust,edition2021
 {{#include ../../codes/Users_Manual/controller_with_parallel.rs}}
@@ -170,7 +170,7 @@ FPGAの状態としては, 現在以下の情報が取得できる.
 ただし, デバイス単位でしかグルーピングできない.
 
 なお, タイムアウトは`set`したものの中で最大のもの, 並列計算スレッショルドは`set`したものの中で最小のものが使用される. 
-すべて`None`の場合は, [Controllerの設定](#Controllerの設定)で設定したフォールバック値が使用される.
+すべて`None`の場合は, [Controllerの設定](#Controllerの設定)で設定したデフォルト値が使用される.
 
 > NOTE:
 > このサンプルでは, キーとして文字列を使用しているが, HashMapのキーとして使用できるものなら何でも良い.

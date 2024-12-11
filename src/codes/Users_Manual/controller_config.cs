@@ -4,8 +4,8 @@
 ~using AUTD3Sharp.Utils;
 ~_ =
 Controller.Builder([new AUTD3(Vector3.Zero)])
-    .WithFallbackParallelThreshold(4)
-    .WithFallbackTimeout(Duration.FromMillis(20))
+    .WithDefaultParallelThreshold(4)
+    .WithDefaultTimeout(Duration.FromMillis(20))
     .WithSendInterval(Duration.FromMillis(1))
     .WithReceiveInterval(Duration.FromMillis(1))
     .WithTimerStrategy(AUTD3Sharp.Timer.TimerStrategy.Spin(new SpinSleeper()))

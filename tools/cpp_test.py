@@ -14,8 +14,8 @@ from autd3_build_utils.autd3_build_utils import (
 )
 
 if __name__ == "__main__":
-    version = "29.0.0-rc.10"
-    link_soem_version = "29.0.0-rc.10"
+    version = "29.0.0-rc.11"
+    link_soem_version = "29.0.0-rc.11"
     print(f"Testing with autd3-cpp {version}")
 
     base_path = pathlib.Path(__file__).parent.parent / "src" / "codes"
