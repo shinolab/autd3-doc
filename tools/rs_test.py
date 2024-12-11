@@ -25,6 +25,7 @@ if __name__ == "__main__":
     autd3_emulator_version = "29.0.0-rc.11"
     autd3_link_soem_version = "29.0.0-rc.11"
     tokio_version = get_latest_version("tokio")
+    itertools_version = get_latest_version("itertools")
     print(f"Testing with autd3-rs {autd3_version}")
 
     base_path = pathlib.Path(__file__).parent.parent / "src" / "codes"
@@ -65,6 +66,7 @@ autd3-link-twincat = {{ version = "{autd3_version}", features = ["remote"] }}
 autd3-modulation-audio-file = {{ version = "{autd3_version}" }}
 autd3-emulator = {{ version = "{autd3_emulator_version}", features = ["gpu"] }}
 tokio = {{ version = "{tokio_version}", features = ["full"] }}
+itertools = {{ version = "{itertools_version}"}}
 """,
             )
 
