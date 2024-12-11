@@ -6,9 +6,27 @@ Simulator linkは[AUTDシミュレータ](../Simulator/simulator.md)を使用す
 
 [[_TOC_]]
 
-## SimulatorリンクのAPI
+## Simulatorリンク
 
-### コンストラクタ
+### Install
+
+#### Rust
+
+```shell
+cargo add autd3-link-simulator@29.0.0-rc.11
+```
+
+#### C++ (CMake)
+
+```ignore,filename=CMakeLists.txt
+target_link_libraries(<TARGET> PRIVATE autd3::link::simulator)
+```
+
+#### C#/Unity/Python
+
+メインライブラリに含まれている.
+
+### APIs
 
 `Simulator`のコンストラクタにはAUTDシミュレータのIPアドレスとポート番号を指定する.
 

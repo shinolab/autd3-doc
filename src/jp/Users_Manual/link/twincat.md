@@ -12,7 +12,9 @@ TwinCATはWindowsのみをサポートする非常に特殊なソフトウェア
 
 [[_TOC_]]
 
-## TwinCATのインストール
+## 事前準備
+
+### TwinCATのインストール
 
 前提として, TwinCATはHyper-VやVirtual Machine Platformと共存できない.
 そのため, これらの機能を無効にする必要がある.
@@ -36,7 +38,7 @@ Disable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform
 
 インストール後に再起動し, `C:/TwinCAT/3.1/System/win8settick.bat`を管理者権限で実行し, 再び再起動する.
 
-## AUTD Server
+### AUTD Serverのインストール
 
 TwinCATのLinkを使うには, まず, `AUTD Server`をインストールする必要がある.
 [GitHub Releases](https://github.com/shinolab/autd3-server/releases)にてインストーラを配布しているので, これをダウンロードし, 指示に従ってインストールする.
@@ -78,15 +80,33 @@ AUTD3とPCを接続し, AUTD3の電源が入った状態で, 「Run」ボタン�
 
 なお, AUTD ServerはPCの電源を切る, スリープモードに入る等でLinkが途切れるので, その都度実行し直すこと.
 
-#### ライセンス
+### ライセンス
 
 初回はライセンス関係のエラーが出るので, XAE Shellで「Solution Explorer」→「SYSTEM」→「License」を開き, 「7 Days Trial License ...」をクリックし, 画面に表示される文字を入力する.
 なお. ライセンスは7日間限定のトライアルライセンスだが, 切れたら再び同じ作業を行うことで再発行できる.
 ライセンスを発行し終わったら, TwinCAT XAE Shellを閉じて, 再び実行する.
 
-## TwinCATリンクのAPI
+## TwinCATリンク
 
-### コンストラクタ
+### Install
+
+#### Rust
+
+```shell
+cargo add autd3-link-twincat@29.0.0-rc.11
+```
+
+#### C++ (CMake)
+
+```ignore,filename=CMakeLists.txt
+target_link_libraries(<TARGET> PRIVATE autd3::link::twincat)
+```
+
+#### C#/Unity/Python
+
+メインライブラリに含まれている.
+
+### APIs
 
 ```rust,should_panic,edition2021
 {{#include ../../../codes/Users_Manual/link/twincat_0.rs}}
@@ -104,7 +124,7 @@ AUTD3とPCを接続し, AUTD3の電源が入った状態で, 「Run」ボタン�
 {{#include ../../../codes/Users_Manual/link/twincat_0.py}}
 ```
 
-## トラブルシューティング
+### トラブルシューティング
 
 大量のデバイスを使用しようとすると, 下の図のようなエラーが発生することがある.
 
@@ -120,12 +140,30 @@ AUTD3とPCを接続し, AUTD3の電源が入った状態で, 「Run」ボタン�
 エラーが出ない中で可能な限り小さな値が望ましい.
 例えば, 9台の場合は$1.5$--$\SI{2}{ms}$程度の値にしておけば動作するはずである.
 
-# RemoteTwinCAT
+## RemoteTwinCATリンク
 
 前述の通り, AUTD3とTwinCATを使う場合はWindows OSと特定のネットワークアダプタが必要になる.
 Windows以外のPCで開発したい場合は, `RemoteTwinCAT` linkを用いてLinux/macOSから遠隔でTwinCATを操作することができる.
 
-## セットアップ
+### Install
+
+#### Rust
+
+```shell
+cargo add autd3-link-twincat@29.0.0-rc.11 --features remote
+```
+
+#### C++ (CMake)
+
+```ignore,filename=CMakeLists.txt
+target_link_libraries(<TARGET> PRIVATE autd3::link::twincat)
+```
+
+#### C#/Unity/Python
+
+メインライブラリに含まれている.
+
+### セットアップ
 
 `RemoteTwinCAT`を使用する場合はPCを2台用意する必要がある.
 この時, 片方のPCは上記の`TwinCAT` linkが使えるである必要がある.
@@ -149,9 +187,7 @@ Windows以外のPCで開発したい場合は, `RemoteTwinCAT` linkを用いてL
 
 > NOTE: 「Server AmsNetId」の最初の4桁は必ずしもServerのIPアドレスを意味しているわけではないので注意されたい.
 
-## RemoteTwinCATリンクのAPI
-
-### コンストラクタ
+### APIs
 
 `RemoteTwinCAT`のコンストラクタには「Server AmsNetId」を指定する.
 
@@ -174,7 +210,7 @@ Windows以外のPCで開発したい場合は, `RemoteTwinCAT` linkを用いてL
 {{#include ../../../codes/Users_Manual/link/remote_twincat_0.py}}
 ```
 
-## ファイアウォール
+### ファイアウォール
 
 TCP関係のエラーが出る場合は, ファイアウォールでADSプロトコルがブロックされている可能性がある.
 その場合は, ファイアウォールの設定でTCP/UDPの48898番ポートの接続を許可する.

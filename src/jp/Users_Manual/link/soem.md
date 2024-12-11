@@ -14,7 +14,65 @@ Linux/macOSの場合は, 特に準備は必要ない.
 
 [[_TOC_]]
 
-## SOEMリンクのAPI
+## SOEMリンク
+
+### Install
+
+#### Rust
+
+```shell
+cargo add autd3-link-soem@29.0.0-rc.11
+```
+
+#### C++ (CMake)
+
+```ignore,filename=CMakeLists.txt
+if(WIN32)
+  if(${CMAKE_SYSTEM_PROCESSOR} MATCHES "AMD64")
+    FetchContent_Declare(
+      autd3-link-soem
+      URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0-rc.11/autd3-link-soem-v29.0.0-rc.11-win-x64.zip
+    )
+  elseif(${CMAKE_SYSTEM_PROCESSOR} MATCHES "ARM64")
+    FetchContent_Declare(
+      autd3-link-soem
+      URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0-rc.11/autd3-link-soem-v29.0.0-rc.11-win-arm.zip
+    )
+  else()
+      message(FATAL_ERROR "Unsupported platform: ${CMAKE_SYSTEM_PROCESSOR}")
+  endif()
+elseif(APPLE)
+  FetchContent_Declare(
+    autd3-link-soem
+    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0-rc.11/autd3-link-soem-v29.0.0-rc.11-macos-aarch64.tar.gz
+  )
+else()
+  FetchContent_Declare(
+    autd3-link-soem
+    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0-rc.11/autd3-link-soem-v29.0.0-rc.11-linux-x64.tar.gz
+  )
+endif()
+FetchContent_MakeAvailable(autd3-link-soem)
+target_link_libraries(<TARGET> PRIVATE autd3::link::soem)
+```
+
+#### C#
+
+```shell
+dotnet add package AUTD3Sharp.Link.SOEM --version 29.0.0-rc.11
+```
+
+#### Unity
+
+`https://github.com/shinolab/AUTD3Sharp.Link.SOEM.git#upm/latest`をUnity Package Managerで追加する.
+
+#### Python
+
+```shell
+pip install pyautd3_link_soem==29.0.0rc11
+```
+
+### APIs
 
 SOEMリンクで指定できるオプションは以下の通りである.
 
@@ -50,9 +108,46 @@ SOEMリンクで指定できるオプションは以下の通りである.
 - `thread_priority`: スレッドの優先度. デフォルトは`ThreadPriority::MAX`である.
 - `process_priority`: (Windowsのみ) プロセスの優先度. デフォルトは`ProcessPriority::High`である.
 
-# RemoteSOEM
+## RemoteSOEMリンク
 
 このLinkは`SOEM`を動かすサーバーPCとユーザプログラムを動かすクライアントPCを分離するためのものである.
+
+### Install
+
+#### Rust
+
+```shell
+cargo add autd3-link-soem@29.0.0-rc.11 --features remote
+```
+
+#### C++ (CMake)
+
+```ignore,filename=CMakeLists.txt
+FetchContent_Declare(
+  autd3-link-soem
+  URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0-rc.11/autd3-link-soem-v29.0.0-rc.11-win-x64.zip
+)
+FetchContent_MakeAvailable(autd3-link-soem)
+target_link_libraries(<TARGET> PRIVATE autd3::link::soem)
+```
+
+#### C#
+
+```shell
+dotnet add package AUTD3Sharp.Link.SOEM --version 29.0.0-rc.11
+```
+
+#### Unity
+
+`https://github.com/shinolab/AUTD3Sharp.Link.SOEM.git#upm/latest`をUnity Package Managerで追加する.
+
+#### Python
+
+```shell
+pip install pyautd3_link_soem==29.0.0rc11
+```
+
+### Usage
 
 `RemoteSOEM`を使用する場合はPCを2台用意する必要がある.
 この時, 片方のPCは`SOEM` linkが使えるである必要がある.
@@ -64,7 +159,7 @@ SOEMリンクで指定できるオプションは以下の通りである.
 そして, サーバとクライアント間のLANのIPを確認しておく.
 ここでは例えば, サーバ側が`172.16.99.104`, クライアント側が`172.16.99.62`だったとする.
 
-## AUTD Server
+#### AUTD Server
 
 `RemoteSOEM`を使用する場合, サーバに`AUTD Server`をインストールする必要がある.
 [GitHub Releases](https://github.com/shinolab/autd3-server/releases)にてインストーラを配布しているので, これをダウンロードし, 指示に従ってインストールする.
@@ -81,7 +176,7 @@ AUTD3デバイスが見つかり, クライアントとの接続待ちである�
 
 なお, `AUTD Server`では`SOEM`と同等のオプションを指定できる.
 
-## RemoteSOEMリンクのAPI
+### APIs
 
 `RemoteSOEM`のコンストラクタでは, <サーバのIP:ポート>を指定する.
 
@@ -101,7 +196,7 @@ AUTD3デバイスが見つかり, クライアントとの接続待ちである�
 {{#include ../../../codes/Users_Manual/link/remote_soem_0.py}}
 ```
 
-## ファイアウォール
+### ファイアウォール
 
 TCP関係のエラーが出る場合は, ファイアウォールでブロックされている可能性がある.
 その場合は, ファイアウォールの設定でTCP/UDPの指定したポートの接続を許可する.
