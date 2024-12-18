@@ -35,7 +35,6 @@ The phase of the transducer is represented by hue, and its amplitude is represen
 The sound field displayed in the simulator is a simple superposition of spherical waves; directivity and nonlinear effects are not taken into account.
 
 The GUI displayed on the left side of the screen is used to control "Slice" and the camera.
-The GUI is based on [Dear ImGui](https://github.com/ocornut/imgui).
 
 ### Slice tab
 
