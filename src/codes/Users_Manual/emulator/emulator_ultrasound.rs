@@ -4,7 +4,7 @@ use autd3_emulator::*;
 
 # #[tokio::main]
 # async fn main() -> Result<(), Box<dyn std::error::Error>> {
-let emulator = Controller::builder([AUTD3::new(Vector3::zeros())]).into_emulator();
+let emulator = Controller::builder([AUTD3::new(Point3::origin())]).into_emulator();
 
 let record = emulator
     .record(|mut autd| async {

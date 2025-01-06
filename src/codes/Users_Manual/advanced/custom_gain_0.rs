@@ -3,11 +3,11 @@ use autd3::derive::*;
 
 #[derive(Gain, Debug)]
 pub struct FocalPoint {
-    pos: Vector3,
+    pos: Point3,
 }
 
 pub struct Context {
-    pos: Vector3,
+    pos: Point3,
     wavenumber: f32,
 }
 
@@ -39,7 +39,7 @@ impl Gain for FocalPoint {
         self,
         _geometry: &Geometry,
         _filter: Option<&HashMap<usize, BitVec<u32>>>,
-    ) -> Result<Self::G, AUTDInternalError> {
+    ) -> Result<Self::G, AUTDDriverError> {
         Ok(self)
     }
 }

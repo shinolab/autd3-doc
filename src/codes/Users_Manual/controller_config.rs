@@ -5,7 +5,7 @@ use autd3::controller::timer::{TimerStrategy, SpinSleeper};
 # #[allow(unused_variables)]
 # fn main() {
 # let _ = 
-Controller::builder([AUTD3::new(Vector3::zeros())])
+Controller::builder([AUTD3::new(Point3::origin())])
     .with_default_parallel_threshold(4)
     .with_default_timeout(Duration::from_millis(20))
     .with_send_interval(Duration::from_millis(1))

@@ -2,7 +2,7 @@
 # #[allow(unused_variables)]
 # #[tokio::main]
 # async fn main() -> Result<(), Box<dyn std::error::Error>> {
-# let mut autd = Controller::builder([AUTD3::new(Vector3::zeros())]).open(autd3::link::Nop::builder()).await?;
+# let mut autd = Controller::builder([AUTD3::new(Point3::origin())]).open(autd3::link::Nop::builder()).await?;
 autd.send(DebugSettings::new(|_dev, gpio| if gpio == GPIOOut::O0 {
                                          DebugType::BaseSignal
                                      } else {
