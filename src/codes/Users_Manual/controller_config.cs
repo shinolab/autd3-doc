@@ -3,7 +3,7 @@
 ~using AUTD3Sharp.Timer;
 ~using AUTD3Sharp.Utils;
 ~_ =
-Controller.Builder([new AUTD3(Vector3.Zero)])
+Controller.Builder([new AUTD3(Point3.Origin)])
     .WithDefaultParallelThreshold(4)
     .WithDefaultTimeout(Duration.FromMillis(20))
     .WithSendInterval(Duration.FromMillis(1))
