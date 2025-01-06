@@ -5,7 +5,7 @@
 
 int main() try {
   auto autd =
-      autd3::ControllerBuilder({autd3::AUTD3(autd3::Vector3::Zero())})
+      autd3::ControllerBuilder({autd3::AUTD3(autd3::Point3::origin())})
           .open(autd3::link::SOEM::builder().with_err_handler(
               [](const uint16_t slave, const autd3::link::Status status) {
                 std::cout << "slave [" << slave << "]: " << status << std::endl;
@@ -18,7 +18,7 @@ int main() try {
 
   autd.send(autd3::Silencer());
 
-  const autd3::Vector3 focus = autd.center() + autd3::Vector3(0, 0, 150);
+  const autd3::Point3 focus = autd.center() + autd3::Vector3(0, 0, 150);
   autd3::gain::Focus g(focus);
 
   autd3::modulation::Sine m(150 * autd3::Hz);

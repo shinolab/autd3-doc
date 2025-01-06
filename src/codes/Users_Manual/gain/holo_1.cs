@@ -9,6 +9,6 @@ var backend = new NalgebraBackend();
 ~var x2 = 0.0f;
 ~var y2 = 0.0f;
 ~var z2 = 0.0f;
-~var foci = new[] { (new Vector3(x1, y1, z1), 5e3f * Pa), (new Vector3(x1, y1, z1), 5e3f * Pa) };
+~var foci = new[] { (new Point3(x1, y1, z1), 5e3f * Pa), (new Point3(x2, y2, z2), 5e3f * Pa) };
 var g = new GSPAT(backend, foci)
                 .WithConstraint(EmissionConstraint.Uniform(EmitIntensity.Max));

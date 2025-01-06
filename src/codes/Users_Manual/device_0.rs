@@ -3,7 +3,7 @@
 # #[allow(unused_variables)]
 # #[tokio::main]
 # async fn main() -> Result<(), Box<dyn std::error::Error>> {
-# let mut autd = Controller::builder([AUTD3::new(Vector3::zeros())])
+# let mut autd = Controller::builder([AUTD3::new(Point3::origin())])
 #    .open(autd3::link::Nop::builder()).await?;
 let dev = &mut autd[0];
 let idx = dev.idx();

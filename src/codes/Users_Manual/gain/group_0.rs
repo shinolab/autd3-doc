@@ -9,6 +9,6 @@ let g = Group::new(|_dev| |tr| match tr.idx() {
                 _ => Some("focus"),
             })
             .set("null", Null::new())?
-            .set("focus", Focus::new(Vector3::new(x, y, z)))?;
+            .set("focus", Focus::new(Point3::new(x, y, z)))?;
 # Ok(())
 # }

@@ -5,7 +5,7 @@ using AUTD3Sharp.Gain;
 using AUTD3Sharp.Modulation;
 using static AUTD3Sharp.Units;
 
-using var autd = Controller.Builder([new AUTD3(Vector3.Zero)])
+using var autd = Controller.Builder([new AUTD3(Point3.Origin)])
         .Open(SOEM.Builder().WithErrHandler((slave, status) =>
         {
             Console.Error.WriteLine($"slave [{slave}]: {status}");

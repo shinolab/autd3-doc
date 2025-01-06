@@ -2,7 +2,7 @@
 #include <autd3_link_soem.hpp>
 
 //~int main() {
-//~auto autd = autd3::ControllerBuilder({autd3::AUTD3(autd3::Vector3::Zero())})
+//~auto autd = autd3::ControllerBuilder({autd3::AUTD3(autd3::Point3::origin())})
 //~                .open(
 autd3::link::RemoteSOEM::builder("172.16.99.104:8080")
     //~                    );

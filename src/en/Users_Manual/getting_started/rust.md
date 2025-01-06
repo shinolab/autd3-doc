@@ -5,8 +5,8 @@ First, make a new project and add `autd3` and `autd3-link-soem` libraries as dep
 ```shell
 cargo new --bin autd3-sample
 cd autd3-sample
-cargo add autd3@29.0.0-rc.11
-cargo add autd3-link-soem@29.0.0-rc.11
+cargo add autd3@29.0.0-rc.12
+cargo add autd3-link-soem@29.0.0-rc.12
 cargo add tokio --features full
 ```
 

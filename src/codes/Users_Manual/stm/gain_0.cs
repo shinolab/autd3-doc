@@ -3,7 +3,7 @@
 ~using AUTD3Sharp.Gain;
 ~using AUTD3Sharp.Link;
 ~using static AUTD3Sharp.Units;
-~using var autd = Controller.Builder([new AUTD3(Vector3.Zero)]).Open(Nop.Builder());
+~using var autd = Controller.Builder([new AUTD3(Point3.Origin)]).Open(Nop.Builder());
 var center = autd.Center + new Vector3(0, 0, 150);
 const int pointNum = 200;
 const float radius = 30.0f;

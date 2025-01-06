@@ -1,9 +1,9 @@
 # use autd3::prelude::*;
 # #[allow(unused_variables)]
 # fn main() -> Result<(), Box<dyn std::error::Error>> {
-# let start = Vector3::zeros();
-# let end = Vector3::zeros();
-# let center = Vector3::zeros();
+# let start = Point3::origin();
+# let end = Point3::origin();
+# let center = Point3::origin();
 # let radius = 30.0 * mm;
 # let num_points = 50;
 # let n = Vector3::z_axis();

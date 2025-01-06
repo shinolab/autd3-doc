@@ -12,7 +12,7 @@
 #### Rust
 
 ```shell
-cargo add autd3-emulator@29.0.0-rc.11
+cargo add autd3-emulator@29.0.0-rc.12
 ```
 
 #### Python

@@ -10,7 +10,7 @@
 ~var nz = 1.0f;
 ~var theta = 0.0f;
 var g = new Bessel(
-            new Vector3(x, y, z),
+            new Point3(x, y, z),
             new Vector3(nx, ny, nz),
             theta * rad
         )
