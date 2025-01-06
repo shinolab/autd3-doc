@@ -3,7 +3,7 @@
 //~#include<autd3/link/nop.hpp>
 //~int main() {
 //~(void)
-autd3::ControllerBuilder({autd3::AUTD3(autd3::Vector3::Zero())})
+autd3::ControllerBuilder({autd3::AUTD3(autd3::Point3::origin())})
     .with_default_parallel_threshold(4)
     .with_default_timeout(std::chrono::milliseconds(20))
     .with_send_interval(std::chrono::milliseconds(1))

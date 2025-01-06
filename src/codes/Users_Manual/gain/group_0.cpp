@@ -11,5 +11,5 @@ const auto g = autd3::Group([](const auto& dev) {
                  };
                })
                    .set("null", autd3::gain::Null())
-                   .set("focus", autd3::gain::Focus(autd3::Vector3(x, y, z)));
+                   .set("focus", autd3::gain::Focus(autd3::Point3(x, y, z)));
 //~return 0; }

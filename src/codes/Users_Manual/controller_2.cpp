@@ -3,7 +3,7 @@
 //~#include<autd3/link/nop.hpp>
 //~int main() {
 //~auto autd =
-//~autd3::ControllerBuilder({autd3::AUTD3(autd3::Vector3::Zero())}).open(autd3::link::Nop::builder());
+//~autd3::ControllerBuilder({autd3::AUTD3(autd3::Point3::origin())}).open(autd3::link::Nop::builder());
 //~const auto x = 0.0;
 //~const auto y = 0.0;
 //~const auto z = 0.0;
@@ -17,6 +17,6 @@ autd.group([](const autd3::Device& dev) -> std::optional<const char*> {
       }
     })
     .set("null", autd3::gain::Null())
-    .set("focus", autd3::gain::Focus(autd3::Vector3(x, y, z)))
+    .set("focus", autd3::gain::Focus(autd3::Point3(x, y, z)))
     .send();
 //~return 0; }
