@@ -9,3 +9,4 @@
 - [PulseWidthEncoder](./pulse_width_encoder.md)
 - [GPIO出力の設定](./debug_settings.md)
 - [ロギングの有効化](./logging.md)
+- [超音波周波数の変更](./dynamic_freq.md)
