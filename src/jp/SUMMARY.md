@@ -53,6 +53,7 @@
     - [PulseWidthEncoder](./Users_Manual/advanced/pulse_width_encoder.md)
     - [GPIO出力の設定](./Users_Manual/advanced/debug_settings.md)
     - [ロギングの有効化](./Users_Manual/advanced/logging.md)
+    - [超音波周波数の変更](./Users_Manual/advanced/dynamic_freq.md)
   - [シミュレータ](./Users_Manual/Simulator/simulator.md)
   - [エミュレータ](./Users_Manual/Emulator/emulator.md)
   - [FAQ](./Users_Manual/FAQ/faq.md)
