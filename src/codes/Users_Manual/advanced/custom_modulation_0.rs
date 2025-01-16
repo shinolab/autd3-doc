@@ -1,5 +1,5 @@
-use autd3::prelude::*;
-use autd3::derive::*;
+# use autd3::prelude::*;
+use autd3::core::derive::*;
 
 #[derive(Modulation, Debug)]
 pub struct Burst {
@@ -17,7 +17,7 @@ impl Burst {
 }
 
 impl Modulation for Burst {
-    fn calc(self) -> Result<Vec<u8>, AUTDDriverError> {
+    fn calc(self) -> Result<Vec<u8>, ModulationError> {
         Ok((0..4000)
             .map(|i| if i == 3999 { u8::MAX } else { u8::MIN })
             .collect())

@@ -21,8 +21,8 @@ def python_module(cmd: list[str]) -> list[str]:
 
 
 def install_pyautd3() -> None:
-    version = "29.0.0-rc.12"
-    link_soem_version = "29.0.0-rc.12"
+    version = "29.0.0-rc.16"
+    link_soem_version = "29.0.0-rc.16"
     run_command(python_module(["pip", "install", "-U", f"pyautd3=={version}"]))
     run_command(python_module(["pip", "install", "-U", f"pyautd3_link_soem=={link_soem_version}"]))
 

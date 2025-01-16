@@ -1,6 +1,6 @@
 # use std::num::NonZeroUsize;
 # use autd3::prelude::*;
-# use autd3::modulation::resampler::{SincInterpolation, Blackman};
+# use autd3::core::resampler::{SincInterpolation, Blackman};
 # use autd3_modulation_audio_file::Csv;
 # #[allow(unused_variables)]
 # fn main() -> Result<(), Box<dyn std::error::Error>> {

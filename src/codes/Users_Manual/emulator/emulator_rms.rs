@@ -2,21 +2,18 @@
 # use autd3::prelude::*;
 use autd3_emulator::*;
 
-# #[tokio::main]
-# async fn main() -> Result<(), Box<dyn std::error::Error>> {
+# fn main() -> Result<(), Box<dyn std::error::Error>> {
 let emulator = Controller::builder([AUTD3::new(Point3::origin())]).into_emulator();
 
 let focus = emulator.center() + Vector3::new(0., 0., 150. * mm);
 
 let record = emulator
-    .record(|mut autd| async {
-        autd.send(Silencer::disable()).await?;
-        autd.send((Static::with_intensity(0xFF), Focus::new(focus)))
-            .await?;
+    .record(|autd| {
+        autd.send(Silencer::disable())?;
+        autd.send((Static::with_intensity(0xFF), Focus::new(focus)))?;
         autd.tick(Duration::from_micros(25))?;
-        Ok(autd)
-    })
-    .await?;
+        Ok(())
+    })?;
 
 let mut sound_field = record
     .sound_field(
@@ -31,13 +28,12 @@ let mut sound_field = record
             print_progress: true,
             gpu: true,        
         },
-    )
-    .await?;
+    )?;
 
 let df = sound_field.observe_points();
 dbg!(df);
 
-let df = sound_field.next(Duration::from_micros(25)).await?;
+let df = sound_field.next(Duration::from_micros(25))?;
 dbg!(df);
 #     Ok(())
 # }

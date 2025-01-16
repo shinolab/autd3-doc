@@ -10,8 +10,8 @@ import joblib
 from autd3_build_utils.autd3_build_utils import substitute_in_file
 
 if __name__ == "__main__":
-    version = "29.0.0-rc.12"
-    link_soem_version = "29.0.0-rc.12"
+    version = "29.0.0-rc.16"
+    link_soem_version = "29.0.0-rc.16"
     print(f"Testing with AUTD3Sharp {version}")
 
     base_path = pathlib.Path(__file__).parent.parent / "src" / "codes"

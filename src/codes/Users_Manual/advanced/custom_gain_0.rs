@@ -1,5 +1,5 @@
 # use autd3::prelude::*;
-use autd3::derive::*;
+use autd3::core::derive::*;
 
 #[derive(Gain, Debug)]
 pub struct FocalPoint {
@@ -38,8 +38,8 @@ impl Gain for FocalPoint {
     fn init(
         self,
         _geometry: &Geometry,
-        _filter: Option<&HashMap<usize, BitVec<u32>>>,
-    ) -> Result<Self::G, AUTDDriverError> {
+        _filter: Option<&HashMap<usize, BitVec>>,
+    ) -> Result<Self::G, GainError> {
         Ok(self)
     }
 }

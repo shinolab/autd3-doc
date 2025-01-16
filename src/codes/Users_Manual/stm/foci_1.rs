@@ -1,8 +1,7 @@
 # use autd3::prelude::*;
 # #[allow(unused_variables)]
-# #[tokio::main]
-# async fn main() -> Result<(), Box<dyn std::error::Error>> {
-# let autd = Controller::builder([AUTD3::new(Point3::origin())]).open(autd3::link::Nop::builder()).await?;
+# fn main() -> Result<(), Box<dyn std::error::Error>> {
+# let autd = Controller::builder([AUTD3::new(Point3::origin())]).open(autd3::link::Nop::builder())?;
 let center = autd.center() + Vector3::new(0., 0., 150.0 * mm);
 let point_num = 200;
 let radius = 30.0 * mm;
