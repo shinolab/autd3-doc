@@ -26,8 +26,7 @@ impl IntoDevice for CustomDevice {
 }
 
 # #[allow(unused_variables)]
-# #[tokio::main]
-# async fn main() -> Result<(), Box<dyn std::error::Error>> {
+# fn main() -> Result<(), Box<dyn std::error::Error>> {
 #     let _ = 
 Controller::builder([CustomDevice {
     pitch: 2.,
@@ -35,6 +34,6 @@ Controller::builder([CustomDevice {
     num_y: 16,
 }])
 #     .open(autd3::link::Nop::builder())
-#     .await?;
+#     ?;
 #     Ok(())
 # }

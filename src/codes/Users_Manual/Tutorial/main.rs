@@ -1,8 +1,7 @@
 use autd3::prelude::*;
-use autd3_link_soem::{SOEM, Status};
+use autd3_link_soem::{Status, SOEM};
 
-#[tokio::main]
-async fn main() -> Result<(), Box<dyn std::error::Error>> {
+fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Make a controller to control AUTD
 
     // Configure the devices
@@ -12,23 +11,23 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         // Open controller with SOEM link
         // The callback specified by with_err_handler is called when error occurs
         .open(SOEM::builder().with_err_handler(|slave, status| {
-                eprintln!("slave [{}]: {}", slave, status);
-                if status == Status::Lost {
-                    // You can also wait for the link to recover, without exitting the process
-                    std::process::exit(-1);
-                }
-            })).await?;
+            eprintln!("slave [{}]: {}", slave, status);
+            if status == Status::Lost {
+                // You can also wait for the link to recover, without exitting the process
+                std::process::exit(-1);
+            }
+        }))?;
 
     // Check firmware version
     // This code assumes that the version is v10.0.1
-    autd.firmware_version().await?.iter().for_each(|firm_info| {
+    autd.firmware_version()?.iter().for_each(|firm_info| {
         println!("{}", firm_info);
     });
 
     // Enable silencer
     // Note that this is enabled by default, so it is not actually necessary
     // To disable, send Silencer::disable()
-    autd.send(Silencer::default()).await?;
+    autd.send(Silencer::default())?;
 
     // A focus at 150mm directly above the center of the device
     let center = autd.center() + Vector3::new(0., 0., 150.0 * mm);
@@ -38,14 +37,14 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let m = Sine::new(150 * Hz);
 
     // Send data
-    autd.send((m, g)).await?;
+    autd.send((m, g))?;
 
     println!("press enter to quit...");
     let mut _s = String::new();
     std::io::stdin().read_line(&mut _s)?;
 
     // Close controller
-    autd.close().await?;
+    autd.close()?;
 
     Ok(())
 }

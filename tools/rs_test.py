@@ -21,10 +21,9 @@ def get_latest_version(crate: str) -> str:
 
 
 if __name__ == "__main__":
-    autd3_version = "29.0.0-rc.12"
-    autd3_emulator_version = "29.0.0-rc.12"
-    autd3_link_soem_version = "29.0.0-rc.12"
-    tokio_version = get_latest_version("tokio")
+    autd3_version = "29.0.0-rc.16"
+    autd3_emulator_version = "29.0.0-rc.16"
+    autd3_link_soem_version = "29.0.0-rc.16"
     itertools_version = get_latest_version("itertools")
     print(f"Testing with autd3-rs {autd3_version}")
 
@@ -60,12 +59,11 @@ edition = "2021"
 [dependencies]
 autd3 = {{ version = "{autd3_version}" }}
 autd3-gain-holo = {{ version = "{autd3_version}" }}
-autd3-link-simulator = {{ version = "{autd3_version}" }}
-autd3-link-soem = {{ version = "{autd3_link_soem_version}", features = ["remote"] }}
+autd3-link-simulator = {{ version = "{autd3_version}", features = ["blocking"] }}
+autd3-link-soem = {{ version = "{autd3_link_soem_version}", features = ["remote", "blocking"] }}
 autd3-link-twincat = {{ version = "{autd3_version}", features = ["remote"] }}
 autd3-modulation-audio-file = {{ version = "{autd3_version}" }}
 autd3-emulator = {{ version = "{autd3_emulator_version}", features = ["gpu"] }}
-tokio = {{ version = "{tokio_version}", features = ["full"] }}
 itertools = {{ version = "{itertools_version}"}}
 """,
             )
