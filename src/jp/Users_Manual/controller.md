@@ -4,35 +4,6 @@
 
 [[_TOC_]]
 
-## Controllerの設定
-
-Controllerには以下の設定が存在する.
-
-```rust,edition2021
-{{#include ../../codes/Users_Manual/controller_config.rs}}
-```
-
-```cpp
-{{#include ../../codes/Users_Manual/controller_config.cpp}}
-```
-
-```cs
-{{#include ../../codes/Users_Manual/controller_config.cs}}
-```
-
-```python
-{{#include ../../codes/Users_Manual/controller_config.py}}
-```
-- `default_parallel_threshold`: 並列化スレッショルドのデフォルト値. デフォルトは4. 詳しくは[以下](#並列計算)を参照.
-- `default_timeout`: タイムアウトのデフォルト値. デフォルトは$\SI{20}{ms}$. 詳しくは[以下](#タイムアウト)を参照.
-- `send_interval`: 送信間隔. デフォルトは$\SI{1}{ms}$.
-- `receive_interval`: 受信間隔. デフォルトは$\SI{1}{ms}$.
-- `timer_strategy`: 送受信のタイミングを決定する方法. デフォルトは`TimerStrategy::Spin`.
-    - `TimerStrategy::Std(StdSleeper)`: 標準ライブラリのsleepを使用する.
-    - `TimerStrategy::Spin(SpinSleeper)`: [spin_sleep](https://docs.rs/spin_sleep/latest/spin_sleep/) crateを使用する. OSネイティブのスリープ (Windowsの場合は[WaitableTimer](https://learn.microsoft.com/en-us/windows/win32/sync/waitable-timer-objects)) とスピンループを組み合わせ.
-    - `TimerStrategy::Async(AsyncSleeper)`: [tokio](https://docs.rs/tokio/latest/tokio/time/struct.Sleep.html) crateの非同期スリープを使用する.
-    - `TimerStrategy::Waitable(WaitableTimer)`: (Windowsのみ) [WaitableTimer](https://learn.microsoft.com/en-us/windows/win32/sync/waitable-timer-objects)を使用する.
-
 ## send
 
 デバイスにデータを送信する.
@@ -61,24 +32,6 @@ Controllerには以下の設定が存在する.
 
 タイムアウトは`with_timeout`で上書きできる.
 
-タイムアウト値が`None`の場合は, [Controller](./link.md)で設定したデフォルトタイムアウトが使用される.
-
-```rust,edition2021
-{{#include ../../codes/Users_Manual/controller_1.rs}}
-```
-
-```cpp
-{{#include ../../codes/Users_Manual/controller_1.cpp}}
-```
-
-```cs
-{{#include ../../codes/Users_Manual/controller_1.cs}}
-```
-
-```python
-{{#include ../../codes/Users_Manual/controller_1.py}}
-```
-
 ### 並列計算
 
 各データの内部での計算は, デバイスの数が並列計算スレッショルドより大きい場合に, デバイス単位で並列に実行される.
@@ -93,24 +46,6 @@ Controllerには以下の設定が存在する.
 | (`a`, `b`) | `a`と`b`で小さい方, 片方が`None`の場合はもう片方, 両方`None`の場合は`None` | 
 
 この値は`with_parallel_threshold`で上書きできる.
-
-スレッショルドが`None`の場合は, [Controller](./link.md)で設定したデフォルト値が使用される.
-
-```rust,edition2021
-{{#include ../../codes/Users_Manual/controller_with_parallel.rs}}
-```
-
-```cpp
-{{#include ../../codes/Users_Manual/controller_with_parallel.cpp}}
-```
-
-```cs
-{{#include ../../codes/Users_Manual/controller_with_parallel.cs}}
-```
-
-```python
-{{#include ../../codes/Users_Manual/controller_with_parallel.py}}
-```
 
 ## fpga_state
 

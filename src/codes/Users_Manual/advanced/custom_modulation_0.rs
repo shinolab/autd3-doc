@@ -4,14 +4,12 @@ use autd3::core::derive::*;
 #[derive(Modulation, Debug)]
 pub struct Burst {
     config: SamplingConfig,
-    loop_behavior: LoopBehavior,
 }
 
 impl Burst {
     pub fn new() -> Self {
         Self { 
-            config: (4000 * Hz).try_into().unwrap(),
-            loop_behavior: LoopBehavior::infinite(),
+            config: SamplingConfig::FREQ_4K,
         }
     }
 }
@@ -22,7 +20,10 @@ impl Modulation for Burst {
             .map(|i| if i == 3999 { u8::MAX } else { u8::MIN })
             .collect())
     }
+
+    fn sampling_config(&self) -> Result<SamplingConfig, ModulationError> {
+        Ok(self.config)
+    }
 }
-# #[allow(unused_variables)]
 # fn main() { 
 # }

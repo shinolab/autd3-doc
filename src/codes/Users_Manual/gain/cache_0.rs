@@ -1,5 +1,7 @@
 # use autd3::prelude::*;
-# #[allow(unused_variables)]
+use autd3::gain::GainCache;
+
 # fn main() {
-let g = Null::new().with_cache();
+# let _ = 
+GainCache::new(Null::new());
 # }

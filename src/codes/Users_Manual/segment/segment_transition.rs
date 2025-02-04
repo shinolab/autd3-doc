@@ -1,5 +1,10 @@
 # use autd3::prelude::*;
-# #[allow(unused_variables)]
+# use autd3::driver::datagram::WithSegment;
 # fn main() {
-let g = Static::new().with_segment(Segment::S1, Some(TransitionMode::Immediate));
+# let _ = 
+WithSegment {
+    inner: Static::default(),
+    segment: Segment::S1,
+    transition_mode: Some(TransitionMode::Immediate),
+};
 # }

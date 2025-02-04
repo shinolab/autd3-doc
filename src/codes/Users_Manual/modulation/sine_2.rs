@@ -1,5 +1,15 @@
 # use autd3::prelude::*;
-# #[allow(unused_variables)]
 # fn main() {
-let m = Sine::new_nearest(150.0 * Hz);
+#     let _ = 
+Sine {
+    freq: 150. * Hz,
+    option: SineOption {
+        intensity: u8::MAX,
+        offset: 0x80,
+        phase: 0. * rad,
+        clamp: false,
+        sampling_config: SamplingConfig::FREQ_4K,
+    },
+}
+.into_nearest();
 # }

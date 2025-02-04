@@ -93,7 +93,7 @@ AUTD3とPCを接続し, AUTD3の電源が入った状態で, 「Run」ボタン�
 #### Rust
 
 ```shell
-cargo add autd3-link-twincat@29.0.0-rc.16
+cargo add autd3-link-twincat@29.0.0-rc.19
 ```
 
 #### C++ (CMake)
@@ -150,7 +150,7 @@ Windows以外のPCで開発したい場合は, `RemoteTwinCAT` linkを用いてL
 #### Rust
 
 ```shell
-cargo add autd3-link-twincat@29.0.0-rc.16 --features remote
+cargo add autd3-link-twincat@29.0.0-rc.19 --features remote
 ```
 
 #### C++ (CMake)

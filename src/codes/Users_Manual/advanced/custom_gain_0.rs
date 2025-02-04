@@ -1,31 +1,30 @@
-# use autd3::prelude::*;
 use autd3::core::derive::*;
+# use autd3::prelude::*;
 
 #[derive(Gain, Debug)]
 pub struct FocalPoint {
     pos: Point3,
 }
 
-pub struct Context {
+pub struct Impl {
     pos: Point3,
     wavenumber: f32,
 }
 
-impl GainContext for Context {
+impl GainCalculator for Impl {
     fn calc(&self, tr: &Transducer) -> Drive {
-        (
-            Phase::from(-(self.pos - tr.position()).norm() * self.wavenumber * rad),
-            EmitIntensity::MAX,
-        )
-            .into()
+        Drive {
+            phase: Phase::from(-(self.pos - tr.position()).norm() * self.wavenumber * rad),
+            intensity: EmitIntensity::MAX,
+        }
     }
 }
 
-impl GainContextGenerator for FocalPoint {
-    type Context = Context;
+impl GainCalculatorGenerator for FocalPoint {
+    type Calculator = Impl;
 
-    fn generate(&mut self, device: &Device) -> Self::Context {
-        Context {
+    fn generate(&mut self, device: &Device) -> Self::Calculator {
+        Impl {
             pos: self.pos,
             wavenumber: device.wavenumber(),
         }
@@ -35,15 +34,9 @@ impl GainContextGenerator for FocalPoint {
 impl Gain for FocalPoint {
     type G = FocalPoint;
 
-    fn init(
-        self,
-        _geometry: &Geometry,
-        _filter: Option<&HashMap<usize, BitVec>>,
-    ) -> Result<Self::G, GainError> {
+    fn init(self) -> Result<Self::G, GainError> {
         Ok(self)
     }
 }
 
-# #[allow(unused_variables)]
-# fn main() { 
-# }
+# fn main() {}

@@ -21,7 +21,7 @@ Linux/macOSの場合は, 特に準備は必要ない.
 #### Rust
 
 ```shell
-cargo add autd3-link-soem@29.0.0-rc.16
+cargo add autd3-link-soem@29.0.0-rc.19
 ```
 
 #### C++ (CMake)
@@ -31,12 +31,12 @@ if(WIN32)
   if(${CMAKE_SYSTEM_PROCESSOR} MATCHES "AMD64")
     FetchContent_Declare(
       autd3-link-soem
-      URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0-rc.16/autd3-link-soem-v29.0.0-rc.16-win-x64.zip
+      URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0-rc.19/autd3-link-soem-v29.0.0-rc.19-win-x64.zip
     )
   elseif(${CMAKE_SYSTEM_PROCESSOR} MATCHES "ARM64")
     FetchContent_Declare(
       autd3-link-soem
-      URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0-rc.16/autd3-link-soem-v29.0.0-rc.16-win-arm.zip
+      URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0-rc.19/autd3-link-soem-v29.0.0-rc.19-win-arm.zip
     )
   else()
       message(FATAL_ERROR "Unsupported platform: ${CMAKE_SYSTEM_PROCESSOR}")
@@ -44,12 +44,12 @@ if(WIN32)
 elseif(APPLE)
   FetchContent_Declare(
     autd3-link-soem
-    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0-rc.16/autd3-link-soem-v29.0.0-rc.16-macos-aarch64.tar.gz
+    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0-rc.19/autd3-link-soem-v29.0.0-rc.19-macos-aarch64.tar.gz
   )
 else()
   FetchContent_Declare(
     autd3-link-soem
-    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0-rc.16/autd3-link-soem-v29.0.0-rc.16-linux-x64.tar.gz
+    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0-rc.19/autd3-link-soem-v29.0.0-rc.19-linux-x64.tar.gz
   )
 endif()
 FetchContent_MakeAvailable(autd3-link-soem)
@@ -59,7 +59,7 @@ target_link_libraries(<TARGET> PRIVATE autd3::link::soem)
 #### C#
 
 ```shell
-dotnet add package AUTD3Sharp.Link.SOEM --version 29.0.0-rc.16
+dotnet add package AUTD3Sharp.Link.SOEM --version 29.0.0-rc.19
 ```
 
 #### Unity
@@ -69,7 +69,7 @@ dotnet add package AUTD3Sharp.Link.SOEM --version 29.0.0-rc.16
 #### Python
 
 ```shell
-pip install pyautd3_link_soem==29.0.0rc16
+pip install pyautd3_link_soem==29.0.0rc19
 ```
 
 ### APIs
@@ -117,7 +117,7 @@ SOEMリンクで指定できるオプションは以下の通りである.
 #### Rust
 
 ```shell
-cargo add autd3-link-soem@29.0.0-rc.16 --features remote
+cargo add autd3-link-soem@29.0.0-rc.19 --features remote
 ```
 
 #### C++ (CMake)
@@ -125,7 +125,7 @@ cargo add autd3-link-soem@29.0.0-rc.16 --features remote
 ```ignore,filename=CMakeLists.txt
 FetchContent_Declare(
   autd3-link-soem
-  URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0-rc.16/autd3-link-soem-v29.0.0-rc.16-win-x64.zip
+  URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0-rc.19/autd3-link-soem-v29.0.0-rc.19-win-x64.zip
 )
 FetchContent_MakeAvailable(autd3-link-soem)
 target_link_libraries(<TARGET> PRIVATE autd3::link::soem)
@@ -134,7 +134,7 @@ target_link_libraries(<TARGET> PRIVATE autd3::link::soem)
 #### C#
 
 ```shell
-dotnet add package AUTD3Sharp.Link.SOEM --version 29.0.0-rc.16
+dotnet add package AUTD3Sharp.Link.SOEM --version 29.0.0-rc.19
 ```
 
 #### Unity
@@ -144,7 +144,7 @@ dotnet add package AUTD3Sharp.Link.SOEM --version 29.0.0-rc.16
 #### Python
 
 ```shell
-pip install pyautd3_link_soem==29.0.0rc16
+pip install pyautd3_link_soem==29.0.0rc19
 ```
 
 ### Usage

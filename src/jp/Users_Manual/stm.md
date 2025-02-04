@@ -9,9 +9,9 @@ SDKには単一焦点音場から8焦点音場までをサポートする`FociST
 
 ## FociSTM/GainSTMの共通API
 
-### 周波数/周期/サンプリング設定の取得
+### サンプリング設定の取得
 
-`freq`, `period`, `sampling_config`でそれぞれ周波数, 周期, サンプリング設定を取得できる.
+`sampling_config`でサンプリング設定を取得できる.
 
 ```rust,edition2021
 {{#include ../../codes/Users_Manual/stm_prop.rs}}
@@ -31,15 +31,10 @@ SDKには単一焦点音場から8焦点音場までをサポートする`FociST
 
 ### LoopBehavior
 
-ループの挙動を, [Modulation](./modulation.md#loopbehavior)と同様に`with_loop_behavior`で制御できる.
-有限回ループするか, 無限ループするかを指定できる.
-
+`FociSTM`/`GainSTM`では, ループの挙動を制御できる.
 デフォルトは無限ループである.
 
-無限ループの場合, どのインデックスデータから再生されるかは制御できない.
-有限回ループの場合, 0番目のデータから再生が始まり, 指定回数のループの後, 最終インデックスデータが出力され続ける.
-
-**この設定は, Segmentを切り替えたときにしか効果がない. 詳しくは[Segment](./segment.md)を参照.**
+詳細は[Segment](./segment.md)を参照.
 
 ### ユーティリティ
 

@@ -1,5 +1,9 @@
 # use autd3::prelude::*;
-# #[allow(unused_variables)]
 # fn main() {
-let m = Square::new_nearest(150.0 * Hz);
+# let _ = 
+Square {
+    freq: 150.0 * Hz,
+    option: Default::default(),
+}
+.into_nearest();
 # }

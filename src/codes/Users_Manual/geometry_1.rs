@@ -1,12 +1,20 @@
 # use autd3::prelude::*;
 # 
-# #[allow(unused_variables)]
 # fn main() -> Result<(), Box<dyn std::error::Error>> {
-# let _autd = 
-Controller::builder([
-        AUTD3::new(Point3::new(-AUTD3::DEVICE_WIDTH, 0., 0.)),
-        AUTD3::new(Point3::origin())
-    ])
-#    .open(autd3::link::Nop::builder())?;
-# Ok(())
+# let link = autd3::link::Nop::new();
+# let _ =
+Controller::open(
+    [
+        AUTD3 {
+            pos: Point3::new(-AUTD3::DEVICE_WIDTH, 0., 0.),
+            rot: UnitQuaternion::identity(),
+        },
+        AUTD3 {
+            pos: Point3::origin(),
+            rot: UnitQuaternion::identity(),
+        },
+    ],
+    link,
+)?;
+#     Ok(())
 # }

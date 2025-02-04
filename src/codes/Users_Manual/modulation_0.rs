@@ -1,7 +1,13 @@
 # use autd3::prelude::*;
-# #[allow(unused_variables)]
 # fn main() -> Result<(), Box<dyn std::error::Error>> {
-let m = autd3::modulation::Sine::new(150 * Hz)
-            .with_sampling_config(4000 * Hz);
+# let _ = 
+autd3::modulation::Sine {
+    freq: 150 * Hz,
+    option: SineOption {
+        sampling_config: SamplingConfig::new(4000 * Hz)?,
+        ..Default::default()
+    }
+}
+# ;
 # Ok(())
 # }

@@ -21,16 +21,16 @@ def get_latest_version(crate: str) -> str:
 
 
 if __name__ == "__main__":
-    autd3_version = "29.0.0-rc.16"
-    autd3_emulator_version = "29.0.0-rc.16"
-    autd3_link_soem_version = "29.0.0-rc.16"
+    autd3_version = "29.0.0-rc.19"
+    autd3_emulator_version = "29.0.0-rc.19"
+    autd3_link_soem_version = "29.0.0-rc.19"
     itertools_version = get_latest_version("itertools")
     print(f"Testing with autd3-rs {autd3_version}")
 
     base_path = pathlib.Path(__file__).parent.parent / "src" / "codes"
 
     n_jobs = 1
-    srcs = list(base_path.rglob("*.rs"))
+    srcs = sys.argv[1:] if len(sys.argv) > 1 else list(base_path.rglob("*.rs"))
     N = len(srcs)
     block = N // n_jobs
 
@@ -69,15 +69,25 @@ itertools = {{ version = "{itertools_version}"}}
             )
 
         for src in srcs[start:end]:
-            substitute_in_file(src, [("# ", "")], target_file=src_dir / "main.rs", flags=re.MULTILINE)
+            substitute_in_file(
+                src,
+                [("# ", "")],
+                target_file=src_dir / "main.rs",
+                flags=re.MULTILINE,
+            )
             try:
-                subprocess.run(["cargo", "rustc", "--", "-D", "warnings"], cwd=test_dir).check_returncode()
+                subprocess.run(
+                    ["cargo", "rustc", "--", "-D", "warnings"], cwd=test_dir
+                ).check_returncode()
             except subprocess.CalledProcessError:
+                print(f"Error: {src}")
                 error_files.append(src)
 
         return error_files
 
-    result = joblib.Parallel(n_jobs=n_jobs)(joblib.delayed(test)(i, len(srcs)) for i in range(n_jobs))
+    result = joblib.Parallel(n_jobs=n_jobs)(
+        joblib.delayed(test)(i, len(srcs)) for i in range(n_jobs)
+    )
     err_files = reduce(lambda a, b: a + b, result)
     if len(err_files) == 0:
         print("All files are OK")

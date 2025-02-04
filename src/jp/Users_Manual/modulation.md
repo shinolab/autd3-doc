@@ -73,28 +73,7 @@ SDKにはデフォルトでいくつかの種類のAMを生成するための`Mo
 
 ### LoopBehavior
 
-ループの挙動を`with_loop_behavior`で制御できる.
-有限回ループするか, 無限ループするかを指定できる.
-
+`Modulation`はループの挙動を制御できる.
 デフォルトは無限ループである.
 
-```rust,edition2021
-{{#include ../../codes/Users_Manual/modulation_loop.rs}}
-```
-
-```cpp
-{{#include ../../codes/Users_Manual/modulation_loop.cpp}}
-```
-
-```cs
-{{#include ../../codes/Users_Manual/modulation_loop.cs}}
-```
-
-```python
-{{#include ../../codes/Users_Manual/modulation_loop.py}}
-```
-
-無限ループの場合, どのインデックスデータから再生されるかは制御できない.
-有限回ループの場合, 0番目のデータから再生が始まり, 指定回数のループの後, 最終インデックスデータが出力され続ける.
-
-**ループ設定は, Segmentを切り替えたときにしか効果がない. 詳しくは[Segment](./segment.md)を参照.**
+詳細は[Segment](./segment.md)を参照.
