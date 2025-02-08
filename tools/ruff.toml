@@ -2,6 +2,6 @@ target-version = "py313"
 line-length = 80
 
 [lint]
-ignore = ["D", "I001", "W292", "FBT003", "N999", "T201", "PD901", "PLR2004"]
+ignore = ["D", "E501", "I001", "W292", "FBT003", "N999", "T201", "PD901", "PLR2004"]
 select = ["ALL"]
 fixable = ["ALL"]

@@ -1,2 +1,7 @@
-~from pyautd3 import Static, Segment, TransitionMode
-g = Static().with_segment(Segment.S1, TransitionMode.Immediate)
+~from pyautd3 import Segment, Static, TransitionMode
+~from pyautd3.driver.datagram.with_segment import WithSegment
+WithSegment(
+    inner=Static(),
+    segment=Segment.S1,
+    transition_mode=TransitionMode.Immediate,
+)

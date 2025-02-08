@@ -1,5 +1,12 @@
-~from pyautd3 import Focus
+~from pyautd3 import EmitIntensity, Focus, FocusOption, Phase
+~
 ~x = 1.0
 ~y = 0.0
 ~z = 0.0
-g = Focus([x, y, z])
+Focus(
+    pos=[x, y, z],
+    option=FocusOption(
+        intensity=EmitIntensity.MAX,
+        phase_offset=Phase.ZERO,
+    ),
+)

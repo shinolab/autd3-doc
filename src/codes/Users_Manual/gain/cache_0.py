@@ -1,2 +1,4 @@
-~from pyautd3.gain import Null
-g = Null().with_cache()
+~from pyautd3 import Null
+from pyautd3.gain import Cache
+
+Cache(Null())

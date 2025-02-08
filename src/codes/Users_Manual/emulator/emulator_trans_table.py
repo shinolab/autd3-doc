@@ -1,5 +1,6 @@
-~from pyautd3 import AUTD3, Controller
-~import pyautd3.emulator # noqa: F401
-with Controller.builder([AUTD3([0.0, 0.0, 0.0])]).into_emulator() as emulator:
+~from pyautd3 import AUTD3
+from pyautd3_emulator import Emulator
+
+with Emulator([AUTD3(pos=[0.0, 0.0, 0.0])]) as emulator:
     df = emulator.transducer_table()
     print(df)

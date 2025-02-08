@@ -1,2 +1,2 @@
-~from pyautd3 import SamplingConfig, Sine, Hz
-m = Sine(150 * Hz).with_sampling_config(SamplingConfig(10))
+~from pyautd3 import SamplingConfig
+SamplingConfig(10)

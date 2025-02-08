@@ -1,27 +1,12 @@
-from pyautd3 import (
-    AUTD3,
-    Controller,
-    Duration,
-    EmitIntensity,
-    Phase,
-    Silencer,
-    Static,
-    Uniform,
-)
-from pyautd3.emulator import Recorder
+from pyautd3 import AUTD3, Duration, EmitIntensity, Phase, Silencer, Static, Uniform
+from pyautd3_emulator import Emulator, Recorder
 
-with Controller.builder([AUTD3([0.0, 0.0, 0.0])]).into_emulator() as emulator:
+with Emulator([AUTD3(pos=[0.0, 0.0, 0.0])]) as emulator:
 
-    def f(autd: Controller[Recorder]) -> Controller[Recorder]:
+    def f(autd: Recorder) -> None:
         autd.send(Silencer.disable())
-        autd.send(
-            (
-                Static.with_intensity(0xFF),
-                Uniform((Phase(0x40), EmitIntensity(0xFF))),
-            ),
-        )
+        autd.send((Static(), Uniform(phase=Phase(0x40), intensity=EmitIntensity.MAX)))
         autd.tick(Duration.from_millis(1))
-        return autd
 
     record = emulator.record(f)
 

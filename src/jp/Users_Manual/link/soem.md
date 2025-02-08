@@ -69,7 +69,7 @@ dotnet add package AUTD3Sharp.Link.SOEM --version 29.0.0-rc.20
 #### Python
 
 ```shell
-pip install pyautd3_link_soem==29.0.0rc19
+pip install pyautd3_link_soem==29.0.0rc20
 ```
 
 ### APIs
@@ -144,7 +144,7 @@ dotnet add package AUTD3Sharp.Link.SOEM --version 29.0.0-rc.20
 #### Python
 
 ```shell
-pip install pyautd3_link_soem==29.0.0rc19
+pip install pyautd3_link_soem==29.0.0rc20
 ```
 
 ### Usage
