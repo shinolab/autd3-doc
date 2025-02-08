@@ -21,10 +21,20 @@ def python_module(cmd: list[str]) -> list[str]:
 
 
 def install_pyautd3() -> None:
-    version = "29.0.0-rc.19"
-    link_soem_version = "29.0.0-rc.19"
+    version = "29.0.0rc20"
+    emulator_version = "29.0.0rc20"
+    link_soem_version = "29.0.0rc20"
     run_command(python_module(["pip", "install", "-U", f"pyautd3=={version}"]))
-    run_command(python_module(["pip", "install", "-U", f"pyautd3_link_soem=={link_soem_version}"]))
+    run_command(
+        python_module(
+            ["pip", "install", "-U", f"pyautd3_emulator=={emulator_version}"],
+        ),
+    )
+    run_command(
+        python_module(
+            ["pip", "install", "-U", f"pyautd3_link_soem=={link_soem_version}"],
+        ),
+    )
 
 
 if __name__ == "__main__":
@@ -44,7 +54,12 @@ if __name__ == "__main__":
             dst.parent.mkdir(parents=True)
             with (dst.parent / "__init__.py").open("w") as f:
                 pass
-        substitute_in_file(src, [("~", "")], target_file=dst, flags=re.MULTILINE)
+        substitute_in_file(
+            src,
+            [("~", "")],
+            target_file=dst,
+            flags=re.MULTILINE,
+        )
 
     r = subprocess.run(
         python_module(["mypy", str(test_dir), "--check-untyped-defs"]),
