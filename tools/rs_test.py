@@ -21,9 +21,9 @@ def get_latest_version(crate: str) -> str:
 
 
 if __name__ == "__main__":
-    autd3_version = "29.0.0-rc.19"
-    autd3_emulator_version = "29.0.0-rc.19"
-    autd3_link_soem_version = "29.0.0-rc.19"
+    autd3_version = "29.0.0-rc.20"
+    autd3_emulator_version = "29.0.0-rc.20"
+    autd3_link_soem_version = "29.0.0-rc.20"
     itertools_version = get_latest_version("itertools")
     print(f"Testing with autd3-rs {autd3_version}")
 

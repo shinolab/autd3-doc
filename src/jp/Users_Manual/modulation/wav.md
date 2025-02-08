@@ -7,7 +7,7 @@
 ### Rust
 
 ```shell
-cargo add autd3-modulation-audio-file@29.0.0-rc.19
+cargo add autd3-modulation-audio-file@29.0.0-rc.20
 ```
 
 ### C++ (CMake)

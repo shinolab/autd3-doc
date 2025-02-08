@@ -1,6 +1,6 @@
 # use autd3::prelude::*;
-use autd3::modulation::ModulationCache;
+use autd3::modulation::Cache;
 # fn main() {
 # let _ = 
-ModulationCache::new(Static::default());
+Cache::new(Static::default());
 # }

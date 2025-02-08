@@ -1,7 +1,7 @@
 # use autd3::prelude::*;
-use autd3::gain::GainCache;
+use autd3::gain::Cache;
 
 # fn main() {
 # let _ = 
-GainCache::new(Null::new());
+Cache::new(Null::new());
 # }

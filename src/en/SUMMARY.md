@@ -30,7 +30,6 @@
       - [Fourier](./Users_Manual/modulation/fourier.md)
     - [Square](./Users_Manual/modulation/square.md)
     - [Wav](./Users_Manual/modulation/wav.md)
-    - [RawPCM](./Users_Manual/modulation/rawpcm.md)
     - [Cache](./Users_Manual/modulation/cache.md)
     - [Radiation](./Users_Manual/modulation/radiation.md)
   - [Spatio-Temporal Modulation](./Users_Manual/stm.md)
