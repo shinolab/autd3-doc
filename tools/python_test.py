@@ -1,46 +1,55 @@
+import os
 import pathlib
+import platform
 import re
 import subprocess
 import sys
-
-from autd3_build_utils.autd3_build_utils import (
-    BaseConfig,
-    run_command,
-    substitute_in_file,
-)
-
-
-class Config(BaseConfig):
-    def __init__(self) -> None:
-        super().__init__(None)
+from pathlib import Path
 
 
 def python_module(cmd: list[str]) -> list[str]:
-    config = Config()
-    return ["python" if config.is_windows() else "python3", "-m", *cmd]
+    return [
+        "python" if platform.system() == "Windows" else "python3",
+        "-m",
+        *cmd,
+    ]
 
 
 def install_pyautd3() -> None:
     version = "29.0.0rc20"
     emulator_version = "29.0.0rc20"
     link_soem_version = "29.0.0rc20"
-    run_command(python_module(["pip", "install", "-U", f"pyautd3=={version}"]))
-    run_command(
+    subprocess.run(
+        python_module(["pip", "install", "-U", f"pyautd3=={version}"]),
+    )
+    subprocess.run(
         python_module(
             ["pip", "install", "-U", f"pyautd3_emulator=={emulator_version}"],
         ),
     )
-    run_command(
+    subprocess.run(
         python_module(
             ["pip", "install", "-U", f"pyautd3_link_soem=={link_soem_version}"],
         ),
     )
 
 
+def substitute_in_file(
+    path: str,
+    pattern: str,
+    repl: str,
+    target: Path,
+) -> None:
+    file = Path(path)
+    content = file.read_text(encoding="utf-8")
+    content = re.sub(pattern, repl, content, flags=re.MULTILINE)
+    target.write_text(content, encoding="utf-8")
+
+
 if __name__ == "__main__":
     install_pyautd3()
 
-    base_path = pathlib.Path(__file__).parent.parent / "src" / "codes"
+    base_path = pathlib.Path(os.getcwd()) / "src" / "codes"
 
     srcs = list(base_path.rglob("*.py"))
 
@@ -56,9 +65,9 @@ if __name__ == "__main__":
                 pass
         substitute_in_file(
             src,
-            [("~", "")],
-            target_file=dst,
-            flags=re.MULTILINE,
+            "~",
+            "",
+            dst,
         )
 
     r = subprocess.run(
@@ -72,7 +81,12 @@ if __name__ == "__main__":
         r.check_returncode()
     except subprocess.CalledProcessError:
         err = r.stdout
-        print(err.replace("test-python", str(base_path)))
+        print(
+            err.replace(
+                str(pathlib.Path(__file__).parent / "test-python"),
+                str(base_path),
+            ),
+        )
         sys.exit(1)
 
     r = subprocess.run(
@@ -86,7 +100,12 @@ if __name__ == "__main__":
         r.check_returncode()
     except subprocess.CalledProcessError:
         err = r.stdout
-        print(err.replace("test-python", str(base_path)))
+        print(
+            err.replace(
+                str(pathlib.Path(__file__).parent / "test-python"),
+                str(base_path),
+            ),
+        )
         sys.exit(1)
 
     print("All tests passed.")

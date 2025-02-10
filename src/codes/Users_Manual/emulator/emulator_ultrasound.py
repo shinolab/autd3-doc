@@ -1,7 +1,7 @@
 from pyautd3 import AUTD3, Duration, EmitIntensity, Phase, Silencer, Static, Uniform
 from pyautd3_emulator import Emulator, Recorder
 
-with Emulator([AUTD3(pos=[0.0, 0.0, 0.0])]) as emulator:
+with Emulator([AUTD3()]) as emulator:
 
     def f(autd: Recorder) -> None:
         autd.send(Silencer.disable())

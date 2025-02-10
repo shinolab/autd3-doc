@@ -35,8 +35,14 @@ if __name__ == "__main__":
 
         autd.send(Silencer())
 
-        g = Focus(pos=autd.center() + np.array([0.0, 0.0, 150.0]), option=FocusOption())
-        m = Sine(freq=150 * Hz, option=SineOption())
+        g = Focus(
+            pos=autd.center() + np.array([0.0, 0.0, 150.0]),
+            option=FocusOption(),
+        )
+        m = Sine(
+            freq=150 * Hz,
+            option=SineOption(),
+        )
         autd.send((m, g))
 
         _ = input()

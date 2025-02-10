@@ -34,7 +34,7 @@ SDKには単一焦点音場から8焦点音場までをサポートする`FociST
 `FociSTM`/`GainSTM`では, ループの挙動を制御できる.
 デフォルトは無限ループである.
 
-詳細は[Segment](./segment.md)を参照.
+詳細は[Segment/LoopBehavior](./segment.md)を参照.
 
 ### ユーティリティ
 

@@ -7,10 +7,7 @@ new SOEM(
     {
         Console.Error.WriteLine($"slave [{slave}]: {status}");
         if (status == Status.Lost)
-        {
-            // You can also wait for the link to recover, without exiting the process
             Environment.Exit(-1);
-        }
     },
     option: new SOEMOption
     {

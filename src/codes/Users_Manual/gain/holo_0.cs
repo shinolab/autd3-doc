@@ -1,5 +1,6 @@
 using AUTD3Sharp.Gain.Holo;
 
+~using AUTD3Sharp;
 ~using AUTD3Sharp.Utils;
 ~using static AUTD3Sharp.Units;
 ~var x1 = 0.0f;
@@ -16,7 +17,8 @@ new GSPAT(
     ],
     option: new GSPATOption
     {
-        Repeat = 100
+        Repeat = 100,
+        EmissionConstraint = EmissionConstraint.Clamp(EmitIntensity.Min, EmitIntensity.Max),
     },
     backend: backend
 );

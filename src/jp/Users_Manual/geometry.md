@@ -122,9 +122,9 @@ SDKにおけるAPIでは, すべてグローバル座標を用いるため, 接�
 
 ## GeometryのAPI
 
-- `num_devices`: 有効なデバイスの数を取得
-- `num_transducers`: 有効な全振動子の数を取得
-- `center`: 有効な全振動子の中心を取得
+- `num_devices()`: 有効なデバイスの数を取得
+- `num_transducers()`: 有効な全振動子の数を取得
+- `center()`: 有効な全振動子の中心を取得
 
 `Geometry`には`Controller`から直接アクセスできる.
 
@@ -169,20 +169,20 @@ SDKにおけるAPIでは, すべてグローバル座標を用いるため, 接�
 
 ## DeviceのAPI
 
-- `idx`: デバイスのインデックス
+- `idx()`: デバイスのインデックス
 - `enable`: 有効/無効フラグ. オフにすると, 以降, そのデバイスのデータは更新されなくなる.
   - 更新されなくなるだけで, 出力が止まるわけではないことに注意.
 - `sound_speed`: 音速の取得/設定. 単位はmm/s.
-- `set_sound_speed_from_temp`: 温度から音速を設定. 温度の単位は摂氏である.デフォルトの音速は$340\times 10^{3}\,\mathrm{mm/s}$となっており, これは, およそ摂氏15度での空気の音速に相当する.なお, `Geometry`にも同名の関数があり, それを使用することですべてのデバイスに対して温度から音速を設定できる.
-- `translate`: 平行移動
-- `rotate`: 回転
-- `affine`: アフィン変換 (平行移動/回転)
-- `rotation`: デバイスの回転. 回転はクオータニオンで表される.
-- `x_direction`: デバイスのx方向ベクトル
-- `y_direction`: デバイスのy方向ベクトル
-- `axial_direction`: デバイスの軸方向ベクトル (振動子が向く方向)
-- `wavelength`: デバイスが放出する超音波の波長
-- `wavenumber`: デバイスが放出する超音波の波数
+- `set_sound_speed_from_temp(temp)`: 温度から音速を設定. 温度の単位は摂氏である.デフォルトの音速は$340\times 10^{3}\,\mathrm{mm/s}$となっており, これは, およそ摂氏15度での空気の音速に相当する.なお, `Geometry`にも同名の関数があり, それを使用することですべてのデバイスに対して温度から音速を設定できる.
+- `translate()`: 平行移動
+- `rotate()`: 回転
+- `affine()`: アフィン変換 (平行移動/回転)
+- `rotation()`: デバイスの回転. 回転はクオータニオンで表される.
+- `x_direction()`: デバイスのx方向ベクトル
+- `y_direction()`: デバイスのy方向ベクトル
+- `axial_direction()`: デバイスの軸方向ベクトル (振動子が向く方向)
+- `wavelength()`: デバイスが放出する超音波の波長
+- `wavenumber()`: デバイスが放出する超音波の波数
 
 ```rust,edition2021
 {{#include ../../codes/Users_Manual/device_0.rs}}
@@ -227,9 +227,9 @@ SDKにおけるAPIでは, すべてグローバル座標を用いるため, 接�
 
 以下の情報を取得できる.
 
-- `idx`: 振動子の(ローカル)インデックス
-- `dev_idx`: 振動子が属するデバイスのインデックス
-- `position`: 振動子の位置
+- `idx()`: 振動子の(ローカル)インデックス
+- `dev_idx()`: 振動子が属するデバイスのインデックス
+- `position()`: 振動子の位置
 
 ```rust,edition2021
 {{#include ../../codes/Users_Manual/transducer_0.rs}}

@@ -17,5 +17,3 @@
 ```python
 {{#include ../../../codes/Users_Manual/gain/uniform_1.py}}
 ```
-
-振幅/位相のいずれか片方は省略可能であり, その場合のデフォルト値はそれぞれ0xFFと0x00である.

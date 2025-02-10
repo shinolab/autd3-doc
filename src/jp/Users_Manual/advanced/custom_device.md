@@ -1,4 +1,4 @@
-# Gainの自作
+# Deviceの自作
 
 Rust版のライブラリではAUTD3以外の`Device`を使用することができる.
 

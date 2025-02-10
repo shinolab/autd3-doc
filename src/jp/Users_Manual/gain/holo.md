@@ -30,7 +30,7 @@ target_link_libraries(<TARGET> PRIVATE autd3::gain::holo)
 * `LM` - Levenberg-Marquardt, LM法はLevenberg[^levenberg1944]とMarquardt[^marquardt1963]で提案された非線形最小二乗問題の最適化法, 実装はMadsenのテキスト[^madsen2004]に基づく.
 * `Greedy` - Greedy algorithm and Brute-force search, 鈴木らの論文[^suzuki2021]に基づく
 
-また, 各手法は計算Backendを選べるようになっている.
+また, 各手法は計算Backendを選べるようになっている. (`Greedy`のみBackendの指定はない.)
 SDKには以下の`Backend`が用意されている
 
 * `NalgebraBackend` - [Nalgebra](hthttps://nalgebra.org/)を使用
@@ -55,55 +55,17 @@ SDKには以下の`Backend`が用意されている
 {{#include ../../../codes/Users_Manual/gain/holo_0.py}}
 ```
 
-各アルゴリズムのコンストラクタの第1引数は`backend`である. (`Greedy`のみBackendの指定はない.)
-また, 第2引数で各焦点の位置とその焦点の目標音圧のペアのイテレータを指定する.
-
-## 振幅制約
+## 振幅制約と最適化パラメータ
 
 各アルゴリズムの計算結果の振幅は最終的に振動子が出力できる範囲に制限する必要がある.
-これは`with_constraint`で制御でき, 以下の4つのいずれかを指定する必要がある.
+これはオプションの`EmissionConstraint`で制御でき, 以下の4つのいずれかを指定する必要がある.
 
 - Normalize: 振幅の最大値ですべての振動子の振幅を割り, 規格化する.
 - Uniform: すべての振動子の振幅を指定した値にする.
 - Clamp: 振幅を指定の範囲にクランプする.
 - Multiply: 規格化後, 所定の値を乗算する.
 
-```rust,edition2021
-{{#include ../../../codes/Users_Manual/gain/holo_1.rs}}
-```
-
-```cpp
-{{#include ../../../codes/Users_Manual/gain/holo_1.cpp}}
-```
-
-```cs
-{{#include ../../../codes/Users_Manual/gain/holo_1.cs}}
-```
-
-```python
-{{#include ../../../codes/Users_Manual/gain/holo_1.py}}
-```
-
-## 最適化パラメータ
-
-各アルゴリズムごとに追加のパラメータが存在する.
-これらはすべて`with_xxx`で指定する.
-
-```rust,edition2021
-{{#include ../../../codes/Users_Manual/gain/holo_2.rs}}
-```
-
-```cpp
-{{#include ../../../codes/Users_Manual/gain/holo_2.cpp}}
-```
-
-```cs
-{{#include ../../../codes/Users_Manual/gain/holo_2.cs}}
-```
-
-```python
-{{#include ../../../codes/Users_Manual/gain/holo_2.py}}
-```
+また, 各アルゴリズムごとに追加のパラメータが存在する.
 
 各パラメータの詳細はそれぞれの論文を参照されたい.
 

@@ -1,4 +1,4 @@
 ~from pyautd3 import Hz, Sine, SineOption
 from pyautd3.modulation import RadiationPressure
 
-RadiationPressure(Sine(freq=150 * Hz, option=SineOption()))
+RadiationPressure(target=Sine(freq=150 * Hz, option=SineOption()))

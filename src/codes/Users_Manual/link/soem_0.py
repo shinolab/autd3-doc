@@ -14,7 +14,6 @@ from pyautd3_link_soem import (
 def err_handler(slave: int, status: Status) -> None:
     print(f"slave [{slave}]: {status}")
     if status == Status.Lost():
-        # You can also wait for the link to recover, without exiting the process
         os._exit(-1)
 
 

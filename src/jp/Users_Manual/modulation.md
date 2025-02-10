@@ -50,23 +50,7 @@ SDKにはデフォルトでいくつかの種類のAMを生成するための`Mo
 {{#include ../../codes/Users_Manual/modulation_prop.py}}
 ```
 
-また, 一部の`Modulation`は`with_sampling_config`でサンプリング設定を変更できる.
-
-```rust,edition2021
-{{#include ../../codes/Users_Manual/modulation_0.rs}}
-```
-
-```cpp
-{{#include ../../codes/Users_Manual/modulation_0.cpp}}
-```
-
-```cs
-{{#include ../../codes/Users_Manual/modulation_0.cs}}
-```
-
-```python
-{{#include ../../codes/Users_Manual/modulation_0.py}}
-```
+また, 一部の`Modulation`はオプションでサンプリング設定を変更できる.
 
 サンプリング設定についての詳細は[サンプリング設定について](./sampling_config.md)を参照されたい.
 
@@ -75,4 +59,4 @@ SDKにはデフォルトでいくつかの種類のAMを生成するための`Mo
 `Modulation`はループの挙動を制御できる.
 デフォルトは無限ループである.
 
-詳細は[Segment](./segment.md)を参照.
+詳細は[Segment/LoopBehavior](./segment.md)を参照.

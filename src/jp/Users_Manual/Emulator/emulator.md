@@ -17,7 +17,10 @@ cargo add autd3-emulator@29.0.0-rc.20
 
 #### Python
 
-メインライブラリに含まれている.
+
+```
+pip install pyautd3_emulator==29.0.0rc20
+```
 
 ## APIs
 

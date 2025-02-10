@@ -2,6 +2,9 @@
 # use autd3::prelude::*;
 # fn main() -> Result<(), Box<dyn std::error::Error>> {
 # let _ = 
+SamplingConfig::new(10)?;
+// or
+# let _ = 
 SamplingConfig::new(4000 * Hz)?;
 // or
 # let _ = 

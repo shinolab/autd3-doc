@@ -35,13 +35,12 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     autd.send(Silencer::default())?;
 
     // A focus at 150mm directly above the center of the device
-    let center = autd.center() + Vector3::new(0., 0., 150.0 * mm);
     let g = Focus {
-        pos: center,
+        pos: autd.center() + Vector3::new(0., 0., 150.0 * mm),
         option: FocusOption::default(),
     };
 
-    // 150Hz sine wave modulation
+    // 150 Hz sine wave modulation
     let m = Sine {
         freq: 150 * Hz,
         option: SineOption::default(),

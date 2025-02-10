@@ -1,23 +1,30 @@
-import multiprocessing
+import os
 import pathlib
 import re
 import subprocess
 import sys
 from functools import reduce
+from pathlib import Path
 
 import joblib
 import requests
-
-from autd3_build_utils.autd3_build_utils import (
-    run_command,
-    substitute_in_file,
-    working_dir,
-)
 
 
 def get_latest_version(crate: str) -> str:
     res = requests.get(f"https://crates.io/api/v1/crates/{crate}")
     return res.json()["crate"]["newest_version"]
+
+
+def substitute_in_file(
+    path: str,
+    pattern: str,
+    repl: str,
+    target: Path,
+) -> None:
+    file = Path(path)
+    content = file.read_text(encoding="utf-8")
+    content = re.sub(pattern, repl, content, flags=re.MULTILINE)
+    target.write_text(content, encoding="utf-8")
 
 
 if __name__ == "__main__":
@@ -27,7 +34,8 @@ if __name__ == "__main__":
     itertools_version = get_latest_version("itertools")
     print(f"Testing with autd3-rs {autd3_version}")
 
-    base_path = pathlib.Path(__file__).parent.parent / "src" / "codes"
+    base_path = pathlib.Path(os.getcwd()) / "src" / "codes"
+    print(base_path)
 
     n_jobs = 1
     srcs = sys.argv[1:] if len(sys.argv) > 1 else list(base_path.rglob("*.rs"))
@@ -71,13 +79,14 @@ itertools = {{ version = "{itertools_version}"}}
         for src in srcs[start:end]:
             substitute_in_file(
                 src,
-                [("# ", "")],
-                target_file=src_dir / "main.rs",
-                flags=re.MULTILINE,
+                "# ",
+                "",
+                src_dir / "main.rs",
             )
             try:
                 subprocess.run(
-                    ["cargo", "rustc", "--", "-D", "warnings"], cwd=test_dir
+                    ["cargo", "rustc", "--", "-D", "warnings"],
+                    cwd=test_dir,
                 ).check_returncode()
             except subprocess.CalledProcessError:
                 print(f"Error: {src}")

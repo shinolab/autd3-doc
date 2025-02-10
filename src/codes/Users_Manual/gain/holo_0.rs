@@ -13,7 +13,6 @@ use autd3_gain_holo::{EmissionConstraint, NalgebraBackend, Pa, GSPAT, GSPATOptio
 let backend = Arc::new(NalgebraBackend::default());
 # let _ = 
 GSPAT {
-    backend,
     foci: vec![
         (Point3::new(x1, y1, z1), 5e3 * Pa),
         (Point3::new(x2, y2, z2), 5e3 * Pa),
@@ -23,5 +22,6 @@ GSPAT {
         constraint: EmissionConstraint::Clamp(EmitIntensity::MIN, EmitIntensity::MAX),
         ..Default::default()
     },
+    backend,
 };
 # }

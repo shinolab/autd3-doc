@@ -48,18 +48,18 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@v4
-        with:
-          submodules: true
       - uses: actions/setup-python@v5
         with:
           python-version: "3.13"
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: cargo-make
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
       - run: |
           pip install joblib
-          cd tools
-          python3 cs_test.py
+          cargo make cs-test
         
   test-cpp:
     needs: [changed-files]
@@ -68,17 +68,17 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@v4
-        with:
-          submodules: true
       - uses: actions/setup-python@v5
         with:
           python-version: "3.13"
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: cargo-make
       - run: |
           sudo apt-get update
           sudo apt-get -y install libeigen3-dev
           pip install joblib
-          cd tools
-          python3 cpp_test.py 
+          cargo make cpp-test
 
   test-python:
     needs: [changed-files]
@@ -87,15 +87,15 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@v4
-        with:
-          submodules: true
       - uses: actions/setup-python@v5
         with:
           python-version: "3.13"
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: cargo-make
       - run: |
           python3 -m pip install -U mypy ruff
-          cd tools
-          python3 python_test.py 
+          cargo make python-test
 
   test-rust:
     needs: [changed-files]
@@ -104,15 +104,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          submodules: true
       - uses: actions/setup-python@v5
         with:
           python-version: "3.13"
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: cargo-make
       - uses: actions-rust-lang/setup-rust-toolchain@v1
         with:
           toolchain: 'stable'
       - run: |
           pip install joblib requests
           cd tools
-          python3 rs_test.py 
+          cargo make rs-test

@@ -1,18 +1,21 @@
 name: 'mdbook setup action'
-inputs:
-  github-token:
-    description: 'GITHUB_TOKEN'
-    required: true
-    default: ''
 runs:
   using: "composite"
   steps:
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.13"
+    - name: Setup cargo-make
+      uses: taiki-e/install-action@v2
+      with:
+        tool: cargo-make
     - name: Setup mdbook
       shell: bash
       run: |
         mkdir -p mdbook-toc
         cd mdbook-toc
-        curl -L https://github.com/rust-lang/mdBook/releases/download/v0.4.37/mdbook-v0.4.37-x86_64-unknown-linux-gnu.tar.gz -o mdbook.tar.gz
+        curl -L https://github.com/rust-lang/mdBook/releases/download/v0.4.44/mdbook-v0.4.44-x86_64-unknown-linux-gnu.tar.gz -o mdbook.tar.gz
         tar -xvf mdbook.tar.gz
         chmod +x mdbook
         sudo ln -s $PWD/mdbook /usr/local/bin/mdbook
@@ -30,7 +33,7 @@ runs:
       run: |
         mkdir -p mdbook-katex
         cd mdbook-katex
-        curl -L https://github.com/lzanini/mdbook-katex/releases/download/v0.8.0/mdbook-katex-v0.8.0-x86_64-unknown-linux-gnu.tar.gz -o mdbook-katex.tar.gz
+        curl -L https://github.com/lzanini/mdbook-katex/releases/download/0.9.2-binaries/mdbook-katex-v0.9.2-x86_64-unknown-linux-gnu.tar.gz -o mdbook-katex.tar.gz
         tar -xvf mdbook-katex.tar.gz
         chmod +x mdbook-katex
         sudo ln -s $PWD/mdbook-katex /usr/local/bin/mdbook-katex
@@ -39,7 +42,7 @@ runs:
       run: |
         mkdir -p mdbook-open-on-gh
         cd mdbook-open-on-gh
-        curl -L https://github.com/badboy/mdbook-open-on-gh/releases/download/2.4.2/mdbook-open-on-gh-2.4.2-x86_64-unknown-linux-gnu.tar.gz -o mdbook-open-on-gh.tar.gz
+        curl -L https://github.com/badboy/mdbook-open-on-gh/releases/download/2.4.3/mdbook-open-on-gh-2.4.3-x86_64-unknown-linux-gnu.tar.gz -o mdbook-open-on-gh.tar.gz
         tar -xvf mdbook-open-on-gh.tar.gz
         chmod +x mdbook-open-on-gh
         sudo ln -s $PWD/mdbook-open-on-gh /usr/local/bin/mdbook-open-on-gh

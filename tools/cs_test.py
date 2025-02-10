@@ -1,20 +1,33 @@
 import multiprocessing
+import os
 import pathlib
 import re
 import subprocess
 import sys
 from functools import reduce
+from pathlib import Path
 
 import joblib
 
-from autd3_build_utils.autd3_build_utils import substitute_in_file
+
+def substitute_in_file(
+    path: str,
+    pattern: str,
+    repl: str,
+    target: Path,
+) -> None:
+    file = Path(path)
+    content = file.read_text(encoding="utf-8")
+    content = re.sub(pattern, repl, content, flags=re.MULTILINE)
+    target.write_text(content, encoding="utf-8")
+
 
 if __name__ == "__main__":
     version = "29.0.0-rc.19.1"
     link_soem_version = "29.0.0-rc.19"
     print(f"Testing with AUTD3Sharp {version}")
 
-    base_path = pathlib.Path(__file__).parent.parent / "src" / "codes"
+    base_path = pathlib.Path(os.getcwd()) / "src" / "codes"
 
     n_jobs = multiprocessing.cpu_count()
     cs_srcs = list(base_path.rglob("*.cs"))
@@ -57,9 +70,9 @@ if __name__ == "__main__":
         for cs_src in cs_srcs[start:end]:
             substitute_in_file(
                 cs_src,
-                [("~", "")],
-                target_file=test_dir / "test.cs",
-                flags=re.MULTILINE,
+                "~",
+                "",
+                test_dir / "test.cs",
             )
 
             r = subprocess.run(

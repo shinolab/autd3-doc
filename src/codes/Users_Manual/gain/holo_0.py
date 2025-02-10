@@ -16,10 +16,10 @@
 ~z2 = 0.0
 backend = NalgebraBackend()
 GSPAT(
-    backend=backend,
     foci=[(np.array([x1, y1, z1]), 5e3 * Pa), (np.array([x2, y2, z2]), 5e3 * Pa)],
     option=GSPATOption(
         repeat=100,
         constraint=EmissionConstraint.Clamp(EmitIntensity.MIN, EmitIntensity.MAX),
     ),
+    backend=backend,
 )

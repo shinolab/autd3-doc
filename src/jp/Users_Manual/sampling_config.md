@@ -7,9 +7,7 @@ Modulation, FociSTM/GainSTMのサンプリング設定について説明する.
 また, Silencerの設定によって指定できるサンプリング周波数の最大値が決まる.
 詳しくは[Silencer](./silencer.md#fixed-completion-steps-mode)を参照.
 
-## サンプリング周波数/周期の設定
-
-サンプリング周波数, または, サンプリング周期を設定する場合は, 周波数, 周期をそのまま指定すれば良い.
+サンプリング設定のコンストラクタには, 分周比$N$, または, サンプリング周波数, サンプリング周期を指定する.
 
 ```rust,edition2021
 {{#include ../../codes/Users_Manual/sampling_config/modulation_0.rs}}
@@ -25,26 +23,6 @@ Modulation, FociSTM/GainSTMのサンプリング設定について説明する.
 
 ```python
 {{#include ../../codes/Users_Manual/sampling_config/modulation_0.py}}
-```
-
-## サンプリング周波数分周比の設定
-
-サンプリング周波数分周比$N$を設定する場合は以下のようにする.
-
-```rust,edition2021
-{{#include ../../codes/Users_Manual/sampling_config/sampling_config_div.rs}}
-```
-
-```cpp
-{{#include ../../codes/Users_Manual/sampling_config/sampling_config_div.cpp}}
-```
-
-```cs
-{{#include ../../codes/Users_Manual/sampling_config/sampling_config_div.cs}}
-```
-
-```python
-{{#include ../../codes/Users_Manual/sampling_config/sampling_config_div.py}}
 ```
 
 ## サンプリング周波数制限の緩和

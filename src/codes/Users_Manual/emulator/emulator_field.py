@@ -2,7 +2,7 @@
 from pyautd3 import AUTD3, Focus, FocusOption, Silencer, Static, Duration
 from pyautd3_emulator import Emulator, RangeXYZ, Recorder, InstantRecordOption
 
-with Emulator([AUTD3(pos=[0.0, 0.0, 0.0])]) as emulator:
+with Emulator([AUTD3()]) as emulator:
     focus = emulator.center() + np.array([0.0, 0.0, 150.0])
 
     def f(autd: Recorder) -> None:
