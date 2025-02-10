@@ -1,13 +1,13 @@
 ~import numpy as np
 ~from pyautd3 import EmitIntensity
-~from pyautd3.gain.holo import (
-~    GSPAT,
-~    EmissionConstraint,
-~    GSPATOption,
-~    NalgebraBackend,
-~    Pa,
-~)
-~
+from pyautd3.gain.holo import (
+    GSPAT,
+    EmissionConstraint,
+    GSPATOption,
+    NalgebraBackend,
+    Pa,
+)
+
 ~x1 = 0.0
 ~y1 = 0.0
 ~z1 = 0.0

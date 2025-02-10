@@ -25,6 +25,5 @@ dbg!(df);
 
 let df = record.pulse_width();
 dbg!(df);
-
 # Ok(())
 # }

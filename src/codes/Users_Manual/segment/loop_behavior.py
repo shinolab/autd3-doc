@@ -1,5 +1,4 @@
-~from pyautd3 import Segment, Static, TransitionMode, LoopBehavior
-~from pyautd3.driver.datagram.with_loop_behavior import WithLoopBehavior
+~from pyautd3 import Segment, Static, TransitionMode, LoopBehavior, WithLoopBehavior
 WithLoopBehavior(
     inner=Static(),
     loop_behavior=LoopBehavior.Infinite,

@@ -1,5 +1,6 @@
 # use autd3::prelude::*;
-# use autd3::gain::IntoBoxedGain;
+use autd3::gain::IntoBoxedGain;
+
 # use std::collections::HashMap;
 # fn main() -> Result<(), Box<dyn std::error::Error>> {
 #     let mut autd = Controller::open(

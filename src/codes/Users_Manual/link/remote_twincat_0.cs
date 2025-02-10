@@ -1,5 +1,6 @@
 ~using AUTD3Sharp;
 using AUTD3Sharp.Link;
+
 new RemoteTwinCAT(
         serverAmsNetId: "172.16.99.111.1.1",
         option: new RemoteTwinCATOption

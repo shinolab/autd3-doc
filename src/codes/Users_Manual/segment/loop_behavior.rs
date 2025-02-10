@@ -1,6 +1,5 @@
 # use std::num::NonZeroU16;
 # use autd3::prelude::*;
-# use autd3::driver::datagram::WithLoopBehavior;
 # fn main() {
 # let _ = 
 WithLoopBehavior {

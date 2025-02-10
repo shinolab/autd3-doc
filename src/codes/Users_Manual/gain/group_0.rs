@@ -1,6 +1,7 @@
 use autd3::gain::IntoBoxedGain;
 use autd3::prelude::*;
 # use std::collections::HashMap;
+
 # fn main() -> Result<(), Box<dyn std::error::Error>> {
 # let x = 0.;
 # let y = 0.;
