@@ -10,7 +10,7 @@ import joblib
 from autd3_build_utils.autd3_build_utils import substitute_in_file
 
 if __name__ == "__main__":
-    version = "29.0.0-rc.19"
+    version = "29.0.0-rc.19.1"
     link_soem_version = "29.0.0-rc.19"
     print(f"Testing with AUTD3Sharp {version}")
 
@@ -48,7 +48,6 @@ if __name__ == "__main__":
 
     <ItemGroup>
         <PackageReference Include="AUTD3Sharp" Version="{version}" />
-        <PackageReference Include="AUTD3Sharp.Derive" Version="{version}" />
         <PackageReference Include="AUTD3Sharp.Link.SOEM" Version="{link_soem_version}" />
     </ItemGroup>
 
@@ -85,7 +84,9 @@ if __name__ == "__main__":
                 error_files.append((cs_src, err))
         return error_files
 
-    result = joblib.Parallel(n_jobs=n_jobs)(joblib.delayed(test)(i, len(cs_srcs)) for i in range(n_jobs))
+    result = joblib.Parallel(n_jobs=n_jobs)(
+        joblib.delayed(test)(i, len(cs_srcs)) for i in range(n_jobs)
+    )
     err_files = reduce(lambda a, b: a + b, result)
     if len(err_files) == 0:
         print("All files are OK")

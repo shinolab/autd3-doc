@@ -9,7 +9,14 @@ using AUTD3Sharp.Gain.Holo;
 ~var y2 = 0.0f;
 ~var z2 = 0.0f;
 var backend = new NalgebraBackend();
-var g = new GSPAT(backend, [
-                        (new Point3(x1, y1, z1), 5e3f * Pa),
-                        (new Point3(x2, y2, z2), 5e3f * Pa)
-                    ]);
+new GSPAT(
+    foci: [
+             (new Point3(x1, y1, z1), 5e3f * Pa),
+             (new Point3(x2, y2, z2), 5e3f * Pa)
+    ],
+    option: new GSPATOption
+    {
+        Repeat = 100
+    },
+    backend: backend
+);

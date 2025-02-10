@@ -1,2 +1,3 @@
-~using AUTD3Sharp.Gain;
-var g = new Null().WithCache();
+using AUTD3Sharp.Gain;
+
+new Cache(new Null());

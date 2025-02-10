@@ -1,12 +1,10 @@
-~using System.Net;
 ~using AUTD3Sharp;
 using AUTD3Sharp.Link;
-
-~using AUTD3Sharp.Gain;
-~using AUTD3Sharp.Modulation;
-~using AUTD3Sharp.Utils;
-~var autd = Controller.Builder([new AUTD3(Point3.Origin)]).Open(
-RemoteTwinCAT.Builder("172.16.99.111.1.1")
-        .WithServerIp("172.16.99.104")
-        .WithClientAmsNetId("172.16.99.62.1.1")
-~);
+new RemoteTwinCAT(
+        serverAmsNetId: "172.16.99.111.1.1",
+        option: new RemoteTwinCATOption
+        {
+                ServerIp = "172.16.99.104",
+                ClientAmsNetId = "172.16.99.62.1.1"
+        }
+);

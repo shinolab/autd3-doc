@@ -1,2 +1,3 @@
-~using AUTD3Sharp.Modulation;
-var m = new Static().WithCache();
+using AUTD3Sharp.Modulation;
+
+new Cache(new Static());
