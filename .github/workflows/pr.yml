@@ -115,5 +115,4 @@ jobs:
           toolchain: 'stable'
       - run: |
           pip install joblib requests
-          cd tools
           cargo make rs-test

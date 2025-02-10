@@ -6,8 +6,8 @@ The, install AUTD3Sharp library.
 ```shell
 dotnet new console --name autd3-sample
 cd autd3-sample
-dotnet add package AUTD3Sharp --version 29.0.0-rc.19
-dotnet add package AUTD3Sharp.Link.SOEM --version 29.0.0-rc.19
+dotnet add package AUTD3Sharp
+dotnet add package AUTD3Sharp.Link.SOEM
 ```
 
 Next, make `Program.cs` file.

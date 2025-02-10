@@ -6,6 +6,6 @@ use autd3_modulation_audio_file::{Csv, CsvOption};
 Csv {
     path: "path/to/foo.csv",
     sampling_config: 4000 * Hz,
-    option: CsvOption { deliminator: b',' },
+    option: CsvOption { delimiter: b',' },
 };
 # }

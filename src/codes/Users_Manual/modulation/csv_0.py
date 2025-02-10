@@ -6,6 +6,6 @@ Csv(
     path=pathlib.Path("path/to/foo.csv"),
     sampling_config=4000 * Hz,
     option=CsvOption(
-        deliminator=",",
+        delimiter=",",
     ),
 )

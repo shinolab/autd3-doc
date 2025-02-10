@@ -9,9 +9,6 @@ SOEMを使用するのはやむを得ない理由があるか, 開発時のみ�
 Windowsの場合は, [npcap](https://nmap.org/npcap/)を「**WinPcap API compatible mode**」でインストールしておくこと.
 Linux/macOSの場合は, 特に準備は必要ない.
 
-> NOTE: v29.0.0-rc.5から, SOEMリンクは別のパッケージに分けられているため, 追加の依存関係が必要である.
-> 詳しくは[チュートリアル](../getting_started.md)を参照.
-
 [[_TOC_]]
 
 ## SOEMリンク
@@ -21,7 +18,7 @@ Linux/macOSの場合は, 特に準備は必要ない.
 #### Rust
 
 ```shell
-cargo add autd3-link-soem@29.0.0-rc.20
+cargo add autd3-link-soem
 ```
 
 #### C++ (CMake)
@@ -30,17 +27,17 @@ cargo add autd3-link-soem@29.0.0-rc.20
 if(WIN32)
   FetchContent_Declare(
     autd3-link-soem
-    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0-rc.20/autd3-link-soem-v29.0.0-rc.20-win-x64.zip
+    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0/autd3-link-soem-v29.0.0-win-x64.zip
   )
 elseif(APPLE)
   FetchContent_Declare(
     autd3-link-soem
-    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0-rc.20/autd3-link-soem-v29.0.0-rc.20-macos-aarch64.tar.gz
+    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0/autd3-link-soem-v29.0.0-macos-aarch64.tar.gz
   )
 else()
   FetchContent_Declare(
     autd3-link-soem
-    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0-rc.20/autd3-link-soem-v29.0.0-rc.20-linux-x64.tar.gz
+    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0/autd3-link-soem-v29.0.0-linux-x64.tar.gz
   )
 endif()
 FetchContent_MakeAvailable(autd3-link-soem)
@@ -50,7 +47,7 @@ target_link_libraries(<TARGET> PRIVATE autd3::link::soem)
 #### C#
 
 ```shell
-dotnet add package AUTD3Sharp.Link.SOEM --version 29.0.0-rc.20
+dotnet add package AUTD3Sharp.Link.SOEM
 ```
 
 #### Unity
@@ -60,7 +57,7 @@ dotnet add package AUTD3Sharp.Link.SOEM --version 29.0.0-rc.20
 #### Python
 
 ```shell
-pip install pyautd3_link_soem==29.0.0rc20
+pip install pyautd3_link_soem
 ```
 
 ### APIs
@@ -111,7 +108,7 @@ SOEMリンクで指定できるオプションは以下の通りである.
 #### Rust
 
 ```shell
-cargo add autd3-link-soem@29.0.0-rc.20 --features remote
+cargo add autd3-link-soem --features remote
 ```
 
 #### C++ (CMake)
@@ -119,7 +116,7 @@ cargo add autd3-link-soem@29.0.0-rc.20 --features remote
 ```ignore,filename=CMakeLists.txt
 FetchContent_Declare(
   autd3-link-soem
-  URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0-rc.20/autd3-link-soem-v29.0.0-rc.20-win-x64.zip
+  URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0/autd3-link-soem-v29.0.0-win-x64.zip
 )
 FetchContent_MakeAvailable(autd3-link-soem)
 target_link_libraries(<TARGET> PRIVATE autd3::link::soem)

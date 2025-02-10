@@ -6,7 +6,6 @@ import sys
 from functools import reduce
 
 import joblib
-
 from autd3_build_utils.autd3_build_utils import (
     run_command,
     substitute_in_file,
@@ -14,8 +13,8 @@ from autd3_build_utils.autd3_build_utils import (
 )
 
 if __name__ == "__main__":
-    version = "29.0.0-rc.19"
-    link_soem_version = "29.0.0-rc.19"
+    version = "29.0.0"
+    link_soem_version = "29.0.0"
     print(f"Testing with autd3-cpp {version}")
 
     base_path = pathlib.Path(__file__).parent.parent / "src" / "codes"
@@ -100,17 +99,34 @@ target_link_libraries(main PRIVATE autd3::modulation::audio_file)
         with (test_dir / "main.cpp").open("w") as f:
             f.write("""int main() { return 0; }""")
         with working_dir(build_dir):
-            run_command(["cmake", "..", "-DCMAKE_C_COMPILER=gcc-12", "-DCMAKE_CXX_COMPILER=g++-12"])
+            run_command(
+                [
+                    "cmake",
+                    "..",
+                    "-DCMAKE_C_COMPILER=gcc-12",
+                    "-DCMAKE_CXX_COMPILER=g++-12",
+                ]
+            )
         for src in srcs[start:end]:
-            substitute_in_file(src, [("//~", "")], target_file=test_dir / "main.cpp", flags=re.MULTILINE)
+            substitute_in_file(
+                src,
+                [("//~", "")],
+                target_file=test_dir / "main.cpp",
+                flags=re.MULTILINE,
+            )
             try:
-                subprocess.run(["cmake", "--build", ".", "--config", "release"], cwd=build_dir).check_returncode()
+                subprocess.run(
+                    ["cmake", "--build", ".", "--config", "release"],
+                    cwd=build_dir,
+                ).check_returncode()
             except subprocess.CalledProcessError:
                 error_files.append(src)
 
         return error_files
 
-    result = joblib.Parallel(n_jobs=n_jobs)(joblib.delayed(test)(i, len(srcs)) for i in range(n_jobs))
+    result = joblib.Parallel(n_jobs=n_jobs)(
+        joblib.delayed(test)(i, len(srcs)) for i in range(n_jobs)
+    )
     err_files = reduce(lambda a, b: a + b, result)
     if len(err_files) == 0:
         print("All files are OK")

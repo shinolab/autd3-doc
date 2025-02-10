@@ -12,14 +12,14 @@
 #### Rust
 
 ```shell
-cargo add autd3-emulator@29.0.0-rc.20
+cargo add autd3-emulator
 ```
 
 #### Python
 
 
 ```
-pip install pyautd3_emulator==29.0.0rc20
+pip install pyautd3_emulator
 ```
 
 ## APIs
