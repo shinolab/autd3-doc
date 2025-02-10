@@ -3,7 +3,7 @@ from pyautd3 import AUTD3, Duration, Focus, FocusOption, Silencer, Static
 from pyautd3_emulator import Emulator, RangeXYZ, Recorder, RmsRecordOption
 
 with Emulator([AUTD3(pos=[0.0, 0.0, 0.0])]) as emulator:
-    focus = emulator.center + np.array([0.0, 0.0, 150.0])
+    focus = emulator.center() + np.array([0.0, 0.0, 150.0])
 
     def f(autd: Recorder) -> None:
         autd.send(Silencer.disable())
