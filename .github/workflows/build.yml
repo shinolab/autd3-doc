@@ -75,7 +75,6 @@ jobs:
           toolchain: 'stable'
       - run: |
           pip install joblib requests
-          cd tools
           cargo make rs-test
 
   build:
@@ -85,8 +84,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup-mdbook
-      - run: |
-          cargo make build
+      - run: cargo make build
       - uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

@@ -31,6 +31,9 @@ if __name__ == "__main__":
 
     n_jobs = multiprocessing.cpu_count()
     cs_srcs = list(base_path.rglob("*.cs"))
+    print(f"Testing {len(cs_srcs)} files:")
+    for src in cs_srcs:
+        print(f"{src}")
     N = len(cs_srcs)
     block = N // n_jobs
 

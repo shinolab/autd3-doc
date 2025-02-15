@@ -39,6 +39,9 @@ if __name__ == "__main__":
 
     n_jobs = 1
     srcs = sys.argv[1:] if len(sys.argv) > 1 else list(base_path.rglob("*.rs"))
+    print(f"Testing {len(srcs)} files:")
+    for src in srcs:
+        print(f"{src}")
     N = len(srcs)
     block = N // n_jobs
 
