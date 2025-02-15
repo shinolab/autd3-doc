@@ -52,6 +52,9 @@ if __name__ == "__main__":
     base_path = pathlib.Path(os.getcwd()) / "src" / "codes"
 
     srcs = list(base_path.rglob("*.py"))
+    print(f"Testing {len(srcs)} files:")
+    for src in srcs:
+        print(f"{src}")
 
     test_dir = pathlib.Path(__file__).parent / "test-python"
     if not test_dir.exists():
