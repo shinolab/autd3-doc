@@ -3,18 +3,21 @@
 //~#include<autd3/link/nop.hpp>
 //~using namespace std::ranges::views;
 //~int main() {
-//~auto autd =
-//~autd3::ControllerBuilder({autd3::AUTD3(autd3::Point3::origin())}).open(autd3::link::Nop::builder());
-const autd3::Point3 center = autd.center() + autd3::Vector3(0, 0, 150);
+const autd3::Point3 center(0, 0, 150);
 const auto points_num = 200;
 const auto radius = 30.0f;
-autd3::GainSTM stm(1.0f * autd3::Hz,
-                   iota(0) | take(points_num) | transform([&](auto i) {
-                     const auto theta = 2.0f * autd3::pi *
-                                        static_cast<float>(i) /
-                                        static_cast<float>(points_num);
-                     return autd3::gain::Focus(
-                         center + radius * autd3::Vector3(std::cos(theta),
-                                                          std::sin(theta), 0));
-                   }));
+std::vector<autd3::Focus> gains;
+std::ranges::copy(iota(0) | take(points_num) | transform([&](auto i) {
+                    const auto theta = 2.0f * autd3::pi *
+                                       static_cast<float>(i) /
+                                       static_cast<float>(points_num);
+                    return autd3::Focus(
+                        center + radius * autd3::Vector3(std::cos(theta),
+                                                         std::sin(theta), 0),
+                        autd3::FocusOption{});
+                  }),
+                  std::back_inserter(gains));
+autd3::GainSTM stm(gains, 1.0f * autd3::Hz,
+                   autd3::GainSTMOption{
+                       .mode = autd3::GainSTMMode::PhaseIntensityFull});
 //~return 0; }

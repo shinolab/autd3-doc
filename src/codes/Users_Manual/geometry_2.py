@@ -5,7 +5,7 @@ Controller.open(
     [
         AUTD3(pos=[0.0, 0.0, 0.0], rot=[1.0, 0.0, 0.0, 0.0]),
         AUTD3(
-            pos=[AUTD3.DEVICE_WIDTH, 0.0, 0.0],
+            pos=[0.0, 0.0, AUTD3.DEVICE_WIDTH],
             rot=EulerAngles.ZYZ(0 * rad, np.pi / 2 * rad, 0 * rad),
         ),
     ],

@@ -1,34 +1,68 @@
+import contextlib
 import multiprocessing
-import pathlib
+import os
 import re
 import subprocess
 import sys
+from collections.abc import Generator
 from functools import reduce
+from pathlib import Path
 
 import joblib
-from autd3_build_utils.autd3_build_utils import (
-    run_command,
-    substitute_in_file,
-    working_dir,
-)
+
+
+@contextlib.contextmanager
+def working_dir(path: Path) -> Generator:
+    cwd = Path.cwd()
+    os.chdir(path)
+    try:
+        yield
+    finally:
+        os.chdir(cwd)
+
+
+def substitute_in_file(
+    src_file: Path | str,
+    mapping: list[tuple[str, str]],
+    *,
+    target_file: Path | str | None = None,
+    flags: re.RegexFlag = re.NOFLAG,
+) -> None:
+    src_file = Path(src_file)
+    target_file = (
+        Path(target_file) if target_file is not None else Path(src_file)
+    )
+    content = src_file.read_text(encoding="utf-8")
+    for key, value in mapping:
+        content = re.sub(key, value, content, flags=flags)
+    target_file.write_text(content, encoding="utf-8")
+
+
+def run_command(command: list[str], *, shell: bool = False) -> None:
+    try:
+        subprocess.run(command, check=False, shell=shell).check_returncode()
+    except subprocess.CalledProcessError:
+        print(f"command failed: {' '.join(command)}")
+        sys.exit(-1)
+
 
 if __name__ == "__main__":
     version = "29.0.0"
     link_soem_version = "29.0.0"
     print(f"Testing with autd3-cpp {version}")
 
-    base_path = pathlib.Path(__file__).parent.parent / "src" / "codes"
+    base_path = Path(os.getcwd()) / "src" / "codes"
 
     n_jobs = multiprocessing.cpu_count() // 2
-    srcs = list(base_path.rglob("*.cpp"))
+    srcs = sys.argv[1:] if len(sys.argv) > 1 else list(base_path.rglob("*.cpp"))
     N = len(srcs)
     block = N // n_jobs
 
-    base_test_dir = pathlib.Path(__file__).parent / "test-cpp"
+    base_test_dir = Path(__file__).parent / "test-cpp"
     if not base_test_dir.exists():
         base_test_dir.mkdir()
 
-    def test(i: int, n: int) -> list[pathlib.Path]:
+    def test(i: int, n: int) -> list[Path]:
         error_files = []
         start = i * block
         end = (i + 1) * block if i != n_jobs - 1 else n

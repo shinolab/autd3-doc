@@ -1,4 +1,6 @@
 //~#include<autd3.hpp>
+#include <autd3/gain/cache.hpp>
+
 //~int main() {
-const auto g = autd3::gain::Null().with_cache();
+autd3::gain::Cache(autd3::Null{});
 //~return 0; }

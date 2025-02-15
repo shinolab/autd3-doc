@@ -1,4 +1,6 @@
 //~#include<autd3.hpp>
+#include <autd3/modulation/cache.hpp>
+
 //~int main() {
-const auto m = autd3::modulation::Static().with_cache();
+autd3::modulation::Cache(autd3::Static{});
 //~return 0; }

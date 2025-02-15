@@ -7,6 +7,10 @@
 //~const auto ny = 0.0;
 //~const auto nz = 1.0;
 //~const auto theta = 0.0;
-const auto g = autd3::Bessel(autd3::Point3(x, y, z), autd3::Vector3(nx, ny, nz),
-                             theta* autd3::rad);
+autd3::Bessel(autd3::Point3(x, y, z), autd3::Vector3(nx, ny, nz),
+              theta* autd3::rad,
+              autd3::BesselOption{
+                  .intensity = std::numeric_limits<autd3::EmitIntensity>::max(),
+                  .phase_offset = autd3::Phase::zero(),
+              });
 //~return 0; }

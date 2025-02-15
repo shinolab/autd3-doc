@@ -1,14 +1,11 @@
+//~#include<iostream>
 //~#include<autd3.hpp>
-//~#include<autd3/link/nop.hpp>
 //~int main() {
-//~auto autd =
-//~autd3::ControllerBuilder({autd3::AUTD3(autd3::Point3::origin())}).open(autd3::link::Nop::builder());
-std::vector<std::array<autd3::Point3, 1>> foci = {
-    std::array{autd3::Point3(0, 0, 0)},
-    std::array{autd3::Point3(0, 0, 0)},
-};
-autd3::FociSTM stm(1.0f * autd3::Hz, foci);
-const auto f = stm.freq();                     // -> 1Hz
-const auto p = stm.period();                   // -> 1s
-const auto fs = stm.sampling_config().freq();  // -> 2Hz
-                                               //~return 0; }
+autd3::FociSTM stm(
+    std::vector{
+        autd3::Point3(0, 0, 0),
+        autd3::Point3(0, 0, 0),
+    },
+    1.0f * autd3::Hz);
+std::cout << stm.sampling_config().freq() << std::endl;  // -> 2Hz
+                                                         //~return 0; }
