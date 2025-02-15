@@ -1,15 +1,14 @@
 ~import numpy as np
-from pyautd3 import AUTD3, Controller, Focus, Silencer, Static, Duration
-from pyautd3.emulator import RangeXYZ, Recorder, InstantRecordOption
+from pyautd3 import AUTD3, Focus, FocusOption, Silencer, Static, Duration
+from pyautd3_emulator import Emulator, RangeXYZ, Recorder, InstantRecordOption
 
-with Controller.builder([AUTD3([0.0, 0.0, 0.0])]).into_emulator() as emulator:
-    focus = emulator.center + np.array([0.0, 0.0, 150.0])
+with Emulator([AUTD3()]) as emulator:
+    focus = emulator.center() + np.array([0.0, 0.0, 150.0])
 
-    def f(autd: Controller[Recorder]) -> Controller[Recorder]:
+    def f(autd: Recorder) -> None:
         autd.send(Silencer.disable())
-        autd.send((Static.with_intensity(0xFF), Focus(focus)))
+        autd.send((Static(), Focus(pos=focus, option=FocusOption())))
         autd.tick(Duration.from_millis(1))
-        return autd
 
     record = emulator.record(f)
 

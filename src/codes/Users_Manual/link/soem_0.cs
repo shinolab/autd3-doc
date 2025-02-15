@@ -1,28 +1,26 @@
 ~using AUTD3Sharp;
 using AUTD3Sharp.Link;
 
-~using AUTD3Sharp.Gain;
-~using AUTD3Sharp.Modulation;
 ~using AUTD3Sharp.Utils;
-~var autd = Controller.Builder([new AUTD3(Point3.Origin)]).Open(
-SOEM.Builder()
-    .WithIfname("")
-    .WithBufSize(32)
-    .WithErrHandler((slave, status) =>
+new SOEM(
+    errHandler: (slave, status) =>
     {
         Console.Error.WriteLine($"slave [{slave}]: {status}");
         if (status == Status.Lost)
-        {
-            // You can also wait for the link to recover, without exiting the process
             Environment.Exit(-1);
-        }
-    })
-    .WithStateCheckInterval(Duration.FromMillis(100))
-    .WithSync0Cycle(Duration.FromMillis(1))
-    .WithSendCycle(Duration.FromMillis(1))
-    .WithTimerStrategy(TimerStrategy.SpinSleep)
-    .WithSyncTolerance(Duration.FromMicros(1))
-    .WithSyncTimeout(Duration.FromSecs(10))
-    .WithThreadPriority(AUTD3Sharp.Link.ThreadPriority.Max)
-    .WithProcessPriority(ProcessPriority.High)
-~);
+    },
+    option: new SOEMOption
+    {
+        BufSize = 32,
+        TimerStrategy = TimerStrategy.SpinSleep,
+        SyncMode = SyncMode.DC,
+        Ifname = "",
+        StateCheckInterval = Duration.FromMillis(100),
+        Sync0Cycle = Duration.FromMillis(1),
+        SendCycle = Duration.FromMillis(1),
+        ThreadPriority = AUTD3Sharp.Link.ThreadPriority.Max,
+        ProcessPriority = ProcessPriority.High,
+        SyncTolerance = Duration.FromMicros(1),
+        SyncTimeout = Duration.FromSecs(10),
+    }
+);

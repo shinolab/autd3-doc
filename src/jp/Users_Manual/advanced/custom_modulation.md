@@ -12,7 +12,4 @@ Rust版では`Modulation`も独自のものを作成することができる.
 {{#include ../../../codes/Users_Manual/advanced/custom_modulation_0.rs}}
 ```
 
-`Modulation`は, `send`内部で`calc`メソッドが呼ばれ, その返り値の変調データが使用される.
-したがって, この`calc`の中で, 変調データを計算すれば良い.
-
 [^fn_burst]: SDKにはない.

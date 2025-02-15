@@ -1,2 +1,4 @@
 ~from pyautd3 import Static
-m = Static().with_cache()
+from pyautd3.modulation import Cache
+
+Cache(Static())

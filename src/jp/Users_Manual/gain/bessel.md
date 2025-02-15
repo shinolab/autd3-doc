@@ -19,31 +19,14 @@
 {{#include ../../../codes/Users_Manual/gain/bessel_0.py}}
 ```
 
-コンストラクタの第1引数はビームを生成する仮想円錐 (下図の点線) の頂点であり, 第2引数はビームの方向, 第3引数はビームに垂直な面とビームを生成する仮想円錐の側面となす角度である (下図の$\theta_z$).
+ここで, `pos`はビームを生成する仮想円錐 (下図の点線) の頂点であり, `dir`はビームの方向, `theta`はビームに垂直な面とビームを生成する仮想円錐の側面となす角度である (下図の$\theta_z$).
 
 <figure>
   <img src="../../fig/Users_Manual/1.4985159.figures.online.f1.jpg"/>
   <figcaption>Bessel beam (長谷川らの論文より引用)</figcaption>
 </figure>
 
-## 振幅/位相オフセットの指定
-
-`with_intensity`, `with_phase_offset`にて, 出力振幅と位相オフセットを$\SI{8}{bit}$で指定できる.
-
-```rust,edition2021
-{{#include ../../../codes/Users_Manual/gain/bessel_1.rs}}
-```
-
-```cpp
-{{#include ../../../codes/Users_Manual/gain/bessel_1.cpp}}
-```
-
-```cs
-{{#include ../../../codes/Users_Manual/gain/bessel_1.cs}}
-```
-
-```python
-{{#include ../../../codes/Users_Manual/gain/bessel_1.py}}
-```
+オプションにて, 出力振幅と位相オフセットを$\SI{8}{bit}$で指定できる.
+デフォルト値は上記の通り.
 
 [^hasegawa2017]: Hasegawa, Keisuke, et al. "Electronically steerable ultrasound-driven long narrow air stream." Applied Physics Letters 111.6 (2017): 064104.

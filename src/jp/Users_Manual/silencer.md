@@ -142,8 +142,9 @@ Fixed update rate modeを設定するには, 以下のようにする.
 #### Fixed completion time modeの設定
 
 Fixed completion time modeを設定するには, 以下のようにする.
-なお, `from_completion_time`の引数はそれぞれ, 振幅/位相変化の完了まで時間に対応する.
-これらの引数は超音波周期 ($\SI{25}{us}$) の整数倍である必要がある.
+
+`intensity`, `phase`はそれぞれ, 振幅/位相変化の完了まで時間に対応する.
+これらは超音波周期 ($\SI{25}{us}$) の整数倍である必要がある.
 
 ```rust,edition2021
 {{#include ../../codes/Users_Manual/silencer/silencer_fixed_completion_steps.rs}}
@@ -170,44 +171,6 @@ Fixed completion time modeを設定するには, 以下のようにする.
 - Silencerの振幅変化完了時間 $\le$ `FociSTM`/`GainSTM`のサンプリング周期
 - Silencerの位相変化完了時間 $\le$ `FociSTM`/`GainSTM`のサンプリング周期
 
-`strict_mode`を無効にすれば, この条件を満たさない場合でもエラーを返さないようになるが, 推奨はされない.
-
-```rust,edition2021
-{{#include ../../codes/Users_Manual/silencer/silencer_fixed_completion_steps_with_strict.rs}}
-```
-
-```cpp
-{{#include ../../codes/Users_Manual/silencer/silencer_fixed_completion_steps_with_strict.cpp}}
-```
-
-```cs
-{{#include ../../codes/Users_Manual/silencer/silencer_fixed_completion_steps_with_strict.cs}}
-```
-
-```python
-{{#include ../../codes/Users_Manual/silencer/silencer_fixed_completion_steps_with_strict.py}}
-```
-
-## Silencerの確認
-
-`Silencer`が`Modulation`, `FociSTM`, および, `GainSTM`に対して有効かどうかは`is_valid`関数で確認できる.
-
-
-```rust,edition2021
-{{#include ../../codes/Users_Manual/silencer/silencer_is_valid.rs}}
-```
-
-```cpp
-{{#include ../../codes/Users_Manual/silencer/silencer_is_valid.cpp}}
-```
-
-```cs
-{{#include ../../codes/Users_Manual/silencer/silencer_is_valid.cs}}
-```
-
-```python
-{{#include ../../codes/Users_Manual/silencer/silencer_is_valid.py}}
-```
-
+`strict_mode`を`false`にすれば, この条件を満たさない場合でもエラーを返さないようになるが, 推奨はされない.
 
 [^suzuki2020]: Suzuki, Shun, et al. "Reducing amplitude fluctuation by gradual phase shift in midair ultrasound haptics." IEEE transactions on haptics 13.1 (2020): 87-93.

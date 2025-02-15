@@ -1,10 +1,11 @@
-# use autd3::prelude::*;
 use autd3::gain::Custom;
+# use autd3::prelude::*;
 
-# #[allow(unused_variables)]
 # fn main() {
-let g = Custom::new(|_dev| |_tr| Drive::new(
-    Phase::new(0x00),
-    EmitIntensity::new(0x00),
-));
+Custom::new(|_dev| {
+    |_tr| Drive {
+        phase: Phase::ZERO,
+        intensity: EmitIntensity::MIN,
+    }
+});
 # }

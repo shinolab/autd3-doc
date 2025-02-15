@@ -11,8 +11,5 @@ Rust版のライブラリでは自前の`Gain`を作成することができる.
 {{#include ../../../codes/Users_Manual/advanced/custom_gain_0.rs}}
 ```
 
-`Controller::send`関数は`Gain`型を継承したクラスを引数に取ることができる.
-`Gain`型は`Geometry`とfilter (後述) を引数に取り, 各デバイス毎に`GainContext`を生成する`GainContextGenerator`を返す.
-実際の位相, 振幅の計算は`GainContext::calc`関数内で行う.
-
-なお, filterは[Group](../gain/grouped.md)で使用される, 各デバイス毎に各振動子が有効か否かを表すデータである.
+`Gain::init`は各デバイス毎に, `GainCalculator` (を実装した型) を生成する`GainContextGenerator` (を実装した型) を返す.
+実際の位相, 振幅の計算は`GainCalculator::calc`関数内で行う.

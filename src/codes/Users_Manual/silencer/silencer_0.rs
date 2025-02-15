@@ -1,6 +1,7 @@
 # use autd3::prelude::*;
-# #[allow(unused_variables)]
 # fn main() {
-let config = Silencer::default();
-let config = Silencer::disable();
+# let _ = 
+Silencer::default();
+# let _ = 
+Silencer::disable();
 # }

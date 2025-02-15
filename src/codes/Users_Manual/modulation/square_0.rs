@@ -1,5 +1,13 @@
 # use autd3::prelude::*;
-# #[allow(unused_variables)]
 # fn main() {
-let m = Square::new(150 * Hz);
+# let _ = 
+Square {
+    freq: 150 * Hz,
+    option: SquareOption {
+        low: u8::MIN,
+        high: u8::MAX,
+        duty: 0.5,
+        sampling_config: SamplingConfig::FREQ_4K,
+    },
+};
 # }

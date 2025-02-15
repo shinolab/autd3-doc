@@ -1,6 +1,5 @@
 # use autd3::prelude::*;
-# #[allow(unused_variables)]
-# fn main() -> Result<(), Box<dyn std::error::Error>> {
+# fn main() {
 # let start = Point3::origin();
 # let end = Point3::origin();
 # let center = Point3::origin();
@@ -8,25 +7,26 @@
 # let num_points = 50;
 # let n = Vector3::z_axis();
 # let intensity = EmitIntensity::MAX;
-let stm = FociSTM::new(
-    1.0 * Hz,
-    Line {
+# let _ = 
+FociSTM {
+    foci: Line {
         start,
         end,
         num_points,
         intensity,
     },
-)?;
+    config: 1.0 * Hz,
+};
 
-let stm = FociSTM::new(
-    1.0 * Hz,
-    Circle {
+# let _ = 
+FociSTM {
+    foci: Circle {
         center,
         radius,
         num_points,
         n, // normal vector to the plane where the circle is drawn
         intensity,
     },
-)?;
-# Ok(())
+    config: 1.0 * Hz,
+};
 # }

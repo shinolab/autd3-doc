@@ -1,8 +1,23 @@
-use autd3::modulation::Fourier;
+use autd3::modulation::{Fourier, FourierOption};
 # use autd3::prelude::*;
-# 
-# #[allow(unused_variables)]
-# fn main() -> Result<(), Box<dyn std::error::Error>> {
-let m = Fourier::new([Sine::new(100 * Hz), Sine::new(150 * Hz)])?;
-#     Ok(())
+
+# fn main() {
+# let _ = 
+Fourier {
+    components: vec![
+        Sine {
+            freq: 100 * Hz,
+            option: Default::default(),
+        },
+        Sine {
+            freq: 150 * Hz,
+            option: Default::default(),
+        },
+    ],
+    option: FourierOption {
+        scale_factor: None,
+        clamp: false,
+        offset: 0x00,
+    },
+};
 # }

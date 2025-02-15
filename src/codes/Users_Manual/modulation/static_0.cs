@@ -1,2 +1,2 @@
 ~using AUTD3Sharp.Modulation;
-var m = new Static();
+new Static(intensity: 0xFF);

@@ -1,8 +1,14 @@
 # use autd3::prelude::*;
-# #[allow(unused_variables)]
 # fn main() {
 # let x = 0.;
 # let y = 0.;
 # let z = 0.;
-let g = Focus::new(Point3::new(x, y, z));
+# let _ = 
+Focus {
+    pos: Point3::new(x, y, z),
+    option: FocusOption {
+        intensity: EmitIntensity::MAX,
+        phase_offset: Phase::ZERO,
+    },
+};
 # }

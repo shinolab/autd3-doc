@@ -2,5 +2,7 @@
 ~import numpy as np
 from pyautd3.modulation import Custom
 
-buf = np.array([0xFF, 0xFF])
-m = Custom(buf, 4000 * Hz)
+Custom(
+    buffer=np.array([0xFF, 0xFF]),
+    sampling_config=4000 * Hz,
+)

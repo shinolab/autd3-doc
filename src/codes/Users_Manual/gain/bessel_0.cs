@@ -1,3 +1,4 @@
+~using AUTD3Sharp;
 ~using AUTD3Sharp.Utils;
 ~using AUTD3Sharp.Gain;
 ~using static AUTD3Sharp.Units;
@@ -8,8 +9,13 @@
 ~var ny = 0.0f;
 ~var nz = 1.0f;
 ~var theta = 0.0f;
-var g = new Bessel(
-            new Point3(x, y, z),
-            new Vector3(nx, ny, nz),
-            theta * rad
-        );
+new Bessel(
+    pos: new Point3(x, y, z),
+    dir: new Vector3(nx, ny, nz),
+    theta: theta * rad,
+    option: new BesselOption
+    {
+        Intensity = EmitIntensity.Max,
+        PhaseOffset = Phase.Zero
+    }
+);

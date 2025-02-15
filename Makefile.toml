@@ -1,0 +1,48 @@
+[config]
+default_to_workspace = false
+skip_core_tasks = true
+
+[tasks.clean]
+ignore_errors = true
+script_runner = "@shell"
+script = '''
+rm -rf book
+'''
+
+[tasks.rs-test]
+script_runner = "python"
+script_extension = "py"
+script = { file = "tools/rs_test.py" }
+
+[tasks.python-test]
+script_runner = "python"
+script_extension = "py"
+script = { file = "tools/python_test.py" }
+
+[tasks.cs-test]
+script_runner = "python"
+script_extension = "py"
+script = { file = "tools/cs_test.py" }
+
+[tasks.cpp-test]
+script_runner = "python"
+script_extension = "py"
+script = { file = "tools/cpp_test.py" }
+
+[tasks.build]
+dependencies = ["build-jp", "build-en"]
+
+[tasks.build-jp]
+env = { MDBOOK_BOOK__src = "src/jp" }
+command = "mdbook"
+args = ["build", "--dest-dir", "book/jp", "${@}"]
+
+[tasks.build-en]
+env = { MDBOOK_BOOK__src = "src/en" }
+command = "mdbook"
+args = ["build", "--dest-dir", "book/en", "${@}"]
+
+[tasks.serve-jp]
+env = { MDBOOK_BOOK__src = "src/jp" }
+command = "mdbook"
+args = ["serve", "--dest-dir", "book/jp", "${@}"]

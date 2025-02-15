@@ -1,6 +1,6 @@
 # Cache
 
-`with_cache`で計算結果をキャッシュしておくための`Modulation`を生成できる.
+`Cache`で計算結果をキャッシュしておくための`Modulation`を生成できる.
 
 ```rust,edition2021
 {{#include ../../../codes/Users_Manual/modulation/cache_0.rs}}

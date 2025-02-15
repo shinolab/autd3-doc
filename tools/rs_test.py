@@ -1,18 +1,13 @@
-import multiprocessing
+import os
 import pathlib
 import re
 import subprocess
 import sys
 from functools import reduce
+from pathlib import Path
 
 import joblib
 import requests
-
-from autd3_build_utils.autd3_build_utils import (
-    run_command,
-    substitute_in_file,
-    working_dir,
-)
 
 
 def get_latest_version(crate: str) -> str:
@@ -20,17 +15,30 @@ def get_latest_version(crate: str) -> str:
     return res.json()["crate"]["newest_version"]
 
 
+def substitute_in_file(
+    path: str,
+    pattern: str,
+    repl: str,
+    target: Path,
+) -> None:
+    file = Path(path)
+    content = file.read_text(encoding="utf-8")
+    content = re.sub(pattern, repl, content, flags=re.MULTILINE)
+    target.write_text(content, encoding="utf-8")
+
+
 if __name__ == "__main__":
-    autd3_version = "29.0.0-rc.16"
-    autd3_emulator_version = "29.0.0-rc.16"
-    autd3_link_soem_version = "29.0.0-rc.16"
+    autd3_version = "29.0.0"
+    autd3_emulator_version = "29.0.0"
+    autd3_link_soem_version = "29.0.0"
     itertools_version = get_latest_version("itertools")
     print(f"Testing with autd3-rs {autd3_version}")
 
-    base_path = pathlib.Path(__file__).parent.parent / "src" / "codes"
+    base_path = pathlib.Path(os.getcwd()) / "src" / "codes"
+    print(base_path)
 
     n_jobs = 1
-    srcs = list(base_path.rglob("*.rs"))
+    srcs = sys.argv[1:] if len(sys.argv) > 1 else list(base_path.rglob("*.rs"))
     N = len(srcs)
     block = N // n_jobs
 
@@ -69,15 +77,26 @@ itertools = {{ version = "{itertools_version}"}}
             )
 
         for src in srcs[start:end]:
-            substitute_in_file(src, [("# ", "")], target_file=src_dir / "main.rs", flags=re.MULTILINE)
+            substitute_in_file(
+                src,
+                "# ",
+                "",
+                src_dir / "main.rs",
+            )
             try:
-                subprocess.run(["cargo", "rustc", "--", "-D", "warnings"], cwd=test_dir).check_returncode()
+                subprocess.run(
+                    ["cargo", "rustc", "--", "-D", "warnings"],
+                    cwd=test_dir,
+                ).check_returncode()
             except subprocess.CalledProcessError:
+                print(f"Error: {src}")
                 error_files.append(src)
 
         return error_files
 
-    result = joblib.Parallel(n_jobs=n_jobs)(joblib.delayed(test)(i, len(srcs)) for i in range(n_jobs))
+    result = joblib.Parallel(n_jobs=n_jobs)(
+        joblib.delayed(test)(i, len(srcs)) for i in range(n_jobs)
+    )
     err_files = reduce(lambda a, b: a + b, result)
     if len(err_files) == 0:
         print("All files are OK")

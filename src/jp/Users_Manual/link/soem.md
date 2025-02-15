@@ -9,9 +9,6 @@ SOEMを使用するのはやむを得ない理由があるか, 開発時のみ�
 Windowsの場合は, [npcap](https://nmap.org/npcap/)を「**WinPcap API compatible mode**」でインストールしておくこと.
 Linux/macOSの場合は, 特に準備は必要ない.
 
-> NOTE: v29.0.0-rc.5から, SOEMリンクは別のパッケージに分けられているため, 追加の依存関係が必要である.
-> 詳しくは[チュートリアル](../getting_started.md)を参照.
-
 [[_TOC_]]
 
 ## SOEMリンク
@@ -21,35 +18,26 @@ Linux/macOSの場合は, 特に準備は必要ない.
 #### Rust
 
 ```shell
-cargo add autd3-link-soem@29.0.0-rc.16
+cargo add autd3-link-soem
 ```
 
 #### C++ (CMake)
 
 ```ignore,filename=CMakeLists.txt
 if(WIN32)
-  if(${CMAKE_SYSTEM_PROCESSOR} MATCHES "AMD64")
-    FetchContent_Declare(
-      autd3-link-soem
-      URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0-rc.16/autd3-link-soem-v29.0.0-rc.16-win-x64.zip
-    )
-  elseif(${CMAKE_SYSTEM_PROCESSOR} MATCHES "ARM64")
-    FetchContent_Declare(
-      autd3-link-soem
-      URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0-rc.16/autd3-link-soem-v29.0.0-rc.16-win-arm.zip
-    )
-  else()
-      message(FATAL_ERROR "Unsupported platform: ${CMAKE_SYSTEM_PROCESSOR}")
-  endif()
+  FetchContent_Declare(
+    autd3-link-soem
+    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0/autd3-link-soem-v29.0.0-win-x64.zip
+  )
 elseif(APPLE)
   FetchContent_Declare(
     autd3-link-soem
-    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0-rc.16/autd3-link-soem-v29.0.0-rc.16-macos-aarch64.tar.gz
+    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0/autd3-link-soem-v29.0.0-macos-aarch64.tar.gz
   )
 else()
   FetchContent_Declare(
     autd3-link-soem
-    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0-rc.16/autd3-link-soem-v29.0.0-rc.16-linux-x64.tar.gz
+    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0/autd3-link-soem-v29.0.0-linux-x64.tar.gz
   )
 endif()
 FetchContent_MakeAvailable(autd3-link-soem)
@@ -59,7 +47,7 @@ target_link_libraries(<TARGET> PRIVATE autd3::link::soem)
 #### C#
 
 ```shell
-dotnet add package AUTD3Sharp.Link.SOEM --version 29.0.0-rc.16
+dotnet add package AUTD3Sharp.Link.SOEM
 ```
 
 #### Unity
@@ -69,12 +57,12 @@ dotnet add package AUTD3Sharp.Link.SOEM --version 29.0.0-rc.16
 #### Python
 
 ```shell
-pip install pyautd3_link_soem==29.0.0rc16
+pip install pyautd3_link_soem
 ```
 
 ### APIs
 
-SOEMリンクで指定できるオプションは以下の通りである.
+第1引数にはエラーが起きたときのコールバック関数を, 第2引数にはオプションを指定する.
 
 ```rust,should_panic,edition2021
 {{#include ../../../codes/Users_Manual/link/soem_0.rs}}
@@ -92,21 +80,24 @@ SOEMリンクで指定できるオプションは以下の通りである.
 {{#include ../../../codes/Users_Manual/link/soem_0.py}}
 ```
 
-- `ifname`: ネットワークインタフェース名. デフォルトでは空白であり, 空白の場合はAUTD3デバイスが接続されているネットワークインタフェースを自動的に選択する.
+SOEMリンクで指定できるオプションは以下の通りである.
+デフォルト値は上記の通り.
+
+- `ifname`: ネットワークインタフェース名. 空白の場合はAUTD3デバイスが接続されているネットワークインタフェースを自動的に選択する.
 - `buf_size`: 送信キューバッファサイズ. 通常は変更する必要はない.
 - `err_handler`: 何らかのエラーが発生したときのコールバック. コールバック関数はエラーが発生したデバイスインデックス, エラーの種類を引数に取る.
-- `state_check_interval`: エラーが出ているかどうかを確認する間隔. デフォルトは$\SI{100}{ms}$.
-- `sync0_cycle`: 同期信号の周期. デフォルトは$\SI{1}{ms}$.
-- `send_cycle`: 送信サイクル. デフォルトは$\SI{1}{ms}$.
-    - `SOEM`も大量のデバイスを接続すると挙動が不安定になる場合がある[^fn_soem]. このときは, `sync0_cycle`と`send_cycle`の値を増やす. これら値はエラーが出ない中で, 可能な限り小さな値が望ましい. デフォルトは2であり, どの程度の値にすべきかは接続している台数に依存する. 例えば, 9台の場合は$1.5-\SI{2}{ms}$程度の値にしておけば動作するはずである.
-- `timer_strategy`: タイマーの戦略. デフォルトは`SpinSleep`である.
+- `state_check_interval`: エラーが出ているかどうかを確認する間隔.
+- `sync0_cycle`: 同期信号の周期.
+- `send_cycle`: 送信サイクル.
+    - `SOEM`も大量のデバイスを接続すると挙動が不安定になる場合がある[^fn_soem]. このときは, `sync0_cycle`と`send_cycle`の値を増やす. これら値はエラーが出ない中で, 可能な限り小さな値が望ましい. どの程度の値にすべきかは接続している台数に依存する. 例えば, 9台の場合は$1.5-\SI{2}{ms}$程度の値にしておけば動作するはずである.
+- `timer_strategy`: タイマーの戦略.
     - `StdSleep`    : 標準ライブラリのsleepを用いる
     - `SpinSleep`   : [spin_sleep](https://docs.rs/spin_sleep/latest/spin_sleep/) crateを用いる. OSネイティブのスリープ (Windowsの場合は[WaitableTimer](https://learn.microsoft.com/en-us/windows/win32/sync/waitable-timer-objects)) とスピンループを組み合わせ.
     - `SpinWait`    : スピンループを用いる. 高解像度だが, CPU負荷が高い.
-- `sync_tolerance`: 同期許容レベル. 初期化時, 各デバイスのシステム時間差がこの値以下になるまで待機する. 以下のタイムアウト時間が経過しても同期が完了しない場合はエラーとなる. デフォルトは$\SI{1}{us}$であり, 変えることは推奨されない.
-- `sync_timeout`: 同期タイムアウト. 上記のシステム時間差測定のタイムアウト時間. デフォルトは$\SI{10}{s}$.
-- `thread_priority`: スレッドの優先度. デフォルトは`ThreadPriority::MAX`である.
-- `process_priority`: (Windowsのみ) プロセスの優先度. デフォルトは`ProcessPriority::High`である.
+- `sync_tolerance`: 同期許容レベル. 初期化時, 各デバイスのシステム時間差がこの値以下になるまで待機する. 以下のタイムアウト時間が経過しても同期が完了しない場合はエラーとなる. この値を変更することは推奨されない.
+- `sync_timeout`: 同期タイムアウト. 上記のシステム時間差測定のタイムアウト時間.
+- `thread_priority`: スレッドの優先度.
+- `process_priority`: (Windowsのみ) プロセスの優先度.
 
 ## RemoteSOEMリンク
 
@@ -117,7 +108,7 @@ SOEMリンクで指定できるオプションは以下の通りである.
 #### Rust
 
 ```shell
-cargo add autd3-link-soem@29.0.0-rc.16 --features remote
+cargo add autd3-link-soem --features remote
 ```
 
 #### C++ (CMake)
@@ -125,7 +116,7 @@ cargo add autd3-link-soem@29.0.0-rc.16 --features remote
 ```ignore,filename=CMakeLists.txt
 FetchContent_Declare(
   autd3-link-soem
-  URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0-rc.16/autd3-link-soem-v29.0.0-rc.16-win-x64.zip
+  URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0/autd3-link-soem-v29.0.0-win-x64.zip
 )
 FetchContent_MakeAvailable(autd3-link-soem)
 target_link_libraries(<TARGET> PRIVATE autd3::link::soem)
@@ -134,7 +125,7 @@ target_link_libraries(<TARGET> PRIVATE autd3::link::soem)
 #### C#
 
 ```shell
-dotnet add package AUTD3Sharp.Link.SOEM --version 29.0.0-rc.16
+dotnet add package AUTD3Sharp.Link.SOEM --version 29.0.0-rc.20
 ```
 
 #### Unity
@@ -144,7 +135,7 @@ dotnet add package AUTD3Sharp.Link.SOEM --version 29.0.0-rc.16
 #### Python
 
 ```shell
-pip install pyautd3_link_soem==29.0.0rc16
+pip install pyautd3_link_soem==29.0.0rc20
 ```
 
 ### Usage

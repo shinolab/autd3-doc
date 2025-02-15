@@ -1,2 +1,2 @@
 ~from pyautd3 import Static
-m = Static()
+Static(intensity=0xFF)

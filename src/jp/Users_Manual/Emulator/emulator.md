@@ -12,12 +12,15 @@
 #### Rust
 
 ```shell
-cargo add autd3-emulator@29.0.0-rc.16
+cargo add autd3-emulator
 ```
 
 #### Python
 
-メインライブラリに含まれている.
+
+```
+pip install pyautd3_emulator
+```
 
 ## APIs
 

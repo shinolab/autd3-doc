@@ -1,5 +1,7 @@
 # use autd3::prelude::*;
-# #[allow(unused_variables)]
+use autd3::modulation::Cache;
+
 # fn main() {
-let c = Static::new().with_cache();
+# let _ = 
+Cache::new(Static::default());
 # }

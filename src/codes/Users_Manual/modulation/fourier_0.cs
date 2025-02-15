@@ -1,4 +1,15 @@
 using AUTD3Sharp.Modulation;
 
 ~using static AUTD3Sharp.Units;
-var m = new Fourier([new Sine(100u * Hz), new Sine(150u * Hz), new Sine(200u * Hz)]);
+new Fourier(
+    components: [
+        new Sine(freq: 100u * Hz, option: new SineOption()),
+        new Sine(freq: 150u * Hz, option: new SineOption())
+    ],
+    option: new FourierOption
+    {
+        ScaleFactor = null,
+        Clamp = false,
+        Offset = 0x00
+    }
+);

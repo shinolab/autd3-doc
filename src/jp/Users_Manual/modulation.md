@@ -23,7 +23,6 @@ SDKにはデフォルトでいくつかの種類のAMを生成するための`Mo
 * [Square](./modulation/square.md) - 矩形波
 * [Wav](./modulation/wav.md) - Wavファイルをもとにした変調
 * [Csv](./modulation/csv.md) - Csvファイルをもとにした変調
-* [RawPCM](./modulation/rawpcm.md) - RawPCMデータをもとにした変調
 * [Custom](./modulation/custom.md) - ユーザー定義の変調
 * [Cache](./modulation/cache.md) - 他の`Modulation`の計算結果をキャッシュする
 * [RadiationPressure](./modulation/radiation.md) - 放射圧に対して変調を適用する
@@ -51,50 +50,13 @@ SDKにはデフォルトでいくつかの種類のAMを生成するための`Mo
 {{#include ../../codes/Users_Manual/modulation_prop.py}}
 ```
 
-また, 一部の`Modulation`は`with_sampling_config`でサンプリング設定を変更できる.
-
-```rust,edition2021
-{{#include ../../codes/Users_Manual/modulation_0.rs}}
-```
-
-```cpp
-{{#include ../../codes/Users_Manual/modulation_0.cpp}}
-```
-
-```cs
-{{#include ../../codes/Users_Manual/modulation_0.cs}}
-```
-
-```python
-{{#include ../../codes/Users_Manual/modulation_0.py}}
-```
+また, 一部の`Modulation`はオプションでサンプリング設定を変更できる.
 
 サンプリング設定についての詳細は[サンプリング設定について](./sampling_config.md)を参照されたい.
 
 ### LoopBehavior
 
-ループの挙動を`with_loop_behavior`で制御できる.
-有限回ループするか, 無限ループするかを指定できる.
-
+`Modulation`はループの挙動を制御できる.
 デフォルトは無限ループである.
 
-```rust,edition2021
-{{#include ../../codes/Users_Manual/modulation_loop.rs}}
-```
-
-```cpp
-{{#include ../../codes/Users_Manual/modulation_loop.cpp}}
-```
-
-```cs
-{{#include ../../codes/Users_Manual/modulation_loop.cs}}
-```
-
-```python
-{{#include ../../codes/Users_Manual/modulation_loop.py}}
-```
-
-無限ループの場合, どのインデックスデータから再生されるかは制御できない.
-有限回ループの場合, 0番目のデータから再生が始まり, 指定回数のループの後, 最終インデックスデータが出力され続ける.
-
-**ループ設定は, Segmentを切り替えたときにしか効果がない. 詳しくは[Segment](./segment.md)を参照.**
+詳細は[Segment/LoopBehavior](./segment.md)を参照.

@@ -1,10 +1,12 @@
-# Segment
+# Segment/LoopBehavior
+
+## Segment
 
 `Modulation`, `Gain`, `FociSTM`, `GainSTM`のデータ領域にはそれぞれ, `Segment`が2つ用意されている.
 
 特に指定しない限りは, `Segment::S0`が使用される.
 
-データを書き込む`Segment`は, `with_segment`で指定する.
+データを書き込む`Segment`は, `WithSegment`で指定する.
 
 ```rust,edition2021
 {{#include ../../codes/Users_Manual/segment/segment_transition.rs}}
@@ -22,8 +24,7 @@
 {{#include ../../codes/Users_Manual/segment/segment_transition.py}}
 ```
 
-第2引数には`TransitionMode`を指定する.
-
+`transition_mode`には, `Segment`の切り替え条件を指定する.
 - 遷移先セグメントが無限ループ時にのみ使用可能
     - `Immediate` : 直ちに切り替える
     - `Ext`       : 直ちに切り替え, 拡張モードにする (各`Segment`のデータを出力後, 自動で`Segment`を切り替えるモード)
@@ -35,7 +36,9 @@
 
 > NOTE: `Gain`は`Immediate`のみサポートしている.
 
-データの書き込みのみを行い, `Segment`を切り替えたくない場合は`None`を指定する.
+> 遷移先のループの挙動を指定する場合は, [`LoopBehavior`](#loopbehavior)を参照されたい.
+
+データの書き込みのみを行い, `Segment`を切り替えたくない場合は`transition_mode`に`None`を指定する.
 
 ### Segmentの切り替え
 
@@ -55,4 +58,24 @@
 
 ```python
 {{#include ../../codes/Users_Manual/segment/segment_change_transition.py}}
+```
+
+### LoopBehavior
+
+`Modulation`と`FociSTM`, `GainSTM`は`WithLoopBehavior`でループの挙動を制御できる.
+
+```rust,edition2021
+{{#include ../../codes/Users_Manual/segment/loop_behavior.rs}}
+```
+
+```cpp
+{{#include ../../codes/Users_Manual/segment/loop_behavior.cpp}}
+```
+
+```cs
+{{#include ../../codes/Users_Manual/segment/loop_behavior.cs}}
+```
+
+```python
+{{#include ../../codes/Users_Manual/segment/loop_behavior.py}}
 ```

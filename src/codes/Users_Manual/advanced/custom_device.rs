@@ -1,5 +1,6 @@
-# use autd3::prelude::*;
 use autd3::driver::geometry::{Device, IntoDevice, Transducer};
+# use autd3::prelude::*;
+# use autd3_emulator::Emulator;
 
 struct CustomDevice {
     pitch: f32,
@@ -25,15 +26,12 @@ impl IntoDevice for CustomDevice {
     }
 }
 
-# #[allow(unused_variables)]
-# fn main() -> Result<(), Box<dyn std::error::Error>> {
-#     let _ = 
-Controller::builder([CustomDevice {
-    pitch: 2.,
-    num_x: 16,
-    num_y: 16,
-}])
-#     .open(autd3::link::Nop::builder())
-#     ?;
-#     Ok(())
+# fn main() {
+Emulator::new(
+    [CustomDevice {
+        pitch: 2.,
+        num_x: 16,
+        num_y: 16,
+    }],
+);
 # }

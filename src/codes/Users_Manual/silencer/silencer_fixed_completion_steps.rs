@@ -1,10 +1,13 @@
 # use autd3::prelude::*;
-# #[allow(unused_variables)]
+# use std::time::Duration;
 # fn main() {
-let config = Silencer::new(
-    FixedCompletionTime {
-        intensity: std::time::Duration::from_micros(250),
-        phase: std::time::Duration::from_micros(250),
-    }
-);
+# let _ = 
+Silencer {
+    config: FixedCompletionTime {
+        intensity: Duration::from_micros(250),
+        phase: Duration::from_micros(250),
+        strict_mode: true,
+    },
+    target: SilencerTarget::Intensity,
+};
 # }
