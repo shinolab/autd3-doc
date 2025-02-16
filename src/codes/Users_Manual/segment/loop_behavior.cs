@@ -9,7 +9,7 @@ new WithLoopBehavior(
 
 new WithLoopBehavior(
     inner: new Static(),
-    loopBehavior: LoopBehavior.Finite(10),
+    loopBehavior: LoopBehavior.Finite(1),
     segment: Segment.S1,
     transitionMode: TransitionMode.SyncIdx
 );

@@ -17,5 +17,5 @@ std::ranges::copy(iota(0) | take(points_num) | transform([&](auto i) {
                     return p;
                   }),
                   std::back_inserter(foci));
-autd3::FociSTM stm(foci, 1.0f * autd3::Hz);
+autd3::FociSTM(foci, 1.0f * autd3::Hz);
 //~return 0; }

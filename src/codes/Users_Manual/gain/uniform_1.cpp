@@ -1,5 +1,6 @@
 //~#include<autd3.hpp>
 //~#include <limits>
 //~int main() {
-const auto g = autd3::Uniform(autd3::EmitIntensity(0xFF), autd3::Phase(0x00));
+autd3::Uniform(std::numeric_limits<autd3::EmitIntensity>::max(),
+               autd3::Phase::zero());
 //~return 0; }

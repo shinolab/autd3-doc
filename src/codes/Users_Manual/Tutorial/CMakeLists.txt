@@ -12,27 +12,14 @@ endif()
 
 include(FetchContent)
 if(WIN32)
-  if(${CMAKE_SYSTEM_PROCESSOR} MATCHES "AMD64")
-    FetchContent_Declare(
-      autd3
-      URL https://github.com/shinolab/autd3-cpp/releases/download/v29.0.0/autd3-v29.0.0-win-x64.zip
-    )
-    FetchContent_Declare(
-      autd3-link-soem
-      URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0/autd3-link-soem-v29.0.0-win-x64.zip
-    )
-  elseif(${CMAKE_SYSTEM_PROCESSOR} MATCHES "ARM64")
-    FetchContent_Declare(
-      autd3
-      URL https://github.com/shinolab/autd3-cpp/releases/download/v29.0.0/autd3-v29.0.0-win-arm.zip
-    )
-    FetchContent_Declare(
-      autd3-link-soem
-      URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0/autd3-link-soem-v29.0.0-win-arm.zip
-    )
-  else()
-      message(FATAL_ERROR "Unsupported platform: ${CMAKE_SYSTEM_PROCESSOR}")
-  endif()
+  FetchContent_Declare(
+    autd3
+    URL https://github.com/shinolab/autd3-cpp/releases/download/v29.0.0/autd3-v29.0.0-win-x64.zip
+  )
+  FetchContent_Declare(
+    autd3-link-soem
+    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0/autd3-link-soem-v29.0.0-win-x64.zip
+  )
 elseif(APPLE)
   FetchContent_Declare(
     autd3
