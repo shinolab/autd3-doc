@@ -1,5 +1,5 @@
 ~using AUTD3Sharp;
-~using AUTD3Sharp.Modulation;
+using AUTD3Sharp.Modulation;
 ~using static AUTD3Sharp.Units;
 
 new Fir(

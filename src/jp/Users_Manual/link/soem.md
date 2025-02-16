@@ -108,35 +108,12 @@ SOEMリンクで指定できるオプションは以下の通りである.
 #### Rust
 
 ```shell
-cargo add autd3-link-soem --features remote
+cargo add autd3-link-soem --features "remote blocking"
 ```
 
-#### C++ (CMake)
+#### C++/C#/Unity/Python
 
-```ignore,filename=CMakeLists.txt
-FetchContent_Declare(
-  autd3-link-soem
-  URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v29.0.0/autd3-link-soem-v29.0.0-win-x64.zip
-)
-FetchContent_MakeAvailable(autd3-link-soem)
-target_link_libraries(<TARGET> PRIVATE autd3::link::soem)
-```
-
-#### C#
-
-```shell
-dotnet add package AUTD3Sharp.Link.SOEM --version 29.0.0-rc.20
-```
-
-#### Unity
-
-`https://github.com/shinolab/AUTD3Sharp.Link.SOEM.git#upm/latest`をUnity Package Managerで追加する.
-
-#### Python
-
-```shell
-pip install pyautd3_link_soem==29.0.0rc20
-```
+[SOEM](#install)と同じ.
 
 ### Usage
 

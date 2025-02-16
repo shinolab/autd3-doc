@@ -26,7 +26,7 @@
   <figcaption>Bessel beam (長谷川らの論文より引用)</figcaption>
 </figure>
 
-オプションにて, 出力振幅と位相オフセットを$\SI{8}{bit}$で指定できる.
+オプションにて, 出力振幅と位相オフセットを指定できる.
 デフォルト値は上記の通り.
 
 [^hasegawa2017]: Hasegawa, Keisuke, et al. "Electronically steerable ultrasound-driven long narrow air stream." Applied Physics Letters 111.6 (2017): 064104.

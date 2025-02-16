@@ -3,6 +3,6 @@
 from pyautd3.modulation import Custom
 
 Custom(
-    buffer=np.array([0xFF, 0xFF]),
+    buffer=np.array([0xFF, 0x00]),
     sampling_config=4000 * Hz,
 )

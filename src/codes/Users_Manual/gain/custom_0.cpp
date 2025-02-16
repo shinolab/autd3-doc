@@ -2,9 +2,10 @@
 #include <autd3/gain/custom.hpp>
 
 //~int main() {
-const auto g = autd3::gain::Custom([](const auto& dev) {
+autd3::gain::Custom([](const auto& dev) {
   return [](const auto& tr) {
-    return autd3::Drive(autd3::Phase(0x00), autd3::EmitIntensity(0x00));
+    return autd3::Drive(autd3::Phase::zero(),
+                        std::numeric_limits<autd3::EmitIntensity>::min());
   };
 });
 //~return 0; }

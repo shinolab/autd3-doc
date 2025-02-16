@@ -2,14 +2,12 @@
 
 まずは適当なプロジェクトを作成し, `autd3`ライブラリを依存関係に追加する.
 また, デバイスとの通信を行う`autd3-link-soem`ライブラリも依存関係に追加する.
-加えて, 適当な非同期ランタイムも必要になる. ここでは`tokio`を使用する.
 
 ```shell
 cargo new --bin autd3-sample
 cd autd3-sample
 cargo add autd3
 cargo add autd3-link-soem
-cargo add tokio --features full
 ```
 
 次に, `src/main.rs`ファイルを編集し, 以下のようにする.

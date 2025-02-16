@@ -8,7 +8,7 @@ WithLoopBehavior(
 
 WithLoopBehavior(
     inner=Static(),
-    loop_behavior=LoopBehavior.Finite(10),
+    loop_behavior=LoopBehavior.Finite(1),
     segment=Segment.S1,
     transition_mode=TransitionMode.SyncIdx,
 )

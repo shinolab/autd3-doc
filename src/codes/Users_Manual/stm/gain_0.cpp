@@ -17,7 +17,7 @@ std::ranges::copy(iota(0) | take(points_num) | transform([&](auto i) {
                         autd3::FocusOption{});
                   }),
                   std::back_inserter(gains));
-autd3::GainSTM stm(gains, 1.0f * autd3::Hz,
-                   autd3::GainSTMOption{
-                       .mode = autd3::GainSTMMode::PhaseIntensityFull});
+autd3::GainSTM(gains, 1.0f * autd3::Hz,
+               autd3::GainSTMOption{
+                   .mode = autd3::GainSTMMode::PhaseIntensityFull});
 //~return 0; }
