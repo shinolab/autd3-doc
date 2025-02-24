@@ -4,7 +4,7 @@
 //~int main() {
 autd3::SamplingConfig(10);
 // or
-autd3::SamplingConfig(4000u * autd3::Hz);
+autd3::SamplingConfig(4000.0f * autd3::Hz);
 // or
 autd3::SamplingConfig(std::chrono::microseconds(250));
 //~return 0; }

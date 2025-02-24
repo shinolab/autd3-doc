@@ -4,7 +4,7 @@ from pyautd3.modulation.audio_file import Csv, CsvOption
 
 Csv(
     path=pathlib.Path("path/to/foo.csv"),
-    sampling_config=4000 * Hz,
+    sampling_config=4000.0 * Hz,
     option=CsvOption(
         delimiter=",",
     ),

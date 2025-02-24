@@ -21,8 +21,8 @@ impl Modulation for Burst {
             .collect())
     }
 
-    fn sampling_config(&self) -> Result<SamplingConfig, ModulationError> {
-        Ok(self.config)
+    fn sampling_config(&self) -> SamplingConfig {
+        self.config
     }
 }
 # fn main() { 

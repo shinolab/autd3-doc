@@ -5,7 +5,7 @@ Fir(
     target=Sine(
         freq=150 * Hz,
         option=SineOption(
-            sampling_config=SamplingConfig(20 * kHz),
+            sampling_config=SamplingConfig(20.0 * kHz),
         ),
     ),
     coef=[

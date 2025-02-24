@@ -2,6 +2,5 @@
 #include "autd3/modulation/audio_file.hpp"
 
 //~int main() {
-const auto path = "path/to/foo.wav";
-const autd3::modulation::audio_file::Wav m(path);
+autd3::modulation::audio_file::Wav("path/to/foo.wav");
 //~return 0; }
