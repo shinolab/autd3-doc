@@ -5,6 +5,6 @@ use autd3::modulation::Custom;
 # let _ = 
 Custom {
     buffer: vec![0xFF, 0x00],
-    sampling_config: 4 * kHz,
+    sampling_config: 4.0 * kHz,
 };
 # }

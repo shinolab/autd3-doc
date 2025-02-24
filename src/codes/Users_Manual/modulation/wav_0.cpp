@@ -3,5 +3,5 @@
 
 //~int main() {
 const auto path = "path/to/foo.wav";
-const autd3::modulation::audio_file::Wav m(path);
+autd3::modulation::audio_file::Wav(path);
 //~return 0; }

@@ -2,8 +2,8 @@
 # use autd3::prelude::*;
 # fn main() {
 # let _ = 
-SamplingConfig::new_nearest(4000.0 * Hz);
+SamplingConfig::new(4000.0 * Hz).into_nearest();
 // or
 # let _ = 
-SamplingConfig::new_nearest(Duration::from_micros(250));
+SamplingConfig::new(Duration::from_micros(250)).into_nearest();
 # }

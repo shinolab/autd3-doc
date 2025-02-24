@@ -5,7 +5,7 @@ using AUTD3Sharp.Modulation;
 new Fir(
     target: new Sine(freq: 150u * Hz, option: new SineOption
     {
-        SamplingConfig = new SamplingConfig(20u * kHz)
+        SamplingConfig = new SamplingConfig(20f * kHz)
     }),
     coef: [-0.000009f, -0.000013f, -0.000016f, -0.000021f, -0.000025f,
             -0.000030f, -0.000036f, -0.000042f, -0.000049f, -0.000056f,

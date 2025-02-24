@@ -5,7 +5,8 @@
 autd3::modulation::Fir(
     autd3::Sine(150 * autd3::Hz,
                 autd3::SineOption{
-                    .sampling_config = autd3::SamplingConfig(20u * autd3::kHz),
+                    .sampling_config = autd3::SamplingConfig(20.0f *
+                                                             autd3::kHz),
                 }),
     std::vector{
         -0.000009f, -0.000013f, -0.000016f, -0.000021f, -0.000025f, -0.000030f,

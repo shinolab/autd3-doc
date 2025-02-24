@@ -3,7 +3,7 @@
 
 //~int main() {
 const auto path = "path/to/foo.csv";
-autd3::modulation::audio_file::Csv(path, 4000u * autd3::Hz,
+autd3::modulation::audio_file::Csv(path, 4000.0f * autd3::Hz,
                                    autd3::modulation::audio_file::CsvOption{
                                        .delimiter = ',',
                                    });
