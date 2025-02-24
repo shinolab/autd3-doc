@@ -137,14 +137,7 @@ target_link_libraries(main PRIVATE autd3::modulation::audio_file)
         with (test_dir / "main.cpp").open("w") as f:
             f.write("""int main() { return 0; }""")
         with working_dir(build_dir):
-            run_command(
-                [
-                    "cmake",
-                    "..",
-                    "-DCMAKE_C_COMPILER=gcc-12",
-                    "-DCMAKE_CXX_COMPILER=g++-12",
-                ]
-            )
+            run_command(["cmake", ".."])
         for src in srcs[start:end]:
             substitute_in_file(
                 src,
