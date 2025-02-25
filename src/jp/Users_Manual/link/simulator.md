@@ -13,7 +13,7 @@ Simulator linkは[AUTDシミュレータ](../Simulator/simulator.md)を使用す
 #### Rust
 
 ```shell
-cargo add autd3-link-simulator
+cargo add autd3-link-simulator --features blocking
 ```
 
 #### C++ (CMake)
