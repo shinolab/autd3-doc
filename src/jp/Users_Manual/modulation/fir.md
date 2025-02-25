@@ -4,7 +4,7 @@
 
 以下は, サンプリング周波数$\SI{20}{kHz}$, タップ数$199$, カットオフ周波数$\SI{200}{Hz}$のLPFを適用する例である. 
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/modulation/fir.rs}}
 ```
 

@@ -2,7 +2,7 @@
 
 `Focus` generates a single focal point.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/gain/focus_0.rs}}
 ```
 
@@ -22,7 +22,7 @@
 
 You can change emission intensity by `with_intensity` method.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/gain/focus_1.rs}}
 ```
 

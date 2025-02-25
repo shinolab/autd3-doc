@@ -2,7 +2,7 @@
 
 `Cache`で計算結果をキャッシュしておくための`Modulation`を生成できる.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/modulation/cache_0.rs}}
 ```
 

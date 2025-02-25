@@ -2,7 +2,7 @@
 
 Without modulation.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/modulation/static_0.rs}}
 ```
 
@@ -22,7 +22,7 @@ Without modulation.
 
 You can set the emission intensity by `with_intensity`.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/modulation/static_1.rs}}
 ```
 

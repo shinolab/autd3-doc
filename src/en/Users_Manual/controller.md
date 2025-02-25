@@ -21,7 +21,7 @@ As shown in the figure below, the fan side is shorted to switch to Auto, the cen
 
 You can force the fan to start in Auto mode by `ForceFan`.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../codes/Users_Manual/controller_fan.rs}}
 ```
 
@@ -42,7 +42,7 @@ You can force the fan to start in Auto mode by `ForceFan`.
 Get the FPGA status.
 Before using this, you need to configure reads FPGA info flag by `ReadsFPGAState`.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../codes/Users_Manual/controller_0.rs}}
 ```
 
@@ -72,7 +72,7 @@ You can send a single or two data at the same time.
 You can specify the timeout time with `with_timeout`.
 If you omit this, the timeout time set by [Link](./link.md) will be used.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../codes/Users_Manual/controller_1.rs}}
 ```
 
@@ -103,7 +103,7 @@ You can clear the flags and `Gain`/`Modulation` data in the device by sending `C
 
 You can group the devices by using `group` function, and send different data to each group.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../codes/Users_Manual/controller_2.rs}}
 ```
 

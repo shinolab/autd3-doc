@@ -2,7 +2,7 @@
 
 `Plane`は平面波を出力する.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/gain/plane_0.rs}}
 ```
 

@@ -108,7 +108,7 @@ target_link_libraries(<TARGET> PRIVATE autd3::link::twincat)
 
 ### APIs
 
-```rust,should_panic,edition2021
+```rust,should_panic,edition2024
 {{#include ../../../codes/Users_Manual/link/twincat_0.rs}}
 ```
 
@@ -194,7 +194,7 @@ target_link_libraries(<TARGET> PRIVATE autd3::link::twincat)
 また, `with_server_ip`と`with_client_ams_net_id`でサーバーのIPアドレスとクライアントのNetIdを指定する.
 これらは省略することも可能だが, 基本的には指定することを推奨する.
 
-```rust,should_panic,edition2021
+```rust,should_panic,edition2024
 {{#include ../../../codes/Users_Manual/link/remote_twincat_0.rs}}
 ```
 

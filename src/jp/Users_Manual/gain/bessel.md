@@ -3,7 +3,7 @@
 `Bessel`ではBessel beamを生成する.
 この`Gain`は長谷川らの論文[^hasegawa2017]に基づく.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/gain/bessel_0.rs}}
 ```
 

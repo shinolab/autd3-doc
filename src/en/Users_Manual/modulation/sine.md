@@ -4,7 +4,7 @@
 
 Specify the frequency $f$ as an integer in the constructor.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/modulation/sine_0.rs}}
 ```
 
@@ -28,7 +28,7 @@ $$
 $$
 Here, $intensity$ and $offset$ can be specified by `with_intensity` and `with_offset`, respectively (defaults are `0xFF` and `0x80`).
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/modulation/sine_1.rs}}
 ```
 

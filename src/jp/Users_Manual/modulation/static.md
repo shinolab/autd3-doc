@@ -2,7 +2,7 @@
 
 変調なし.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/modulation/static_0.rs}}
 ```
 

@@ -4,7 +4,7 @@ You can create your own `Gain`.
 
 Here, we will define a `FocalPoint` that generates a single focus just like `Focus`.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/advanced/custom_gain_0.rs}}
 ```
 

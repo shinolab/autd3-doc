@@ -39,7 +39,7 @@ SDKには以下の`Backend`が用意されている
 
 > NOTE: `CUDABackend`や`ArrayFireBackend`は高速化を目的としているが, ほとんどの場合, `NalgebraBackend`で十分である. 使用時は, 必ずベンチマークを取ること.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/gain/holo_0.rs}}
 ```
 

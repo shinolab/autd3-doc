@@ -13,7 +13,7 @@ SDKには単一焦点音場から8焦点音場までをサポートする`FociST
 
 `sampling_config`でサンプリング設定を取得できる.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../codes/Users_Manual/stm_prop.rs}}
 ```
 
@@ -40,6 +40,6 @@ SDKには単一焦点音場から8焦点音場までをサポートする`FociST
 
 Rust版のみ直線と円の軌跡を生成するユーティリティが用意されている.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../codes/Users_Manual/stm_utils.rs}}
 ```

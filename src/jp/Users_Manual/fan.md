@@ -16,7 +16,7 @@ Autoモードの場合は温度が高くなると自動的にファンが起動�
 
 Autoモードの場合, `ForceFan`でファンを強制的に起動できる.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../codes/Users_Manual/controller_fan.rs}}
 ```
 

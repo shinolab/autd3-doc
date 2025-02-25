@@ -5,7 +5,7 @@
 
 THe following is an example of using `FociSTM` to focus on a point $\SI{150}{mm}$ directly above the center of the array with a radius of $\SI{30}{mm}$ centered on the center of the array.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/stm/focus_0.rs}}
 ```
 
@@ -33,7 +33,7 @@ As a result, the specified frequency and the actual frequency are shifted.
 
 You can specify the sampling frequency by `from_sampling_config` instead of frequency.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/stm/focus_1.rs}}
 ```
 

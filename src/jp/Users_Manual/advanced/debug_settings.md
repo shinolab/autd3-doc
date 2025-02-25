@@ -7,7 +7,7 @@
     <figcaption>GPIOピン</figcaption>
 </figure>
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/advanced/debug_setting.rs}}
 ```
 

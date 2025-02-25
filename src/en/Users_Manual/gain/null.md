@@ -2,7 +2,7 @@
 
 `Null` is a `Gain` with zero amplitude.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/gain/null_0.rs}}
 ```
 

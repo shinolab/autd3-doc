@@ -3,7 +3,7 @@
 `BesselBeam` generates a Bessel beam.
 This `Gain` is based on the paper by Hasegawa et al [^hasegawa2017].
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/gain/bessel_0.rs}}
 ```
 
@@ -30,7 +30,7 @@ The first argument of the constructor is the apex of the virtual cone producing 
 
 You can change emission intensity by `with_intensity` method.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/gain/bessel_1.rs}}
 ```
 

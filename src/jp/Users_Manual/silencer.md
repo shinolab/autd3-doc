@@ -27,7 +27,7 @@ Silencerの設定には`Silencer`を送信する.
 Silencerはデフォルトで適当な値に設定されている.
 Silencerを無効化する場合は, `disable`を送信する.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../codes/Users_Manual/silencer/silencer_0.rs}}
 ```
 
@@ -119,7 +119,7 @@ $$
 Fixed update rate modeを設定するには, 以下のようにする.
 引数はそれぞれ, 上述の$\Delta$に対応する (単位は$2\pi/65536$).
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../codes/Users_Manual/silencer/silencer_fixed_update_rate.rs}}
 ```
 
@@ -146,7 +146,7 @@ Fixed completion time modeを設定するには, 以下のようにする.
 `intensity`, `phase`はそれぞれ, 振幅/位相変化の完了まで時間に対応する.
 これらは超音波周期 ($\SI{25}{us}$) の整数倍である必要がある.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../codes/Users_Manual/silencer/silencer_fixed_completion_steps.rs}}
 ```
 

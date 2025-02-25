@@ -8,7 +8,7 @@ For example, if you use `RadiationPressure` on `Sine` modulation with $\SI{1}{kH
   <img src="../../fig/Users_Manual/sine_1k_mod_rad.png"/>
 </figure>
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/modulation/radiation_0.rs}}
 ```
 

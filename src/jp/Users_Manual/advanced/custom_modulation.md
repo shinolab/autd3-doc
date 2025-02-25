@@ -8,7 +8,7 @@ Rust版では`Modulation`も独自のものを作成することができる.
 
 以下が, この`Burst`のサンプルである.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/advanced/custom_modulation_0.rs}}
 ```
 

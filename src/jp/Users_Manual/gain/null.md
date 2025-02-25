@@ -3,7 +3,7 @@
 `Null`は振幅0の`Gain`である.
 
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/gain/null_0.rs}}
 ```
 
