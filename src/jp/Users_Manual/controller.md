@@ -9,7 +9,7 @@
 FPGAの状態を取得する.
 これを使用する前に, `ReadsFPGAState`で状態取得を有効化しておく必要がある.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../codes/Users_Manual/controller_0.rs}}
 ```
 
@@ -48,7 +48,7 @@ FPGAの状態としては, 現在以下の情報が取得できる.
 
 `group_send`関数を使用すると, デバイスをグルーピングすることができる.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../codes/Users_Manual/controller_2.rs}}
 ```
 
@@ -76,7 +76,7 @@ FPGAの状態としては, 現在以下の情報が取得できる.
 
 送信時の設定を`sender`経由で指定できる.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../codes/Users_Manual/sender.rs}}
 ```
 

@@ -7,7 +7,7 @@ Rust版のライブラリでは自前の`Gain`を作成することができる.
 
 ここでは, `Focus`と同じように単一焦点を生成する`FocalPoint`を実際に定義してみることにする.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/advanced/custom_gain_0.rs}}
 ```
 

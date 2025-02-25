@@ -4,7 +4,7 @@
 
 Specify the frequency $f$ as an integer in the constructor.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/modulation/square_0.rs}}
 ```
 
@@ -24,7 +24,7 @@ Specify the frequency $f$ as an integer in the constructor.
 
 You can set the amplitude of the square wave with `with_low` and `with_high` for low level and high level, respectively.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/modulation/square_1.rs}}
 ```
 
@@ -44,7 +44,7 @@ You can set the amplitude of the square wave with `with_low` and `with_high` for
 
 You can set the duty ratio of the square wave with `with_duty`.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/modulation/square_2.rs}}
 ```
 

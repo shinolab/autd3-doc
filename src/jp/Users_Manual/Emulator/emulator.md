@@ -33,7 +33,7 @@ pip install pyautd3_emulator
 
 各列には, デバイスインデックス, 振動子の(ローカル)インデックス, 位置, 極方向が格納される.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/emulator/emulator_trans_table.rs}}
 ```
 
@@ -63,7 +63,7 @@ pip install pyautd3_emulator
 
 ### 出力位相/パルス幅の計算
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/emulator/emulator_drive.rs}}
 ```
 
@@ -123,7 +123,7 @@ pip install pyautd3_emulator
 
 ### 出力電圧
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/emulator/emulator_voltage.rs}}
 ```
 
@@ -159,7 +159,7 @@ pip install pyautd3_emulator
 
 ### 出力音圧
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/emulator/emulator_ultrasound.rs}}
 ```
 
@@ -195,7 +195,7 @@ pip install pyautd3_emulator
 
 ### 音場の計算 (瞬時値)
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/emulator/emulator_field.rs}}
 ```
 
@@ -261,7 +261,7 @@ pip install pyautd3_emulator
 
 ### 音場の計算 (RMS)
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/emulator/emulator_rms.rs}}
 ```
 

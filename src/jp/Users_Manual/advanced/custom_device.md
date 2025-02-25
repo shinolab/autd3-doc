@@ -8,7 +8,7 @@ Rust版のライブラリではAUTD3以外の`Device`を使用することがで
 
 ここでは, 振動子の間隔を変えられる`CustomDevice`を実際に定義してみることにする.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/advanced/custom_device.rs}}
 ```
 

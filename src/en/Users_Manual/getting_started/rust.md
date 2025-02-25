@@ -13,7 +13,7 @@ cargo add tokio --features full
 Next, edit `src/main.rs` file as follows.
 This is the source code for generating a focus with $\SI{150}{Hz}$ AM modulation. 
 
-```rust,should_panic,filename=main.rs,edition2021
+```rust,should_panic,filename=main.rs,edition2024
 {{#include ../../../codes/Users_Manual/Tutorial/main.rs}}
 ```
 

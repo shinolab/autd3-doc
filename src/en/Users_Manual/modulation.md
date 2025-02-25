@@ -31,7 +31,7 @@ The SDK has `Modulation` by default to generate several types of AM.
 
 You can get the sampling frequency with `sampling_config`.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../codes/Users_Manual/modulation_prop.rs}}
 ```
 
@@ -49,7 +49,7 @@ You can get the sampling frequency with `sampling_config`.
 
 Some `Modulation` can set the sampling configuration with `with_sampling_config`.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../codes/Users_Manual/modulation_0.rs}}
 ```
 

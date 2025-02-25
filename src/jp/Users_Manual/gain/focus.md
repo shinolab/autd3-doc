@@ -2,7 +2,7 @@
 
 `Focus`は単一焦点を生成する.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/gain/focus_0.rs}}
 ```
 

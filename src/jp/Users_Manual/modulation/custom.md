@@ -2,7 +2,7 @@
 
 `Custom`は指定された符号なし8bitデータ列を出力する`Modulation`である.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/modulation/custom.rs}}
 ```
 

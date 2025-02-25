@@ -22,7 +22,7 @@ To configure the silencer, send `Silencer` to the controller.
 The silencer is enabled by default.
 To disable the silencer, send `Silencer::disable`.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../codes/Users_Manual/silencer/silencer_0.rs}}
 ```
 
@@ -114,7 +114,7 @@ $$
 To configure the fixed update rate mode, do as follows.
 The arguments correspond to $\Delta$ described above.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../codes/Users_Manual/silencer/silencer_fixed_update_rate.rs}}
 ```
 
@@ -138,7 +138,7 @@ In fixed completion time mode, change of phase/intensity is completed in a fixed
 
 To configure the fixed completion time mode, do as follows.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../codes/Users_Manual/silencer/silencer_fixed_completion_steps.rs}}
 ```
 
@@ -164,7 +164,7 @@ That is, the following conditions must be satisfied.
 
 If you set `strict_mode` to `false`, you can ignore these restrictions, but it's not recommended.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../codes/Users_Manual/silencer/silencer_fixed_completion_steps_with_strict.rs}}
 ```
 

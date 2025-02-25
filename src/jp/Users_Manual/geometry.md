@@ -26,7 +26,7 @@ SDKで複数台のデバイスを使用する場合は`Controller::builder`関�
 例えば, 上図のように配置・接続しており, 図左側のデバイスが1台目, 右側のデバイスが2台目だとする.
 さらに, グローバル座標を1台目のローカル座標と同じようにとるとすると,
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../codes/Users_Manual/geometry_0.rs}}
 ```
 
@@ -52,7 +52,7 @@ SDKで複数台のデバイスを使用する場合は`Controller::builder`関�
 
 また, 例えば上図のように, グローバル座標を2台目のローカル座標と同じようにとるとすると,
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../codes/Users_Manual/geometry_1.rs}}
 ```
 
@@ -81,7 +81,7 @@ SDKで複数台のデバイスを使用する場合は`Controller::builder`関�
 
 例えば, 上図のように配置されており, 下が1台目, 左が2台目で, グローバル座標を1台目のローカル座標と同じだとすると,
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../codes/Users_Manual/geometry_2.rs}}
 ```
 
@@ -128,7 +128,7 @@ SDKにおけるAPIでは, すべてグローバル座標を用いるため, 接�
 
 `Geometry`には`Controller`から直接アクセスできる.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../codes/Users_Manual/geometry_3.rs}}
 ```
 
@@ -151,7 +151,7 @@ SDKにおけるAPIでは, すべてグローバル座標を用いるため, 接�
 `Device`を取得するには, インデクサを使用する.
 あるいは, イテレータを使用することもできる.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../codes/Users_Manual/geometry_4.rs}}
 ```
 
@@ -184,7 +184,7 @@ SDKにおけるAPIでは, すべてグローバル座標を用いるため, 接�
 - `wavelength()`: デバイスが放出する超音波の波長
 - `wavenumber()`: デバイスが放出する超音波の波数
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../codes/Users_Manual/device_0.rs}}
 ```
 
@@ -207,7 +207,7 @@ SDKにおけるAPIでは, すべてグローバル座標を用いるため, 接�
 `Transducer`を取得するには, インデクサを使用する.
 また, イテレータを使用することもできる.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../codes/Users_Manual/device_1.rs}}
 ```
 
@@ -231,7 +231,7 @@ SDKにおけるAPIでは, すべてグローバル座標を用いるため, 接�
 - `dev_idx()`: 振動子が属するデバイスのインデックス
 - `position()`: 振動子の位置
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../codes/Users_Manual/transducer_0.rs}}
 ```
 

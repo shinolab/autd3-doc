@@ -2,7 +2,7 @@
 
 `PhaseCorrection`により, 位相を補正することができる.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/advanced/phase_corr.rs}}
 ```
 

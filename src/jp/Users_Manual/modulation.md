@@ -34,7 +34,7 @@ SDKにはデフォルトでいくつかの種類のAMを生成するための`Mo
 
 `Modulation`のサンプリング設定は`sampling_config`で取得できる.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../codes/Users_Manual/modulation_prop.rs}}
 ```
 

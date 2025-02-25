@@ -13,7 +13,7 @@ cargo add autd3-link-soem
 次に, `src/main.rs`ファイルを編集し, 以下のようにする.
 これは単一焦点に$\SI{150}{Hz}$のAM変調をかける場合のソースコードである.
 
-```rust,should_panic,filename=main.rs,edition2021
+```rust,should_panic,filename=main.rs,edition2024
 {{#include ../../../codes/Users_Manual/Tutorial/main.rs}}
 ```
 

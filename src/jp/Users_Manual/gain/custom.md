@@ -2,7 +2,7 @@
 
 `Custom`はユーザーが自由に音場を生成するための`Gain`である.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/gain/custom_0.rs}}
 ```
 

@@ -30,7 +30,7 @@ target_link_libraries(<TARGET> PRIVATE autd3::link::simulator)
 
 `Simulator`のコンストラクタにはAUTDシミュレータのIPアドレスとポート番号を指定する.
 
-```rust,should_panic,edition2021
+```rust,should_panic,edition2024
 {{#include ../../../codes/Users_Manual/link/simulator_0.rs}}
 ```
 

@@ -12,7 +12,7 @@ Before using this link, you need to start AUTD simulator.
 
 Simulator link's constructor takes an IP address and a port number of AUTD simulator.
 
-```rust,should_panic,edition2021
+```rust,should_panic,edition2024
 {{#include ../../../codes/Users_Manual/link/simulator_0.rs}}
 ```
 

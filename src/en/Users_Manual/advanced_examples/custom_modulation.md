@@ -5,7 +5,7 @@ Here, we try to create a `Burst` that outputs only for a certain moment in a cyc
 
 The following is a sample of `Burst`.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/advanced/custom_modulation_0.rs}}
 ```
 

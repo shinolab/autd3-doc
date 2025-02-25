@@ -19,7 +19,7 @@ If you are using Linux/macOS, no special preparation is required.
 
 Following options can be specified for SOEM link.
 
-```rust,should_panic,edition2021
+```rust,should_panic,edition2024
 {{#include ../../../codes/Users_Manual/link/soem_0.rs}}
 ```
 
@@ -80,7 +80,7 @@ Set port number and click "Run" button.
 
 `RemoteSOEM` constructor takes <server ip address:port> as an argument.
 
-```rust,should_panic,edition2021
+```rust,should_panic,edition2024
 {{#include ../../../codes/Users_Manual/link/remote_soem_0.rs}}
 ```
 

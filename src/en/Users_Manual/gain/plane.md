@@ -2,7 +2,7 @@
 
 `Plane` output a plane wave.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/gain/plane_0.rs}}
 ```
 
@@ -24,7 +24,7 @@ Specify the direction of the plane wave in the constructor of `Plane`.
 
 You can change emission intensity by `with_intensity` method.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/gain/plane_1.rs}}
 ```
 

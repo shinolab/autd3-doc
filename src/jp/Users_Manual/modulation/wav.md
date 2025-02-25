@@ -22,7 +22,7 @@ target_link_libraries(<TARGET> PRIVATE autd3::modulation::audio_file)
 
 ## APIs
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/modulation/wav_0.rs}}
 ```
 

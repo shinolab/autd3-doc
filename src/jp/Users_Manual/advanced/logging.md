@@ -4,7 +4,7 @@
 
 ログには[tracing](https://github.com/tokio-rs/tracing)を使用しているため, 以下のようにログ出力を有効化できる.
 
-```rust,edition2021
+```rust,edition2024
 tracing_subscriber::fmt()
     .with_max_level(tracing::Level::INFO)
     .init();

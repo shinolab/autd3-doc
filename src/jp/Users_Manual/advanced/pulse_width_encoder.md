@@ -7,7 +7,7 @@ PWM信号のDuty比と超音波出力の間には非線形な関係がある.
 `PulseWidthEncoder`によってこのテーブルを変更できる.
 なお, PWM信号の周期は256である.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/advanced/pulse_width_encoder.rs}}
 ```
 

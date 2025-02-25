@@ -2,7 +2,7 @@
 
 `Group` is a `Gain` to use different `Gain` for each transducer.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/gain/group_0.rs}}
 ```
 

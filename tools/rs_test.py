@@ -32,6 +32,7 @@ if __name__ == "__main__":
     autd3_emulator_version = "30.0.1"
     autd3_link_soem_version = "30.0.1"
     itertools_version = get_latest_version("itertools")
+    tokio = get_latest_version("tokio")
     print(f"Testing with autd3-rs {autd3_version}")
 
     base_path = pathlib.Path(os.getcwd()) / "src" / "codes"
@@ -68,14 +69,16 @@ version = "{autd3_version}"
 edition = "2021"
 
 [dependencies]
-autd3 = {{ version = "{autd3_version}" }}
+autd3 = {{ version = "{autd3_version}", features = ["async", "async-trait"] }}
 autd3-gain-holo = {{ version = "{autd3_version}" }}
-autd3-link-simulator = {{ version = "{autd3_version}", features = ["blocking"] }}
-autd3-link-soem = {{ version = "{autd3_link_soem_version}", features = ["remote", "blocking"] }}
-autd3-link-twincat = {{ version = "{autd3_version}", features = ["remote"] }}
+autd3-link-simulator = {{ version = "{autd3_version}", features = ["blocking", "async-trait"] }}
+autd3-link-soem = {{ version = "{autd3_link_soem_version}", features = ["remote", "blocking", "async-trait"] }}
+autd3-link-twincat = {{ version = "{autd3_version}", features = ["remote", "async-trait"] }}
 autd3-modulation-audio-file = {{ version = "{autd3_version}" }}
+autd3-protobuf = {{ version = "{autd3_version}", features = ["lightweight"] }}
 autd3-emulator = {{ version = "{autd3_emulator_version}", features = ["gpu"] }}
-itertools = {{ version = "{itertools_version}"}}
+itertools = {{ version = "{itertools_version}" }}
+tokio = {{ version = "{tokio}", features = ["rt-multi-thread", "macros"] }}
 """,
             )
 

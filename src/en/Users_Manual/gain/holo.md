@@ -14,7 +14,7 @@ You can select the backend for the calculation of the algorithm from the followi
 * `NalgebraBackend` - uses [Nalgebra](hthttps://nalgebra.org/)
 * `CUDABackend` - uses CUDA, which runs on GPUs (only available in Rust)
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/gain/holo_0.rs}}
 ```
 
@@ -44,7 +44,7 @@ This can be controlled by `with_constraint`, and one of the following four must 
 - Uniform: Set the amplitude of all transducers to the specified value.
 - Clamp: Clamp the amplitude to the specified range.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/gain/holo_1.rs}}
 ```
 
@@ -65,7 +65,7 @@ This can be controlled by `with_constraint`, and one of the following four must 
 Each algorithm has additional parameters.
 These are all specified by `with_xxx`.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/gain/holo_2.rs}}
 ```
 

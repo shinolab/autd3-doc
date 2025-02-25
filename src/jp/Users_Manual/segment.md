@@ -8,7 +8,7 @@
 
 データを書き込む`Segment`は, `WithSegment`で指定する.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../codes/Users_Manual/segment/segment_transition.rs}}
 ```
 
@@ -44,7 +44,7 @@
 
 `Segment`を切り替えたいだけの場合は, `SwapSegment`を使用する.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../codes/Users_Manual/segment/segment_change_transition.rs}}
 ```
 
@@ -64,7 +64,7 @@
 
 `Modulation`と`FociSTM`, `GainSTM`は`WithLoopBehavior`でループの挙動を制御できる.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../codes/Users_Manual/segment/loop_behavior.rs}}
 ```
 

@@ -6,7 +6,7 @@ However, the number of `Gain`s that can be used is 1024.
 The following is an example of how to use `GainSTM`.
 This is a sample that rotates the focus on a circle with a radius of $\SI{30}{mm}$ centered on a point $\SI{150}{mm}$ directly above the center of the array.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/stm/gain_0.rs}}
 ```
 
@@ -27,7 +27,7 @@ This is a sample that rotates the focus on a circle with a radius of $\SI{30}{mm
 
 You can also specify the sampling frequency instead of frequency.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/stm/gain_1.rs}}
 ```
 
@@ -50,7 +50,7 @@ To solve this problem, `GainSTM` has `PhaseFull` mode that sends only phase and 
 
 This mode can be switched with `with_mode`.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/stm/gain_2.rs}}
 ```
 

@@ -6,7 +6,7 @@
 
 `Group`では, 振動子に対してキーを割り当て, その各キーに`Gain`を紐付けて使用する.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/gain/group_0.rs}}
 ```
 

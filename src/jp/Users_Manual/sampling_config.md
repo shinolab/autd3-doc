@@ -9,7 +9,7 @@ Modulation, FociSTM/GainSTMのサンプリング設定について説明する.
 
 サンプリング設定のコンストラクタには, 分周比$N$, または, サンプリング周波数, サンプリング周期を指定する.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../codes/Users_Manual/sampling_config/modulation_0.rs}}
 ```
 
@@ -29,7 +29,7 @@ Modulation, FociSTM/GainSTMのサンプリング設定について説明する.
 
 **使用は推奨されないが**, 出力可能な周波数/周期の内で最も指定した値に近い周波数/周期を使用する方法もある.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../codes/Users_Manual/sampling_config/sampling_config_freq_nearest.rs}}
 ```
 

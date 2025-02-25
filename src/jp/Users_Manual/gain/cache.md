@@ -2,7 +2,7 @@
 
 `Cache`によって`Gain`の計算結果をキャッシュする`Gain`を生成できる.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/gain/cache_0.rs}}
 ```
 

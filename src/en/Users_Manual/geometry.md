@@ -22,7 +22,7 @@ For example, suppose you have two devices as shown in the figure above.
 The left device is the first device, and the right device is the second device.
 Then, the code is as follows.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../codes/Users_Manual/geometry_0.rs}}
 ```
 
@@ -50,7 +50,7 @@ In this example, no rotation is performed, so the second argument can be zero.
 And, for example, suppose you have two devices as shown in the figure above, where the global origin is set to the left device.
 Then, the code is as follows.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../codes/Users_Manual/geometry_1.rs}}
 ```
 
@@ -73,7 +73,7 @@ Then, the code is as follows.
 Furthermore, for example, suppose you have two devices as shown in the figure above, where the global origin is set to the lower device.
 Then, the code is as follows.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../codes/Users_Manual/geometry_2.rs}}
 ```
 
@@ -105,7 +105,7 @@ Also, each device has 249 transducers, and local indices are assigned ([see the 
 - `num_transducers`: Get the number of all transducers
 - `center`: Get the center of all transducers
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../codes/Users_Manual/geometry_3.rs}}
 ```
 
@@ -128,7 +128,7 @@ Also, each device has 249 transducers, and local indices are assigned ([see the 
 To access `Device`, use indexer.
 Or, you can use an iterator.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../codes/Users_Manual/geometry_4.rs}}
 ```
 
@@ -156,7 +156,7 @@ Or, you can use an iterator.
 - `rotate`: Apply rotation
 - `affine`: Apply affine transformation (translation/rotation)
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../codes/Users_Manual/device_0.rs}}
 ```
 
@@ -179,7 +179,7 @@ Or, you can use an iterator.
 To access `Transducer`, use the indexer.
 Or, you can use an iterator.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../codes/Users_Manual/device_1.rs}}
 ```
 
@@ -208,7 +208,7 @@ Following methods are available for `Transducer`.
 - `wavelength`: Get the wavelength of the transducer. You need to pass the sound speed as an argument.
 - `wavenumber`: Get the wavenumber of the transducer. You need to pass the sound speed as an argument.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../codes/Users_Manual/transducer_0.rs}}
 ```
 

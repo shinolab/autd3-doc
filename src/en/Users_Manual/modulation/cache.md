@@ -2,7 +2,7 @@
 
 You can cache the calculation result of `Modulation` by `with_cache` method.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/modulation/cache_0.rs}}
 ```
 

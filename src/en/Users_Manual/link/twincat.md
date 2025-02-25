@@ -80,7 +80,7 @@ If you got a message like "AUTDs are found and added", it is successful.
 
 ### Constructor
 
-```rust,should_panic,edition2021
+```rust,should_panic,edition2024
 {{#include ../../../codes/Users_Manual/link/twincat_0.rs}}
 ```
 
@@ -147,7 +147,7 @@ And, specify the "Client AmsNetId" in the `with_client_ams_net_id` method.
 Also, specify the IP address of the server in the `with_server_ip` method.
 These two values is optional, but it is recommended to specify them.
 
-```rust,should_panic,edition2021
+```rust,should_panic,edition2024
 {{#include ../../../codes/Users_Manual/link/remote_twincat_0.rs}}
 ```
 

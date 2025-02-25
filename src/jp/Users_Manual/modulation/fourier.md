@@ -2,7 +2,7 @@
 
 複数の周波数の正弦波を重ね合わせた波形を生成する`Modulation`.
 
-```rust,edition2021
+```rust,edition2024
 {{#include ../../../codes/Users_Manual/modulation/fourier_0.rs}}
 ```
 

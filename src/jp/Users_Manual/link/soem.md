@@ -64,7 +64,7 @@ pip install pyautd3_link_soem
 
 第1引数にはエラーが起きたときのコールバック関数を, 第2引数にはオプションを指定する.
 
-```rust,should_panic,edition2021
+```rust,should_panic,edition2024
 {{#include ../../../codes/Users_Manual/link/soem_0.rs}}
 ```
 
@@ -148,7 +148,7 @@ AUTD3デバイスが見つかり, クライアントとの接続待ちである�
 
 `RemoteSOEM`のコンストラクタでは, <サーバのIP:ポート>を指定する.
 
-```rust,should_panic,edition2021
+```rust,should_panic,edition2024
 {{#include ../../../codes/Users_Manual/link/remote_soem_0.rs}}
 ```
 
