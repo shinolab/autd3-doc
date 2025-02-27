@@ -3,7 +3,7 @@
     padding-top: -32px;
 
     &::before {
-        content: attr(data-lang);
+        content: attr(name);
         background: #5E6060;
         color: #FFFFFF;
         display: block;

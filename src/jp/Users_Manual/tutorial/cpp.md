@@ -45,7 +45,7 @@ cmake .. -DCMAKE_BUILD_TYPE=Release
 cmake --build . --config Release
 ```
 
-これで, `Release`以下に実行ファイルが生成されるので, これを実行する.
+これで, 実行ファイルが生成されるので, これを実行する.
 
 ```shell,filename=Windows
 .\Release\main.exe
@@ -55,7 +55,7 @@ cmake --build . --config Release
 sudo ./main
 ```
 
-# Troubleshooting
+# トラブルシューティング
 
 - anaconda (miniconda) がactivateされている場合に, ビルドエラーになる可能性がある.
   - この場合, `build`ディレクトリを削除し, `conda deactivate`を実行したのち再び`cmake`を実行する.

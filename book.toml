@@ -27,8 +27,8 @@ preferred-dark-theme = "navy"
 git-repository-url = "https://github.com/shinolab/autd3-doc"
 git-branch = "main"
 smart-punctuation = true
-additional-js = ["theme/codeblock_filename.js", "theme/lightbox-plus-jquery.min.js"]
-additional-css = ["theme/codeblock_filename.css", "theme/lightbox.css", "open-in.css"]
+additional-js = ["js/codeblock_filename.js", "js/lightbox-plus-jquery.min.js", "js/tab.js"]
+additional-css = ["css/codeblock_filename.css", "css/lightbox.css", "css/open-in.css", "css/no-link-summary.css", "css/tab.css"]
 open-on-text = "Found a bug? [Edit this page on GitHub.]"
 
 [output.html.playground]
@@ -36,7 +36,7 @@ runnable = false
 
 [output.html.fold]
 enable = true
-level = 1
+level = 2
 
 [preprocessor.katex]
 after = ["links"]
@@ -55,3 +55,6 @@ destination = "book/jp"
 cs = "~"
 cpp = "//~"
 python = "~"
+
+[build]
+extra-watch-dirs = ["src/codes"]
