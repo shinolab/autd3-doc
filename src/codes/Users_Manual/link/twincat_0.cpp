@@ -1,5 +1,6 @@
 #include "autd3/link/twincat.hpp"
 
 //~int main() {
-autd3::link::TwinCAT();
+//~using namespace autd3;
+link::TwinCAT();
 //~return 0; }

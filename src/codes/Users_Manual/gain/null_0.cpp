@@ -1,4 +1,5 @@
 //~#include<autd3.hpp>
 //~int main() {
-autd3::Null{};
+//~using namespace autd3;
+Null{};
 //~return 0; }

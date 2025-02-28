@@ -2,5 +2,6 @@
 #include <autd3/gain/cache.hpp>
 
 //~int main() {
-autd3::gain::Cache(autd3::Null{});
+//~using namespace autd3;
+gain::Cache(Null{});
 //~return 0; }

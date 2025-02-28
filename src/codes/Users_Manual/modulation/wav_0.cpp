@@ -2,5 +2,6 @@
 #include "autd3/modulation/audio_file.hpp"
 
 //~int main() {
-autd3::modulation::audio_file::Wav("path/to/foo.wav");
+//~using namespace autd3;
+modulation::audio_file::Wav("path/to/foo.wav");
 //~return 0; }

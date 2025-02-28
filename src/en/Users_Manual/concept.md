@@ -1,50 +1,35 @@
-# Concept
+# コンセプト
 
-The following is a basic components of AUTD3 SDK.
+SDKを構成する主なコンポーネントは以下の通りである.
 
-- `Controller` - Controller class. All operations to AUTD3 are done via this class
-- `Geometry` - Container of `Device`
-  - `Device` - Class corresponding to AUTD3 device
-- `Link` - Interface to AUTD3 devices
-- `Gain` - Manage the phase/amplitude of each transducer
-- `Modulation` - Manage the amplitude modulation (AM) of each transducer
-- `STM` - Manage the spatio-temporal modulation (STM) on firmware
+* `Controller` - AUTD3デバイスに対する全ての操作はこれを介して行う.
+* `Geometry` - `Device`のコンテナ.
+  * `Device` - AUTD3デバイスに対応する. デバイスが現実世界でどのように配置されているかを管理する. `Transducer`のコンテナ.
+  * `Transducer` - 振動子に対応する. 振動子が現実世界でどこにあるかを管理する.
+* `Link` - デバイスとのインターフェース.
+* `Gain` - 各振動子の位相/振幅を管理する.
+* `STM` - Spatio-Temporal Modulation (STM, 時空間変調) 機能を提供する. 各振動子の位相/振幅データの時間列を管理する.
+* `Modulation` - AM変調機能を提供するする. 変調データの時間列を管理する.
+* `Silencer` - 静音化処理を管理する.
 
-The following is the front and back photos of AUTD3.
+ソフトウェアの使用方法は以下の通りである.
 
-<figure>
-  <img src="../fig/Users_Manual/autd_trans_idx.jpg"/>
-  <figcaption>Front photo of AUTD3 device</figcaption>
-</figure>
+まず, 現実世界のAUTD3デバイスの配置を指定し, どの`Link`を使用するかを決め, `Controller`を開く.
+次に, `Controller`を介して, `Gain` (または`STM`), `Modulation`, `Silencer`データをデバイスに送信する.
 
-<figure>
-  <img src="../fig/Users_Manual/autd_back.jpg"/>
-  <figcaption>Back photo of AUTD3 device</figcaption>
-</figure>
-
-
-AUTD3 is composed of 249 transducers per device[^fn_asm].
-From SDK, the phase/amplitude of all transducers can be specified individually.
-The coordinate system of AUTD3 adopts the right-handed coordinate system, and the center of the 0th transducer is the origin.
-The x-axis is the long axis direction, that is, the direction of 0→17, and the y-axis is the direction of 0→18.
-In addition, the unit system is mm for distance, rad for angle, and Hz for frequency.
-The transducers are arranged at intervals of $\SI{10.16}{mm}$, and the size including the substrate is $\SI{192}{mm}\times\SI{151.4}{mm}$.
-
-The followings is the dimension of transducer array.
+送信されたデータに基づいたPWM信号が振動子に印加される.
+信号が生成されるまでの流れは以下の図の通りである.
 
 <figure>
-  <img src="../fig/Users_Manual/transducers_array.jpg"/>
-  <figcaption>The dimension of transducer array</figcaption>
+  <a href="../fig/Users_Manual/concept.svg" data-lightbox="image"><img src="../fig/Users_Manual/concept.svg"/></a>
+  <figcaption>信号が生成されるまでの概念図</figcaption>
 </figure>
 
-In addition, AUTD3 can be connected to each other via the daisy chain.
-You can compose extended array by connecting the EherCAT In of the $i$-th device and the EherCAT Out of the $i+1$-th device with an Ethernet cable.
-(The ethernet cable must be CAT 5e or higher.)
+`Gain`/`STM`で指定された振幅データは, `Modulation`で指定された変調データと順次掛け合わされた後, `Silencer`に渡される.
+`Gain`/`STM`で指定された位相データは, そのまま`Silencer`に渡される.
+`Silencer`は, これらのデータを静音化処理[^silencer]する.
+最後に, `Silencer`で処理された振幅/位相データに基づきPWM信号が生成され, 振動子に印加される. 
 
-You have to supply $\SI{24}{V}$ DC power to AUTD3.
-The power line can be connected to each other, and any of the three power connectors can be used.
-The power connector is Molex 5566-02A.
+なお, 振幅/位相データ, 及び, 変調データはすべて$\SI{8}{bit}$である.
 
-> Note: AUTD3 consumes up to $\SI{2}{A}$ of current per device. Please pay attention to the maximum output current of the power supply.
-
-[^fn_asm]: $18\times 14=252$ transducers are mounted on the substrate, but 3 transducers are missing for the screw holes. The reason why the screw holes are placed at this position is to minimize the gap when multiple devices are placed side by side.
+[^silencer]: 詳細は[Silencer](./silencer.md)を参照.

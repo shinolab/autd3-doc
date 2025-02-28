@@ -2,13 +2,14 @@
 //~#include<autd3.hpp>
 //~#include<autd3/link/nop.hpp>
 //~int main() {
+//~using namespace autd3;
 //~auto autd =
-//~autd3::Controller::open({autd3::AUTD3{}}, autd3::link::Nop{});
+//~Controller::open({AUTD3{}}, link::Nop{});
 //~const auto x = 0.0;
 //~const auto y = 0.0;
 //~const auto z = 0.0;
 autd.group_send(
-    [](const autd3::Device& dev) -> std::optional<const char*> {
+    [](const Device& dev) -> std::optional<const char*> {
       if (dev.idx() == 0) {
         return "null";
       } else if (dev.idx() == 1) {
@@ -17,9 +18,8 @@ autd.group_send(
         return std::nullopt;
       }
     },
-    std::unordered_map<const char*, std::shared_ptr<autd3::driver::Datagram>>{
+    std::unordered_map<const char*, std::shared_ptr<driver::Datagram>>{
         {"focus",
-         std::make_shared<autd3::Focus>(autd3::Focus(autd3::Point3(x, y, z),
-                                                     autd3::FocusOption{}))},
-        {"null", std::make_shared<autd3::Null>()}});
+         std::make_shared<Focus>(Focus(Point3(x, y, z), FocusOption{}))},
+        {"null", std::make_shared<Null>()}});
 //~return 0; }

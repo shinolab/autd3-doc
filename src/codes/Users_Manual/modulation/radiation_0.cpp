@@ -2,6 +2,6 @@
 #include <autd3/modulation/radiation_pressure.hpp>
 
 //~int main() {
-autd3::modulation::RadiationPressure(autd3::Sine(150 * autd3::Hz,
-                                                 autd3::SineOption{}));
+//~using namespace autd3;
+modulation::RadiationPressure(Sine(150 * Hz, SineOption{}));
 //~return 0; }

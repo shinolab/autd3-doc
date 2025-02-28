@@ -2,9 +2,10 @@
 //~#include<autd3/link/nop.hpp>
 //~#include<vector>
 //~int main() {
+//~using namespace autd3;
 //~auto autd =
-//~autd3::Controller::open({autd3::AUTD3{}}, autd3::link::Nop{});
-autd.send(autd3::PulseWidthEncoder([](const auto& dev) {
+//~Controller::open({AUTD3{}}, link::Nop{});
+autd.send(PulseWidthEncoder([](const auto& dev) {
   return [](const auto i) { return 0; };
 }));
 //~return 0; }
