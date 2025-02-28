@@ -2,8 +2,9 @@
 //~#include<autd3.hpp>
 //~#include<autd3/link/nop.hpp>
 //~int main() {
+//~using namespace autd3;
 //~auto autd =
-//~autd3::Controller::open({autd3::AUTD3{}}, autd3::link::Nop{});
+//~Controller::open({AUTD3{}}, link::Nop{});
 auto dev = autd[0];
 const auto idx = dev.idx();
 const auto enable = dev.enable();
@@ -11,8 +12,8 @@ dev.set_enable(false);
 const auto sound_speed = dev.sound_speed();
 dev.set_sound_speed(340e3);
 dev.set_sound_speed_from_temp(15.);
-const auto t = autd3::Vector3(1., 0., 0.);
-const auto r = autd3::Quaternion(1., 0., 0., 0.);
+const auto t = Vector3(1., 0., 0.);
+const auto r = Quaternion(1., 0., 0., 0.);
 dev.translate(t);
 dev.rotate(r);
 dev.affine(t, r);

@@ -2,12 +2,13 @@
 #include <autd3/modulation/fourier.hpp>
 
 //~int main() {
-autd3::modulation::Fourier({autd3::Sine(100 * autd3::Hz, autd3::SineOption{}),
-                            autd3::Sine(150 * autd3::Hz, autd3::SineOption{})},
-                           autd3::modulation::FourierOption{
-                               .scale_factor = std::nullopt,
-                               .clamp = false,
-                               .offset = 0x00,
-                           });
+//~using namespace autd3;
+modulation::Fourier({Sine(100 * Hz, SineOption{}),
+                     Sine(150 * Hz, SineOption{})},
+                    modulation::FourierOption{
+                        .scale_factor = std::nullopt,
+                        .clamp = false,
+                        .offset = 0x00,
+                    });
 
 //~return 0; }

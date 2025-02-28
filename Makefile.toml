@@ -46,3 +46,34 @@ args = ["build", "--dest-dir", "book/en", "${@}"]
 env = { MDBOOK_BOOK__src = "src/jp" }
 command = "mdbook"
 args = ["serve", "--dest-dir", "book/jp", "${@}"]
+
+[tasks.serve-en]
+env = { MDBOOK_BOOK__src = "src/en" }
+command = "mdbook"
+args = ["serve", "--dest-dir", "book/en", "${@}"]
+
+[tasks.format]
+windows_alias = "format-win"
+linux_alias = "format-nix"
+mac_alias = "format-nix"
+
+[tasks.format-nix]
+script_runner = "@shell"
+script = '''
+clang-format -i ./src/codes/**.cpp
+'''
+
+[tasks.format-win]
+script_runner = "pwsh"
+script_extension = "ps1"
+script = '''
+Function Format($root){
+    Get-ChildItem -Path $root -Recurse  -Include *.cpp |
+        foreach {
+            echo $_.FullName
+            &clang-format -i $_.FullName
+        }
+}
+
+Format src/codes
+'''

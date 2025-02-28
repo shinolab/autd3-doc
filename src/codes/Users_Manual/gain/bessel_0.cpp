@@ -1,5 +1,6 @@
 //~#include<autd3.hpp>
 //~int main() {
+//~using namespace autd3;
 //~const auto x = 0.0;
 //~const auto y = 0.0;
 //~const auto z = 0.0;
@@ -7,10 +8,9 @@
 //~const auto ny = 0.0;
 //~const auto nz = 1.0;
 //~const auto theta = 0.0;
-autd3::Bessel(autd3::Point3(x, y, z), autd3::Vector3(nx, ny, nz),
-              theta* autd3::rad,
-              autd3::BesselOption{
-                  .intensity = std::numeric_limits<autd3::EmitIntensity>::max(),
-                  .phase_offset = autd3::Phase::zero(),
-              });
+Bessel(Point3(x, y, z), Vector3(nx, ny, nz), theta* rad,
+       BesselOption{
+           .intensity = std::numeric_limits<EmitIntensity>::max(),
+           .phase_offset = Phase::zero(),
+       });
 //~return 0; }

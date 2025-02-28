@@ -2,64 +2,87 @@
 
 [[_TOC_]]
 
-## "No AUTD3 devices found"
+## "No AUTD3 devices found"と表示される
 
-- If you use `link::SOEM` on macOS or linux, you need root privileges.
+- macOS, linuxで`link::SOEM`を使用する場合, root権限が必要
 
-   - On linux, you can bypass this by setting the following privileges with the `setcap` command:
+   - linuxの場合, `setcap`コマンドで以下の権限を設定することで回避することもできる
    
       ```shell
-      sudo setcap cap_net_raw,cap_net_admin=eip ./examples/example_soem
+      sudo setcap cap_net_raw,cap_net_admin=eip <your executable file>
       ```
 
-- (Windows) Install the latest npcap
+   - macOSの場合, `/dev/bpf*`ファイルに読み取り権限を追加することで回避することもできる
+   
+      ```shell
+      sudo chmod +r /dev/bpf*
+      ```
 
-- Virtual machines such as WSL are not supported.
-   - VirtualBox and other virtual machines may work, but the behavior will be unstable.
+- (Windows) 最新のnpcapを使用する
 
-## "One ore more slaves are not responding"
+- WSL等の仮想マシンは対応していない
+   - VirtualBoxなどで動く場合があるが, 挙動は不安定になる
 
-- Update the driver
-   - If you are using Realtek on Windows, please download latest `Win10 Auto Installation Program (NDIS)` driver from [official site](https://www.realtek.com/ja/component/zoo/category/network-interface-controllers-10-100-1000m-gigabit-ethernet-pci-express-software), and install it.
-        - Even if you use Windows 11, you must use NDIS version.
+## "One ore more slaves are not responding", または, "Slow network was detected"と表示される
 
-- (Windows) Install the latest npcap.
+- Driverを更新する
+   - WindowsでRealtekを利用している場合, [公式サイト](https://www.realtek.com/ja/component/zoo/category/network-interface-controllers-10-100-1000m-gigabit-ethernet-pci-express-software)から`Win10 Auto Installation Program (NDIS)`と書かれた方のDriverをインストールすること (Windows 11でも).
 
-- Increase the values of `send_cycle` and `sync0_cycle`.
+- (Windows) 最新のnpcapを使用する
 
-## Frequent send failures when using `link::SOEM`
+- `send_cycle`と`sync0_cycle`の値を増やす
 
-- This problem occurs when using the onboard ethernet interface, and one of the following situations
+- (Windows) デバイスマネージャーの当該ネットワークアダプタのプロパティから, 「電源の管理」タブで「電力の節約のために、コンピューターでこのデバイスの電源をオフにできるようにする」のチェックを外す
 
-   * Using RealSense, Azure Kinect, webcam, etc.
-      * Basically, the problem occurs when the camera is activated.
-   * Playing a video or audio file.
-      * Or, open a video site (e.g. Youtube) with an browser.
-   * Using Unity
-   * Playing animation in Blender
-      * Other operations (modeling, etc.) are fine.
+## `link::SOEM`使用時に送信が頻繁に失敗する
 
-- As a workaround, try one of the following
-  1. Use `link::TwinCAT`, `link::RemoteTwinCAT`, or `link::RemoteSOEM`
-  1. Use a USB to Ethernet adapter
-     - It has been confirmed that at least the adapter using the "ASIX AX88179" chip works properly.
-     - The same problem may occur with PCIe ethernet adapters.
-  1. Set to `FreeRun` mode
-  1. Increase the values of `send_cycle` and `sync0_cycle`
-     - In this case, however, the send latency will increase.
-  1. Use Linux or macOS.
-     - Virtual machines are not acceptable.
+- この問題は
+   * `sync_mode`を`DC`にしている
 
-## The link is frequently broken.
+   かつ,
 
-- If this occurs frequently during ultrasound output, check if there is enough power.
-   - A single device consumes up to 50W.
+   * オンボードのethernetインターフェースを使用している
 
-## Error when using `link::RemoteTwinCAT`
+  かつ, 以下のいずれかの状況で発生することが確認されている
 
-- It may be blocked by a firewall, turn off the firewall or allow port 48898 of TCP/UDP.
-- Disconnect all client PCs from LAN except for the server.
+   * RealSense, Azure Kinect, Webカメラ等を使用する
+      * 基本的にカメラをアクティブにした時点で発生
+   * 動画や音声を再生する
+      * または, インターネットブラウザで動画サイト (Youtube等) を開く
+   * Unityを使用する
+      * 起動するだけで発生
+   * Blenderでアニメーションを再生する
+      * その他の操作 (モデリング等) は問題ない
 
-## Miscellaneous
+- この問題の回避策としては, 以下のいずれかを試されたい
+  1. `sync_mode`を`FreeRun`にする
+  1. Linuxやmacを使用する.
+     - ただし, 仮想マシンはNG
+  1. `TwinCAT`, `RemoteTwinCAT`, または, `RemoteSOEM`リンクを使用する
+  1. USB to Ethernetアダプターを使用する
+     - 少なくとも「ASIX AX88179」のチップを採用しているもので正常に動作することが確認されている
+     - なお, オンボードではなくとも, PCIe接続のethernetアダプターでも同様の問題が発生する
 
-- Please feel free to ask questions or report bugs to [Issue on Github](https://github.com/shinolab/autd3/issues)
+- 上記以外の状況でも発生した, 或いは, 上記状況でも発生しなかった等の報告があれば, GitHubのIssueに積極的に報告していただけると幸いである.
+
+## リンクが頻繁に途切れる
+
+- 超音波の出力時にこれが頻発する場合は, 電力が足りているかを確認すること
+   - デバイス一台で最大50W消費する
+
+## `RemoteTwinCAT`リンク使用時にエラーが出る
+
+- ファイアウォールでブロックされている可能性があるため, ファイアウォールを切るか, TCP/UDPの48898番ポートを開ける.
+- クライアントPCのサーバー以外とのLANをすべて切断する.
+
+## 振動子の位相/振幅データにアクセスするには?
+
+1. 自分で所望の`Gain`を作成する. [Gainの自作](../advanced/custom_gain.md)を参照.
+
+## AM変調データにアクセスするには?
+
+1. 自分で所望の`Modulation`を作成する. [Modulationの自作](../advanced/custom_modulation.md)を参照.
+
+## その他
+
+- 質問やバグ報告は[GithubのIssue](https://github.com/shinolab/autd3/issues)へお気軽にどうぞ

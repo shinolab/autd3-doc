@@ -1,10 +1,10 @@
 //~#include<autd3.hpp>
 //~#include<autd3/link/nop.hpp>
 //~int main() {
+//~using namespace autd3;
 //~auto autd =
-//~autd3::Controller::open({autd3::AUTD3{}}, autd3::link::Nop{});
-autd.send(autd3::DebugSettings([](const auto& dev, const auto& gpio) {
-  return gpio == autd3::GPIOOut::O0 ? autd3::DebugType::BaseSignal
-                                    : autd3::DebugType::None;
+//~Controller::open({AUTD3{}}, link::Nop{});
+autd.send(DebugSettings([](const auto& dev, const auto& gpio) {
+  return gpio == GPIOOut::O0 ? DebugType::BaseSignal : DebugType::None;
 }));
 //~return 0; }

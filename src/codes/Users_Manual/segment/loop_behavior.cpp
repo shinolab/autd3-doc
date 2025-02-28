@@ -1,9 +1,10 @@
 //~#include<autd3.hpp>
 //~int main() {
+//~using namespace autd3;
 
-autd3::WithLoopBehavior(autd3::Static{}, autd3::LoopBehavior::Infinite(),
-                        autd3::Segment::S1, autd3::TransitionMode::Immediate());
+WithLoopBehavior(Static{}, LoopBehavior::Infinite(), Segment::S1,
+                 TransitionMode::Immediate());
 
-autd3::WithLoopBehavior(autd3::Static{}, autd3::LoopBehavior::Finite(1),
-                        autd3::Segment::S1, autd3::TransitionMode::SyncIdx());
+WithLoopBehavior(Static{}, LoopBehavior::Finite(1), Segment::S1,
+                 TransitionMode::SyncIdx());
 //~return 0; }

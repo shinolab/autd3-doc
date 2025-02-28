@@ -2,12 +2,12 @@
 #include <autd3/modulation/fir.hpp>
 
 //~int main() {
-autd3::modulation::Fir(
-    autd3::Sine(150 * autd3::Hz,
-                autd3::SineOption{
-                    .sampling_config = autd3::SamplingConfig(20.0f *
-                                                             autd3::kHz),
-                }),
+//~using namespace autd3;
+modulation::Fir(
+    Sine(150 * Hz,
+         SineOption{
+             .sampling_config = SamplingConfig(20.0f * kHz),
+         }),
     std::vector{
         -0.000009f, -0.000013f, -0.000016f, -0.000021f, -0.000025f, -0.000030f,
         -0.000036f, -0.000042f, -0.000049f, -0.000056f, -0.000064f, -0.000072f,

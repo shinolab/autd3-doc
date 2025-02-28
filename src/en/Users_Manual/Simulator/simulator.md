@@ -1,73 +1,74 @@
 # AUTD3 Simulator
 
-AUTD Simulator is a simulator for AUTD3 supporting Windows, Linux, and macOS.
+AUTD Simulator (以下, シミュレータ) はその名の通りAUTDのシミュレータであり, Windows/Linux/macOSで動作する.
 
 ## AUTD Server
 
-The simulator is included in `AUTD Server`.
-Download the installer from [GitHub Releases](https://github.com/shinolab/autd3-server/releases).
+シミュレータは`AUTD Server`に付属している.
+[GitHub Releases](https://github.com/shinolab/autd3-server/releases)にてインストーラを配布しているので, これをダウンロードし, 指示に従ってインストールする.
 
-When you run `AUTD Server`, the following screen will appear, so open the "Simulator" tab and click "Run" button.
+`AUTD Server`を実行すると, 以下のような画面になるので, `Simulator`タブを開き, `Run`ボタンを押すとシミュレータが起動する.
 
 <figure>
   <img src="../../fig/Users_Manual/autdserver_simulator.jpg"/>
 </figure>
 
-When you run the simulator, it is waiting for connection.
+シミュレータが起動すると接続待ちの状態になる.
 
 <figure>
   <img src="../../fig/sim_waiting.jpg"/>
 </figure>
 
-In this state, when you `open` the `Controller` using `link::Simulator`, a black panel will appear on the simulator.
+この状態で, `Simulator`リンクを使って`Controller`を`open`すると, シミュレータ上には, 振動子の位置に円と, 画面中央に黒いパネルが表示される.
 
 <figure>
   <img src="../../fig/sim_init.jpg"/>
 </figure>
 
-This black panel is called "Slice", and this "Slice" can be used to visualize the sound field at an arbitrary position.
-The phase of the transducer is represented by hue, and its amplitude is represented by intensity.
+この黒いパネルを"Slice"と呼び, この"Slice"を使って任意の位置の音場を可視化できる.
+また, その時, 振動子の位相が色相で, 振幅が色強度で表される.
 
 <figure>
   <img src="../../fig/sim_focus.jpg"/>
 </figure>
 
-The sound field displayed in the simulator is a simple superposition of spherical waves; directivity and nonlinear effects are not taken into account.
+なお, シミュレータで表示される音場はシンプルな球面波の重ね合わせであり, 指向性や非線形効果などは考慮されない.
 
-The GUI displayed on the left side of the screen is used to control "Slice" and the camera.
+画面左に表示されているGUIでSliceやカメラの操作が行える.
 
-### Slice tab
+### Sliceタブ
 
-In the Slice tab, you can change the size, position, and rotation of the slice.
-The rotation is specified in terms of XYZ Euler angles.
-The "xy", "yz", and "zx" buttons are used to rotate the slice to a position parallel to each plane.
+SliceタブではSliceの大きさと位置, 回転を変えられる.
+回転はXYZのオイラー角で指定する.
+なお, 「xy」, 「yz」, 「zx」ボタンを押すと, Sliceを各平面に平行な状態へ回転させる.
 
-In the "Color settings" section, you can change the coloring palette, Max pressure.
-If you use a large number of devices, colors may become saturated, in which case you should increase the value of "Max pressure".
+また, 「Color settings」の項目ではカラーリングのパレットの変更や, Max pressureの変更ができる.
+大量のデバイスを使用すると色が飽和する場合があるので, その時は「Max pressure」の値を大きくすれば良い.
 
-### Camera tab
+### Cameraタブ
 
-In Camera tab, you can change camera position, rotation, field of view, near clip, and far clip.
-The rotation is specified in terms of XYZ Euler angles.
+Cameraタブではカメラの位置, 回転, Field of View, Near clip, Far clipの設定を変えられる.
+回転はXYZのオイラー角で指定する.
 
-### Config tab
+### Configタブ
 
-In the Config tab, you can set the sound speed, font size, and background color.
+Configタブでは音速とフォントサイズ, 及び, 背景色の設定ができる.
 
-You can also switch the show/enable/overheat settings for each device.
-When "show" is turned off, the devices contribute to the sound field only by not being displayed.
-When "enable" is turned off, it does not contribute to the sound field.
+また, 各デバイスごとのshow/enable/overheatの設定を切り替えられる.
+showをOffにした場合は, 表示されないだけで音場に寄与する.
+enableをOffにすると音場に寄与しなくなる.
+また, overheatをOnにすると, 温度センサがアサートされた状態を模擬できる.
 
-### Info tab
+### Infoタブ
 
-In the Info tab, information on FPS, Silencer, Modulation, and STM can be checked.
+Infoタブでは, FPSや各デバイス毎のSilencerやModulation, STMの情報が確認できる.
 
-The Silencer setting can be checked, but it is not affected in the sound field.
+Silencerの設定は確認できるがこれは音場には反映されない.
 
-When "Mod enable" is set, the modulation is reflected in the sound field.
+「Mod enable」をOnにすると, Modulationが音場に反映されるようになる.
 
-The index of modulation data and STM is determined by system time.
-"System time" represents the system time, which is elapsed time in nanoseconds since January 1, 2000, 0:00:00.
+ModulationとSTMは実時間を元にどのインデックスのデータを出力するかを決めている.
+この時間を表すのが, 「System time」であり, 2000年1月1日0時0分0秒からの経過時間をナノ秒単位で表す.
 
-When "Auto play" is set, the system time is automatically incremented.
-Other wise, you can set the system time manually.
+「Auto play」をOnにすると「System time」が自動的に設定される.
+そうでない場合は, 手動で時間を進めることができる.

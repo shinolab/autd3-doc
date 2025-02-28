@@ -2,9 +2,10 @@
 //~#include<autd3.hpp>
 //~#include<autd3/link/nop.hpp>
 //~int main() {
+//~using namespace autd3;
 //~auto autd =
-//~autd3::Controller::open({autd3::AUTD3{}}, autd3::link::Nop{});
-autd.send(autd3::PhaseCorrection([](const auto&) {
-  return [](const auto&) { return autd3::Phase::zero(); };
+//~Controller::open({AUTD3{}}, link::Nop{});
+autd.send(PhaseCorrection([](const auto&) {
+  return [](const auto&) { return Phase::zero(); };
 }));
 //~return 0; }

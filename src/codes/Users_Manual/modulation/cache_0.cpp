@@ -2,5 +2,6 @@
 #include <autd3/modulation/cache.hpp>
 
 //~int main() {
-autd3::modulation::Cache(autd3::Static{});
+//~using namespace autd3;
+modulation::Cache(Static{});
 //~return 0; }
