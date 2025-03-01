@@ -1,10 +1,10 @@
 # DebugSettings
 
-`DebugSettings`により, GPIOピンの出力を各デバイス・ピン毎に設定できる.
+`DebugSettings` allows you to set the output of GPIO output pins for each device.
 
 <figure>
     <img src="../../fig/Users_Manual/gpio_pin.jpg"/>
-    <figcaption>GPIOピン</figcaption>
+    <figcaption>GPIO pins</figcaption>
 </figure>
 
 <div class="tabs">
@@ -34,17 +34,17 @@
 ```
 </div>
 
-出力可能なデータは以下の通り.
-- `None`: 出力しない
-- `BaseSignal`: 基準信号 (超音波と同じ周波数のDuty比50%矩形波)
-- `Thermo`: 温度センサーがアサートされているかどうか
-- `ForceFan`: ForceFanフラグがアサートされているかどうか
-- `Sync`: EtherCAT同期信号
-- `ModSegment`: Modulationのセグメント
-- `ModIdx(u16)`: Modulationのインデックスが指定した値のときにHighになる
-- `StmSegment`: STMのセグメント
-- `StmIdx(u16)`: STMのインデックスが指定した値のときにHighになる
-- `IsStmMode`: FociSTM/GainSTMが使用されているかどうか
-- `PwmOut(&Transducer)`: 指定した振動子のPWM出力
-- `SysTimeEq(DcSysTime)`: 指定したシステム時間の間Highになる
-- `Direct(bool)`: 指定した値を出力する
+The following data can be output.
+- `None`: No output
+- `BaseSignal`: Reference signal (50% duty cycle square wave with the same frequency as ultrasound)
+- `Thermo`: Whether the temperature sensor is asserted
+- `ForceFan`: Whether the ForceFan flag is asserted
+- `Sync`: EtherCAT synchronization signal
+- `ModSegment`: Modulation segment (High if segment is 1)
+- `ModIdx(u16)`: High when the modulation index is the specified value
+- `StmSegment`: STM segment (High if segment is 1)
+- `StmIdx(u16)`: High when the STM index is the specified value
+- `IsStmMode`: Whether FociSTM/GainSTM is being used
+- `PwmOut(&Transducer)`: PWM output of the specified transducer
+- `SysTimeEq(DcSysTime)`: High during the specified system time
+- `Direct(bool)`: Output the specified value (if `true`, High; if `false`, Low)

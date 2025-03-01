@@ -1,6 +1,6 @@
 # Csv
 
-`Csv`はCsvファイルをもとに構成される`Modulation`である.
+`Csv` is a `Modulation` composed based on a Csv file.
 
 ## Install
 
@@ -26,19 +26,19 @@ target_link_libraries(<TARGET> PRIVATE autd3::modulation::audio_file)
 
 <div class="tab_content" id="cs_code_content">
   <p>
-    メインライブラリに含まれている.
+    Included in the main library.
   </p>
 </div>
 
 <div class="tab_content" id="unity_code_content">
   <p>
-    メインライブラリに含まれている.
+    Included in the main library.
   </p>
 </div>
 
 <div class="tab_content" id="python_code_content">
   <p>
-    メインライブラリに含まれている.
+    Included in the main library.
   </p>
 </div>
 </div>

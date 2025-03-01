@@ -1,20 +1,20 @@
-# ファン制御
+# Fan Control
   
-AUTD3デバイスにはファンがついており, Auto, Off, Onの3つのファンモードが有る. 
+AUTD3 devices have fans with three modes: Auto, Off, and On.
 
-Autoモードでは温度監視ICがICの温度を監視し, 一定温度以上になると自動でファンを起動する.
-Offモードではファンは常時オフであり, Onモードでは常時オンになる. 
+In Auto mode, the temperature monitoring IC monitors the temperature of the IC and automatically activates the fan when it exceeds a certain temperature.
+In Off mode, the fan is always off, and in On mode, the fan is always on.
 
-モードの切替は, ファン横のジャンパスイッチで行う. 少しわかりにくいが, 以下の図のようにファン側をショートするとAuto, 真ん中でOff, 右側でOnとなる.
+The mode can be switched using the jumper switch next to the fan. It is a bit difficult to understand, but as shown in the figure below, shorting the fan side sets it to Auto, the middle to Off, and the right side to On.
 
 <figure>
     <img src="../../fig/Users_Manual/fan.jpg"/>
-    <figcaption>AUTDファン制御用のジャンパスイッチ</figcaption>
+    <figcaption>Jumper switch for AUTD fan control</figcaption>
 </figure>
 
-Autoモードの場合は温度が高くなると自動的にファンが起動する.
+In Auto mode, the fan automatically activates when the temperature rises.
 
-Autoモードの場合, `ForceFan`でファンを強制的に起動できる.
+In Auto mode, the fan can be forcibly activated with `ForceFan`.
 
 <div class="tabs">
 <input id="rust_tab" type="radio" class="tab" name="tab" checked>
@@ -43,4 +43,6 @@ Autoモードの場合, `ForceFan`でファンを強制的に起動できる.
 ```
 </div>
 
-`ForceFan`コンストラクタの引数は`Fn(&Device) -> bool`で, デバイス毎にファンを強制駆動するかどうかを指定する.
+The argument of the `ForceFan` constructor is `Fn(&Device) -> bool`, which specifies whether to forcibly drive the fan for each device.
+
+> NOTE: You cannot forcibly turn off the fan in Auto mode.

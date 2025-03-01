@@ -1,10 +1,11 @@
 # GainSTM
 
-`GainSTM`は`FociSTM`とは異なり, 任意の`Gain`を扱える. ただし, 使用できる`Gain`の個数は$1024$ (拡張モードの場合$2048$) となる.
+`GainSTM` is different from `FociSTM` in that it can handle arbitrary `Gain`.
+However, the number of `Gain` that can be used is $1024$ (in extended mode $2048$).
 
-`GainSTM`の使用方法は以下のようになる.
-これは, アレイの中心から直上$\SI{150}{mm}$の点を中心とした半径$\SI{30}{mm}$の円周上で焦点を回すサンプルである.
-円周上を200点サンプリングし, 一周を$\SI{1}{Hz}$で回るようにしている. (すなわち, サンプリング周波数は$\SI{200}{Hz}$である.)
+The usage of `GainSTM` is as follows.
+This is a sample that rotates a focus on the circumference of a circle with a radius of $\SI{30}{mm}$ centered at a point $\SI{150}{mm}$ directly above the center of the array.
+The circumference is sampled at 200 points, rotating at $\SI{1}{Hz}$. (That is, the sampling frequency is $\SI{200}{Hz}$.)
 
 <div class="tabs">
 <input id="rust_tab" type="radio" class="tab" name="tab" checked>
@@ -22,7 +23,6 @@
 
 ```cpp
 {{#include ../../../../codes/Users_Manual/stm/gain_0.cpp}}
-
 ```
 
 ```cs
@@ -36,10 +36,10 @@
 
 ## GainSTMMode
 
-`GainSTM`は位相/振幅データをすべて送信するため, レイテンシが大きい[^fn_gain_seq].
-この問題に対処するため, `GainSTM`には位相のみを送信して送信にかかる時間を半分にする`PhaseFull`モードと, 位相を4bitに圧縮して送信時間を4分の1にする`PhaseHalf`モードが用意されている.
-この2つのモードでは振幅は最大値が使用される.
+`GainSTM` sends all phase/intensity data, resulting in high latency[^fn_gain_seq].
+To address this issue, `GainSTM` has a `PhaseFull` mode that sends only the phase, reducing the transmission time by half, and a `PhaseHalf` mode that compresses the phase to 4 bits, reducing the transmission time to a quarter.
+In these two modes, the maximum intensity is used regardless of the intensity setting of `Gain`.
 
-デフォルトは振幅/位相データを送る`PhaseIntensityFull`モードである.
+The default mode is `PhaseIntensityFull`, which sends both intensity and phase data.
 
-[^fn_gain_seq]: `FociSTM<1>`のおよそ75倍のレイテンシ
+[^fn_gain_seq]: Approximately 75 times the latency of `FociSTM<1>`

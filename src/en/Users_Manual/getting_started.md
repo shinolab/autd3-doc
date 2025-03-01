@@ -1,7 +1,7 @@
-# はじめに
+# Getting Started
 
-ここではまず, AUTD3のハードウェアやファームウェア, ソフトウェアのセットアップについて述べる.
+This section first describes the setup of AUTD3 hardware, firmware, and software.
 
-- [ハードウェア](./getting_started/hardware.md)
-- [ファームウェア](./getting_started/firmware.md)
-- [ソフトウェア](./getting_started/software.md)
+- [Hardware](./getting_started/hardware.md)
+- [Firmware](./getting_started/firmware.md)
+- [Software](./getting_started/software.md)

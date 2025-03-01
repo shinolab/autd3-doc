@@ -1,13 +1,13 @@
-# サンプリング設定について
+# About Sampling Configuration
 
-Modulation, FociSTM/GainSTMのサンプリング設定について説明する.
+This section explains the sampling configuration for Modulation and FociSTM/GainSTM.
 
-サンプリング周波数は$\ufreq/N$で, $N$は$0$より大きい16-bit符号なし整数である.
+The sampling frequency is $\ufreq/N$, where $N$ is a 16-bit unsigned integer greater than 0.
 
-また, Silencerの設定によって指定できるサンプリング周波数の最大値が決まる.
-詳しくは[Silencer](./silencer.md#fixed-completion-steps-mode)を参照.
+Additionally, the maximum sampling frequency that can be specified is determined by the Silencer settings.
+For more details, refer to [Silencer](./silencer.md#fixed-completion-steps-mode).
 
-サンプリング設定のコンストラクタには, 分周比$N$, または, サンプリング周波数, サンプリング周期を指定する.
+The constructor for the sampling configuration can specify the division ratio $N$, the sampling frequency, or the sampling period.
 
 <div class="tabs">
 <input id="rust_tab_api" type="radio" class="tab" name="tab_api" checked>
@@ -36,9 +36,9 @@ Modulation, FociSTM/GainSTMのサンプリング設定について説明する.
 ```
 </div>
 
-## サンプリング周波数制限の緩和
+## Relaxation of Sampling Frequency Limits
 
-**使用は推奨されないが**, 出力可能な周波数/周期の内で最も指定した値に近い周波数/周期を使用する方法もある.
+**Not recommended for use**, but there is a method to use the frequency/period closest to the specified value within the possible output frequencies/periods.
 
 <div class="tabs">
 <input id="rust_tab_nearest" type="radio" class="tab" name="tab_nearest" checked>

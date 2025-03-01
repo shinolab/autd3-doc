@@ -1,6 +1,6 @@
-# 位相補正
+# Phase Correction
 
-`PhaseCorrection`により, 位相を補正することができる.
+`PhaseCorrection` allows you to correct the phase.
 
 <div class="tabs">
 <input id="rust_tab" type="radio" class="tab" name="tab" checked>
@@ -29,4 +29,4 @@
 ```
 </div>
 
-`PhaseCorrection`コンストラクタの引数は`Fn(&Device) -> Fn(&Transducer) -> Phase`で, 振動子毎に指定した位相値が`Gain`, `FociSTM`, `GainSTM`の値に加算されるようになる.
+The constructor argument for `PhaseCorrection` is `Fn(&Device) -> Fn(&Transducer) -> Phase`, which specifies the phase value for each transducer to be added to the values of `Gain`, `FociSTM`, and `GainSTM`.

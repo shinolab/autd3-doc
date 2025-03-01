@@ -1,45 +1,47 @@
-# Python版チュートリアル
+# Python Tutorial
 
-## pyautd3ライブラリのインストール
+## Installing the pyautd3 Library
+
+First, install the `pyautd3` and `pyautd3_link_soem` libraries via pip.
 
 ```shell
 pip install pyautd3
 pip install pyautd3_link_soem
 ```
 
-次に, `main.py`を作成し, 以下のようにする.
-これは単一焦点に$\SI{150}{Hz}$のAM変調をかける場合のソースコードである.
+Next, create `main.py` and edit it as follows.
+This is the source code for applying AM modulation of $\SI{150}{Hz}$ to a single focal point.
 
 ```python,name=main.py
 {{#include ../../../codes/Users_Manual/Tutorial/single/main.py}}
 ```
 
-そして, これを実行する.
+Then, run it.
 
 ```shell
 python main.py
 ```
 
-## Linux使用時の注意
+## Notes for Linux Users
 
-Linuxでは, SOEMを使用するのに管理者権限が必要になる.
-その場合は, 
+On Linux, administrator privileges are required to use SOEM.
+In that case, run:
 ```shell
 sudo setcap cap_net_raw,cap_net_admin=eip <your python path>
 ```
-とした後, `main.py`を実行する.
+Then, run `main.py`.
 ```shell
 python main.py
 ```
 
-## macOS使用時の注意
+## Notes for macOS Users
 
-macOSでは, SOEMを使用するのに管理者権限が必要になる.
-その場合は, 
+On macOS, administrator privileges are required to use SOEM.
+In that case, run:
 ```shell
 sudo chmod +r /dev/bpf*
 ```
-とした後, `main.py`を実行する.
+Then, run `main.py`.
 ```shell
 python main.py
 ```

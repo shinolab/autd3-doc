@@ -1,12 +1,12 @@
 # FociSTM
 
-- 最大音場パターン数は$8192$
-  - 拡張モードの場合は$16384$
-- サンプリングレートは$\ufreq/N$で, $N$は0より大きい16-bit符号なし整数である
+- The maximum number of sound field patterns is $8192$
+  - In extended mode, it is $16384$
+- The sampling rate is $\ufreq/N$, where $N$ is a 16-bit unsigned integer greater than 0
 
-`FociSTM`の使用方法は以下のようになる.
-これは, アレイの中心から直上$\SI{150}{mm}$の点を中心とした半径$\SI{30}{mm}$の円周上で焦点を回すサンプルである.
-円周上を200点サンプリングし, 一周を$\SI{1}{Hz}$で回るようにしている. (すなわち, サンプリング周波数は$\SI{200}{Hz}$である.)
+The usage of `FociSTM` is as follows.
+This is a sample that rotates a focus on the circumference of a circle with a radius of $\SI{30}{mm}$ centered at a point $\SI{150}{mm}$ directly above the center of the array.
+The circumference is sampled at 200 points, rotating at $\SI{1}{Hz}$. (That is, the sampling frequency is $\SI{200}{Hz}$.)
 
 <div class="tabs">
 <input id="rust_tab" type="radio" class="tab" name="tab" checked>
@@ -35,20 +35,19 @@
 ```
 </div>
 
-`config`には周波数のほか, 周期やサンプリング設定を指定することができる.
+In `config`, you can specify the frequency, period, and sampling settings.
 
-サンプリング点数とサンプリング周期に関する制約によって, 指定した周波数で出力できない可能性がある.
-例えば, 上記の例は200点を$\SI{1}{Hz}$で回すため, サンプリング周波数は$\SI{200}{Hz}=\ufreq/200$とすれば良い.
-しかし, 例えば`point_num=199`にすると, サンプリング周波数を$\SI{199}{Hz}$にしなければならないが, $\SI{199}{Hz}=\ufreq/N$を満たすような整数$N$は存在せずエラーになる.
+Due to constraints on the number of sampling points and the sampling period, it may not be possible to output at the specified frequency.
+For example, in the above example, to rotate 200 points at $\SI{1}{Hz}$, the sampling frequency should be $\SI{200}{Hz}=\ufreq/200$.
+However, if `point_num=199`, the sampling frequency must be $\SI{199}{Hz}$, but there is no integer $N$ that satisfies $\SI{199}{Hz}=\ufreq/N$, resulting in an error.
 
-`FociSTM::into_nearest`を使用すると, 最も近い$N$が選択されるようになるが, 指定した周波数と実際の周波数がずれる可能性があるため注意が必要である.
+Using `FociSTM::into_nearest`, the nearest $N$ is selected, but note that the actual frequency may differ from the specified frequency.
 
-## 多焦点
+## Multiple Foci
 
-`FociSTM`では最大8焦点を同時に出すことができる.
+`FociSTM` can output up to 8 foci simultaneously.
 
-以下は2焦点の例である.
-
+Below is an example with 2 foci.
 
 <div class="tabs">
 <input id="rust_tab_mult" type="radio" class="tab" name="tab_mult" checked>
@@ -77,18 +76,17 @@
 ```
 </div>
 
-`FociSTM`の多焦点音場は単純な単焦点音場の重ね合わせである.
-すなわち, 振動子の位置$x_\text{t}$, 各焦点位置$x_i$, 超音波周波数$f$, 音速$c$に対して, 以下の計算により位相$\theta$を求めている.
+The multi-focus sound field of `FociSTM` is a simple superposition of single-focus sound fields.
+That is, for the position of the transducer $x_\text{t}$, each focus position $x_i$, ultrasonic frequency $f$, and speed of sound $c$, the phase $\theta$ is calculated as follows.
 $$
 \theta = \angle \sum_i \mathrm{e}^{2\pi\mathrm{j}\frac{f}{c}\|x_i-x_\text{t}\| + \mathrm{j}\phi_i}
 $$
-ここで, $\phi_i$は各焦点の位相オフセットである.
-振幅に関しては, $\displaystyle \left\|\sum_i\mathrm{e}^{2\pi\mathrm{j}\frac{f}{c}\|x_i-x_\text{t}\| + \mathrm{j}\phi_i}\right\|$ **ではなく**, ソフトウェアからの指定値を使用する.
+Here, $\phi_i$ is the phase offset of each focus.
+For amplitude, the specified value from the software is used **instead of** $\displaystyle \left\|\sum_i\mathrm{e}^{2\pi\mathrm{j}\frac{f}{c}\|x_i-x_\text{t}\| + \mathrm{j}\phi_i}\right\|$.
 
-## 制約
+## Constraints
 
-データ量を削減するため, `FociSTM`では, 焦点位置座標を$\SI{0.025}{mm}$を単位とする$\SI{18}{bit}$符号あり固定小数点数にエンコードして使用する.
-そのため, 各軸方向に対して, すべての振動子から$[\SI{-3276.8}{mm}, \SI{3276.775}{mm}]$の範囲にある焦点しか出力できない.
+To reduce data volume, `FociSTM` encodes the focus position coordinates as $\SI{18}{bit}$ signed fixed-point numbers with a unit of $\SI{0.025}{mm}$.
+Therefore, for each axis direction, only foci within the range of $[\SI{-3276.8}{mm}, \SI{3276.775}{mm}]$ from all transducers can be output.
 
-また, 内部計算も固定小数点数で行っているため, `gain::Focus`などとは異なる位相になる可能性がある.
-詳しくは, [ファームウェアのドキュメント](./../../../Developer_Manual/fpga/stm.md)を参照.
+Also, since internal calculations are performed with fixed-point numbers, the phase may differ from that of `gain::Focus`.

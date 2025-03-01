@@ -1,6 +1,6 @@
-# チュートリアル
+# Tutorial
 
-ここでは, 実際にAUTD3を動かす手順について述べる.
+This section describes the steps to actually operate the AUTD3 devices.
 
-- [単一デバイスの駆動](./tutorial/single.md)
-- [複数デバイスの駆動](./tutorial/multiple.md)
+- [Single Device](./tutorial/single.md)
+- [Multiple Devices](./tutorial/multiple.md)

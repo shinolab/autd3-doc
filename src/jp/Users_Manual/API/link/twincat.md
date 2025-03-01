@@ -111,19 +111,23 @@ cargo add autd3-link-twincat
 target_link_libraries(<TARGET> PRIVATE autd3::link::twincat)
 ```
 
-```cs,name=Shell
-dotnet add package AUTD3Sharp.Link.TwinCAT
-```
-
-<div class="tab_content" id="unity_code_content">
+<div class="tab_content" id="cs_code_content">
   <p>
-    <code class="hljs">https://github.com/shinolab/AUTD3Sharp.Link.TwinCAT.git#upm/latest</code>をUnity Package Managerで追加する.
+    メインライブラリに含まれている.
   </p>
 </div>
 
-```python,name=Shell
-pip install pyautd3_link_twincat
-```
+<div class="tab_content" id="unity_code_content">
+  <p>
+    メインライブラリに含まれている.
+  </p>
+</div>
+
+<div class="tab_content" id="python_code_content">
+  <p>
+    メインライブラリに含まれている.
+  </p>
+</div>
 </div>
 
 ### APIs

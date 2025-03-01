@@ -1,7 +1,7 @@
 # Link
 
-LinkはAUTD3デバイスとのインターフェースである.
-以下の中から一つを選択する必要がある.
+Link is the interface to the AUTD3 device.
+You need to choose one from the following.
 
 - [TwinCAT](./link/twincat.md)
 - [SOEM](./link/soem.md)

@@ -1,17 +1,17 @@
-# バージョニング
+# Versioning
 
-AUTD3はv8.2.0から[セマンティック バージョニング](https://semver.org/lang/ja/)に従っている.
+AUTD3 follows [Semantic Versioning](https://semver.org/) starting from v8.2.0.
 
-AUTD3 SDKのバージョンはvX.Y.Zと表記される.
+The version of the AUTD3 SDK is represented as vX.Y.Z.
 
-- Xはメジャーバージョンを表し, これが異なるSDK間では互換性は保証されない.
-- Yはマイナーバージョンを表し, 後方互換性を保つような機能追加があった場合に上げられる.
-- Zはパッチバージョンを表し, 後方互換性を保つようなバグ修正があった場合に上げられる.
+- X represents the major version, and compatibility is not guaranteed between SDKs with different major versions.
+- Y represents the minor version, which is incremented when backward-compatible features are added.
+- Z represents the patch version, which is incremented when backward-compatible bug fixes are made.
 
-## ファームウェアのバージョン
+## Firmware Version
 
-ファームウェアのバージョンもvX.Y.Zと表記され, セマンティク バージョニングに従う.
+The firmware version is also represented as vX.Y.Z and follows Semantic Versioning.
 
-ただし, ファームウェアのバージョンはソフトウェアのバージョンとは異なる.
+However, the firmware version is different from the software version.
 
-ファームウェアとソフトウェアのバージョン対応表は[リリースノート](./release_notes.md)を参照されたい.
+Refer to the [release notes](./release_notes.md) for the compatibility table between firmware and software versions.

@@ -1,19 +1,19 @@
-# C++版チュートリアル
+# C++ Tutorial
 
-## 依存プログラムのインストール
+## Installing Dependencies
 
-本チュートリアルでは[CMake](https://cmake.org/)を使用するので, インストールしておくこと.
+This tutorial uses [CMake](https://cmake.org/), so make sure it is installed.
 
-## AUTD3クライアントプログラムの作成
+## Creating an AUTD3 Client Program
 
-まず, ターミナルを開き, 適当なディレクトリを用意する.
+First, open a terminal and prepare an appropriate directory.
 
 ```shell
 mkdir autd3-sample
 cd autd3-sample
 ```
 
-次に, `autd3-sample`以下に`CMakeLists.txt`, `main.cpp`ファイルを作成する.
+Next, create `CMakeLists.txt` and `main.cpp` files under `autd3-sample`.
 
 ```shell,name=
 └─autd3-sample
@@ -21,22 +21,22 @@ cd autd3-sample
         main.cpp
 ```
 
-次に, `CMakeLists.txt`を以下のようにする.
+Next, edit `CMakeLists.txt` as follows.
 
 ```ignore,name=CMakeLists.txt
 {{#include ../../../codes/Users_Manual/Tutorial/single/CMakeLists.txt}}
 ```
 
-> NOTE: 上記の例では, 依存ライブラリ (Eigen3) を自動的にダウンロードするようになっている.
-> すでにEigen3がインストールされている場合, `USE_SYSTEM_EIGEN`をONにすると, 自動ダウンロードを無効化し, インストール済みのものを使用できる.
+> NOTE: In the above example, the dependency library (Eigen3) is automatically downloaded.
+> If Eigen3 is already installed, you can disable the automatic download by turning on `USE_SYSTEM_EIGEN` and use the installed one.
 
-また, `main.cpp`を以下のようにする. これは単一焦点に$\SI{150}{Hz}$のAM変調をかける場合のソースコードである.
+Also, edit `main.cpp` as follows. This is the source code for applying AM modulation of $\SI{150}{Hz}$ to a single focal point.
 
 ```cpp,name=main.cpp
 {{#include ../../../codes/Users_Manual/Tutorial/single/main.cpp}}
 ```
 
-次に, CMakeでビルドする.
+Next, build with CMake.
 
 ```shell
 mkdir build
@@ -45,7 +45,7 @@ cmake .. -DCMAKE_BUILD_TYPE=Release
 cmake --build . --config Release
 ```
 
-これで, 実行ファイルが生成されるので, これを実行する.
+This will generate an executable file, so run it.
 
 ```shell,filename=Windows
 .\Release\main.exe
@@ -55,7 +55,7 @@ cmake --build . --config Release
 sudo ./main
 ```
 
-# トラブルシューティング
+# Troubleshooting
 
-- anaconda (miniconda) がactivateされている場合に, ビルドエラーになる可能性がある.
-  - この場合, `build`ディレクトリを削除し, `conda deactivate`を実行したのち再び`cmake`を実行する.
+- There may be build errors if anaconda (miniconda) is activated.
+  - In this case, delete the `build` directory, run `conda deactivate`, and then run `cmake` again.

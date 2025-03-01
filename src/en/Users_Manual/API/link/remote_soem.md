@@ -1,6 +1,6 @@
 # RemoteSOEM
 
-このLinkは`SOEM`を動かすサーバーPCとユーザプログラムを動かすクライアントPCを分離するためのものである.
+This link is used to separate the server PC running `SOEM` from the client PC running the user program.
 
 ## Install
 
@@ -47,7 +47,7 @@ dotnet add package AUTD3Sharp.Link.SOEM
 
 <div class="tab_content" id="unity_code_content">
   <p>
-    <code class="hljs">https://github.com/shinolab/AUTD3Sharp.Link.SOEM.git#upm/latest</code>をUnity Package Managerで追加する.
+    Add <code class="hljs">https://github.com/shinolab/AUTD3Sharp.Link.SOEM.git#upm/latest</code> to Unity Package Manager.
   </p>
 </div>
 
@@ -56,38 +56,39 @@ pip install pyautd3_link_soem
 ```
 </div>
 
-## セットアップ
+## Setup
 
-`RemoteSOEM`を使用する場合はPCを2台用意する必要がある.
-この時, 片方のPCは[`SOEM`](./soem.md)が使えるPCである必要がある.
-このPCをここでは"サーバ"と呼ぶ.
-一方, 開発側のPC, 即ちSDKを使用する側は特に制約はなく, サーバと同じLANに繋がっていれば良い, こちらをここでは"クライアント"と呼ぶ.
+To use `RemoteSOEM`, you need two PCs.
+One of these PCs must be able to use [`SOEM`](./soem.md).
+Hereby, this PC is referred to as the "server".
+The other PC, which is the development PC using the SDK, has no particular restrictions as long as it is connected to the same LAN as the server. 
+Hereby, this PC is referred to as the "client".
 
-まず, サーバとAUTDデバイスを接続する.
-また, サーバとクライアントを別のLANで繋ぐ[^fn_remote_soem].
-そして, サーバとクライアント間のLANのIPを確認しておく.
-ここでは例えば, サーバ側が`172.16.99.104`, クライアント側が`172.16.99.62`だったとする.
+First, connect the server to the AUTD device.
+Then, connect the server and client via a different LAN[^fn_remote_soem].
+Next, check the IP addresses of the LAN between the server and client.
+For example, let's assume the server's IP is `172.16.99.104` and the client's IP is `172.16.99.62`.
 
 ### AUTD Server
 
-`RemoteSOEM`を使用する場合, サーバに`AUTD Server`をインストールする必要がある.
-[GitHub Releases](https://github.com/shinolab/autd3-server/releases)にてインストーラを配布しているので, これをダウンロードし, 指示に従ってインストールする.
+When using `RemoteSOEM`, you need to install `AUTD Server` on the server.
+The installer is available on [GitHub Releases](https://github.com/shinolab/autd3-server/releases), so download it and follow the instructions to install it.
 
-`AUTD Server`を実行すると, 以下のような画面になるので, `SOEM`タブを開く.
+When you run `AUTD Server`, you will see a screen like the one below. Open the `SOEM` tab.
 
 <figure>
   <img src="../../../fig/Users_Manual/autdserver_remotesoem.jpg"/>
 </figure>
 
-ポートに適当なポート番号を指定し, `Run`ボタンを押す.
+Specify an appropriate port number in the port field and press the `Run` button.
 
-AUTD3デバイスが見つかり, クライアントとの接続待ちである旨のメッセージが表示されれば成功である.
+If the AUTD3 device is found and a message indicating that it is waiting for a connection from the client is displayed, the setup is successful.
 
-なお, `AUTD Server`では[`SOEM`](./soem.md)と同等のオプションを指定できる.
+Note that `AUTD Server` allows you to specify options equivalent to those of [`SOEM`](./soem.md).
 
 ### APIs
 
-`RemoteSOEM`のコンストラクタでは, <サーバのIP:ポート>を指定する.
+In the constructor of `RemoteSOEM`, specify the <server IP:port>.
 
 <div class="tabs">
 <input id="rust_tab_api" type="radio" class="tab" name="tab_api" checked>
@@ -116,9 +117,9 @@ AUTD3デバイスが見つかり, クライアントとの接続待ちである�
 ```
 </div>
 
-## ファイアウォール
+## Firewall
 
-TCP関係のエラーが出る場合は, ファイアウォールでブロックされている可能性がある.
-その場合は, ファイアウォールの設定でTCP/UDPの指定したポートの接続を許可する.
+If you encounter TCP-related errors, it is possible that the firewall is blocking the connection.
+In that case, configure the firewall to allow connections on the specified TCP/UDP port.
 
-[^fn_remote_soem]: 無線LANでも可
+[^fn_remote_soem]: Wireless LAN is also acceptable.

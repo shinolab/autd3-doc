@@ -1,93 +1,90 @@
 # TwinCAT
 
-TwinCATはPCでEherCATを使用する際の唯一の公式の方法である.
-TwinCATはWindowsのみをサポートする非常に特殊なソフトウェアであり, Windowsを半ば強引にリアルタイム化する.
+TwinCAT is the only official way to use EtherCAT on a Windows PC.
+TwinCAT is very specialized software that only supports Windows and forces Windows to operate in real-time.
 
-また, 特定のネットワークコントローラが求められるため,
-[対応するネットワークコントローラの一覧](https://infosys.beckhoff.com/english.php?content=../content/1033/tc3_overview/9309844363.html&id=)を確認すること.
+TwinCAT requires specific network controllers, so please check the [list of compatible network controllers](https://infosys.beckhoff.com/english.php?content=../content/1033/tc3_overview/9309844363.html&id=).
 
-> Note: 或いは, TwinCATのインストール後に, `C:/TwinCAT/3.1/Driver/System/TcI8254x.inf`に対応するデバイスのVendor IDとDevice IDが書かれているので,「デバイスマネージャー」→「イーサネットアダプタ」→「プロパティ」→「詳細」→「ハードウェアID」と照らし合わせることでも確認できる.
+> Note: Alternatively, after installing TwinCAT, you can see the Vendor ID and Device ID of supported network controllers in `C:/TwinCAT/3.1/Driver/System/TcI8254x.inf`. The Vendor ID and Device ID of your network controller can be checked in "Device Manager" → "Ethernet Adapter" → "Properties" → "Details" → "Hardware ID".
 
-上記以外のネットワークコントローラでも動作する場合があるが, その場合, 正常な動作とリアルタイム性は保証されない.
+It may work with network controllers other than those listed above, but in that case, normal operation and real-time performance are not guaranteed.
 
 [[_TOC_]]
 
-## 事前準備
+## Prerequisites
 
-### TwinCATのインストール
+### Installing TwinCAT
 
-前提として, TwinCATはHyper-VやVirtual Machine Platformと共存できない.
-そのため, これらの機能を無効にする必要がある.
-これには, 例えば, PowerShellを管理者権限で起動し,
+As a prerequisite, TwinCAT cannot coexist with Hyper-V or Virtual Machine Platform.
+Therefore, these features need to be disabled.
+For example, you can disable them by opening PowerShell with administrator privileges and typing:
 
 ```PowerShell
 Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-Hypervisor
 Disable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform
 ```
 
-と打ち込めば良い.
+Also, for Windows 11, you need to turn off the virtualization-based security feature.
+Go to "Windows Security" → "Device Security" → "Core Isolation" → "Memory Integrity" and turn it off.
 
-また, Windows 11の場合, 仮想化ベースのセキュリティ機能もオフにする必要がある.
-「Windows セキュリティ」→ 「デバイス セキュリティ」→「コア分離」→「メモリ整合性」をオフにする.
+First, download TwinCAT XAE from the [official website](https://www.beckhoff.com/en-en/).
+Registration (free) is required to download.
 
-まず, TwinCAT XAEを[公式サイト](https://www.beckhoff.com/en-en/)からダウンロードする.
-ダウンロードには登録 (無料) が必要になる.
+Run the downloaded installer and follow the instructions.
+**At this time, check "TwinCAT XAE Shell install" and uncheck "Visual Studio Integration".**
 
-ダウンロードしたインストーラを起動し, 指示に従う.
-**この時, TwinCAT XAE Shell installにチェックを入れ, Visual Studio Integrationのチェックを外すこと.**
+After installation, restart your computer and run `C:/TwinCAT/3.1/System/win8settick.bat` with administrator privileges, then restart again.
 
-インストール後に再起動し, `C:/TwinCAT/3.1/System/win8settick.bat`を管理者権限で実行し, 再び再起動する.
+### Installing AUTD3 Server
 
-### AUTD3 Serverのインストール
+To use TwinCAT Link, you first need to install `AUTD3 Server`.
+The installer is distributed on [GitHub Releases](https://github.com/shinolab/autd3-server/releases), so download it and follow the instructions to install it.
 
-TwinCATのLinkを使うには, まず, `AUTD3 Server`をインストールする必要がある.
-[GitHub Releases](https://github.com/shinolab/autd3-server/releases)にてインストーラを配布しているので, これをダウンロードし, 指示に従ってインストールする.
+> NOTE: Be sure to use the `AUTD Server` that matches the version of the software you are using.
 
-> NOTE: 必ず, 使用するソフトウェアのバージョンに合わせた`AUTD Server`を使用すること.
+> NOTE: There is also a [CLI version](https://github.com/shinolab/TwinCATAUTDServer/releases).
 
-> NOTE: [CLI版](https://github.com/shinolab/TwinCATAUTDServer/releases)もある.
-
-`AUTD3 Server`を実行すると, 以下のような画面になるので, `TwinCAT`タブを開く.
+When you run `AUTD3 Server`, the following screen will appear, so open the `TwinCAT` tab.
 
 <figure>
   <img src="../../../fig/Users_Manual/autdserver_twincat.jpg"/>
 </figure>
 
-### 初回の追加作業
+### Initial Setup
 
-初回のみ, 以下の作業が必要になる.
+The following tasks are required only for the first time.
 
-まず, 「Copy AUTD.xml」ボタンを押す.
-ここで, 「AUTD.xml is successfully copied」のようなメッセージが出れば成功である.
+First, press the "Copy AUTD.xml" button.
+If a message like "AUTD.xml is successfully copied" appears, it is successful.
 
-次に, 「Open XAE Shell」ボタンを押し, XAE Shellを開く.
-TwinCAT XAE Shell上部メニューから「TwinCAT」→「Show Realtime Ethernet Compatible Devices」を開き「Compatible devices」の中の対応デバイスを選択し, Installをクリックする.
-「Installed and ready to use devices (realtime capable)」にインストールされたアダプタが表示されていれば成功である.
+Next, press the "Open XAE Shell" button to open the XAE Shell.
+From the top menu of TwinCAT XAE Shell, open "TwinCAT" → "Show Realtime Ethernet Compatible Devices", select the compatible device from "Compatible devices", and click Install.
+If the installed adapter is displayed in "Installed and ready to use devices (realtime capable)", it is successful.
 
-なお,「Compatible devices」に何も表示されていない場合はそのPCのイーサネットデバイスはTwinCATに対応していない.
-「Incompatible devices」の中のドライバもインストール自体は可能で, インストールすると「Installed and ready to use devices (for demo use only)」と表示される.
-この場合, 使用できるが動作保証はない.
+If nothing is displayed in "Compatible devices", the Ethernet device of that PC is not compatible with TwinCAT.
+Drivers in "Incompatible devices" can also be installed, and if installed, they will be displayed as "Installed and ready to use devices (for demo use only)".
+In this case, it can be used but is not guaranteed to work.
 
-### AUTD Serverの実行
+### Running AUTD Server
 
-AUTD3とPCを接続し, AUTD3の電源が入った状態で, 「Run」ボタンを押す.
-このとき, 「Client IP address」の欄は空白にしておくこと.
+Connect AUTD3 to the PC and with AUTD3 powered on, press the "Run" button.
+At this time, leave the "Client IP address" field blank.
 
-下の画面のように, AUTD3デバイスが見つかった旨のメッセージが出れば成功である.
+If a message appears indicating that the AUTD3 device has been found, as shown in the screen below, it is successful.
 
 <figure>
   <img src="../../../fig/Users_Manual/autdserver_twincat_run.jpg"/>
 </figure>
 
-なお, TwinCATはPCの電源を切る, スリープモードに入る等で接続が途切れるので, その都度実行し直すこと.
+Note that TwinCAT will disconnect when the PC is powered off, enters sleep mode, etc., so you need to run it again each time.
 
-### ライセンス
+### License
 
-初回はライセンス関係のエラーが出るので, XAE Shellで「Solution Explorer」→「SYSTEM」→「License」を開き, 「7 Days Trial License ...」をクリックし, 画面に表示される文字を入力する.
-なお, ライセンスは7日間限定のトライアルライセンスだが, 切れたら再び同じ作業を行うことで再発行できる.
-ライセンスを発行し終わったら, "TwinCAT XAE Shell"を閉じて, 再び実行する.
+The first time, a license-related error will appear, so open "Solution Explorer" → "SYSTEM" → "License" in XAE Shell, click "7 Days Trial License ...", and enter the characters displayed on the screen.
+Note that the license is a 7-day trial license, but you can reissue it by performing the same operation again after it expires.
+After issuing the license, close "TwinCAT XAE Shell" and run it again.
 
-## TwinCATリンク
+## TwinCAT Link
 
 ### Install
 
@@ -111,19 +108,23 @@ cargo add autd3-link-twincat
 target_link_libraries(<TARGET> PRIVATE autd3::link::twincat)
 ```
 
-```cs,name=Shell
-dotnet add package AUTD3Sharp.Link.TwinCAT
-```
-
-<div class="tab_content" id="unity_code_content">
+<div class="tab_content" id="cs_code_content">
   <p>
-    <code class="hljs">https://github.com/shinolab/AUTD3Sharp.Link.TwinCAT.git#upm/latest</code>をUnity Package Managerで追加する.
+    Included in the main library.
   </p>
 </div>
 
-```python,name=Shell
-pip install pyautd3_link_twincat
-```
+<div class="tab_content" id="unity_code_content">
+  <p>
+    Included in the main library.
+  </p>
+</div>
+
+<div class="tab_content" id="python_code_content">
+  <p>
+    Included in the main library.
+  </p>
+</div>
 </div>
 
 ### APIs
@@ -155,18 +156,18 @@ pip install pyautd3_link_twincat
 ```
 </div>
 
-### トラブルシューティング
+### Troubleshooting
 
-大量のデバイスを使用しようとすると, 下の図のようなエラーが発生することがある.
+When trying to use a large number of devices, an error like the one shown below may occur.
 
 <figure>
   <img src="../../../fig/Users_Manual/tcerror.jpg"/>
-  <figcaption>9台のAUTD3デバイスを使用した際のTwinCATエラー</figcaption>
+  <figcaption>TwinCAT error when using 9 AUTD3 devices</figcaption>
 </figure>
 
-この場合は, `AUTD3 Server`の`Sync0 cycle time`と`Send task cycle time`の値を増やし, AUTD Serverを再び実行する.
-これらのオプションの値はデフォルトでそれぞれ$\SI{1}{ms}$になっている.
+In this case, increase the values of `Sync0 cycle time` and `Send task cycle time` in `AUTD3 Server`, and run AUTD Server again.
+The default values for these options are $\SI{1}{ms}$ each.
 
-どの程度の値にすればいいかは接続する台数による.
-エラーが出ない中で可能な限り小さな値が望ましい.
-例えば, 9台の場合は$1.5$--$\SI{2}{ms}$程度の値にしておけば動作するはずである.
+The appropriate values depend on the number of devices connected.
+The smallest possible value that does not cause an error is desirable.
+For example, for 9 devices, a value of about $1.5$--$\SI{2}{ms}$ should work.

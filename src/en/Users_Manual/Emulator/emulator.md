@@ -1,9 +1,9 @@
-# エミュレータ
+# Emulator
 
-`Emulator`を使用すると, `Simulator`よりも詳細な出力位相/パルス幅, 出力電圧, 出力音波, および, 音場の計算が行える.
+By using the `Emulator`, you can perform more detailed calculations of output phase/pulse width, output voltage, output sound wave, and sound field compared to the `Simulator`.
 
-> NOTE: 現在, `Emulator`はRust, 及び, Pythonからのみ使用可能である.
-> C++, C#へ移植する予定はない.
+> NOTE: Currently, the `Emulator` is only available in Rust and Python.
+> There are no plans to port it to C++ or C#.
 
 [[_TOC_]]
 
@@ -25,15 +25,14 @@ pip install pyautd3_emulator
 </div>
 
 ## APIs
+The data output by the `Emulator` is a Polars DataFrame.
+For more details, please refer to the [Polars documentation](https://pola.rs/).
 
-`Emulator`が出力するデータはPolarsのDataFrameである.
-詳しくは, [Polarsのドキュメント](https://pola.rs/)を参照されたい.
+### Transducer Table
 
-### 振動子テーブル
+Displays a list of transducers.
 
-振動子の一覧を表示する.
-
-各列には, デバイスインデックス, 振動子の(ローカル)インデックス, 位置, 極方向が格納される.
+Each column contains the device index, the (local) index of the transducer, position, and axial direction.
 
 <div class="tabs">
 <input id="rust_tab_tr_table" type="radio" class="tab" name="tab_tr_table" checked>
@@ -70,7 +69,7 @@ pip install pyautd3_emulator
 └─────────┴────────┴────────────┴────────────┴───────┴─────┴─────┴─────┘
 ```
 
-### 出力位相/パルス幅の計算
+### Calculation of Output Phase/Pulse Width
 
 <div class="tabs">
 <input id="rust_tab_phase" type="radio" class="tab" name="tab_phase" checked>
@@ -87,12 +86,12 @@ pip install pyautd3_emulator
 ```
 </div>
 
-> NOTE: `tick`で指定する時間間隔は, $\SI{25}{us}$の倍数である必要がある.
+> NOTE: The time interval specified by `tick` must be a multiple of $\SI{25}{us}$.
 
-各時刻 ($\SI{25}{us}$単位) における, 位相/パルス幅が各列に格納される.
-各列の名前は`<phase/pulse_width>@<時刻>[ns]`である.
+At each time ($\SI{25}{us}$ unit), the phase/pulse width is stored in each column.
+Each column name is `<phase/pulse_width>@<time>[ns]`.
 
-各行は[振動子テーブル](#振動子テーブル)の行と対応している.
+Each row corresponds to the rows in the [Transducer Table](#transducer-table).
 
 ```
 ┌─────────────┬────────────────┬────────────────┬────────────────┬───┬────────────────┬───────────────┬───────────────┬───────────────┐
@@ -136,8 +135,7 @@ pip install pyautd3_emulator
 │ 4              ┆ 8              ┆ 12            ┆ 16            ┆ … ┆ 25            ┆ 26            ┆ 27            ┆ 29            │
 └────────────────┴────────────────┴───────────────┴───────────────┴───┴───────────────┴───────────────┴───────────────┴───────────────┘
 ```
-
-### 出力電圧
+### Output Voltage
 
 <div class="tabs">
 <input id="rust_tab_voltage" type="radio" class="tab" name="tab_voltage" checked>
@@ -154,10 +152,10 @@ pip install pyautd3_emulator
 ```
 </div>
 
-各時刻 ($\SI{25}{us}/256$単位) における, 出力電圧が各列に格納される.
-各列の名前は`voltage[V]@<時刻>[25us/256]`である.
+The output voltage at each time ($\SI{25}{us}/256$ unit) is stored in each column.
+Each column name is `voltage[V]@<time>[25us/256]`.
 
-各行は[振動子テーブル](#振動子テーブル)の行と対応している.
+Each row corresponds to the rows in the [Transducer Table](#transducer-table).
 
 ```
 ┌────────────────┬────────────────┬───────────────┬───────────────┬───┬───────────────┬───────────────┬───────────────┬───────────────┐
@@ -179,8 +177,7 @@ pip install pyautd3_emulator
 │ 12.0           ┆ 12.0           ┆ 12.0          ┆ 12.0          ┆ … ┆ -12.0         ┆ -12.0         ┆ -12.0         ┆ -12.0         │
 └────────────────┴────────────────┴───────────────┴───────────────┴───┴───────────────┴───────────────┴───────────────┴───────────────┘
 ```
-
-### 出力音圧
+### Output Sound Pressure
 
 <div class="tabs">
 <input id="rust_tab_ultrasound" type="radio" class="tab" name="tab_ultrasound" checked>
@@ -197,10 +194,10 @@ pip install pyautd3_emulator
 ```
 </div>
 
-各時刻 ($\SI{25}{us}/256$単位) における, 規格化された出力音圧が各列に格納される.
-各列の名前は`p[a.u.]@<時刻>[25us/256]`である.
+The normalized output sound pressure at each time ($\SI{25}{us}/256$ unit) is stored in each column.
+Each column name is `p[a.u.]@<time>[25us/256]`.
 
-各行は[振動子テーブル](#振動子テーブル)の行と対応している.
+Each row corresponds to the rows in the [Transducer Table](#transducer-table).
 
 ```
 ┌────────────────┬────────────────┬───────────────┬───────────────┬───┬───────────────┬───────────────┬───────────────┬───────────────┐
@@ -222,8 +219,7 @@ pip install pyautd3_emulator
 │ 0.0            ┆ -0.000527      ┆ -0.000817     ┆ -0.000865     ┆ … ┆ -0.411363     ┆ -0.389469     ┆ -0.367366     ┆ -0.345066     │
 └────────────────┴────────────────┴───────────────┴───────────────┴───┴───────────────┴───────────────┴───────────────┴───────────────┘
 ```
-
-### 音場の計算 (瞬時値)
+### Calculation of Sound Field (Instantaneous Value)
 
 <div class="tabs">
 <input id="rust_tab_instant" type="radio" class="tab" name="tab_instant" checked>
@@ -237,7 +233,7 @@ pip install pyautd3_emulator
 
 <div class="tab_content" id="rust_code_content">
 <blockquote>
-<p>NOTE: <code class="hljs">gpu</code>オプションは, <code class="hljs">gpu</code> featureを有効にしている場合のみ使用可能である.</p>
+<p>NOTE: The <code class="hljs">gpu</code> option is only available if the <code class="hljs">gpu</code> feature is enabled.</p>
 </blockquote>
 </div>
 
@@ -246,19 +242,18 @@ pip install pyautd3_emulator
 ```
 </div>
 
-> NOTE: 計測点を指定する方法として, Rust版は, `RangeXYZ`以外に, 列挙順の異なる`RangeZXY`等や, 2次元専用の`RangeXY`等, 1次元専用の`RangeX`等が使用できる.
-> あるいは, 任意の点を指定するために, `Vec<Vector3>`が使用できる.
-> Python版は, `RangeXYZ`のみが使用できる.
+> NOTE: In Rust, besides `RangeXYZ`, you can use `RangeZXY`, `RangeXY` for 2D, `RangeX` for 1D and so on, or `Vec<Vector3>` to specify arbitrary points.
+> In Python, only `RangeXYZ` is available.
 
-`print_progress`オプションを有効にすると計算の進捗が表示される.
-また, `gpu`オプションを有効にすると, 計算がGPU上で実行される.
+Enabling the `print_progress` option will display the calculation progress.
+Enabling the `gpu` option will execute the calculation on the GPU.
 
-膨大なメモリが消費される可能性があるため, `next`関数によって, 一部時刻のみを取得するようになっている.
-なお, `skip`関数を使用することで, 指定した時間だけスキップすることができる.
+Due to the potential for high memory consumption, the `next` function is used to retrieve only specific times.
+The `skip` function can be used to skip a specified amount of time.
 
-各観測点における, 出力音圧が時系列順 (単位は`time_step`で指定) に各列に格納される.
-各列の名前は, `p[Pa]@<時刻>[ns]`である.
-各行は, `observe_points`で取得できる観測点と対応している.
+The output sound pressure at each observation point is stored in each column in chronological order (unit specified by `time_step`).
+Each column name is `p[Pa]@<time>[ns]`.
+Each row corresponds to the observation points obtained with `observe_points`.
 
 ```
 ┌────────────┬───────────┬───────┐
@@ -299,8 +294,7 @@ pip install pyautd3_emulator
 │ 16.812843        ┆ 10.601947        ┆ 4.084629         ┆ 0.993495         ┆ … ┆ 103.386879       ┆ 45.764156        ┆ -15.166505       ┆ -69.37468        │
 └──────────────────┴──────────────────┴──────────────────┴──────────────────┴───┴──────────────────┴──────────────────┴──────────────────┴──────────────────┘
 ```
-
-### 音場の計算 (RMS)
+### Calculation of Sound Field (RMS)
 
 <div class="tabs">
 <input id="rust_tab_rms" type="radio" class="tab" name="tab_rms" checked>
@@ -314,7 +308,7 @@ pip install pyautd3_emulator
 
 <div class="tab_content" id="rust_code_content">
 <blockquote>
-<p>NOTE: <code class="hljs">gpu</code>オプションは, <code class="hljs">gpu</code> featureを有効にしている場合のみ使用可能である.</p>
+<p>NOTE: The <code class="hljs">gpu</code> option is only available if the <code class="hljs">gpu</code> feature is enabled.</p>
 </blockquote>
 </div>
 
@@ -323,13 +317,13 @@ pip install pyautd3_emulator
 ```
 </div>
 
-> NOTE: 最低, $\SI{25}{us}$は時刻を進める必要がある.
+> NOTE: The time must advance by at least $\SI{25}{us}$.
 
-> NOTE: RMSで計算される値は, **上記の瞬時音場のRMSではない**. 伝搬遅延や振動子の応答を無視した線形重ね合わせである.
+> NOTE: The values calculated by RMS are **not the RMS of the instantaneous sound field above**. They are a linear superposition that ignores propagation delays and transducer responses.
 
-各観測点における, 出力音圧のRMSが時系列順 (単位は$\SI{25}{us}$) で各列に格納される.
-各列の名前は, `rms[Pa]@<時刻>[ns]`である.
-各行は, `observe_points`で取得できる観測点と対応している.
+The RMS of the output sound pressure at each observation point is stored in each column in chronological order (unit is $\SI{25}{us}$).
+Each column name is `rms[Pa]@<time>[ns]`.
+Each row corresponds to the observation points obtained with `observe_points`.
 
 ```
 ┌────────────┬───────────┬───────┐
@@ -371,4 +365,4 @@ pip install pyautd3_emulator
 └───────────────┘
 ```
 
-さらなる, Exampleは[autd3-emulator (Rust)](https://github.com/shinolab/autd3-emulator/tree/main/examples), 及び, [pyautd3 (Python)](https://github.com/shinolab/pyautd3/tree/main/example/emulator)を参照されたい.
+For more examples, please refer to [autd3-emulator (Rust)](https://github.com/shinolab/autd3-emulator/tree/main/examples) and [pyautd3 (Python)](https://github.com/shinolab/pyautd3/tree/main/example/emulator).

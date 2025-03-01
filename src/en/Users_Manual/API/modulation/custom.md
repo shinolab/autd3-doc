@@ -1,6 +1,6 @@
 # Custom
 
-`Custom`は指定された符号なし8bitデータ列を出力する`Modulation`である.
+`Custom` is a `Modulation` that outputs the specified unsigned 8-bit data sequence.
 
 <div class="tabs">
 <input id="rust_tab_custom" type="radio" class="tab" name="tab_custom" checked>

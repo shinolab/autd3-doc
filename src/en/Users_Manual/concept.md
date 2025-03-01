@@ -1,35 +1,35 @@
-# コンセプト
+# Concept
 
-SDKを構成する主なコンポーネントは以下の通りである.
+The main components that make up the SDK are as follows.
 
-* `Controller` - AUTD3デバイスに対する全ての操作はこれを介して行う.
-* `Geometry` - `Device`のコンテナ.
-  * `Device` - AUTD3デバイスに対応する. デバイスが現実世界でどのように配置されているかを管理する. `Transducer`のコンテナ.
-  * `Transducer` - 振動子に対応する. 振動子が現実世界でどこにあるかを管理する.
-* `Link` - デバイスとのインターフェース.
-* `Gain` - 各振動子の位相/振幅を管理する.
-* `STM` - Spatio-Temporal Modulation (STM, 時空間変調) 機能を提供する. 各振動子の位相/振幅データの時間列を管理する.
-* `Modulation` - AM変調機能を提供するする. 変調データの時間列を管理する.
-* `Silencer` - 静音化処理を管理する.
+* `Controller` - All operations on the AUTD3 device are performed through this.
+* `Geometry` - Container for `Device`.
+  * `Device` - Corresponds to the AUTD3 device. Manages how the device is positioned in the real world. Container for `Transducer`.
+  * `Transducer` - Corresponds to the transducer. Manages where the transducer is located in the real world.
+* `Link` - Interface with the device.
+* `Gain` - Manages the phase/intensity of each transducer.
+* `STM` - Provides Spatio-Temporal Modulation (STM) functionality. Manages the time series of phase/intensity data for each transducer.
+* `Modulation` - Provides AM modulation functionality. Manages the time series of modulation data.
+* `Silencer` - Manages the silencing process.
 
-ソフトウェアの使用方法は以下の通りである.
+The usage of the software is as follows.
 
-まず, 現実世界のAUTD3デバイスの配置を指定し, どの`Link`を使用するかを決め, `Controller`を開く.
-次に, `Controller`を介して, `Gain` (または`STM`), `Modulation`, `Silencer`データをデバイスに送信する.
+First, specify the arrangement of the AUTD3 devices in the real world, decide which `Link` to use, and open the `Controller`.
+Then, through the `Controller`, send `Gain` (or `STM`), `Modulation`, and `Silencer` data to the device.
 
-送信されたデータに基づいたPWM信号が振動子に印加される.
-信号が生成されるまでの流れは以下の図の通りである.
+Based on the sent data, PWM signals are applied to the transducers.
+The flow until the signal is generated is as follows.
 
 <figure>
   <a href="../fig/Users_Manual/concept.svg" data-lightbox="image"><img src="../fig/Users_Manual/concept.svg"/></a>
-  <figcaption>信号が生成されるまでの概念図</figcaption>
+  <figcaption>Conceptual diagram of signal generation</figcaption>
 </figure>
 
-`Gain`/`STM`で指定された振幅データは, `Modulation`で指定された変調データと順次掛け合わされた後, `Silencer`に渡される.
-`Gain`/`STM`で指定された位相データは, そのまま`Silencer`に渡される.
-`Silencer`は, これらのデータを静音化処理[^silencer]する.
-最後に, `Silencer`で処理された振幅/位相データに基づきPWM信号が生成され, 振動子に印加される. 
+The intensity data specified by `Gain`/`STM` is sequentially multiplied by the modulation data specified by `Modulation` and then passed to the `Silencer`.
+The phase data specified by `Gain`/`STM` is passed directly to the `Silencer`.
+The `Silencer` processes these data for silencing[^silencer].
+Finally, based on the intensity/phase data processed by the `Silencer`, PWM signals are generated and applied to the transducers.
 
-なお, 振幅/位相データ, 及び, 変調データはすべて$\SI{8}{bit}$である.
+Note that the intensity/phase data and modulation data are all $\SI{8}{bit}$.
 
-[^silencer]: 詳細は[Silencer](./silencer.md)を参照.
+[^silencer]: For details, refer to [Silencer](./API/silencer.md).

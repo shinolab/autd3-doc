@@ -1,8 +1,8 @@
 # RadiationPressure
 
-`RadiationPressure`は`Modulation`を音圧ではなく, 放射圧 (音圧の二乗に比例) に印加するための`Modulation`である.
+`RadiationPressure` is a `Modulation` that applies modulation to radiation pressure (proportional to the square of sound pressure) instead of sound pressure.
 
-例えば, $\SI{1}{kHz}$の`Sine`変調に`RadiationPressure`を適用した場合の音圧振幅の放射圧は以下のようになり, 放射圧の包絡線が$\SI{1}{kHz}$のsin波に従う.
+For example, when `RadiationPressure` is applied to a $\SI{1}{kHz}$ `Sine` modulation, the radiation pressure of the sound pressure amplitude will be as follows, and the envelope of the radiation pressure will follow a $\SI{1}{kHz}$ sine wave.
 
 <figure>
   <img src="../../../fig/Users_Manual/sine_1k_mod_rad.png"/>

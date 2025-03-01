@@ -1,22 +1,22 @@
 # Geometry
 
-GeometryはAUTD3デバイスが現実世界でどのように配置されているかを管理している.
+Geometry manages how AUTD3 devices are arranged in the real world.
 
 [[_TOC_]]
 
-## デバイス/振動子のインデックス
+## Device/Transducer Index
 
-デバイスには接続された順に0から始まるインデックスが割り当てられる.
+Devices are assigned an index starting from 0 in the order they are connected.
 
-また, 各デバイスは$249$個の振動子が配置されており, ローカルインデックスが割り振られている ([はじめに/ハードウェア](../getting_started/hardware.md)の「AUTDの表面写真」を参照).
+Each device has 249 transducers arranged, and they are assigned local indices (refer to "AUTD Surface Photo" in [Getting Started/Hardware](../getting_started/hardware.md)).
 
-## GeometryのAPI
+## Geometry API
 
-- `num_devices()`: 有効なデバイスの数を取得
-- `num_transducers()`: 有効な全振動子の数を取得
-- `center()`: 有効な全振動子の中心を取得
+- `num_devices()`: Get the number of enabled devices
+- `num_transducers()`: Get the number of all enabled transducers
+- `center()`: Get the center of all enabled transducers
 
-なお, `Geometry`には`Controller`から直接アクセスできる.
+Note that `Geometry` can be accessed directly from `Controller`.
 
 <div class="tabs">
 <input id="rust_tab_geometry" type="radio" class="tab" name="tab_geometry" checked>
@@ -45,12 +45,12 @@ GeometryはAUTD3デバイスが現実世界でどのように配置されてい�
 ```
 </div>
 
-### Deviceの取得
+### Getting a Device
 
-`Geometry`は`Device`のコンテナになっており, `Device`が`Transducer`のコンテナになっている.
+`Geometry` is a container of `Device`, and `Device` is a container of `Transducer`.
 
-`Device`を取得するには, インデクサを使用する.
-あるいは, イテレータを使用することもできる.
+To get a `Device`, use an indexer.
+Alternatively, you can use an iterator.
 
 <div class="tabs">
 <input id="rust_tab_device" type="radio" class="tab" name="tab_device" checked>
@@ -79,22 +79,22 @@ GeometryはAUTD3デバイスが現実世界でどのように配置されてい�
 ```
 </div>
 
-## DeviceのAPI
+## Device API
 
-- `idx()`: デバイスのインデックス
-- `enable`: 有効/無効フラグ. オフにすると, 以降, そのデバイスのデータは更新されなくなる.
-  - 更新されなくなるだけで, 出力が止まるわけではないことに注意.
-- `sound_speed`: 音速の取得/設定. 単位はmm/s. **位相計算などに使用されるため, 可能な限り現実に即した値を設定することをおすすめする**. デフォルトの音速は$340\times 10^{3}\,\mathrm{mm/s}$となっており, これは, およそ摂氏15度での空気の音速に相当する.
-- `set_sound_speed_from_temp(temp)`: 温度`temp` [℃]から音速を設定. なお, `Geometry`にも同名の関数があり, それを使用することですべての有効なデバイスに対して温度から音速を設定できる.
-- `translate(t)`: `t`による平行移動
-- `rotate(r)`: `r`による回転
-- `affine(t, r)`: アフィン変換 (`t`による平行移動と`r`による回転)
-- `wavelength()`: デバイスが放出する超音波の波長
-- `wavenumber()`: デバイスが放出する超音波の波数
-- `rotation()`: デバイスの回転
-- `x_direction()`: デバイスのx方向ベクトル
-- `y_direction()`: デバイスのy方向ベクトル
-- `axial_direction()`: デバイスの軸方向ベクトル (振動子が向く方向)
+- `idx()`: Device index
+- `enable`: Enable flag. When disabled, the data of the device will not be updated.
+  - Note that it does not stop the output, it just stops updating the data.
+- `sound_speed`: Get/set the speed of sound. The unit is mm/s. **It is recommended to set a value as close to reality as possible because it is used for phase calculation, etc.** The default speed of sound is $340\times 10^{3}\,\mathrm{mm/s}$, which corresponds to the speed of sound in air at approximately 15 degrees Celsius.
+- `set_sound_speed_from_temp(temp)`: Set the speed of sound from the temperature `temp` [℃]. Note that `Geometry` also has a function with the same name, and using it will set the speed of sound from the temperature for all enabled devices.
+- `translate(t)`: Translate by `t`
+- `rotate(r)`: Rotate by `r`
+- `affine(t, r)`: Affine transformation (translation by `t` and rotation by `r`)
+- `wavelength()`: Wavelength of the ultrasound emitted by the device
+- `wavenumber()`: Wavenumber of the ultrasound emitted by the device
+- `rotation()`: Rotation of the device
+- `x_direction()`: X-direction vector of the device
+- `y_direction()`: Y-direction vector of the device
+- `axial_direction()`: Axial direction vector of the device (direction the transducers face)
 
 <div class="tabs">
 <input id="rust_tab_device_api" type="radio" class="tab" name="tab_device_api" checked>
@@ -123,12 +123,12 @@ GeometryはAUTD3デバイスが現実世界でどのように配置されてい�
 ```
 </div>
 
-### Transducerの取得
+### Getting a Transducer
 
-`Device`は`Transducer`のコンテナになっており, `Transducer`は各振動子の情報を格納している.
+`Device` is a container of `Transducer`, and `Transducer` stores information about each transducer.
 
-`Transducer`を取得するには, インデクサを使用する.
-また, イテレータを使用することもできる.
+To get a `Transducer`, use an indexer.
+Alternatively, you can use an iterator.
 
 <div class="tabs">
 <input id="rust_tab_transducer" type="radio" class="tab" name="tab_transducer" checked>
@@ -157,13 +157,13 @@ GeometryはAUTD3デバイスが現実世界でどのように配置されてい�
 ```
 </div>
 
-## TransducerのAPI
+## Transducer API
 
-以下の情報を取得できる.
+The following information can be obtained.
 
-- `idx()`: 振動子の(ローカル)インデックス
-- `dev_idx()`: 振動子が属するデバイスのインデックス
-- `position()`: 振動子の位置
+- `idx()`: (Local) index of the transducer
+- `dev_idx()`: Index of the device to which the transducer belongs
+- `position()`: Position of the transducer
 
 <div class="tabs">
 <input id="rust_tab_transducer_api" type="radio" class="tab" name="tab_transducer_api" checked>

@@ -1,8 +1,8 @@
 # Fir
 
-`with_fir`にて, FIRフィルタを適用することができる.
+You can apply an FIR filter using `Fir`.
 
-以下は, サンプリング周波数$\SI{20}{kHz}$, タップ数$199$, カットオフ周波数$\SI{200}{Hz}$のLPFを適用する例である. 
+Below is an example of applying an LPF with a sampling frequency of $\SI{20}{kHz}$, 199 taps, and a cutoff frequency of $\SI{200}{Hz}$.
 
 <div class="tabs">
 <input id="rust_tab_fir" type="radio" class="tab" name="tab_fir" checked>

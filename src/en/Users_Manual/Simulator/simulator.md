@@ -1,74 +1,74 @@
 # AUTD3 Simulator
 
-AUTD Simulator (以下, シミュレータ) はその名の通りAUTDのシミュレータであり, Windows/Linux/macOSで動作する.
+AUTD Simulator (hereinafter referred to as the simulator) is a simulator for AUTD and works on Windows/Linux/macOS.
 
 ## AUTD Server
 
-シミュレータは`AUTD Server`に付属している.
-[GitHub Releases](https://github.com/shinolab/autd3-server/releases)にてインストーラを配布しているので, これをダウンロードし, 指示に従ってインストールする.
+The simulator is included with the `AUTD Server`.
+The installer is distributed on [GitHub Releases](https://github.com/shinolab/autd3-server/releases), so download it and follow the instructions to install it.
 
-`AUTD Server`を実行すると, 以下のような画面になるので, `Simulator`タブを開き, `Run`ボタンを押すとシミュレータが起動する.
+When you run `AUTD Server`, you will see a screen like the one below. Open the `Simulator` tab and press the `Run` button to start the simulator.
 
 <figure>
   <img src="../../fig/Users_Manual/autdserver_simulator.jpg"/>
 </figure>
 
-シミュレータが起動すると接続待ちの状態になる.
+When the simulator starts, it will be in a waiting state.
 
 <figure>
   <img src="../../fig/sim_waiting.jpg"/>
 </figure>
 
-この状態で, `Simulator`リンクを使って`Controller`を`open`すると, シミュレータ上には, 振動子の位置に円と, 画面中央に黒いパネルが表示される.
+In this state, when you open the `Controller` using the `Simulator` link, circles representing the positions of the transducers and a black panel in the center of the screen will be displayed on the simulator.
 
 <figure>
   <img src="../../fig/sim_init.jpg"/>
 </figure>
 
-この黒いパネルを"Slice"と呼び, この"Slice"を使って任意の位置の音場を可視化できる.
-また, その時, 振動子の位相が色相で, 振幅が色強度で表される.
+This black panel is called a "Slice", and you can use this "Slice" to visualize the sound field at any position.
+At that time, the phase of the transducers is represented by hue, and the amplitude is represented by color intensity.
 
 <figure>
   <img src="../../fig/sim_focus.jpg"/>
 </figure>
 
-なお, シミュレータで表示される音場はシンプルな球面波の重ね合わせであり, 指向性や非線形効果などは考慮されない.
+Note that the sound field displayed by the simulator is a simple superposition of spherical waves, and does not consider directivity or nonlinear effects.
 
-画面左に表示されているGUIでSliceやカメラの操作が行える.
+You can operate the Slice and camera using the GUI displayed on the left side of the screen.
 
-### Sliceタブ
+### Slice Tab
 
-SliceタブではSliceの大きさと位置, 回転を変えられる.
-回転はXYZのオイラー角で指定する.
-なお, 「xy」, 「yz」, 「zx」ボタンを押すと, Sliceを各平面に平行な状態へ回転させる.
+In the Slice tab, you can change the size, position, and rotation of the Slice.
+Rotation is specified by XYZ Euler angles.
+Pressing the "xy", "yz", or "zx" buttons rotates the Slice to be parallel to each plane.
 
-また, 「Color settings」の項目ではカラーリングのパレットの変更や, Max pressureの変更ができる.
-大量のデバイスを使用すると色が飽和する場合があるので, その時は「Max pressure」の値を大きくすれば良い.
+In addition, in the "Color settings" section, you can change the coloring palette and the Max pressure.
+If the colors become saturated when using a large number of devices, you can increase the value of "Max pressure".
 
-### Cameraタブ
+### Camera Tab
 
-Cameraタブではカメラの位置, 回転, Field of View, Near clip, Far clipの設定を変えられる.
-回転はXYZのオイラー角で指定する.
+In the Camera tab, you can change the position, rotation, Field of View, Near clip, and Far clip settings of the camera.
+Rotation is specified by XYZ Euler angles.
 
-### Configタブ
+### Config Tab
 
-Configタブでは音速とフォントサイズ, 及び, 背景色の設定ができる.
+In the Config tab, you can set the speed of sound, font size, and background color.
 
-また, 各デバイスごとのshow/enable/overheatの設定を切り替えられる.
-showをOffにした場合は, 表示されないだけで音場に寄与する.
-enableをOffにすると音場に寄与しなくなる.
-また, overheatをOnにすると, 温度センサがアサートされた状態を模擬できる.
+You can also toggle the show/enable/overheat settings for each device.
+If show is turned off, the device will not be displayed but will still contribute to the sound field.
+If enable is turned off, the device will not contribute to the sound field.
+If overheat is turned on, you can simulate a state where the temperature sensor is asserted.
 
-### Infoタブ
+### Info Tab
 
-Infoタブでは, FPSや各デバイス毎のSilencerやModulation, STMの情報が確認できる.
+In the Info tab, you can check the information of Silencer, Modulation, and STM for each device.
 
-Silencerの設定は確認できるがこれは音場には反映されない.
+You can check the settings of Silencer, but they are not reflected in the sound field.
 
-「Mod enable」をOnにすると, Modulationが音場に反映されるようになる.
+If "Mod enable" is turned on, Modulation will be reflected in the sound field.
 
-ModulationとSTMは実時間を元にどのインデックスのデータを出力するかを決めている.
-この時間を表すのが, 「System time」であり, 2000年1月1日0時0分0秒からの経過時間をナノ秒単位で表す.
+Modulation and STM determine which index data to output based on real time.
+This time is represented by "System time", which is the elapsed time in nanoseconds since January 1, 2000, 0:00:00.
 
-「Auto play」をOnにすると「System time」が自動的に設定される.
-そうでない場合は, 手動で時間を進めることができる.
+If "Auto play" is turned on, "System time" is automatically set.
+Otherwise, you can manually advance the time.

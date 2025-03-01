@@ -1,8 +1,8 @@
 # Simulator
 
-Simulator linkは[AUTDシミュレータ](../Simulator/simulator.md)を使用する際に使うLinkである.
+The Simulator link is used when using the [AUTD Simulator](../Simulator/simulator.md).
 
-このlinkの使用の前に, AUTDシミュレータを起動しておく必要がある.
+Before using this link, you need to start the AUTD Simulator.
 
 ## Install
 
@@ -28,26 +28,26 @@ target_link_libraries(<TARGET> PRIVATE autd3::link::simulator)
 
 <div class="tab_content" id="cs_code_content">
   <p>
-    メインライブラリに含まれている.
+    Included in the main library.
   </p>
 </div>
 
 <div class="tab_content" id="unity_code_content">
   <p>
-    メインライブラリに含まれている.
+    Included in the main library.
   </p>
 </div>
 
 <div class="tab_content" id="python_code_content">
   <p>
-    メインライブラリに含まれている.
+    Included in the main library.
   </p>
 </div>
 </div>
 
 ## APIs
 
-`Simulator`のコンストラクタにはAUTDシミュレータのIPアドレスとポート番号を指定する.
+In the constructor of `Simulator`, specify the IP address and port number of the AUTD Simulator.
 
 <div class="tabs">
 <input id="rust_tab_api" type="radio" class="tab" name="tab_api" checked>
