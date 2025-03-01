@@ -1,24 +1,22 @@
-# 複数デバイスの駆動
+# Multiple Devices
 
-AUTD3は複数のデバイスをデイジーチェーン接続して大きな一つのアレイを構成することができる.
-SDKは複数台を接続したとしても, 透過的に使用できるように設計されている.
+AUTD3 can connect multiple devices in a daisy-chain to form a large array.
+The SDK is designed to be used transparently even when multiple devices are connected.
 
+When using multiple devices with the SDK, specify the `AUTD3` structure for each connected device in order in the first argument of the `Controller::open` function.
+Refer to [Getting Started/Hardware](../getting_started/hardware.md) for hardware connection methods.
 
-SDKで複数台のデバイスを使用する場合は`Controller::open`関数の第1引数で**接続したデバイスの順に**`AUTD3`構造体を指定する必要がある.
-ハードウェアの接続方法は[はじめに/ハードウェア](../getting_started/hardware.md)を参照されたい.
-
-以下では, 2つのデバイスを接続する場合の手順を示す.
+Below are the steps for connecting two devices.
 
 [[_TOC_]]
 
-## 並進のみ
+## Translation Only
 
 <figure>
   <img src="../../fig/Users_Manual/hor_left_ori_left_1.png"/>
 </figure>
 
-例えば, 上図のように配置・接続しており, 図左側のデバイスが1台目, 右側のデバイスが2台目だとする.
-さらに, グローバル座標を1台目のローカル座標と同じようにとるとすると, コードは以下の通りになる.
+For example, if the devices are arranged and connected as shown above, with the device on the left being the first and the device on the right being the second, and the global coordinates are taken to be the same as the local coordinates of the first device, the code is as follows.
 
 <div class="tabs">
 <input id="rust_tab_trans" type="radio" class="tab" name="tab_trans" checked>
@@ -47,18 +45,18 @@ SDKで複数台のデバイスを使用する場合は`Controller::open`関数�
 ```
 </div>
 
-ここで, `pos`はグローバル座標におけるデバイスの位置を表す.
-なお, `AUTD3::DEVICE_WIDTH`はデバイスの (基板外形を含めた) 横幅である.
+Here, `pos` represents the position of the device in global coordinates.
+Note that `AUTD3::DEVICE_WIDTH` is the width of the device (including the outer shape of the board).
 
-## グローバル座標の設定
+## Setting Global Coordinates
 
-SDKで使用するグローバル座標の原点や向きは, ユーザーが自由に設定できる.
+The origin and orientation of the global coordinates used by the SDK can be freely set by the user.
 
 <figure>
   <img src="../../fig/Users_Manual/hor_right_ori_left_1.png"/>
 </figure>
 
-例えば, 上図のように, グローバル座標を2台目のローカル座標と同じようにとると, コードは以下の通りになる.
+For example, if the global coordinates are taken to be the same as the local coordinates of the second device, the code is as follows.
 
 <div class="tabs">
 <input id="rust_tab_global" type="radio" class="tab" name="tab_global" checked>
@@ -87,17 +85,16 @@ SDKで使用するグローバル座標の原点や向きは, ユーザーが自
 ```
 </div>
 
+## Translation and Rotation
 
-## 並進と回転
-
-デバイスの回転を指定する場合は`rot`で指定する.
-ここで回転はオイラー角, または, クオータニオンで指定する.
+To specify the rotation of the device, use `rot`.
+Rotation can be specified using Euler angles or quaternions.
 
 <figure>
   <img src="../../fig/Users_Manual/vert.png"/>
 </figure>
 
-例えば, 上図のように配置されており, 下が1台目, 左が2台目で, グローバル座標を1台目のローカル座標と同じだとすると, コードは以下の通りになる.
+For example, if the devices are arranged as shown above, with the bottom being the first device and the left being the second device, and the global coordinates are taken to be the same as the local coordinates of the first device, the code is as follows.
 
 <div class="tabs">
 <input id="rust_tab_rot" type="radio" class="tab" name="tab_rot" checked>
@@ -126,6 +123,5 @@ SDKで使用するグローバル座標の原点や向きは, ユーザーが自
 ```
 </div>
 
-
-> NOTE: Rust版のみ, 12種類全てのオイラー角が使用できる.
-> それ以外の言語ではXYZ, ZYZのみ.
+> NOTE: Only the Rust version supports all 12 types of Euler angles.
+> Other languages support only XYZ and ZYZ.

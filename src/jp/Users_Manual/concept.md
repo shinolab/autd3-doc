@@ -32,4 +32,4 @@ SDKを構成する主なコンポーネントは以下の通りである.
 
 なお, 振幅/位相データ, 及び, 変調データはすべて$\SI{8}{bit}$である.
 
-[^silencer]: 詳細は[Silencer](./silencer.md)を参照.
+[^silencer]: 詳細は[Silencer](./API/silencer.md)を参照.

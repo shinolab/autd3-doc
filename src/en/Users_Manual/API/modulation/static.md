@@ -1,6 +1,6 @@
 # Static
 
-変調なし.
+No modulation.
 
 <div class="tabs">
 <input id="rust_tab_api" type="radio" class="tab" name="tab_api" checked>
@@ -29,5 +29,5 @@
 ```
 </div>
 
-`intensity`にて振幅を指定できる.
-デフォルトは上記の通り.
+The intensity can be specified with `intensity`.
+The default is as above.

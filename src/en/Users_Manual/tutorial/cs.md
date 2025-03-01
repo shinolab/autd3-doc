@@ -1,6 +1,6 @@
-# C#版チュートリアル
+# C# Tutorial
 
-まず, ターミナルを開き, 適当なプロジェクトを作成し, AUTD3Sharpライブラリを追加する.
+First, open a terminal, create an appropriate project, and add the AUTD3Sharp library.
 
 ```shell
 dotnet new console --name autd3-sample
@@ -9,24 +9,23 @@ dotnet add package AUTD3Sharp
 dotnet add package AUTD3Sharp.Link.SOEM
 ```
 
-次に, `Program.cs`を以下のようにする.
-これは単一焦点に$\SI{150}{Hz}$のAM変調をかける場合のソースコードである.
+Next, edit `Program.cs` as follows.
+This is the source code for applying AM modulation of $\SI{150}{Hz}$ to a single focal point.
 
 ```csharp,name=Program.cs
 {{#include ../../../codes/Users_Manual/Tutorial/single/Program.cs}}
 ```
 
-そして, これを実行する.
+Then, run it.
 
 ```shell
 dotnet run -c:Release
 ```
 
-## Linux,macOS使用時の注意
+## Notes for Linux and macOS Users
 
-Linux, macOSでは, SOEMを使用するのに管理者権限が必要な場合がある.
-その場合は, 
+On Linux and macOS, administrator privileges may be required to use SOEM.
+In that case, run:
 ```shell
 sudo dotnet run -c:Release
 ```
-とすること.

@@ -1,6 +1,6 @@
 # Square
 
-矩形波状の`Modulation`.
+`Modulation` in the form of a square wave.
 
 <div class="tabs">
 <input id="rust_tab_api" type="radio" class="tab" name="tab_api" checked>
@@ -29,11 +29,11 @@
 ```
 </div>
 
-## 周波数制約
+## Frequency Constraints
 
-`Square`はデフォルトだと周波数に厳格であり, サンプリング周波数によって出力不可能な周波数が指定された場合にはエラーを返す.
+`Square` is strict about frequency by default, and if a frequency that cannot be output due to the sampling frequency is specified, it returns an error.
 
-その場合はサンプリング設定を変更するか, `into_nearest`を使用することで, 出力可能な周波数の内で最も近い周波数で変調することができる.
+In that case, you can change the sampling settings or use `into_nearest` to modulate at the nearest frequency that can be output.
 
 <div class="tabs">
 <input id="rust_tab_api_nearest" type="radio" class="tab" name="tab_api_nearest" checked>

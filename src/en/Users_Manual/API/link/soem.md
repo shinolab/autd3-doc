@@ -1,13 +1,13 @@
 # SOEM
 
-[SOEM](https://github.com/OpenEtherCATsociety/SOEM)は有志が開発しているオープンソースのEherCAT Masterライブラリである.
-TwinCATとは異なりリアルタイム性は保証されない.
-そのため, 基本的にTwinCATを使用することを推奨する.
-SOEMを使用するのはやむを得ない理由があるか, 開発時のみに限定するべきである.
-一方, SOEMはクロスプラットフォームで動作し, インストールも単純という利点がある.
+[SOEM](https://github.com/OpenEtherCATsociety/SOEM) is an open-source EtherCAT Master library developed by volunteers.
+Unlike TwinCAT, real-time performance is not guaranteed.
+Therefore, it is generally recommended to use TwinCAT.
+Using SOEM should be limited to unavoidable reasons or for development purposes only.
+On the other hand, SOEM has the advantage of being cross-platform and simple to install.
 
-Windowsの場合は, [npcap](https://nmap.org/npcap/)を「**WinPcap API compatible mode**」でインストールしておくこと.
-Linux/macOSの場合は, 特に準備は必要ない.
+For Windows, install [npcap](https://nmap.org/npcap/) in "**WinPcap API compatible mode**".
+For Linux/macOS, no special preparation is required.
 
 ## Install
 
@@ -54,7 +54,7 @@ dotnet add package AUTD3Sharp.Link.SOEM
 
 <div class="tab_content" id="unity_code_content">
   <p>
-    <code class="hljs">https://github.com/shinolab/AUTD3Sharp.Link.SOEM.git#upm/latest</code>をUnity Package Managerで追加する.
+    Add <code class="hljs">https://github.com/shinolab/AUTD3Sharp.Link.SOEM.git#upm/latest</code> to Unity Package Manager.
   </p>
 </div>
 
@@ -65,7 +65,7 @@ pip install pyautd3_link_soem
 
 ## APIs
 
-第1引数にはエラーが起きたときのコールバック関数を, 第2引数にはオプションを指定する.
+The first argument is a callback function for errors, and the second argument specifies options.
 
 <div class="tabs">
 <input id="rust_tab_api" type="radio" class="tab" name="tab_api" checked>
@@ -94,23 +94,21 @@ pip install pyautd3_link_soem
 ```
 </div>
 
-SOEMリンクで指定できるオプションは以下の通りである.
-デフォルト値は上記の通り.
+The options that can be specified for the SOEM link are as follows.
+The default values are as above.
 
-- `buf_size`: 送信キューバッファサイズ. 通常は変更する必要はない.
-- `timer_strategy`: タイマーの戦略
-    - `StdSleep`  : 標準ライブラリのsleepを用いる
-    - `SpinSleep` : [spin_sleep](https://docs.rs/spin_sleep/latest/spin_sleep/) crateを用いる. OSネイティブのスリープ (Windowsの場合は[WaitableTimer](https://learn.microsoft.com/en-us/windows/win32/sync/waitable-timer-objects)) とスピンループを組み合わせ.
-    - `SpinWait`  : スピンループを用いる. 高解像度だが, CPU負荷が高い.
-- `sync_mode`: 同期モード
-- `ifname`: ネットワークインタフェース名. 空白の場合はAUTD3デバイスが接続されているネットワークインタフェースを自動的に選択する.
-- `state_check_interval`: エラーが出ているかどうかを確認する間隔
-- `sync0_cycle`: 同期信号の周期
-- `send_cycle`: 送信サイクル
-    - `SOEM`も大量のデバイスを接続すると挙動が不安定になる場合がある[^fn_soem]. このときは, `sync0_cycle`と`send_cycle`の値を増やす. これら値はエラーが出ない中で, 可能な限り小さな値が望ましい. どの程度の値にすべきかは接続している台数に依存する. 例えば, 9台の場合は$1.5-\SI{2}{ms}$程度の値にしておけば動作するはずである.
-- `thread_priority`: スレッドの優先度
-- `process_priority`: (Windowsのみ) プロセスの優先度
-- `sync_tolerance`: 同期許容レベル. 初期化時, 各デバイスのシステム時間差がこの値以下になるまで待機する. 以下のタイムアウト時間が経過しても同期が完了しない場合はエラーとなる. この値を変更することは推奨されない.
-- `sync_timeout`: 同期タイムアウト. 上記のシステム時間差測定のタイムアウト時間.
-
-[^fn_soem]: TwinCATよりは緩く, 普通に動くこともある.
+- `buf_size`: Transmission queue buffer size. Usually, there is no need to change this.
+- `timer_strategy`: Timer strategy
+    - `StdSleep`  : Uses the standard library sleep
+    - `SpinSleep` : Uses the [spin_sleep](https://docs.rs/spin_sleep/latest/spin_sleep/) crate. Combines OS native sleep (WaitableTimer on Windows) and spin loop.
+    - `SpinWait`  : Uses a spin loop. High resolution but high CPU load.
+- `sync_mode`: Synchronization mode
+- `ifname`: Network interface name. If empty, the network interface to which the AUTD3 device is connected is automatically selected.
+- `state_check_interval`: Interval to check for errors
+- `sync0_cycle`: Synchronization signal cycle
+- `send_cycle`: Transmission cycle
+    - `SOEM` may become unstable when connecting a large number of devices. In this case, increase the values of `sync0_cycle` and `send_cycle`. These values should be as small as possible without causing errors. The appropriate values depend on the number of connected devices. For example, for 9 devices, a value of about $1.5-\SI{2}{ms}$ should work.
+- `thread_priority`: Thread priority
+- `process_priority`: Process priority (Windows only) 
+- `sync_tolerance`: Synchronization tolerance level. During initialization, this link waits until the system time difference of each device is below this value. If synchronization is not completed within the timeout period below, an error occurs. It is not recommended to change this value.
+- `sync_timeout`: Synchronization timeout. Timeout period for the system time difference measurement above.

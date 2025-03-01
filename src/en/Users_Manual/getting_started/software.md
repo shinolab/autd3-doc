@@ -1,8 +1,8 @@
-# ソフトウェア
+# Software
 
 [[_TOC_]]
 
-基本的に各言語の標準的なパッケージマネージャーに対応している.
+Basically, it supports the standard package managers for each language.
 
 ## Rust
 
@@ -16,7 +16,7 @@
 
 ## C++
 
-CMakeのFetchContentを使用してインストールできる.
+Can be installed using CMake's FetchContent.
 
 - autd3
     - Windows: [https://github.com/shinolab/autd3-cpp/releases/download/v30.0.1/autd3-v30.0.1-win-x64.zip](https://github.com/shinolab/autd3-cpp/releases/download/v30.0.1/autd3-v30.0.1-win-x64.zip)
@@ -29,21 +29,21 @@ CMakeのFetchContentを使用してインストールできる.
 
 ## C#
 
-NuGetで公開している.
+Published on NuGet.
 
 - [AUTD3Sharp](https://www.nuget.org/packages/AUTD3Sharp)
 - [AUTD3Sharp.Link.SOEM](https://www.nuget.org/packages/AUTD3Sharp.Link.SOEM)
 
 ### Unity
 
-Unity Package Manager経由でインストール可能.
-以下のリポジトリを追加する.
+Can be installed via Unity Package Manager.
+Add the following repositories.
 - AUTD3Sharp: [https://github.com/shinolab/AUTD3Sharp.git#upm/latest](https://github.com/shinolab/AUTD3Sharp.git#upm/latest)
 - AUTD3Sharp.Link.SOEM: [https://github.com/shinolab/AUTD3Sharp.Link.SOEM.git#upm/latest](https://github.com/shinolab/AUTD3Sharp.Link.SOEM.git#upm/latest)
 
 ## Python
 
-PyPIで公開している.
+Published on PyPI.
 
 - [pyautd3](https://pypi.org/project/pyautd3/)
 - [pyautd3_link_soem](https://pypi.org/project/pyautd3_link_soem/)

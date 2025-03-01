@@ -1,6 +1,6 @@
 # LICENSE
 
-autd3ライブラリそれ自体はMITライセンスである.
+The autd3 library itself is licensed under the MIT license.
 
-autd3ライブラリはいくつかのサードパーティライブラリに依存している.
-これらのライセンスの詳細は[各リポジトリ](https://github.com/shinolab/autd3)を参照すること.
+The autd3 library depends on several third-party libraries.
+Refer to [each repository](https://github.com/shinolab/autd3) for details on their licenses.

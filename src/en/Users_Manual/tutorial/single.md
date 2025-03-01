@@ -1,17 +1,17 @@
-# 単一デバイスの駆動
+# Single Device
 
-ここでは, 一つのデバイスを駆動する方法について説明する.
+This section explains how to drive a single device.
 
-## 依存プログラムのインストール
+## Installing Dependencies
 
-本チュートリアルでは[SOEM](https://github.com/OpenEtherCATsociety/SOEM)を利用する.
-Windowsを使用する場合, [Npcap](https://npcap.com/)を「**WinPcap API-compatible Mode**」でインストールしておくこと.
+This tutorial uses [SOEM](https://github.com/OpenEtherCATsociety/SOEM).
+If you are using Windows, install [Npcap](https://npcap.com/) in "**WinPcap API-compatible Mode**".
 
-なお, ファームウェアが古い場合, 正常な動作は保証されない.
-本文章におけるファームウェアのバージョンはv10.0.1が想定される.
-ファームウェアのアップデートは[はじめに/ファームウェア](./getting_started/firmware.md)を参照されたい.
+Note that if the firmware is outdated, proper operation is not guaranteed.
+The firmware version assumed in this document is v10.0.1.
+Refer to [Getting Started/Firmware](./getting_started/firmware.md) for firmware updates.
 
-## 各言語ごとのサンプルプログラム
+## Sample Programs for Each Language
 
 - [Rust](./tutorial/rust.md)
 - [C++](./tutorial/cpp.md)

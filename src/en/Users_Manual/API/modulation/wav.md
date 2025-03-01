@@ -1,6 +1,6 @@
 # Wav
 
-`Wav`はWavファイルをもとに構成される`Modulation`である.
+`Wav` is a `Modulation` composed based on Wav files.
 
 ## Install
 
@@ -26,19 +26,19 @@ target_link_libraries(<TARGET> PRIVATE autd3::modulation::audio_file)
 
 <div class="tab_content" id="cs_code_content">
   <p>
-    メインライブラリに含まれている.
+    Included in the main library.
   </p>
 </div>
 
 <div class="tab_content" id="unity_code_content">
   <p>
-    メインライブラリに含まれている.
+    Included in the main library.
   </p>
 </div>
 
 <div class="tab_content" id="python_code_content">
   <p>
-    メインライブラリに含まれている.
+    Included in the main library.
   </p>
 </div>
 </div>
@@ -72,9 +72,9 @@ target_link_libraries(<TARGET> PRIVATE autd3::modulation::audio_file)
 ```
 </div>
 
-Wavデータとして, モノラル, かつ, 8,16,24,32bit整数, 及び, 32bit浮動小数点数のデータ形式に対応している.
+Wav data supports mono, 8, 16, 24, 32-bit integers and 32-bit floating point data formats.
 
-それぞれのデータ値$x$は以下の式を通して, 8bit符号なし整数の変調データに変換される.
+Each data value $x$ is converted to 8-bit unsigned integer modulation data through the following formulas.
 $$
 \text{8bit int}: x + 128
 $$
@@ -90,4 +90,4 @@ $$
 $$
 \text{32bit float}: \left[\frac{x + 1}{2} \times 255\right]
 $$
-ここで$[\cdot]$は最も近い整数を表す.
+Here, $[\cdot]$ represents the nearest integer.

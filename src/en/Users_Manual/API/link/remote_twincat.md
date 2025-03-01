@@ -1,7 +1,7 @@
 # RemoteTwinCAT
 
-前述の通り, AUTD3とTwinCATを使う場合はWindows OSと特定のネットワークアダプタが必要になる.
-Windows以外のPCで開発したい場合は, `RemoteTwinCAT` linkを用いてLinux/macOSから遠隔でTwinCATを操作することができる.
+As mentioned earlier, using AUTD3 with TwinCAT requires a Windows OS and a specific network adapter.
+If you want to develop on a non-Windows PC, you can use the `RemoteTwinCAT` link to remotely operate TwinCAT from Linux/macOS.
 
 ## Install
 
@@ -27,53 +27,54 @@ target_link_libraries(<TARGET> PRIVATE autd3::link::twincat)
 
 <div class="tab_content" id="cs_code_content">
   <p>
-    メインライブラリに含まれている.
+    Included in the main library.
   </p>
 </div>
 
 <div class="tab_content" id="unity_code_content">
   <p>
-    メインライブラリに含まれている.
+    Included in the main library.
   </p>
 </div>
 
 <div class="tab_content" id="python_code_content">
   <p>
-    メインライブラリに含まれている.
+    Included in the main library.
   </p>
 </div>
 </div>
 
-## セットアップ
+## Setup
 
-`RemoteTwinCAT`を使用する場合はPCを2台用意する必要がある.
-この時, 片方のPCは[`TwinCAT`](./twincat.md)が使えるPCである必要がある.
-このPCをここでは"サーバ"と呼ぶ.
-一方, 開発側のPC, 即ちSDKを使用する側は特に制約はなく, サーバと同じLANに繋がっていれば良い, こちらをここでは"クライアント"と呼ぶ.
+To use `RemoteTwinCAT`, you need two PCs.
+One of these PCs must be able to use [`TwinCAT`](./twincat.md).
+Hereby, this PC is referred to as the "server".
+The other PC, which is the development PC using the SDK, has no particular restrictions as long as it is connected to the same LAN as the server. H
+ereby, this PC is referred to as the "client".
 
-まず, サーバとAUTDデバイスを接続する.
-この時使うLANのアダプタは`TwinCAT`と同じく, TwinCAT対応のアダプタである必要がある.
-また, サーバとクライアントを別のLANで繋ぐ.
-こちらのLANアダプタはTwinCAT対応である必要はない[^fn_remote_twin].
-そして, サーバとクライアント間のLANのIPを確認しておく.
-ここでは例えば, サーバ側が`172.16.99.104`, クライアント側が`172.16.99.62`だったとする.
-次に, サーバで`AUTD Server`を起動する.
-この時, `Client IP address`にクライアントのIPアドレス (この例だと`172.16.99.62`) を指定する.
+First, connect the server to the AUTD device.
+The LAN adapter used for this connection must be a TwinCAT-compatible adapter.
+Then, connect the server and client via a different LAN.
+This LAN adapter does not need to be TwinCAT-compatible[^fn_remote_twin].
+Next, check the IP addresses of the LAN between the server and client.
+For example, let's assume the server's IP is `172.16.99.104` and the client's IP is `172.16.99.62`.
+Next, start the `AUTD Server` on the server.
+Specify the client's IP address (in this example, `172.16.99.62`) in the `Client IP address` field.
 
 <figure>
   <img src="../../../fig/Users_Manual/autdserver_remotetwincat.jpg"/>
 </figure>
 
-右側の画面に, 「Server AmsNetId」と「Client AmsNetId」が表示されるので, これをメモっておく.
+The "Server AmsNetId" and "Client AmsNetId" will be displayed on the right side of the screen, so make a note of them.
 
-> NOTE: 「Server AmsNetId」の最初の4桁は必ずしもServerのIPアドレスを意味しているわけではないので注意されたい.
+> NOTE: The first four digits of the "Server AmsNetId" do not necessarily represent the server's IP address.
 
 ## APIs
 
-`RemoteTwinCAT`のコンストラクタには「Server AmsNetId」を指定する.
+In the constructor of `RemoteTwinCAT`, specify the "Server AmsNetId".
 
-また, `server_ip`と`client_ams_net_id`でサーバーのIPアドレスとクライアントのNetIdを指定する.
-これらは省略することも可能だが, 基本的には指定することを推奨する.
+You can also specify the server's IP address and the client's NetId with `server_ip` and `client_ams_net_id`.
+These can be omitted, but it is generally recommended to specify them.
 
 <div class="tabs">
 <input id="rust_tab_api" type="radio" class="tab" name="tab_api" checked>
@@ -102,9 +103,9 @@ target_link_libraries(<TARGET> PRIVATE autd3::link::twincat)
 ```
 </div>
 
-### ファイアウォール
+### Firewall
 
-TCP関係のエラーが出る場合は, ファイアウォールでADSプロトコルがブロックされている可能性がある.
-その場合は, ファイアウォールの設定でTCP/UDPの48898番ポートの接続を許可する.
+If you encounter TCP-related errors, it is possible that the ADS protocol is being blocked by the firewall.
+In that case, configure the firewall to allow connections on TCP/UDP port 48898.
 
-[^fn_remote_twin]: 無線LANでも可
+[^fn_remote_twin]: Wireless LAN is also acceptable.

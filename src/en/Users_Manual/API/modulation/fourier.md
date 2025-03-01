@@ -1,6 +1,6 @@
 # Fourier
 
-複数の周波数の正弦波を重ね合わせた波形を生成する`Modulation`.
+`Modulation` that generates a waveform by superimposing multiple sine waves of different frequencies.
 
 <div class="tabs">
 <input id="rust_tab_api" type="radio" class="tab" name="tab_api" checked>
@@ -29,15 +29,15 @@
 ```
 </div>
 
-## スケールファクタと値のクランプ
+## Scale Factor and Value Clamping
 
-`Fourier`の計算は, 以下の式で行われる,
+The calculation of `Fourier` is performed using the following formula,
 $$
     \left\lfloor\text{offset} + \text{scale\_factor} \times \sum_i \text{components}[i]\right\rfloor.
 $$
-スケールファクタが指定されていない場合, $1/\text{コンポーネント数}$が使用される.
+If the scale factor is not specified, $1/\text{number of components}$ is used.
 
-`clamp`が`false`だと, 上記の式において$[0,255]$の範囲外の値になるような`intensity, offset`が指定された場合にエラーを返す.
-エラーを返すのではなく, 範囲外の値を$[0,255]$にクランプする場合は, `clamp`に`true`を指定する.
+If `clamp` is `false`, it returns an error if `intensity, offset` are specified such that the above formula results in values outside the range of $[0,255]$.
+To clamp values outside the range to $[0,255]$ instead of returning an error, specify `true` for `clamp`.
 
-これらの値のデフォルトは上記の通りである.
+The default values for these are as above.

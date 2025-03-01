@@ -1,6 +1,6 @@
 # Cache
 
-`Cache`で計算結果をキャッシュしておくための`Modulation`を生成できる.
+You can generate a `Modulation` to cache the calculation results using `Cache`.
 
 <div class="tabs">
 <input id="rust_tab_cache" type="radio" class="tab" name="tab_cache" checked>
@@ -29,4 +29,4 @@
 ```
 </div>
 
-> NOTE: ほとんどの`Modulation`に対して, キャッシュするより都度計算し直したほうが速い. 使用時は必ずベンチマークを取ること.
+> NOTE: For most `Modulation`, it is faster to recalculate each time rather than cache. Always benchmark when using.

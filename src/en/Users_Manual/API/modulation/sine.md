@@ -1,6 +1,6 @@
 # Sine
 
-音圧をSin波状に変形するための`Modulation`.
+`Modulation` to transform sound pressure into a sine wave.
 
 <div class="tabs">
 <input id="rust_tab_api" type="radio" class="tab" name="tab_api" checked>
@@ -29,22 +29,21 @@
 ```
 </div>
 
-`Sine`は音圧の波形が
+`Sine` applies AM so that the waveform of the sound pressure becomes
 $$
     \left\lfloor\frac{\text{intensity}}{2} \times \sin(2\pi ft + \text{phase}) + \text{offset}\right\rfloor
 $$
-となるようなAMをかける.
 
-`clamp`が`false`だと, 上記の式において$[0,255]$の範囲外の値になるような`intensity, offset`が指定された場合にエラーを返す.
-エラーを返すのではなく, 範囲外の値を$[0,255]$にクランプする場合は, `clamp`に`true`を指定する.
+If `clamp` is `false`, it returns an error if `intensity, offset` are specified such that the above formula results in values outside the range of $[0,255]$.
+To clamp values outside the range to $[0,255]$ instead of returning an error, specify `true` for `clamp`.
 
-これらの値のデフォルトは上記の通りである.
+The default values for these are as above.
 
-## 周波数制約
+## Frequency Constraints
 
-`Sine`はデフォルトだと周波数に厳格であり, サンプリング周波数によって出力不可能な周波数が指定された場合にはエラーを返す.
+`Sine` is strict about frequency by default, and if a frequency that cannot be output due to the sampling frequency is specified, it returns an error.
 
-その場合はサンプリング設定を変更するか, `into_nearest`を使用することで, 出力可能な周波数の内で最も近い周波数で変調することができる.
+In that case, you have to change the sampling settings or use `into_nearest` to modulate at the nearest frequency that can be output.
 
 <div class="tabs">
 <input id="rust_tab_api_nearest" type="radio" class="tab" name="tab_api_nearest" checked>

@@ -1,11 +1,11 @@
-# 高度なトピック
+# Advanced Topics
 
-以下では, 上級者向けの設定などを紹介する.
+The following introduces advanced settings for core users.
 
-- [Gainの自作](./advanced/custom_gain.md)
-- [Modulationの自作](./advanced/custom_modulation.md)
-- [Deviceの自作](./advanced/custom_device.md)
-- [非同期API](./advanced/async.md)
-- [ロギングの有効化](./advanced/logging.md)
-- [Lightweightモード](./advanced/lightweight.md)
-- [超音波周波数の変更](./advanced/dynamic_freq.md)
+- [Custom Gain](./advanced/custom_gain.md)
+- [Custom Modulation](./advanced/custom_modulation.md)
+- [Custom Device](./advanced/custom_device.md)
+- [Asynchronous API](./advanced/async.md)
+- [Enabling Logging](./advanced/logging.md)
+- [Lightweight Mode](./advanced/lightweight.md)
+- [Changing Ultrasonic Frequency](./advanced/dynamic_freq.md)

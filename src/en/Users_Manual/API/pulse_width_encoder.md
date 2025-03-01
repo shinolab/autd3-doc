@@ -1,11 +1,11 @@
-# 振幅とパルス幅
+# Amplitude and Pulse Width
 
-PWM信号のDuty比と超音波出力の間には非線形な関係がある. 
-この関係を補正するために, `PulseWidthEncoder`を使用できる.
+There is a nonlinear relationship between the duty ratio of the PWM signal and the ultrasound output.
+To correct this relationship, you can use `PulseWidthEncoder`.
 
-ファームウェア内部には, `Gain`/`FociSTM`/`GainSTM`の強度データの値 ($0$--$255$) とModulationの振幅データ ($0$--$255$) をかけ合わせたものを$255$で割った値 ($0$--$255$) をインデックスにして, PWM信号のパルス幅 ($0$--$255$) を決定するテーブルがある.
-`PulseWidthEncoder`によってこのテーブルを変更できる.
-なお, PWM信号の周期は256である.
+Inside the firmware, there is a table that determines the pulse width ($0$--$255$) of the PWM signal using the value ($0$--$255$) obtained by multiplying the intensity data of `Gain`/`FociSTM`/`GainSTM` by the amplitude data of `Modulation` ($0$--$255$) and dividing by $255$.
+This table can be modified by `PulseWidthEncoder`.
+Note that the period of the PWM signal is 256.
 
 <div class="tabs">
 <input id="rust_tab" type="radio" class="tab" name="tab" checked>
@@ -34,11 +34,11 @@ PWM信号のDuty比と超音波出力の間には非線形な関係がある.
 ```
 </div>
 
-コンストラクタの引数は各デバイスに対して, テーブルのインデックスを引数にパルス幅を返す関数を返す関数`Fn(&Device) -> Fn(EmitIntensity) -> u8`である.
+The constructor argument is a function `Fn(&Device) -> Fn(EmitIntensity) -> u8` that returns a function that returns the pulse width for each device using the table index as an argument.
 
-デフォルトでは,
+By default,
 $$
     \text{table}(i) = \left[\sin^{-1}\left(\frac{i}{255}\right) \times \frac{256}{\pi}\right]
 $$
-となるテーブルが書き込まれている.
-ここで$[\cdot]$は最も近い整数を表す.
+is written to the table.
+Here, $[\cdot]$ represents the nearest integer.

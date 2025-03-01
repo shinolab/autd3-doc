@@ -2,11 +2,11 @@
 
 ## Segment
 
-`Modulation`, `Gain`, `FociSTM`, `GainSTM`のデータ領域にはそれぞれ, `Segment`が2つ用意されている.
+The data areas of `Modulation`, `Gain`, `FociSTM`, and `GainSTM` each have two `Segments`.
 
-特に指定しない限りは, `Segment::S0`が使用される.
+Unless otherwise specified, `Segment::S0` is used.
 
-データを書き込む`Segment`は, `WithSegment`で指定する.
+The `Segment` to which data is written is specified with `WithSegment`.
 
 <div class="tabs">
 <input id="rust_tab_segment" type="radio" class="tab" name="tab_segment" checked>
@@ -35,25 +35,25 @@
 ```
 </div>
 
-`transition_mode`には, `Segment`の切り替え条件を指定する.
-- 遷移先セグメントが無限ループ時にのみ使用可能
-    - `Immediate` : 直ちに切り替える
-    - `Ext`       : 直ちに切り替え, 拡張モードにする (各`Segment`のデータを出力後, 自動で`Segment`を切り替えるモード)
+The `transition_mode` specifies the conditions for switching `Segments`.
+- Only available when the destination segment is in an infinite loop
+    - `Immediate`: Switch immediately
+    - `Ext`: Switch immediately and enter extended mode (automatically switch segments after outputting data from each `Segment`)
 
-- 遷移先セグメントが有限ループ時にのみ使用可能
-    - `SyncIdx`               : 遷移先の`Segment`のデータインデックスが$0$になったときに切り替える
-    - `SysTime(DcSysTime)`    : 指定した時刻になったときに切り替える
-    - `GPIO(GPIOIn)`          : 指定したGPIOピンに信号が入力されたときに切り替える
+- Only available when the destination segment is in a finite loop
+    - `SyncIdx`: Switch when the data index of the destination `Segment` becomes $0$
+    - `SysTime(DcSysTime)`: Switch at the specified time
+    - `GPIO(GPIOIn)`: Switch when a signal is input to the specified GPIO pin
 
-> NOTE: `Gain`は`Immediate`のみサポートしている.
+> NOTE: `Gain` only supports `Immediate`.
 
-> 遷移先のループの挙動を指定する場合は, [`LoopBehavior`](#loopbehavior)を参照されたい.
+> To specify the loop behavior of the destination loop, refer to [`LoopBehavior`](#loopbehavior).
 
-データの書き込みのみを行い, `Segment`を切り替えたくない場合は`transition_mode`に`None`を指定する.
+To write data without switching `Segments`, specify `None` for `transition_mode`.
 
-### Segmentの切り替え
+### Switching Segments
 
-`Segment`を切り替えたいだけの場合は, `SwapSegment`を使用する.
+To switch `Segments` only, use `SwapSegment`.
 
 <div class="tabs">
 <input id="rust_tab_swap" type="radio" class="tab" name="tab_swap" checked>
@@ -84,7 +84,7 @@
 
 ### LoopBehavior
 
-`Modulation`と`FociSTM`, `GainSTM`は`WithLoopBehavior`でループの挙動を制御できる.
+`Modulation`, `FociSTM`, and `GainSTM` can control loop behavior with `WithLoopBehavior`.
 
 <div class="tabs">
 <input id="rust_tab_loop" type="radio" class="tab" name="tab_loop" checked>

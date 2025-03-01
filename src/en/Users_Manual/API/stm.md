@@ -1,17 +1,17 @@
-# Spatio-Temporal Modulation/時空間変調
+# Spatio-Temporal Modulation
 
-SDKでは, 音場を周期的に切り替えるための機能 (Spatio-Temporal Modulation, STM) が用意されている.
-SDKには単一焦点音場から8焦点音場までをサポートする`FociSTM`と, 任意の`Gain`をサポートする`GainSTM`が用意されている.
-`FociSTM`と`GainSTM`はAUTD3ハードウェア上のタイマを使用するので時間精度が高いが, 制約も多い.
+The SDK provides a feature for periodically switching sound fields called Spatio-Temporal Modulation (STM).
+The SDK supports `FociSTM` for single to eight focal points and `GainSTM` for arbitrary `Gain`.
+`FociSTM` and `GainSTM` use the timer on the AUTD3 hardware, providing high time precision but with some constraints.
 
 - [FociSTM](./stm/focus.md)
 - [GainSTM](./stm/gain.md)
 
-## FociSTM/GainSTMの共通API
+## Common API for FociSTM/GainSTM
 
-### サンプリング設定の取得
+### Getting Sampling Configuration
 
-`sampling_config`でサンプリング設定を取得できる.
+You can get the sampling configuration with `sampling_config`.
 
 <div class="tabs">
 <input id="rust_tab" type="radio" class="tab" name="tab" checked>
@@ -42,15 +42,14 @@ SDKには単一焦点音場から8焦点音場までをサポートする`FociST
 
 ### LoopBehavior
 
-`FociSTM`/`GainSTM`では, ループの挙動を制御できる.
-デフォルトは無限ループである.
+In `FociSTM`/`GainSTM`, you can control the loop behavior.
+The default is an infinite loop.
 
-詳細は[Segment/LoopBehavior](./segment.md)を参照.
+For details, refer to [Segment/LoopBehavior](./segment.md).
 
-### ユーティリティ
+### Utilities
 
-Rust版のみ直線と円の軌跡を生成するユーティリティが用意されている.
-
+Only the Rust version provides utilities for generating linear and circular trajectories.
 
 <div class="tabs">
 <input id="rust_tab_util" type="radio" class="tab" name="tab_util" checked>
