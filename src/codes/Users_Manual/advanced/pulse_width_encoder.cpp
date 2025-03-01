@@ -5,7 +5,7 @@
 //~using namespace autd3;
 //~auto autd =
 //~Controller::open({AUTD3{}}, link::Nop{});
-autd.send(PulseWidthEncoder([](const auto& dev) {
+PulseWidthEncoder([](const auto& dev) {
   return [](const auto i) { return 0; };
-}));
+});
 //~return 0; }
