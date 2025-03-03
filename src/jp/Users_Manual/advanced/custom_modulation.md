@@ -4,7 +4,7 @@ Rust版では`Modulation`も独自のものを作成することができる.
 ここでは, 周期中のある一瞬だけ出力する`Burst`を作ってみる[^fn_burst].
 
 > NOTE: C++, C#, Python版のライブラリでは, この機能は提供されていない.
-> しかし, 同様の目的で, [Custom](../modulation/custom.md)を使用することができる.
+> しかし, 同様の目的で, [Custom](../API/modulation/custom.md)を使用することができる.
 
 以下が, この`Burst`のサンプルである.
 

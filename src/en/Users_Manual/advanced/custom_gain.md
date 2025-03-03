@@ -3,7 +3,7 @@
 In the Rust library, you can create your own `Gain`.
 
 > NOTE: This feature is not available in the C++, C#, and Python libraries.
-> However, you can use [Custom](../gain/custom.md) for the same purpose.
+> However, you can use [Custom](../API/gain/custom.md) for the same purpose.
 
 Here, let's actually define a `FocalPoint` that generates a single focal point like `Focus`.
 

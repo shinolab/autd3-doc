@@ -1,6 +1,6 @@
 # Simulator
 
-Simulator linkは[AUTDシミュレータ](../Simulator/simulator.md)を使用する際に使うLinkである.
+Simulator linkは[AUTDシミュレータ](../../Simulator/simulator.md)を使用する際に使うLinkである.
 
 このlinkの使用の前に, AUTDシミュレータを起動しておく必要がある.
 

@@ -1,6 +1,6 @@
 # Simulator
 
-The Simulator link is used when using the [AUTD Simulator](../Simulator/simulator.md).
+The Simulator link is used when using the [AUTD Simulator](../../Simulator/simulator.md).
 
 Before using this link, you need to start the AUTD Simulator.
 
