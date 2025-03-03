@@ -1,0 +1,298 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Modulation - AUTD3 Developers Manual v30.0.1</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../css/codeblock_filename.css">
+        <link rel="stylesheet" href="../../css/lightbox.css">
+        <link rel="stylesheet" href="../../css/open-in.css">
+        <link rel="stylesheet" href="../../css/no-link-summary.css">
+        <link rel="stylesheet" href="../../css/tab.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">AUTD3 Developers Manual v30.0.1</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/shinolab/autd3-doc" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="modulation"><a class="header" href="#modulation">Modulation</a></h1>
+<p><code>Modulation</code>はAM変調を制御するための仕組みである.</p>
+<p>Modulationは音圧振幅に掛け合わされる.
+例えば, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord"><span class="mord">1</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathrm">kHz</span></span></span></span></span></span>の<code>Sine</code>変調を印加した場合の音圧振幅は以下のようになり, 音圧振幅の正の部分 (或いは, 負の部分) の包絡線が<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord"><span class="mord">1</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathrm">kHz</span></span></span></span></span></span>のsin波に従う.</p>
+<figure>
+  <img src="../../fig/Users_Manual/sine_1k_mod.png"/>
+</figure>
+<p>なお, 現在, <code>Modulation</code>には以下の制約がある.</p>
+<ul>
+<li>バッファサイズは最大で32768
+<ul>
+<li>拡張モードを使用すると65536</li>
+</ul>
+</li>
+<li>サンプリングレートは<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord"><span class="mord">40</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathrm">kHz</span></span></span></span><span class="mord">/</span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span>である. ここで, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span>は0より大きい<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord"><span class="mord">16</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathrm">bit</span></span></span></span></span></span>符号なし整数である.</li>
+</ul>
+<p>SDKにはデフォルトでいくつかの種類のAMを生成するための<code>Modulation</code>が用意されている.</p>
+<ul>
+<li><a href="./modulation/static.html">Static</a> - 変調なし</li>
+<li><a href="./modulation/sine.html">Sine</a> - 正弦波
+<ul>
+<li><a href="./modulation/fourier.html">Fourier</a> - 正弦波の重ね合わせ</li>
+</ul>
+</li>
+<li><a href="./modulation/square.html">Square</a> - 矩形波</li>
+<li><a href="./modulation/wav.html">Wav</a> - Wavファイルをもとにした変調</li>
+<li><a href="./modulation/csv.html">Csv</a> - Csvファイルをもとにした変調</li>
+<li><a href="./modulation/custom.html">Custom</a> - ユーザー定義の変調</li>
+<li><a href="./modulation/cache.html">Cache</a> - 他の<code>Modulation</code>の計算結果をキャッシュする</li>
+<li><a href="./modulation/radiation.html">RadiationPressure</a> - 放射圧に対して変調を適用する</li>
+<li><a href="./modulation/fir.html">Fir</a> - Firフィルタを適用する</li>
+</ul>
+<h2 id="modulationの共通api"><a class="header" href="#modulationの共通api">Modulationの共通API</a></h2>
+<h3 id="sampling設定"><a class="header" href="#sampling設定">Sampling設定</a></h3>
+<p><code>Modulation</code>のサンプリング設定は<code>sampling_config</code>で取得できる.</p>
+<div class="tabs">
+<input id="rust_tab" type="radio" class="tab" name="tab" checked>
+<label class="tab_item" n=4 for="rust_tab">Rust</label>
+<input id="cpp_tab" type="radio" class="tab" name="tab">
+<label class="tab_item" n=4 for="cpp_tab">C++</label>
+<input id="cs_tab" type="radio" class="tab" name="tab">
+<label class="tab_item" n=4 for="cs_tab">C#</label>
+<input id="python_tab" type="radio" class="tab" name="tab">
+<label class="tab_item" n=4 for="python_tab">Python</label>
+<pre><code class="language-rust edition2024"><span class="boring">use autd3::prelude::*;
+</span><span class="boring">fn main() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
+</span>let m = Sine {
+    freq: 150 * Hz,
+    option: SineOption::default(),
+};
+dbg!(m.sampling_config().freq()?); // -&gt; 4kHz
+<span class="boring">    Ok(())
+</span><span class="boring">}</span></code></pre>
+<pre><code class="language-cpp"><span class="boring">#include&lt;iostream&gt;
+</span><span class="boring">#include&lt;autd3.hpp&gt;
+</span><span class="boring">#include&lt;autd3/link/nop.hpp&gt;
+</span><span class="boring">int main() {
+</span><span class="boring">using namespace autd3;
+</span>const auto m = Sine(150 * Hz, SineOption{});
+std::cout &lt;&lt; m.sampling_config().freq() &lt;&lt; std::endl;  // -&gt; 4kHz
+<span class="boring">                                                       return 0; }
+</span></code></pre>
+<pre><code class="language-cs"><span class="boring">using AUTD3Sharp;
+</span><span class="boring">using AUTD3Sharp.Modulation;
+</span><span class="boring">using static AUTD3Sharp.Units;
+</span>var m = new Sine(freq: 150u * Hz, option: new SineOption());
+Console.WriteLine(m.SamplingConfig().Freq()); // -&gt; 4kHz
+</code></pre>
+<pre><code class="language-python"><span class="boring">from pyautd3 import Hz
+</span><span class="boring">from pyautd3.modulation import Sine, SineOption
+</span>m = Sine(freq=150 * Hz, option=SineOption())
+print(m.sampling_config().freq())  # -&gt; 4kHz
+</code></pre>
+</div>
+<p>また, 一部の<code>Modulation</code>はオプションでサンプリング設定を変更できる.</p>
+<p>サンプリング設定についての詳細は<a href="./sampling_config.html">サンプリング設定について</a>を参照されたい.</p>
+<h3 id="loopbehavior"><a class="header" href="#loopbehavior">LoopBehavior</a></h3>
+<p><code>Modulation</code>はループの挙動を制御できる.
+デフォルトは無限ループである.</p>
+<p>詳細は<a href="./segment.html">Segment/LoopBehavior</a>を参照.</p>
+<footer id="open-on-gh">Found a bug? <a href="https://github.com/shinolab/autd3-doc/edit/main/src/jp/Users_Manual/API/modulation.md">Edit this page on GitHub.</a></footer>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../Users_Manual/API/stm/gain.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../Users_Manual/API/modulation/static.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../Users_Manual/API/stm/gain.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../Users_Manual/API/modulation/static.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../js/codeblock_filename.js"></script>
+        <script src="../../js/lightbox-plus-jquery.min.js"></script>
+        <script src="../../js/tab.js"></script>
+
+
+    </div>
+    </body>
+</html>
