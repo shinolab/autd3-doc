@@ -9,11 +9,11 @@ If you are using Windows, install [Npcap](https://npcap.com/) in "**WinPcap API-
 
 Note that if the firmware is outdated, proper operation is not guaranteed.
 The firmware version assumed in this document is v10.0.1.
-Refer to [Getting Started/Firmware](./getting_started/firmware.md) for firmware updates.
+Refer to [Getting Started/Firmware](../getting_started/firmware.md) for firmware updates.
 
 ## Sample Programs for Each Language
 
-- [Rust](./tutorial/rust.md)
-- [C++](./tutorial/cpp.md)
-- [C#](./tutorial/cs.md)
-- [Python](./tutorial/python.md)
+- [Rust](./rust.md)
+- [C++](./cpp.md)
+- [C#](./cs.md)
+- [Python](./python.md)

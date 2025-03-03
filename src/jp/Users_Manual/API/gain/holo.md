@@ -56,7 +56,7 @@ target_link_libraries(<TARGET> PRIVATE autd3::gain::holo)
 また, 各手法は計算Backendを選べるようになっている. (`Greedy`のみBackendの指定はない.)
 SDKには以下の`Backend`が用意されている
 
-* `NalgebraBackend` - [Nalgebra](hthttps://nalgebra.org/)を使用
+* `NalgebraBackend` - [Nalgebra](https://nalgebra.org/)を使用
 * `CUDABackend` - CUDAを使用, GPUで実行 (Rust版のみ)
 * `ArrayFireBackend` - [ArrayFire](https://arrayfire.com/)を使用 (Rust版のみ)
 
