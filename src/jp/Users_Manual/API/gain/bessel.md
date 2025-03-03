@@ -1,4 +1,5 @@
 # Bessel
+[Source](https://github.com/shinolab/autd3-rs/blob/v30.0.1/autd3/src/datagram/gain/bessel.rs)
 
 `Bessel`ではBessel beamを生成する.
 この`Gain`は長谷川らの論文[^hasegawa2017]に基づく.

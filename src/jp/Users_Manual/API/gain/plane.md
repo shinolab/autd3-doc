@@ -1,4 +1,5 @@
 # Plane
+[Source](https://github.com/shinolab/autd3-rs/blob/v30.0.1/autd3/src/datagram/gain/plane.rs)
 
 `Plane`は平面波を出力する.
 
