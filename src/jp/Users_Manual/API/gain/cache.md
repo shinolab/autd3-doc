@@ -1,4 +1,5 @@
 # Cache
+[Source](https://github.com/shinolab/autd3-rs/blob/v30.0.1/autd3/src/datagram/gain/cache.rs)
 
 `Cache`によって`Gain`の計算結果をキャッシュする`Gain`を生成できる.
 
