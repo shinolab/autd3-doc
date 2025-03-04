@@ -9,20 +9,18 @@
 
 ## Install
 
-<div class="tabs">
-<input id="rust_tab_install" type="radio" class="tab" name="tab_install" checked>
-<label class="tab_item" n=2 for="rust_tab_install">Rust</label>
-<input id="python_tab_install" type="radio" class="tab" name="tab_install">
-<label class="tab_item" n=2 for="python_tab_install">Python</label>
-
-```rust,name=shell
+{{ #tabs }}
+{{ #tab name=Rust }}
+```shell
 cargo add autd3-emulator
 ```
-
-```python,name=shell
+{{ #endtab }}
+{{ #tab name=Python }}
+```shell
 pip install pyautd3_emulator
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 ## APIs
 
@@ -35,20 +33,18 @@ pip install pyautd3_emulator
 
 各列には, デバイスインデックス, 振動子の(ローカル)インデックス, 位置, 極方向が格納される.
 
-<div class="tabs">
-<input id="rust_tab_tr_table" type="radio" class="tab" name="tab_tr_table" checked>
-<label class="tab_item" n=2 for="rust_tab_tr_table">Rust</label>
-<input id="python_tab_tr_table" type="radio" class="tab" name="tab_tr_table">
-<label class="tab_item" n=2 for="python_tab_tr_table">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust,edition2024
 {{#include ../../../codes/Users_Manual/emulator/emulator_trans_table.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/emulator/emulator_trans_table.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 ```
 ┌─────────┬────────┬────────────┬────────────┬───────┬─────┬─────┬─────┐
@@ -72,20 +68,18 @@ pip install pyautd3_emulator
 
 ### 出力位相/パルス幅の計算
 
-<div class="tabs">
-<input id="rust_tab_phase" type="radio" class="tab" name="tab_phase" checked>
-<label class="tab_item" n=2 for="rust_tab_phase">Rust</label>
-<input id="python_tab_phase" type="radio" class="tab" name="tab_phase">
-<label class="tab_item" n=2 for="python_tab_phase">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust,edition2024
 {{#include ../../../codes/Users_Manual/emulator/emulator_drive.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/emulator/emulator_drive.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 > NOTE: `tick`で指定する時間間隔は, $\SI{25}{us}$の倍数である必要がある.
 
@@ -139,20 +133,18 @@ pip install pyautd3_emulator
 
 ### 出力電圧
 
-<div class="tabs">
-<input id="rust_tab_voltage" type="radio" class="tab" name="tab_voltage" checked>
-<label class="tab_item" n=2 for="rust_tab_voltage">Rust</label>
-<input id="python_tab_voltage" type="radio" class="tab" name="tab_voltage">
-<label class="tab_item" n=2 for="python_tab_voltage">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust,edition2024
 {{#include ../../../codes/Users_Manual/emulator/emulator_voltage.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/emulator/emulator_voltage.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 各時刻 ($\SI{25}{us}/256$単位) における, 出力電圧が各列に格納される.
 各列の名前は`voltage[V]@<時刻>[25us/256]`である.
@@ -182,20 +174,18 @@ pip install pyautd3_emulator
 
 ### 出力音圧
 
-<div class="tabs">
-<input id="rust_tab_ultrasound" type="radio" class="tab" name="tab_ultrasound" checked>
-<label class="tab_item" n=2 for="rust_tab_ultrasound">Rust</label>
-<input id="python_tab_ultrasound" type="radio" class="tab" name="tab_ultrasound">
-<label class="tab_item" n=2 for="python_tab_ultrasound">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust,edition2024
 {{#include ../../../codes/Users_Manual/emulator/emulator_ultrasound.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/emulator/emulator_ultrasound.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 各時刻 ($\SI{25}{us}/256$単位) における, 規格化された出力音圧が各列に格納される.
 各列の名前は`p[a.u.]@<時刻>[25us/256]`である.
@@ -225,26 +215,19 @@ pip install pyautd3_emulator
 
 ### 音場の計算 (瞬時値)
 
-<div class="tabs">
-<input id="rust_tab_instant" type="radio" class="tab" name="tab_instant" checked>
-<label class="tab_item" n=2 for="rust_tab_instant">Rust</label>
-<input id="python_tab_instant" type="radio" class="tab" name="tab_instant">
-<label class="tab_item" n=2 for="python_tab_instant">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust,edition2024
 {{#include ../../../codes/Users_Manual/emulator/emulator_field.rs}}
 ```
-
-<div class="tab_content" id="rust_code_content">
-<blockquote>
-<p>NOTE: <code class="hljs">gpu</code>オプションは, <code class="hljs">gpu</code> featureを有効にしている場合のみ使用可能である.</p>
-</blockquote>
-</div>
-
+> NOTE: `gpu`オプションは, `gpu` featureを有効にしている場合のみ使用可能である.
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/emulator/emulator_field.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 > NOTE: 計測点を指定する方法として, Rust版は, `RangeXYZ`以外に, 列挙順の異なる`RangeZXY`等や, 2次元専用の`RangeXY`等, 1次元専用の`RangeX`等が使用できる.
 > あるいは, 任意の点を指定するために, `Vec<Vector3>`が使用できる.
@@ -302,26 +285,19 @@ pip install pyautd3_emulator
 
 ### 音場の計算 (RMS)
 
-<div class="tabs">
-<input id="rust_tab_rms" type="radio" class="tab" name="tab_rms" checked>
-<label class="tab_item" n=2 for="rust_tab_rms">Rust</label>
-<input id="python_tab_rms" type="radio" class="tab" name="tab_rms">
-<label class="tab_item" n=2 for="python_tab_rms">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust,edition2024
 {{#include ../../../codes/Users_Manual/emulator/emulator_rms.rs}}
 ```
-
-<div class="tab_content" id="rust_code_content">
-<blockquote>
-<p>NOTE: <code class="hljs">gpu</code>オプションは, <code class="hljs">gpu</code> featureを有効にしている場合のみ使用可能である.</p>
-</blockquote>
-</div>
-
+> NOTE: `gpu`オプションは, `gpu` featureを有効にしている場合のみ使用可能である.
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/emulator/emulator_rms.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 > NOTE: 最低, $\SI{25}{us}$は時刻を進める必要がある.
 

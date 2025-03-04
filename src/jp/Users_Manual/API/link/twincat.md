@@ -91,73 +91,52 @@ AUTD3とPCを接続し, AUTD3の電源が入った状態で, 「Run」ボタン�
 
 ### Install
 
-<div class="tabs">
-<input id="rust_tab_install" type="radio" class="tab" name="tab_install" checked>
-<label class="tab_item" n=5  for="rust_tab_install">Rust</label>
-<input id="cpp_tab_install" type="radio" class="tab" name="tab_install">
-<label class="tab_item" n=5  for="cpp_tab_install">C++</label>
-<input id="cs_tab_install" type="radio" class="tab" name="tab_install">
-<label class="tab_item" n=5  for="cs_tab_install">C#</label>
-<input id="unity_tab_install" type="radio" class="tab" name="tab_install">
-<label class="tab_item" n=5  for="unity_tab_install">Unity</label>
-<input id="python_tab_install" type="radio" class="tab" name="tab_install">
-<label class="tab_item" n=5  for="python_tab_install">Python</label>
-
-```rust,name=Shell
+{{ #tabs }}
+{{ #tab name=Rust }}
+```shell
 cargo add autd3-link-twincat
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp,name=CMakeLists.txt
 target_link_libraries(<TARGET> PRIVATE autd3::link::twincat)
 ```
-
-<div class="tab_content" id="cs_code_content">
-  <p>
-    メインライブラリに含まれている.
-  </p>
-</div>
-
-<div class="tab_content" id="unity_code_content">
-  <p>
-    メインライブラリに含まれている.
-  </p>
-</div>
-
-<div class="tab_content" id="python_code_content">
-  <p>
-    メインライブラリに含まれている.
-  </p>
-</div>
-</div>
+{{ #endtab }}
+{{ #tab name=C# }}
+メインライブラリに含まれている.
+{{ #endtab }}
+{{ #tab name=Unity }}
+メインライブラリに含まれている.
+{{ #endtab }}
+{{ #tab name=Python }}
+メインライブラリに含まれている.
+{{ #endtab }}
+{{ #endtabs }}
 
 ### APIs
 
-<div class="tabs">
-<input id="rust_tab_api" type="radio" class="tab" name="tab_api" checked>
-<label class="tab_item" n=4 for="rust_tab_api">Rust</label>
-<input id="cpp_tab_api" type="radio" class="tab" name="tab_api">
-<label class="tab_item" n=4 for="cpp_tab_api">C++</label>
-<input id="cs_tab_api" type="radio" class="tab" name="tab_api">
-<label class="tab_item" n=4 for="cs_tab_api">C#</label>
-<input id="python_tab_api" type="radio" class="tab" name="tab_api">
-<label class="tab_item" n=4 for="python_tab_api">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust
 {{#include ../../../../codes/Users_Manual/link/twincat_0.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../../codes/Users_Manual/link/twincat_0.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../../codes/Users_Manual/link/twincat_0.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../../codes/Users_Manual/link/twincat_0.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 ### トラブルシューティング
 

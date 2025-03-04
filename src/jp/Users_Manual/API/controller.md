@@ -9,32 +9,28 @@
 FPGAの状態を取得する.
 これを使用する前に, `ReadsFPGAState`で状態取得を有効化しておく必要がある.
 
-<div class="tabs">
-<input id="rust_tab_fpga_state" type="radio" class="tab" name="tab_fpga_state" checked>
-<label class="tab_item" n=4 for="rust_tab_fpga_state">Rust</label>
-<input id="cpp_tab_fpga_state" type="radio" class="tab" name="tab_fpga_state">
-<label class="tab_item" n=4 for="cpp_tab_fpga_state">C++</label>
-<input id="cs_tab_fpga_state" type="radio" class="tab" name="tab_fpga_state">
-<label class="tab_item" n=4 for="cs_tab_fpga_state">C#</label>
-<input id="python_tab_fpga_state" type="radio" class="tab" name="tab_fpga_state">
-<label class="tab_item" n=4 for="python_tab_fpga_state">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust,edition2024
 {{#include ../../../codes/Users_Manual/controller_0.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../codes/Users_Manual/controller_0.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../codes/Users_Manual/controller_0.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/controller_0.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 `ReadsFPGAState`コンストラクタの引数は`Fn(&Device) -> bool`で, デバイス毎に状態取得を有効化するかどうかを指定する.
 
@@ -59,34 +55,31 @@ FPGAの状態としては, 現在以下の情報が取得できる.
 
 `group_send`関数を使用すると, デバイスをグルーピングすることができる.
 
-<div class="tabs">
-<input id="rust_tab_group" type="radio" class="tab" name="tab_group" checked>
-<label class="tab_item" n=4 for="rust_tab_group">Rust</label>
-<input id="cpp_tab_group" type="radio" class="tab" name="tab_group">
-<label class="tab_item" n=4 for="cpp_tab_group">C++</label>
-<input id="cs_tab_group" type="radio" class="tab" name="tab_group">
-<label class="tab_item" n=4 for="cs_tab_group">C#</label>
-<input id="python_tab_group" type="radio" class="tab" name="tab_group">
-<label class="tab_item" n=4 for="python_tab_group">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust,edition2024
 {{#include ../../../codes/Users_Manual/controller_2.rs}}
 ```
+{{ #endtab }}
 
 > NOTE: Rust版は`HashMap`の値がすべて同じ型である必要があるため, ここでは`into_boxed`を使用して, 型を統一している.
 
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../codes/Users_Manual/controller_2.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../codes/Users_Manual/controller_2.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/controller_2.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 `gain::Group`とは異なり, 通常の`send`で送信できるデータなら何でも使用できる.
 ただし, デバイス単位でしかグルーピングできない.
@@ -98,32 +91,28 @@ FPGAの状態としては, 現在以下の情報が取得できる.
 
 送信時の設定を`sender`経由で指定できる.
 
-<div class="tabs">
-<input id="rust_tab_sender" type="radio" class="tab" name="tab_sender" checked>
-<label class="tab_item" n=4 for="rust_tab_sender">Rust</label>
-<input id="cpp_tab_sender" type="radio" class="tab" name="tab_sender">
-<label class="tab_item" n=4 for="cpp_tab_sender">C++</label>
-<input id="cs_tab_sender" type="radio" class="tab" name="tab_sender">
-<label class="tab_item" n=4 for="cs_tab_sender">C#</label>
-<input id="python_tab_sender" type="radio" class="tab" name="tab_sender">
-<label class="tab_item" n=4 for="python_tab_sender">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust,edition2024
 {{#include ../../../codes/Users_Manual/sender.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../codes/Users_Manual/sender.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../codes/Users_Manual/sender.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/sender.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 ここで,
 - `send_interval`: 送信間隔
@@ -134,6 +123,7 @@ FPGAの状態としては, 現在以下の情報が取得できる.
     - `SpinSleeper`: [`spin_sleep`](https://crates.io/crates/spin_sleep)を使用
     - `StdSleeper`: `std::thread::sleep`を使用
     - `WaitableSleeper`: (Windowsのみ) [`Waitable Timer`](https://learn.microsoft.com/en-us/windows/win32/sync/waitable-timer-objects)を使用
+
 であり, デフォルト値は上記の通り.
 
 なお, `Controller::send`, `Controller::group_send`はデフォルトの`SenderOption`を使用した場合と等価である.

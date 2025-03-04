@@ -1,5 +1,3 @@
-# Rust版チュートリアル
-
 まずは適当なプロジェクトを作成し, `autd3`ライブラリを依存関係に追加する.
 また, デバイスとの通信を行う`autd3-link-soem`ライブラリも依存関係に追加する.
 
@@ -23,7 +21,7 @@ cargo add autd3-link-soem
 cargo run --release
 ```
 
-## Linux,macOS使用時の注意
+### Linux,macOS使用時の注意
 
 Linux, macOSでは, SOEMを使用するのに管理者権限が必要になる.
 その場合は, 

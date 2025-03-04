@@ -1,5 +1,3 @@
-# C# Tutorial
-
 First, open a terminal, create an appropriate project, and add the AUTD3Sharp library.
 
 ```shell
@@ -22,7 +20,7 @@ Then, run it.
 dotnet run -c:Release
 ```
 
-## Notes for Linux and macOS Users
+### Notes for Linux and macOS Users
 
 On Linux and macOS, administrator privileges may be required to use SOEM.
 In that case, run:

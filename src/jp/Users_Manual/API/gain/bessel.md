@@ -4,32 +4,28 @@
 `Bessel`ではBessel beamを生成する.
 この`Gain`は長谷川らの論文[^hasegawa2017]に基づく.
 
-<div class="tabs">
-<input id="rust_tab_bessel" type="radio" class="tab" name="tab_bessel" checked>
-<label class="tab_item" n=4 for="rust_tab_bessel">Rust</label>
-<input id="cpp_tab_bessel" type="radio" class="tab" name="tab_bessel">
-<label class="tab_item" n=4 for="cpp_tab_bessel">C++</label>
-<input id="cs_tab_bessel" type="radio" class="tab" name="tab_bessel">
-<label class="tab_item" n=4 for="cs_tab_bessel">C#</label>
-<input id="python_tab_bessel" type="radio" class="tab" name="tab_bessel">
-<label class="tab_item" n=4 for="python_tab_bessel">Python</label>
-
-```rust,edition2024
+{{ #tabs }}
+{{ #tab name=Rust }}
+```rust
 {{#include ../../../../codes/Users_Manual/gain/bessel_0.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../../codes/Users_Manual/gain/bessel_0.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../../codes/Users_Manual/gain/bessel_0.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../../codes/Users_Manual/gain/bessel_0.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 ここで, `pos`はビームを生成する仮想円錐 (下図の点線) の頂点であり, `dir`はビームの方向, `theta`はビームに垂直な面とビームを生成する仮想円錐の側面となす角度である (下図の$\theta_z$).
 

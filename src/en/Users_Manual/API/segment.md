@@ -8,32 +8,28 @@ Unless otherwise specified, `Segment::S0` is used.
 
 The `Segment` to which data is written is specified with `WithSegment`.
 
-<div class="tabs">
-<input id="rust_tab_segment" type="radio" class="tab" name="tab_segment" checked>
-<label class="tab_item" n=4 for="rust_tab_segment">Rust</label>
-<input id="cpp_tab_segment" type="radio" class="tab" name="tab_segment">
-<label class="tab_item" n=4 for="cpp_tab_segment">C++</label>
-<input id="cs_tab_segment" type="radio" class="tab" name="tab_segment">
-<label class="tab_item" n=4 for="cs_tab_segment">C#</label>
-<input id="python_tab_segment" type="radio" class="tab" name="tab_segment">
-<label class="tab_item" n=4 for="python_tab_segment">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust,edition2024
 {{#include ../../../codes/Users_Manual/segment/segment_transition.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../codes/Users_Manual/segment/segment_transition.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../codes/Users_Manual/segment/segment_transition.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/segment/segment_transition.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 The `transition_mode` specifies the conditions for switching `Segments`.
 - Only available when the destination segment is in an infinite loop
@@ -55,60 +51,52 @@ To write data without switching `Segments`, specify `None` for `transition_mode`
 
 To switch `Segments` only, use `SwapSegment`.
 
-<div class="tabs">
-<input id="rust_tab_swap" type="radio" class="tab" name="tab_swap" checked>
-<label class="tab_item" n=4 for="rust_tab_swap">Rust</label>
-<input id="cpp_tab_swap" type="radio" class="tab" name="tab_swap">
-<label class="tab_item" n=4 for="cpp_tab_swap">C++</label>
-<input id="cs_tab_swap" type="radio" class="tab" name="tab_swap">
-<label class="tab_item" n=4 for="cs_tab_swap">C#</label>
-<input id="python_tab_swap" type="radio" class="tab" name="tab_swap">
-<label class="tab_item" n=4 for="python_tab_swap">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust,edition2024
 {{#include ../../../codes/Users_Manual/segment/segment_change_transition.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../codes/Users_Manual/segment/segment_change_transition.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../codes/Users_Manual/segment/segment_change_transition.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/segment/segment_change_transition.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 ### LoopBehavior
 
 `Modulation`, `FociSTM`, and `GainSTM` can control loop behavior with `WithLoopBehavior`.
 
-<div class="tabs">
-<input id="rust_tab_loop" type="radio" class="tab" name="tab_loop" checked>
-<label class="tab_item" n=4 for="rust_tab_loop">Rust</label>
-<input id="cpp_tab_loop" type="radio" class="tab" name="tab_loop">
-<label class="tab_item" n=4 for="cpp_tab_loop">C++</label>
-<input id="cs_tab_loop" type="radio" class="tab" name="tab_loop">
-<label class="tab_item" n=4 for="cs_tab_loop">C#</label>
-<input id="python_tab_loop" type="radio" class="tab" name="tab_loop">
-<label class="tab_item" n=4 for="python_tab_loop">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust,edition2024
 {{#include ../../../codes/Users_Manual/segment/loop_behavior.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../codes/Users_Manual/segment/loop_behavior.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../codes/Users_Manual/segment/loop_behavior.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/segment/loop_behavior.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}

@@ -7,32 +7,28 @@ The usage of `GainSTM` is as follows.
 This is a sample that rotates a focus on the circumference of a circle with a radius of $\SI{30}{mm}$ centered at a point $\SI{150}{mm}$ directly above the center of the array.
 The circumference is sampled at 200 points, rotating at $\SI{1}{Hz}$. (That is, the sampling frequency is $\SI{200}{Hz}$.)
 
-<div class="tabs">
-<input id="rust_tab" type="radio" class="tab" name="tab" checked>
-<label class="tab_item" n=4 for="rust_tab">Rust</label>
-<input id="cpp_tab" type="radio" class="tab" name="tab">
-<label class="tab_item" n=4 for="cpp_tab">C++</label>
-<input id="cs_tab" type="radio" class="tab" name="tab">
-<label class="tab_item" n=4 for="cs_tab">C#</label>
-<input id="python_tab" type="radio" class="tab" name="tab">
-<label class="tab_item" n=4 for="python_tab">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust,edition2024
 {{#include ../../../../codes/Users_Manual/stm/gain_0.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../../codes/Users_Manual/stm/gain_0.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../../codes/Users_Manual/stm/gain_0.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../../codes/Users_Manual/stm/gain_0.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 ## GainSTMMode
 

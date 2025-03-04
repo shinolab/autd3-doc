@@ -3,31 +3,27 @@
 
 `Cache`で計算結果をキャッシュしておくための`Modulation`を生成できる.
 
-<div class="tabs">
-<input id="rust_tab_cache" type="radio" class="tab" name="tab_cache" checked>
-<label class="tab_item" n=4 for="rust_tab_cache">Rust</label>
-<input id="cpp_tab_cache" type="radio" class="tab" name="tab_cache">
-<label class="tab_item" n=4 for="cpp_tab_cache">C++</label>
-<input id="cs_tab_cache" type="radio" class="tab" name="tab_cache">
-<label class="tab_item" n=4 for="cs_tab_cache">C#</label>
-<input id="python_tab_cache" type="radio" class="tab" name="tab_cache">
-<label class="tab_item" n=4 for="python_tab_cache">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust,edition2024
 {{#include ../../../../codes/Users_Manual/modulation/cache_0.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../../codes/Users_Manual/modulation/cache_0.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../../codes/Users_Manual/modulation/cache_0.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../../codes/Users_Manual/modulation/cache_0.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 > NOTE: ほとんどの`Modulation`に対して, キャッシュするより都度計算し直したほうが速い. 使用時は必ずベンチマークを取ること.

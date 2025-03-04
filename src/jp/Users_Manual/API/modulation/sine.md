@@ -3,32 +3,29 @@
 
 音圧をSin波状に変形するための`Modulation`.
 
-<div class="tabs">
-<input id="rust_tab_api" type="radio" class="tab" name="tab_api" checked>
-<label class="tab_item" n=4 for="rust_tab_api">Rust</label>
-<input id="cpp_tab_api" type="radio" class="tab" name="tab_api">
-<label class="tab_item" n=4 for="cpp_tab_api">C++</label>
-<input id="cs_tab_api" type="radio" class="tab" name="tab_api">
-<label class="tab_item" n=4 for="cs_tab_api">C#</label>
-<input id="python_tab_api" type="radio" class="tab" name="tab_api">
-<label class="tab_item" n=4 for="python_tab_api">Python</label>
 
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust
 {{#include ../../../../codes/Users_Manual/modulation/sine_0.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../../codes/Users_Manual/modulation/sine_0.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../../codes/Users_Manual/modulation/sine_0.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../../codes/Users_Manual/modulation/sine_0.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 `Sine`は音圧の波形が
 $$
@@ -47,29 +44,26 @@ $$
 
 その場合はサンプリング設定を変更するか, `into_nearest`を使用することで, 出力可能な周波数の内で最も近い周波数で変調することができる.
 
-<div class="tabs">
-<input id="rust_tab_api_nearest" type="radio" class="tab" name="tab_api_nearest" checked>
-<label class="tab_item" n=4 for="rust_tab_api_nearest">Rust</label>
-<input id="cpp_tab_api_nearest" type="radio" class="tab" name="tab_api_nearest">
-<label class="tab_item" n=4 for="cpp_tab_api_nearest">C++</label>
-<input id="cs_tab_api_nearest" type="radio" class="tab" name="tab_api_nearest">
-<label class="tab_item" n=4 for="cs_tab_api_nearest">C#</label>
-<input id="python_tab_api_nearest" type="radio" class="tab" name="tab_api_nearest">
-<label class="tab_item" n=4 for="python_tab_api_nearest">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust
 {{#include ../../../../codes/Users_Manual/modulation/sine_2.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../../codes/Users_Manual/modulation/sine_2.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../../codes/Users_Manual/modulation/sine_2.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../../codes/Users_Manual/modulation/sine_2.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
+

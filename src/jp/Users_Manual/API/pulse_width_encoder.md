@@ -7,32 +7,28 @@ PWM信号のDuty比と超音波出力の間には非線形な関係がある.
 `PulseWidthEncoder`によってこのテーブルを変更できる.
 なお, PWM信号の周期は256である.
 
-<div class="tabs">
-<input id="rust_tab" type="radio" class="tab" name="tab" checked>
-<label class="tab_item" n=4 for="rust_tab">Rust</label>
-<input id="cpp_tab" type="radio" class="tab" name="tab">
-<label class="tab_item" n=4 for="cpp_tab">C++</label>
-<input id="cs_tab" type="radio" class="tab" name="tab">
-<label class="tab_item" n=4 for="cs_tab">C#</label>
-<input id="python_tab" type="radio" class="tab" name="tab">
-<label class="tab_item" n=4 for="python_tab">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust,edition2024
 {{#include ../../../codes/Users_Manual/advanced/pulse_width_encoder.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../codes/Users_Manual/advanced/pulse_width_encoder.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../codes/Users_Manual/advanced/pulse_width_encoder.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/advanced/pulse_width_encoder.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 コンストラクタの引数は各デバイスに対して, テーブルのインデックスを引数にパルス幅を返す関数を返す関数`Fn(&Device) -> Fn(EmitIntensity) -> u8`である.
 

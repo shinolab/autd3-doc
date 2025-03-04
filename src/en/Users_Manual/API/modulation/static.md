@@ -2,32 +2,28 @@
 
 No modulation.
 
-<div class="tabs">
-<input id="rust_tab_api" type="radio" class="tab" name="tab_api" checked>
-<label class="tab_item" n=4 for="rust_tab_api">Rust</label>
-<input id="cpp_tab_api" type="radio" class="tab" name="tab_api">
-<label class="tab_item" n=4 for="cpp_tab_api">C++</label>
-<input id="cs_tab_api" type="radio" class="tab" name="tab_api">
-<label class="tab_item" n=4 for="cs_tab_api">C#</label>
-<input id="python_tab_api" type="radio" class="tab" name="tab_api">
-<label class="tab_item" n=4 for="python_tab_api">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust
 {{#include ../../../../codes/Users_Manual/modulation/static_0.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../../codes/Users_Manual/modulation/static_0.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../../codes/Users_Manual/modulation/static_0.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../../codes/Users_Manual/modulation/static_0.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 The intensity can be specified with `intensity`.
 The default is as above.

@@ -27,32 +27,28 @@ Silencerの設定には`Silencer`を送信する.
 Silencerはデフォルトで適当な値に設定されている.
 Silencerを無効化する場合は, `disable`を送信する.
 
-<div class="tabs">
-<input id="rust_tab_silencer" type="radio" class="tab" name="tab_silencer" checked>
-<label class="tab_item" n=4 for="rust_tab_silencer">Rust</label>
-<input id="cpp_tab_silencer" type="radio" class="tab" name="tab_silencer">
-<label class="tab_item" n=4 for="cpp_tab_silencer">C++</label>
-<input id="cs_tab_silencer" type="radio" class="tab" name="tab_silencer">
-<label class="tab_item" n=4 for="cs_tab_silencer">C#</label>
-<input id="python_tab_silencer" type="radio" class="tab" name="tab_silencer">
-<label class="tab_item" n=4 for="python_tab_silencer">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust,edition2024
 {{#include ../../../codes/Users_Manual/silencer/silencer_0.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../codes/Users_Manual/silencer/silencer_0.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../codes/Users_Manual/silencer/silencer_0.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/silencer/silencer_0.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 より細く設定する場合は, 以下2つのモードから選択する必要がある.
 
@@ -130,32 +126,28 @@ $$
 Fixed update rate modeを設定するには, 以下のようにする.
 引数はそれぞれ, 上述の$\Delta$に対応する (単位は$2\pi/65536$).
 
-<div class="tabs">
-<input id="rust_tab_update_rate" type="radio" class="tab" name="tab_update_rate" checked>
-<label class="tab_item" n=4 for="rust_tab_update_rate">Rust</label>
-<input id="cpp_tab_update_rate" type="radio" class="tab" name="tab_update_rate">
-<label class="tab_item" n=4 for="cpp_tab_update_rate">C++</label>
-<input id="cs_tab_update_rate" type="radio" class="tab" name="tab_update_rate">
-<label class="tab_item" n=4 for="cs_tab_update_rate">C#</label>
-<input id="python_tab_update_rate" type="radio" class="tab" name="tab_update_rate">
-<label class="tab_item" n=4 for="python_tab_update_rate">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust,edition2024
 {{#include ../../../codes/Users_Manual/silencer/silencer_fixed_update_rate.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../codes/Users_Manual/silencer/silencer_fixed_update_rate.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../codes/Users_Manual/silencer/silencer_fixed_update_rate.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/silencer/silencer_fixed_update_rate.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 ### Fixed completion time mode
 
@@ -168,32 +160,28 @@ Fixed completion time modeを設定するには, 以下のようにする.
 `intensity`, `phase`はそれぞれ, 振幅/位相変化の完了まで時間に対応する.
 これらは超音波周期 ($\SI{25}{us}$) の整数倍である必要がある.
 
-<div class="tabs">
-<input id="rust_tab_time" type="radio" class="tab" name="tab_time" checked>
-<label class="tab_item" n=4 for="rust_tab_time">Rust</label>
-<input id="cpp_tab_time" type="radio" class="tab" name="tab_time">
-<label class="tab_item" n=4 for="cpp_tab_time">C++</label>
-<input id="cs_tab_time" type="radio" class="tab" name="tab_time">
-<label class="tab_item" n=4 for="cs_tab_time">C#</label>
-<input id="python_tab_time" type="radio" class="tab" name="tab_time">
-<label class="tab_item" n=4 for="python_tab_time">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust,edition2024
 {{#include ../../../codes/Users_Manual/silencer/silencer_fixed_completion_steps.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../codes/Users_Manual/silencer/silencer_fixed_completion_steps.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../codes/Users_Manual/silencer/silencer_fixed_completion_steps.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/silencer/silencer_fixed_completion_steps.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 デフォルト値は, 位相変化が$\SI{1}{ms}$, 振幅変化が$\SI{0.25}{ms}$である.
 なお, Silencerの無効化は, 位相/振幅変化が超音波周期 ($\SI{25}{us}$) で終わることと等価である.

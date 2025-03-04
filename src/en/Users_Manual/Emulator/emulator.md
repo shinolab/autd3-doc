@@ -9,20 +9,18 @@ By using the `Emulator`, you can perform more detailed calculations of output ph
 
 ## Install
 
-<div class="tabs">
-<input id="rust_tab_install" type="radio" class="tab" name="tab_install" checked>
-<label class="tab_item" n=2 for="rust_tab_install">Rust</label>
-<input id="python_tab_install" type="radio" class="tab" name="tab_install">
-<label class="tab_item" n=2 for="python_tab_install">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust,name=shell
 cargo add autd3-emulator
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python,name=shell
 pip install pyautd3_emulator
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 ## APIs
 The data output by the `Emulator` is a Polars DataFrame.
@@ -34,20 +32,18 @@ Displays a list of transducers.
 
 Each column contains the device index, the (local) index of the transducer, position, and axial direction.
 
-<div class="tabs">
-<input id="rust_tab_tr_table" type="radio" class="tab" name="tab_tr_table" checked>
-<label class="tab_item" n=2 for="rust_tab_tr_table">Rust</label>
-<input id="python_tab_tr_table" type="radio" class="tab" name="tab_tr_table">
-<label class="tab_item" n=2 for="python_tab_tr_table">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust,edition2024
 {{#include ../../../codes/Users_Manual/emulator/emulator_trans_table.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/emulator/emulator_trans_table.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 ```
 ┌─────────┬────────┬────────────┬────────────┬───────┬─────┬─────┬─────┐
@@ -71,20 +67,18 @@ Each column contains the device index, the (local) index of the transducer, posi
 
 ### Calculation of Output Phase/Pulse Width
 
-<div class="tabs">
-<input id="rust_tab_phase" type="radio" class="tab" name="tab_phase" checked>
-<label class="tab_item" n=2 for="rust_tab_phase">Rust</label>
-<input id="python_tab_phase" type="radio" class="tab" name="tab_phase">
-<label class="tab_item" n=2 for="python_tab_phase">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust,edition2024
 {{#include ../../../codes/Users_Manual/emulator/emulator_drive.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/emulator/emulator_drive.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 > NOTE: The time interval specified by `tick` must be a multiple of $\SI{25}{us}$.
 
@@ -137,20 +131,18 @@ Each row corresponds to the rows in the [Transducer Table](#transducer-table).
 ```
 ### Output Voltage
 
-<div class="tabs">
-<input id="rust_tab_voltage" type="radio" class="tab" name="tab_voltage" checked>
-<label class="tab_item" n=2 for="rust_tab_voltage">Rust</label>
-<input id="python_tab_voltage" type="radio" class="tab" name="tab_voltage">
-<label class="tab_item" n=2 for="python_tab_voltage">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust,edition2024
 {{#include ../../../codes/Users_Manual/emulator/emulator_voltage.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/emulator/emulator_voltage.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 The output voltage at each time ($\SI{25}{us}/256$ unit) is stored in each column.
 Each column name is `voltage[V]@<time>[25us/256]`.
@@ -179,20 +171,18 @@ Each row corresponds to the rows in the [Transducer Table](#transducer-table).
 ```
 ### Output Sound Pressure
 
-<div class="tabs">
-<input id="rust_tab_ultrasound" type="radio" class="tab" name="tab_ultrasound" checked>
-<label class="tab_item" n=2 for="rust_tab_ultrasound">Rust</label>
-<input id="python_tab_ultrasound" type="radio" class="tab" name="tab_ultrasound">
-<label class="tab_item" n=2 for="python_tab_ultrasound">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust,edition2024
 {{#include ../../../codes/Users_Manual/emulator/emulator_ultrasound.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/emulator/emulator_ultrasound.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 The normalized output sound pressure at each time ($\SI{25}{us}/256$ unit) is stored in each column.
 Each column name is `p[a.u.]@<time>[25us/256]`.
@@ -221,26 +211,19 @@ Each row corresponds to the rows in the [Transducer Table](#transducer-table).
 ```
 ### Calculation of Sound Field (Instantaneous Value)
 
-<div class="tabs">
-<input id="rust_tab_instant" type="radio" class="tab" name="tab_instant" checked>
-<label class="tab_item" n=2 for="rust_tab_instant">Rust</label>
-<input id="python_tab_instant" type="radio" class="tab" name="tab_instant">
-<label class="tab_item" n=2 for="python_tab_instant">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust,edition2024
 {{#include ../../../codes/Users_Manual/emulator/emulator_field.rs}}
 ```
-
-<div class="tab_content" id="rust_code_content">
-<blockquote>
-<p>NOTE: The <code class="hljs">gpu</code> option is only available if the <code class="hljs">gpu</code> feature is enabled.</p>
-</blockquote>
-</div>
-
+>NOTE: The `gpu` option is only available if the `gpu` feature is enabled.</p>
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/emulator/emulator_field.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 > NOTE: In Rust, besides `RangeXYZ`, you can use `RangeZXY`, `RangeXY` for 2D, `RangeX` for 1D and so on, or `Vec<Vector3>` to specify arbitrary points.
 > In Python, only `RangeXYZ` is available.
@@ -296,26 +279,19 @@ Each row corresponds to the observation points obtained with `observe_points`.
 ```
 ### Calculation of Sound Field (RMS)
 
-<div class="tabs">
-<input id="rust_tab_rms" type="radio" class="tab" name="tab_rms" checked>
-<label class="tab_item" n=2 for="rust_tab_rms">Rust</label>
-<input id="python_tab_rms" type="radio" class="tab" name="tab_rms">
-<label class="tab_item" n=2 for="python_tab_rms">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust,edition2024
 {{#include ../../../codes/Users_Manual/emulator/emulator_rms.rs}}
 ```
-
-<div class="tab_content" id="rust_code_content">
-<blockquote>
-<p>NOTE: The <code class="hljs">gpu</code> option is only available if the <code class="hljs">gpu</code> feature is enabled.</p>
-</blockquote>
-</div>
-
+>NOTE: The `gpu` option is only available if the `gpu` feature is enabled.</p>
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/emulator/emulator_rms.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 > NOTE: The time must advance by at least $\SI{25}{us}$.
 

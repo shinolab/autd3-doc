@@ -4,32 +4,29 @@
 Levenberg-Marquardt法 (LM法) に基づく多焦点`Gain`.
 LM法はLevenberg[^levenberg1944]とMarquardt[^marquardt1963]で提案された非線形最小二乗問題の最適化法, 実装はMadsenのテキスト[^madsen2004]に基づく.
 
-<div class="tabs">
-<input id="rust_tab_api" type="radio" class="tab" name="tab_api" checked>
-<label class="tab_item" n=4 for="rust_tab_api">Rust</label>
-<input id="cpp_tab_api" type="radio" class="tab" name="tab_api">
-<label class="tab_item" n=4 for="cpp_tab_api">C++</label>
-<input id="cs_tab_api" type="radio" class="tab" name="tab_api">
-<label class="tab_item" n=4 for="cs_tab_api">C#</label>
-<input id="python_tab_api" type="radio" class="tab" name="tab_api">
-<label class="tab_item" n=4 for="python_tab_api">Python</label>
 
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust
 {{#include ../../../../../codes/Users_Manual/gain/holo/lm.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../../../codes/Users_Manual/gain/holo/lm.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../../../codes/Users_Manual/gain/holo/lm.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../../../codes/Users_Manual/gain/holo/lm.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 各パラメータのデフォルトは上記の通り.
 パラメータの詳細はテキスト[^madsen2004]を参照されたい.

@@ -4,44 +4,27 @@
 
 ## Install
 
-<div class="tabs">
-<input id="rust_tab_install" type="radio" class="tab" name="tab_install" checked>
-<label class="tab_item" n=5 for="rust_tab_install">Rust</label>
-<input id="cpp_tab_install" type="radio" class="tab" name="tab_install">
-<label class="tab_item" n=5 for="cpp_tab_install">C++</label>
-<input id="cs_tab_install" type="radio" class="tab" name="tab_install">
-<label class="tab_item" n=5 for="cs_tab_install">C#</label>
-<input id="unity_tab_install" type="radio" class="tab" name="tab_install">
-<label class="tab_item" n=5 for="unity_tab_install">Unity</label>
-<input id="python_tab_install" type="radio" class="tab" name="tab_install">
-<label class="tab_item" n=5 for="python_tab_install">Python</label>
-
-```rust,name=Shell
+{{ #tabs }}
+{{ #tab name=Rust }}
+```shell
 cargo add autd3-gain-holo
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp,name=CMakeLists.txt
 target_link_libraries(<TARGET> PRIVATE autd3::gain::holo)
 ```
-
-<div class="tab_content" id="cs_code_content">
-  <p>
-    Included in the main library.
-  </p>
-</div>
-
-<div class="tab_content" id="unity_code_content">
-  <p>
-    Included in the main library.
-  </p>
-</div>
-
-<div class="tab_content" id="python_code_content">
-  <p>
-    Included in the main library.
-  </p>
-</div>
-</div>
+{{ #endtab }}
+{{ #tab name=C# }}
+Included in the main library.
+{{ #endtab }}
+{{ #tab name=Unity }}
+Included in the main library.
+{{ #endtab }}
+{{ #tab name=Python }}
+Included in the main library.
+{{ #endtab }}
+{{ #endtabs }}
 
 ## APIs
 

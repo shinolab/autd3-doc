@@ -1,5 +1,3 @@
-# C#版チュートリアル
-
 まず, ターミナルを開き, 適当なプロジェクトを作成し, AUTD3Sharpライブラリを追加する.
 
 ```shell
@@ -22,7 +20,7 @@ dotnet add package AUTD3Sharp.Link.SOEM
 dotnet run -c:Release
 ```
 
-## Linux,macOS使用時の注意
+### Linux,macOS使用時の注意
 
 Linux, macOSでは, SOEMを使用するのに管理者権限が必要な場合がある.
 その場合は, 
