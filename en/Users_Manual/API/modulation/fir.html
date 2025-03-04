@@ -1,0 +1,413 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Fir - AUTD3 Developers Manual v30.0.1</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../../highlight.css">
+        <link rel="stylesheet" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../../css/codeblock_filename.css">
+        <link rel="stylesheet" href="../../../css/lightbox.css">
+        <link rel="stylesheet" href="../../../css/open-in.css">
+        <link rel="stylesheet" href="../../../css/no-link-summary.css">
+        <link rel="stylesheet" href="../../../css/tab.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">AUTD3 Developers Manual v30.0.1</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/shinolab/autd3-doc" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="fir"><a class="header" href="#fir">Fir</a></h1>
+<p>You can apply an FIR filter using <code>Fir</code>.</p>
+<p>Below is an example of applying an LPF with a sampling frequency of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord"><span class="mord">20</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathrm">kHz</span></span></span></span></span></span>, 199 taps, and a cutoff frequency of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord"><span class="mord">200</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathrm">Hz</span></span></span></span></span></span>.</p>
+<div class="mdbook-inpage-tabs"><input id="Rust-tab-0" type="radio" class="mdbook-inpage-tab" name="tab-0" checked>
+                                <label class="mdbook-inpage-tab-item" num-tabs=4 for="Rust-tab-0">Rust</label><input id="C++-tab-0" type="radio" class="mdbook-inpage-tab" name="tab-0">
+                                <label class="mdbook-inpage-tab-item" num-tabs=4 for="C++-tab-0">C++</label><input id="C#-tab-0" type="radio" class="mdbook-inpage-tab" name="tab-0">
+                                <label class="mdbook-inpage-tab-item" num-tabs=4 for="C#-tab-0">C#</label><input id="Python-tab-0" type="radio" class="mdbook-inpage-tab" name="tab-0">
+                                <label class="mdbook-inpage-tab-item" num-tabs=4 for="Python-tab-0">Python</label><div class="mdbook-inpage-tab-content" id=Rust-content>
+<pre><code class="language-rust edition2024"><span class="boring">use autd3::prelude::*;
+</span>use autd3::modulation::Fir;
+
+<span class="boring">fn main() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
+</span><span class="boring">let _ = 
+</span>Fir {
+    target: Sine {
+        freq: 150. * Hz,
+        option: SineOption {
+            sampling_config: SamplingConfig::new(20.0 * kHz),
+            ..Default::default()
+        },
+    },
+    coef: vec![
+        -0.000009, -0.000013, -0.000016, -0.000021, -0.000025, -0.000030, -0.000036,
+        -0.000042, -0.000049, -0.000056, -0.000064, -0.000072, -0.000080, -0.000088,
+        -0.000096, -0.000105, -0.000113, -0.000120, -0.000128, -0.000134, -0.000139,
+        -0.000143, -0.000146, -0.000146, -0.000145, -0.000141, -0.000135, -0.000124,
+        -0.000111, -0.000093, -0.000071, -0.000044, -0.000012, 0.000026, 0.000071,
+        0.000122, 0.000180, 0.000247, 0.000321, 0.000405, 0.000497, 0.000599, 0.000712,
+        0.000835, 0.000968, 0.001113, 0.001270, 0.001439, 0.001619, 0.001812, 0.002018,
+        0.002236, 0.002467, 0.002711, 0.002968, 0.003237, 0.003518, 0.003812, 0.004118,
+        0.004435, 0.004764, 0.005103, 0.005452, 0.005811, 0.006178, 0.006554, 0.006937,
+        0.007326, 0.007720, 0.008119, 0.008521, 0.008925, 0.009331, 0.009737, 0.010141,
+        0.010543, 0.010941, 0.011335, 0.011722, 0.012101, 0.012472, 0.012833, 0.013183,
+        0.013520, 0.013843, 0.014152, 0.014445, 0.014720, 0.014978, 0.015217, 0.015435,
+        0.015633, 0.015810, 0.015964, 0.016096, 0.016204, 0.016289, 0.016350, 0.016386,
+        0.016399, 0.016386, 0.016350, 0.016289, 0.016204, 0.016096, 0.015964, 0.015810,
+        0.015633, 0.015435, 0.015217, 0.014978, 0.014720, 0.014445, 0.014152, 0.013843,
+        0.013520, 0.013183, 0.012833, 0.012472, 0.012101, 0.011722, 0.011335, 0.010941,
+        0.010543, 0.010141, 0.009737, 0.009331, 0.008925, 0.008521, 0.008119, 0.007720,
+        0.007326, 0.006937, 0.006554, 0.006178, 0.005811, 0.005452, 0.005103, 0.004764,
+        0.004435, 0.004118, 0.003812, 0.003518, 0.003237, 0.002968, 0.002711, 0.002467,
+        0.002236, 0.002018, 0.001812, 0.001619, 0.001439, 0.001270, 0.001113, 0.000968,
+        0.000835, 0.000712, 0.000599, 0.000497, 0.000405, 0.000321, 0.000247, 0.000180,
+        0.000122, 0.000071, 0.000026, -0.000012, -0.000044, -0.000071, -0.000093,
+        -0.000111, -0.000124, -0.000135, -0.000141, -0.000145, -0.000146, -0.000146,
+        -0.000143, -0.000139, -0.000134, -0.000128, -0.000120, -0.000113, -0.000105,
+        -0.000096, -0.000088, -0.000080, -0.000072, -0.000064, -0.000056, -0.000049,
+        -0.000042, -0.000036, -0.000030, -0.000025, -0.000021, -0.000016, -0.000013,
+        -0.000009,
+    ],
+};
+<span class="boring">Ok(())
+</span><span class="boring">}</span></code></pre>
+</div><div class="mdbook-inpage-tab-content" id=C++-content>
+<pre><code class="language-cpp"><span class="boring">#include&lt;autd3.hpp&gt;
+</span>#include &lt;autd3/modulation/fir.hpp&gt;
+
+<span class="boring">int main() {
+</span><span class="boring">using namespace autd3;
+</span>modulation::Fir(
+    Sine(150 * Hz,
+         SineOption{
+             .sampling_config = SamplingConfig(20.0f * kHz),
+         }),
+    std::vector{
+        -0.000009f, -0.000013f, -0.000016f, -0.000021f, -0.000025f, -0.000030f,
+        -0.000036f, -0.000042f, -0.000049f, -0.000056f, -0.000064f, -0.000072f,
+        -0.000080f, -0.000088f, -0.000096f, -0.000105f, -0.000113f, -0.000120f,
+        -0.000128f, -0.000134f, -0.000139f, -0.000143f, -0.000146f, -0.000146f,
+        -0.000145f, -0.000141f, -0.000135f, -0.000124f, -0.000111f, -0.000093f,
+        -0.000071f, -0.000044f, -0.000012f, 0.000026f,  0.000071f,  0.000122f,
+        0.000180f,  0.000247f,  0.000321f,  0.000405f,  0.000497f,  0.000599f,
+        0.000712f,  0.000835f,  0.000968f,  0.001113f,  0.001270f,  0.001439f,
+        0.001619f,  0.001812f,  0.002018f,  0.002236f,  0.002467f,  0.002711f,
+        0.002968f,  0.003237f,  0.003518f,  0.003812f,  0.004118f,  0.004435f,
+        0.004764f,  0.005103f,  0.005452f,  0.005811f,  0.006178f,  0.006554f,
+        0.006937f,  0.007326f,  0.007720f,  0.008119f,  0.008521f,  0.008925f,
+        0.009331f,  0.009737f,  0.010141f,  0.010543f,  0.010941f,  0.011335f,
+        0.011722f,  0.012101f,  0.012472f,  0.012833f,  0.013183f,  0.013520f,
+        0.013843f,  0.014152f,  0.014445f,  0.014720f,  0.014978f,  0.015217f,
+        0.015435f,  0.015633f,  0.015810f,  0.015964f,  0.016096f,  0.016204f,
+        0.016289f,  0.016350f,  0.016386f,  0.016399f,  0.016386f,  0.016350f,
+        0.016289f,  0.016204f,  0.016096f,  0.015964f,  0.015810f,  0.015633f,
+        0.015435f,  0.015217f,  0.014978f,  0.014720f,  0.014445f,  0.014152f,
+        0.013843f,  0.013520f,  0.013183f,  0.012833f,  0.012472f,  0.012101f,
+        0.011722f,  0.011335f,  0.010941f,  0.010543f,  0.010141f,  0.009737f,
+        0.009331f,  0.008925f,  0.008521f,  0.008119f,  0.007720f,  0.007326f,
+        0.006937f,  0.006554f,  0.006178f,  0.005811f,  0.005452f,  0.005103f,
+        0.004764f,  0.004435f,  0.004118f,  0.003812f,  0.003518f,  0.003237f,
+        0.002968f,  0.002711f,  0.002467f,  0.002236f,  0.002018f,  0.001812f,
+        0.001619f,  0.001439f,  0.001270f,  0.001113f,  0.000968f,  0.000835f,
+        0.000712f,  0.000599f,  0.000497f,  0.000405f,  0.000321f,  0.000247f,
+        0.000180f,  0.000122f,  0.000071f,  0.000026f,  -0.000012f, -0.000044f,
+        -0.000071f, -0.000093f, -0.000111f, -0.000124f, -0.000135f, -0.000141f,
+        -0.000145f, -0.000146f, -0.000146f, -0.000143f, -0.000139f, -0.000134f,
+        -0.000128f, -0.000120f, -0.000113f, -0.000105f, -0.000096f, -0.000088f,
+        -0.000080f, -0.000072f, -0.000064f, -0.000056f, -0.000049f, -0.000042f,
+        -0.000036f, -0.000030f, -0.000025f, -0.000021f, -0.000016f, -0.000013f,
+        -0.000009f});
+<span class="boring">return 0; }
+</span></code></pre>
+</div><div class="mdbook-inpage-tab-content" id=C#-content>
+<pre><code class="language-cs"><span class="boring">using AUTD3Sharp;
+</span>using AUTD3Sharp.Modulation;
+<span class="boring">using static AUTD3Sharp.Units;
+</span>
+new Fir(
+    target: new Sine(freq: 150u * Hz, option: new SineOption
+    {
+        SamplingConfig = new SamplingConfig(20f * kHz)
+    }),
+    coef: [-0.000009f, -0.000013f, -0.000016f, -0.000021f, -0.000025f,
+            -0.000030f, -0.000036f, -0.000042f, -0.000049f, -0.000056f,
+            -0.000064f, -0.000072f, -0.000080f, -0.000088f, -0.000096f,
+            -0.000105f, -0.000113f, -0.000120f, -0.000128f, -0.000134f,
+            -0.000139f, -0.000143f, -0.000146f, -0.000146f, -0.000145f,
+            -0.000141f, -0.000135f, -0.000124f, -0.000111f, -0.000093f,
+            -0.000071f, -0.000044f, -0.000012f, 0.000026f,  0.000071f,
+            0.000122f,  0.000180f,  0.000247f,  0.000321f,  0.000405f,
+            0.000497f,  0.000599f,  0.000712f,  0.000835f,  0.000968f,
+            0.001113f,  0.001270f,  0.001439f,  0.001619f,  0.001812f,
+            0.002018f,  0.002236f,  0.002467f,  0.002711f,  0.002968f,
+            0.003237f,  0.003518f,  0.003812f,  0.004118f,  0.004435f,
+            0.004764f,  0.005103f,  0.005452f,  0.005811f,  0.006178f,
+            0.006554f,  0.006937f,  0.007326f,  0.007720f,  0.008119f,
+            0.008521f,  0.008925f,  0.009331f,  0.009737f,  0.010141f,
+            0.010543f,  0.010941f,  0.011335f,  0.011722f,  0.012101f,
+            0.012472f,  0.012833f,  0.013183f,  0.013520f,  0.013843f,
+            0.014152f,  0.014445f,  0.014720f,  0.014978f,  0.015217f,
+            0.015435f,  0.015633f,  0.015810f,  0.015964f,  0.016096f,
+            0.016204f,  0.016289f,  0.016350f,  0.016386f,  0.016399f,
+            0.016386f,  0.016350f,  0.016289f,  0.016204f,  0.016096f,
+            0.015964f,  0.015810f,  0.015633f,  0.015435f,  0.015217f,
+            0.014978f,  0.014720f,  0.014445f,  0.014152f,  0.013843f,
+            0.013520f,  0.013183f,  0.012833f,  0.012472f,  0.012101f,
+            0.011722f,  0.011335f,  0.010941f,  0.010543f,  0.010141f,
+            0.009737f,  0.009331f,  0.008925f,  0.008521f,  0.008119f,
+            0.007720f,  0.007326f,  0.006937f,  0.006554f,  0.006178f,
+            0.005811f,  0.005452f,  0.005103f,  0.004764f,  0.004435f,
+            0.004118f,  0.003812f,  0.003518f,  0.003237f,  0.002968f,
+            0.002711f,  0.002467f,  0.002236f,  0.002018f,  0.001812f,
+            0.001619f,  0.001439f,  0.001270f,  0.001113f,  0.000968f,
+            0.000835f,  0.000712f,  0.000599f,  0.000497f,  0.000405f,
+            0.000321f,  0.000247f,  0.000180f,  0.000122f,  0.000071f,
+            0.000026f,  -0.000012f, -0.000044f, -0.000071f, -0.000093f,
+            -0.000111f, -0.000124f, -0.000135f, -0.000141f, -0.000145f,
+            -0.000146f, -0.000146f, -0.000143f, -0.000139f, -0.000134f,
+            -0.000128f, -0.000120f, -0.000113f, -0.000105f, -0.000096f,
+            -0.000088f, -0.000080f, -0.000072f, -0.000064f, -0.000056f,
+            -0.000049f, -0.000042f, -0.000036f, -0.000030f, -0.000025f,
+            -0.000021f, -0.000016f, -0.000013f, -0.000009f]
+);
+</code></pre>
+</div><div class="mdbook-inpage-tab-content" id=Python-content>
+<pre><code class="language-python"><span class="boring">from pyautd3 import Hz, Sine, SineOption, kHz, SamplingConfig
+</span>from pyautd3.modulation import Fir
+
+Fir(
+    target=Sine(
+        freq=150 * Hz,
+        option=SineOption(
+            sampling_config=SamplingConfig(20.0 * kHz),
+        ),
+    ),
+    coef=[
+        -0.000009, -0.000013, -0.000016, -0.000021, -0.000025, -0.000030, -0.000036,
+        -0.000042, -0.000049, -0.000056, -0.000064, -0.000072, -0.000080, -0.000088,
+        -0.000096, -0.000105, -0.000113, -0.000120, -0.000128, -0.000134, -0.000139,
+        -0.000143, -0.000146, -0.000146, -0.000145, -0.000141, -0.000135, -0.000124,
+        -0.000111, -0.000093, -0.000071, -0.000044, -0.000012, 0.000026, 0.000071,
+        0.000122, 0.000180, 0.000247, 0.000321, 0.000405, 0.000497, 0.000599, 0.000712,
+        0.000835, 0.000968, 0.001113, 0.001270, 0.001439, 0.001619, 0.001812, 0.002018,
+        0.002236, 0.002467, 0.002711, 0.002968, 0.003237, 0.003518, 0.003812, 0.004118,
+        0.004435, 0.004764, 0.005103, 0.005452, 0.005811, 0.006178, 0.006554, 0.006937,
+        0.007326, 0.007720, 0.008119, 0.008521, 0.008925, 0.009331, 0.009737, 0.010141,
+        0.010543, 0.010941, 0.011335, 0.011722, 0.012101, 0.012472, 0.012833, 0.013183,
+        0.013520, 0.013843, 0.014152, 0.014445, 0.014720, 0.014978, 0.015217, 0.015435,
+        0.015633, 0.015810, 0.015964, 0.016096, 0.016204, 0.016289, 0.016350, 0.016386,
+        0.016399, 0.016386, 0.016350, 0.016289, 0.016204, 0.016096, 0.015964, 0.015810,
+        0.015633, 0.015435, 0.015217, 0.014978, 0.014720, 0.014445, 0.014152, 0.013843,
+        0.013520, 0.013183, 0.012833, 0.012472, 0.012101, 0.011722, 0.011335, 0.010941,
+        0.010543, 0.010141, 0.009737, 0.009331, 0.008925, 0.008521, 0.008119, 0.007720,
+        0.007326, 0.006937, 0.006554, 0.006178, 0.005811, 0.005452, 0.005103, 0.004764,
+        0.004435, 0.004118, 0.003812, 0.003518, 0.003237, 0.002968, 0.002711, 0.002467,
+        0.002236, 0.002018, 0.001812, 0.001619, 0.001439, 0.001270, 0.001113, 0.000968,
+        0.000835, 0.000712, 0.000599, 0.000497, 0.000405, 0.000321, 0.000247, 0.000180,
+        0.000122, 0.000071, 0.000026, -0.000012, -0.000044, -0.000071, -0.000093,
+        -0.000111, -0.000124, -0.000135, -0.000141, -0.000145, -0.000146, -0.000146,
+        -0.000143, -0.000139, -0.000134, -0.000128, -0.000120, -0.000113, -0.000105,
+        -0.000096, -0.000088, -0.000080, -0.000072, -0.000064, -0.000056, -0.000049,
+        -0.000042, -0.000036, -0.000030, -0.000025, -0.000021, -0.000016, -0.000013,
+        -0.000009,
+    ],
+)
+</code></pre>
+</div></div>
+<footer id="open-on-gh">Found a bug? <a href="https://github.com/shinolab/autd3-doc/edit/main/src/en/Users_Manual/API/modulation/fir.md">Edit this page on GitHub.</a></footer>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../Users_Manual/API/modulation/radiation.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../Users_Manual/API/sampling_config.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../Users_Manual/API/modulation/radiation.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../Users_Manual/API/sampling_config.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../js/codeblock_filename.js"></script>
+        <script src="../../../js/lightbox-plus-jquery.min.js"></script>
+
+
+    </div>
+    </body>
+</html>
