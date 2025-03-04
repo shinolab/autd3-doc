@@ -1,10 +1,8 @@
-# C++版チュートリアル
-
-## 依存プログラムのインストール
+### 依存プログラムのインストール
 
 本チュートリアルでは[CMake](https://cmake.org/)を使用するので, インストールしておくこと.
 
-## AUTD3クライアントプログラムの作成
+### AUTD3クライアントプログラムの作成
 
 まず, ターミナルを開き, 適当なディレクトリを用意する.
 
@@ -23,7 +21,7 @@ cd autd3-sample
 
 次に, `CMakeLists.txt`を以下のようにする.
 
-```ignore,name=CMakeLists.txt
+```cpp,name=CMakeLists.txt
 {{#include ../../../codes/Users_Manual/Tutorial/single/CMakeLists.txt}}
 ```
 
@@ -55,7 +53,7 @@ cmake --build . --config Release
 sudo ./main
 ```
 
-# トラブルシューティング
+### トラブルシューティング
 
 - anaconda (miniconda) がactivateされている場合に, ビルドエラーになる可能性がある.
   - この場合, `build`ディレクトリを削除し, `conda deactivate`を実行したのち再び`cmake`を実行する.

@@ -1,6 +1,4 @@
-# Python Tutorial
-
-## Installing the pyautd3 Library
+### Installing the pyautd3 Library
 
 First, install the `pyautd3` and `pyautd3_link_soem` libraries via pip.
 
@@ -22,7 +20,7 @@ Then, run it.
 python main.py
 ```
 
-## Notes for Linux Users
+### Notes for Linux Users
 
 On Linux, administrator privileges are required to use SOEM.
 In that case, run:
@@ -34,7 +32,7 @@ Then, run `main.py`.
 python main.py
 ```
 
-## Notes for macOS Users
+### Notes for macOS Users
 
 On macOS, administrator privileges are required to use SOEM.
 In that case, run:

@@ -11,9 +11,19 @@ Note that if the firmware is outdated, proper operation is not guaranteed.
 The firmware version assumed in this document is v10.0.1.
 Refer to [Getting Started/Firmware](../getting_started/firmware.md) for firmware updates.
 
-## Sample Programs for Each Language
+## Sample Programs
 
-- [Rust](./rust.md)
-- [C++](./cpp.md)
-- [C#](./cs.md)
-- [Python](./python.md)
+{{ #tabs }}
+{{ #tab name=Rust }}
+{{#include rust.md}}
+{{ #endtab }}
+{{ #tab name=C++ }}
+{{#include cpp.md}}
+{{ #endtab }}
+{{ #tab name=C# }}
+{{#include cs.md}}
+{{ #endtab }}
+{{ #tab name=Python }}
+{{#include python.md}}
+{{ #endtab }}
+{{ #endtabs }}

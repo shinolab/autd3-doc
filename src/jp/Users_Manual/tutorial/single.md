@@ -11,9 +11,19 @@ Windowsを使用する場合, [Npcap](https://npcap.com/)を「**WinPcap API-com
 本文章におけるファームウェアのバージョンはv10.0.1が想定される.
 ファームウェアのアップデートは[はじめに/ファームウェア](../getting_started/firmware.md)を参照されたい.
 
-## 各言語ごとのサンプルプログラム
+## サンプルコード
 
-- [Rust](./rust.md)
-- [C++](./cpp.md)
-- [C#](./cs.md)
-- [Python](./python.md)
+{{ #tabs }}
+{{ #tab name=Rust }}
+{{#include rust.md}}
+{{ #endtab }}
+{{ #tab name=C++ }}
+{{#include cpp.md}}
+{{ #endtab }}
+{{ #tab name=C# }}
+{{#include cs.md}}
+{{ #endtab }}
+{{ #tab name=Python }}
+{{#include python.md}}
+{{ #endtab }}
+{{ #endtabs }}

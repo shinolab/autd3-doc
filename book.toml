@@ -27,7 +27,7 @@ preferred-dark-theme = "navy"
 git-repository-url = "https://github.com/shinolab/autd3-doc"
 git-branch = "main"
 smart-punctuation = true
-additional-js = ["js/codeblock_filename.js", "js/lightbox-plus-jquery.min.js", "js/tab.js"]
+additional-js = ["js/codeblock_filename.js", "js/lightbox-plus-jquery.min.js"]
 additional-css = ["css/codeblock_filename.css", "css/lightbox.css", "css/open-in.css", "css/no-link-summary.css", "css/tab.css"]
 open-on-text = "Found a bug? [Edit this page on GitHub.]"
 
@@ -58,3 +58,5 @@ python = "~"
 
 [build]
 extra-watch-dirs = ["src/codes"]
+
+[preprocessor.inpage-tab]

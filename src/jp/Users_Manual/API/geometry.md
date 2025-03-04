@@ -18,32 +18,28 @@ GeometryはAUTD3デバイスが現実世界でどのように配置されてい�
 
 なお, `Geometry`には`Controller`から直接アクセスできる.
 
-<div class="tabs">
-<input id="rust_tab_geometry" type="radio" class="tab" name="tab_geometry" checked>
-<label class="tab_item" n=4 for="rust_tab_geometry">Rust</label>
-<input id="cpp_tab_geometry" type="radio" class="tab" name="tab_geometry">
-<label class="tab_item" n=4 for="cpp_tab_geometry">C++</label>
-<input id="cs_tab_geometry" type="radio" class="tab" name="tab_geometry">
-<label class="tab_item" n=4 for="cs_tab_geometry">C#</label>
-<input id="python_tab_geometry" type="radio" class="tab" name="tab_geometry">
-<label class="tab_item" n=4 for="python_tab_geometry">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust
 {{#include ../../../codes/Users_Manual/geometry_3.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../codes/Users_Manual/geometry_3.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../codes/Users_Manual/geometry_3.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/geometry_3.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 ### Deviceの取得
 
@@ -52,32 +48,29 @@ GeometryはAUTD3デバイスが現実世界でどのように配置されてい�
 `Device`を取得するには, インデクサを使用する.
 あるいは, イテレータを使用することもできる.
 
-<div class="tabs">
-<input id="rust_tab_device" type="radio" class="tab" name="tab_device" checked>
-<label class="tab_item" n=4 for="rust_tab_device">Rust</label>
-<input id="cpp_tab_device" type="radio" class="tab" name="tab_device">
-<label class="tab_item" n=4 for="cpp_tab_device">C++</label>
-<input id="cs_tab_device" type="radio" class="tab" name="tab_device">
-<label class="tab_item" n=4 for="cs_tab_device">C#</label>
-<input id="python_tab_device" type="radio" class="tab" name="tab_device">
-<label class="tab_item" n=4 for="python_tab_device">Python</label>
 
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust
 {{#include ../../../codes/Users_Manual/geometry_4.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../codes/Users_Manual/geometry_4.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../codes/Users_Manual/geometry_4.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/geometry_4.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 ## DeviceのAPI
 
@@ -96,32 +89,29 @@ GeometryはAUTD3デバイスが現実世界でどのように配置されてい�
 - `y_direction()`: デバイスのy方向ベクトル
 - `axial_direction()`: デバイスの軸方向ベクトル (振動子が向く方向)
 
-<div class="tabs">
-<input id="rust_tab_device_api" type="radio" class="tab" name="tab_device_api" checked>
-<label class="tab_item" n=4 for="rust_tab_device_api">Rust</label>
-<input id="cpp_tab_device_api" type="radio" class="tab" name="tab_device_api">
-<label class="tab_item" n=4 for="cpp_tab_device_api">C++</label>
-<input id="cs_tab_device_api" type="radio" class="tab" name="tab_device_api">
-<label class="tab_item" n=4 for="cs_tab_device_api">C#</label>
-<input id="python_tab_device_api" type="radio" class="tab" name="tab_device_api">
-<label class="tab_item" n=4 for="python_tab_device_api">Python</label>
 
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust
 {{#include ../../../codes/Users_Manual/device_0.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../codes/Users_Manual/device_0.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../codes/Users_Manual/device_0.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/device_0.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 ### Transducerの取得
 
@@ -130,32 +120,29 @@ GeometryはAUTD3デバイスが現実世界でどのように配置されてい�
 `Transducer`を取得するには, インデクサを使用する.
 また, イテレータを使用することもできる.
 
-<div class="tabs">
-<input id="rust_tab_transducer" type="radio" class="tab" name="tab_transducer" checked>
-<label class="tab_item" n=4 for="rust_tab_transducer">Rust</label>
-<input id="cpp_tab_transducer" type="radio" class="tab" name="tab_transducer">
-<label class="tab_item" n=4 for="cpp_tab_transducer">C++</label>
-<input id="cs_tab_transducer" type="radio" class="tab" name="tab_transducer">
-<label class="tab_item" n=4 for="cs_tab_transducer">C#</label>
-<input id="python_tab_transducer" type="radio" class="tab" name="tab_transducer">
-<label class="tab_item" n=4 for="python_tab_transducer">Python</label>
 
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust
 {{#include ../../../codes/Users_Manual/device_1.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../codes/Users_Manual/device_1.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../codes/Users_Manual/device_1.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/device_1.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 ## TransducerのAPI
 
@@ -165,30 +152,26 @@ GeometryはAUTD3デバイスが現実世界でどのように配置されてい�
 - `dev_idx()`: 振動子が属するデバイスのインデックス
 - `position()`: 振動子の位置
 
-<div class="tabs">
-<input id="rust_tab_transducer_api" type="radio" class="tab" name="tab_transducer_api" checked>
-<label class="tab_item" n=4 for="rust_tab_transducer_api">Rust</label>
-<input id="cpp_tab_transducer_api" type="radio" class="tab" name="tab_transducer_api">
-<label class="tab_item" n=4 for="cpp_tab_transducer_api">C++</label>
-<input id="cs_tab_transducer_api" type="radio" class="tab" name="tab_transducer_api">
-<label class="tab_item" n=4 for="cs_tab_transducer_api">C#</label>
-<input id="python_tab_transducer_api" type="radio" class="tab" name="tab_transducer_api">
-<label class="tab_item" n=4 for="python_tab_transducer_api">Python</label>
 
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust
 {{#include ../../../codes/Users_Manual/transducer_0.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../codes/Users_Manual/transducer_0.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../codes/Users_Manual/transducer_0.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/transducer_0.py}}
 ```
-</div>
-
+{{ #endtab }}
+{{ #endtabs }}

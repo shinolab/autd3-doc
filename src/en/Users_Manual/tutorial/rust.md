@@ -1,5 +1,3 @@
-# Rust Tutorial
-
 First, create a project and add the `autd3` library as a dependency.
 Also, add the `autd3-link-soem` library for communication with the device.
 

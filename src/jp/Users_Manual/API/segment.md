@@ -8,32 +8,28 @@
 
 データを書き込む`Segment`は, `WithSegment`で指定する.
 
-<div class="tabs">
-<input id="rust_tab_segment" type="radio" class="tab" name="tab_segment" checked>
-<label class="tab_item" n=4 for="rust_tab_segment">Rust</label>
-<input id="cpp_tab_segment" type="radio" class="tab" name="tab_segment">
-<label class="tab_item" n=4 for="cpp_tab_segment">C++</label>
-<input id="cs_tab_segment" type="radio" class="tab" name="tab_segment">
-<label class="tab_item" n=4 for="cs_tab_segment">C#</label>
-<input id="python_tab_segment" type="radio" class="tab" name="tab_segment">
-<label class="tab_item" n=4 for="python_tab_segment">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust,edition2024
 {{#include ../../../codes/Users_Manual/segment/segment_transition.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../codes/Users_Manual/segment/segment_transition.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../codes/Users_Manual/segment/segment_transition.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/segment/segment_transition.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 `transition_mode`には, `Segment`の切り替え条件を指定する.
 - 遷移先セグメントが無限ループ時にのみ使用可能
@@ -55,60 +51,54 @@
 
 `Segment`を切り替えたいだけの場合は, `SwapSegment`を使用する.
 
-<div class="tabs">
-<input id="rust_tab_swap" type="radio" class="tab" name="tab_swap" checked>
-<label class="tab_item" n=4 for="rust_tab_swap">Rust</label>
-<input id="cpp_tab_swap" type="radio" class="tab" name="tab_swap">
-<label class="tab_item" n=4 for="cpp_tab_swap">C++</label>
-<input id="cs_tab_swap" type="radio" class="tab" name="tab_swap">
-<label class="tab_item" n=4 for="cs_tab_swap">C#</label>
-<input id="python_tab_swap" type="radio" class="tab" name="tab_swap">
-<label class="tab_item" n=4 for="python_tab_swap">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust,edition2024
 {{#include ../../../codes/Users_Manual/segment/segment_change_transition.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../codes/Users_Manual/segment/segment_change_transition.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../codes/Users_Manual/segment/segment_change_transition.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/segment/segment_change_transition.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 ### LoopBehavior
 
 `Modulation`と`FociSTM`, `GainSTM`は`WithLoopBehavior`でループの挙動を制御できる.
 
-<div class="tabs">
-<input id="rust_tab_loop" type="radio" class="tab" name="tab_loop" checked>
-<label class="tab_item" n=4 for="rust_tab_loop">Rust</label>
-<input id="cpp_tab_loop" type="radio" class="tab" name="tab_loop">
-<label class="tab_item" n=4 for="cpp_tab_loop">C++</label>
-<input id="cs_tab_loop" type="radio" class="tab" name="tab_loop">
-<label class="tab_item" n=4 for="cs_tab_loop">C#</label>
-<input id="python_tab_loop" type="radio" class="tab" name="tab_loop">
-<label class="tab_item" n=4 for="python_tab_loop">Python</label>
+**ループ挙動の指定は, セグメントを切り替えたときにのみ有効であることに注意.**
 
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust,edition2024
 {{#include ../../../codes/Users_Manual/segment/loop_behavior.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../codes/Users_Manual/segment/loop_behavior.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../codes/Users_Manual/segment/loop_behavior.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/segment/loop_behavior.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}

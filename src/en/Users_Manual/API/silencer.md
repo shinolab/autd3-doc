@@ -25,32 +25,28 @@ To configure the Silencer, send `Silencer`.
 The Silencer is set to appropriate values by default.
 To disable the Silencer, send `disable`.
 
-<div class="tabs">
-<input id="rust_tab_silencer" type="radio" class="tab" name="tab_silencer" checked>
-<label class="tab_item" n=4 for="rust_tab_silencer">Rust</label>
-<input id="cpp_tab_silencer" type="radio" class="tab" name="tab_silencer">
-<label class="tab_item" n=4 for="cpp_tab_silencer">C++</label>
-<input id="cs_tab_silencer" type="radio" class="tab" name="tab_silencer">
-<label class="tab_item" n=4 for="cs_tab_silencer">C#</label>
-<input id="python_tab_silencer" type="radio" class="tab" name="tab_silencer">
-<label class="tab_item" n=4 for="python_tab_silencer">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust,edition2024
 {{#include ../../../codes/Users_Manual/silencer/silencer_0.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../codes/Users_Manual/silencer/silencer_0.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../codes/Users_Manual/silencer/silencer_0.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/silencer/silencer_0.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 For finer settings, you need to choose between the following two modes:
 
@@ -126,32 +122,28 @@ $$
 To set Fixed update rate mode, do as follows.
 The arguments correspond to the aforementioned $\Delta$ (unit is $2\pi/65536$).
 
-<div class="tabs">
-<input id="rust_tab_update_rate" type="radio" class="tab" name="tab_update_rate" checked>
-<label class="tab_item" n=4 for="rust_tab_update_rate">Rust</label>
-<input id="cpp_tab_update_rate" type="radio" class="tab" name="tab_update_rate">
-<label class="tab_item" n=4 for="cpp_tab_update_rate">C++</label>
-<input id="cs_tab_update_rate" type="radio" class="tab" name="tab_update_rate">
-<label class="tab_item" n=4 for="cs_tab_update_rate">C#</label>
-<input id="python_tab_update_rate" type="radio" class="tab" name="tab_update_rate">
-<label class="tab_item" n=4 for="python_tab_update_rate">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust,edition2024
 {{#include ../../../codes/Users_Manual/silencer/silencer_fixed_update_rate.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../codes/Users_Manual/silencer/silencer_fixed_update_rate.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../codes/Users_Manual/silencer/silencer_fixed_update_rate.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/silencer/silencer_fixed_update_rate.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 ### Fixed completion time mode
 
@@ -164,32 +156,28 @@ To set Fixed completion time mode, do as follows.
 `intensity` and `phase` correspond to the completion time of intensity/phase changes, respectively.
 These must be integer multiples of the ultrasound period ($\SI{25}{us}$).
 
-<div class="tabs">
-<input id="rust_tab_time" type="radio" class="tab" name="tab_time" checked>
-<label class="tab_item" n=4 for="rust_tab_time">Rust</label>
-<input id="cpp_tab_time" type="radio" class="tab" name="tab_time">
-<label class="tab_item" n=4 for="cpp_tab_time">C++</label>
-<input id="cs_tab_time" type="radio" class="tab" name="tab_time">
-<label class="tab_item" n=4 for="cs_tab_time">C#</label>
-<input id="python_tab_time" type="radio" class="tab" name="tab_time">
-<label class="tab_item" n=4 for="python_tab_time">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust,edition2024
 {{#include ../../../codes/Users_Manual/silencer/silencer_fixed_completion_steps.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../codes/Users_Manual/silencer/silencer_fixed_completion_steps.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../codes/Users_Manual/silencer/silencer_fixed_completion_steps.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/silencer/silencer_fixed_completion_steps.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 The default values are $\SI{1}{ms}$ for phase changes and $\SI{0.25}{ms}$ for intensity changes.
 Disabling the Silencer is equivalent to completing phase/intensity changes within the ultrasound period ($\SI{25}{us}$).

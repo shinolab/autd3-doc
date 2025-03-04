@@ -9,60 +9,52 @@ For more details, refer to [Silencer](./silencer.md#fixed-completion-steps-mode)
 
 The constructor for the sampling configuration can specify the division ratio $N$, the sampling frequency, or the sampling period.
 
-<div class="tabs">
-<input id="rust_tab_api" type="radio" class="tab" name="tab_api" checked>
-<label class="tab_item" n=4 for="rust_tab_api">Rust</label>
-<input id="cpp_tab_api" type="radio" class="tab" name="tab_api">
-<label class="tab_item" n=4 for="cpp_tab_api">C++</label>
-<input id="cs_tab_api" type="radio" class="tab" name="tab_api">
-<label class="tab_item" n=4 for="cs_tab_api">C#</label>
-<input id="python_tab_api" type="radio" class="tab" name="tab_api">
-<label class="tab_item" n=4 for="python_tab_api">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust,edition2024
 {{#include ../../../codes/Users_Manual/sampling_config/modulation_0.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../codes/Users_Manual/sampling_config/modulation_0.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../codes/Users_Manual/sampling_config/modulation_0.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/sampling_config/modulation_0.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 ## Relaxation of Sampling Frequency Limits
 
 **Not recommended for use**, but there is a method to use the frequency/period closest to the specified value within the possible output frequencies/periods.
 
-<div class="tabs">
-<input id="rust_tab_nearest" type="radio" class="tab" name="tab_nearest" checked>
-<label class="tab_item" n=4 for="rust_tab_nearest">Rust</label>
-<input id="cpp_tab_nearest" type="radio" class="tab" name="tab_nearest">
-<label class="tab_item" n=4 for="cpp_tab_nearest">C++</label>
-<input id="cs_tab_nearest" type="radio" class="tab" name="tab_nearest">
-<label class="tab_item" n=4 for="cs_tab_nearest">C#</label>
-<input id="python_tab_nearest" type="radio" class="tab" name="tab_nearest">
-<label class="tab_item" n=4 for="python_tab_nearest">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust,edition2024
 {{#include ../../../codes/Users_Manual/sampling_config/sampling_config_freq_nearest.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../codes/Users_Manual/sampling_config/sampling_config_freq_nearest.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../codes/Users_Manual/sampling_config/sampling_config_freq_nearest.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/sampling_config/sampling_config_freq_nearest.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}

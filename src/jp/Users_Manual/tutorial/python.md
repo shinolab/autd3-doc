@@ -1,6 +1,4 @@
-# Python版チュートリアル
-
-## pyautd3ライブラリのインストール
+### pyautd3ライブラリのインストール
 
 ```shell
 pip install pyautd3
@@ -20,7 +18,7 @@ pip install pyautd3_link_soem
 python main.py
 ```
 
-## Linux使用時の注意
+### Linux使用時の注意
 
 Linuxでは, SOEMを使用するのに管理者権限が必要になる.
 その場合は, 
@@ -32,7 +30,7 @@ sudo setcap cap_net_raw,cap_net_admin=eip <your python path>
 python main.py
 ```
 
-## macOS使用時の注意
+### macOS使用時の注意
 
 macOSでは, SOEMを使用するのに管理者権限が必要になる.
 その場合は, 

@@ -1,10 +1,8 @@
-# C++ Tutorial
-
-## Installing Dependencies
+### Installing Dependencies
 
 This tutorial uses [CMake](https://cmake.org/), so make sure it is installed.
 
-## Creating an AUTD3 Client Program
+### Creating an AUTD3 Client Program
 
 First, open a terminal and prepare an appropriate directory.
 
@@ -55,7 +53,7 @@ This will generate an executable file, so run it.
 sudo ./main
 ```
 
-# Troubleshooting
+### Troubleshooting
 
 - There may be build errors if anaconda (miniconda) is activated.
   - In this case, delete the `build` directory, run `conda deactivate`, and then run `cmake` again.

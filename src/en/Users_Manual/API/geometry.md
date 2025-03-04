@@ -18,32 +18,28 @@ Each device has 249 transducers arranged, and they are assigned local indices (r
 
 Note that `Geometry` can be accessed directly from `Controller`.
 
-<div class="tabs">
-<input id="rust_tab_geometry" type="radio" class="tab" name="tab_geometry" checked>
-<label class="tab_item" n=4 for="rust_tab_geometry">Rust</label>
-<input id="cpp_tab_geometry" type="radio" class="tab" name="tab_geometry">
-<label class="tab_item" n=4 for="cpp_tab_geometry">C++</label>
-<input id="cs_tab_geometry" type="radio" class="tab" name="tab_geometry">
-<label class="tab_item" n=4 for="cs_tab_geometry">C#</label>
-<input id="python_tab_geometry" type="radio" class="tab" name="tab_geometry">
-<label class="tab_item" n=4 for="python_tab_geometry">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust
 {{#include ../../../codes/Users_Manual/geometry_3.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../codes/Users_Manual/geometry_3.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../codes/Users_Manual/geometry_3.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/geometry_3.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 ### Getting a Device
 
@@ -52,32 +48,28 @@ Note that `Geometry` can be accessed directly from `Controller`.
 To get a `Device`, use an indexer.
 Alternatively, you can use an iterator.
 
-<div class="tabs">
-<input id="rust_tab_device" type="radio" class="tab" name="tab_device" checked>
-<label class="tab_item" n=4 for="rust_tab_device">Rust</label>
-<input id="cpp_tab_device" type="radio" class="tab" name="tab_device">
-<label class="tab_item" n=4 for="cpp_tab_device">C++</label>
-<input id="cs_tab_device" type="radio" class="tab" name="tab_device">
-<label class="tab_item" n=4 for="cs_tab_device">C#</label>
-<input id="python_tab_device" type="radio" class="tab" name="tab_device">
-<label class="tab_item" n=4 for="python_tab_device">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust
 {{#include ../../../codes/Users_Manual/geometry_4.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../codes/Users_Manual/geometry_4.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../codes/Users_Manual/geometry_4.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/geometry_4.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 ## Device API
 
@@ -96,32 +88,28 @@ Alternatively, you can use an iterator.
 - `y_direction()`: Y-direction vector of the device
 - `axial_direction()`: Axial direction vector of the device (direction the transducers face)
 
-<div class="tabs">
-<input id="rust_tab_device_api" type="radio" class="tab" name="tab_device_api" checked>
-<label class="tab_item" n=4 for="rust_tab_device_api">Rust</label>
-<input id="cpp_tab_device_api" type="radio" class="tab" name="tab_device_api">
-<label class="tab_item" n=4 for="cpp_tab_device_api">C++</label>
-<input id="cs_tab_device_api" type="radio" class="tab" name="tab_device_api">
-<label class="tab_item" n=4 for="cs_tab_device_api">C#</label>
-<input id="python_tab_device_api" type="radio" class="tab" name="tab_device_api">
-<label class="tab_item" n=4 for="python_tab_device_api">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust
 {{#include ../../../codes/Users_Manual/device_0.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../codes/Users_Manual/device_0.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../codes/Users_Manual/device_0.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/device_0.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 ### Getting a Transducer
 
@@ -130,32 +118,28 @@ Alternatively, you can use an iterator.
 To get a `Transducer`, use an indexer.
 Alternatively, you can use an iterator.
 
-<div class="tabs">
-<input id="rust_tab_transducer" type="radio" class="tab" name="tab_transducer" checked>
-<label class="tab_item" n=4 for="rust_tab_transducer">Rust</label>
-<input id="cpp_tab_transducer" type="radio" class="tab" name="tab_transducer">
-<label class="tab_item" n=4 for="cpp_tab_transducer">C++</label>
-<input id="cs_tab_transducer" type="radio" class="tab" name="tab_transducer">
-<label class="tab_item" n=4 for="cs_tab_transducer">C#</label>
-<input id="python_tab_transducer" type="radio" class="tab" name="tab_transducer">
-<label class="tab_item" n=4 for="python_tab_transducer">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust
 {{#include ../../../codes/Users_Manual/device_1.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../codes/Users_Manual/device_1.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../codes/Users_Manual/device_1.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/device_1.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 ## Transducer API
 
@@ -165,30 +149,26 @@ The following information can be obtained.
 - `dev_idx()`: Index of the device to which the transducer belongs
 - `position()`: Position of the transducer
 
-<div class="tabs">
-<input id="rust_tab_transducer_api" type="radio" class="tab" name="tab_transducer_api" checked>
-<label class="tab_item" n=4 for="rust_tab_transducer_api">Rust</label>
-<input id="cpp_tab_transducer_api" type="radio" class="tab" name="tab_transducer_api">
-<label class="tab_item" n=4 for="cpp_tab_transducer_api">C++</label>
-<input id="cs_tab_transducer_api" type="radio" class="tab" name="tab_transducer_api">
-<label class="tab_item" n=4 for="cs_tab_transducer_api">C#</label>
-<input id="python_tab_transducer_api" type="radio" class="tab" name="tab_transducer_api">
-<label class="tab_item" n=4 for="python_tab_transducer_api">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust
 {{#include ../../../codes/Users_Manual/transducer_0.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../codes/Users_Manual/transducer_0.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../codes/Users_Manual/transducer_0.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/transducer_0.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 

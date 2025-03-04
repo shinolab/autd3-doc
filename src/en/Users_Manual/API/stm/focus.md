@@ -8,32 +8,28 @@ The usage of `FociSTM` is as follows.
 This is a sample that rotates a focus on the circumference of a circle with a radius of $\SI{30}{mm}$ centered at a point $\SI{150}{mm}$ directly above the center of the array.
 The circumference is sampled at 200 points, rotating at $\SI{1}{Hz}$. (That is, the sampling frequency is $\SI{200}{Hz}$.)
 
-<div class="tabs">
-<input id="rust_tab" type="radio" class="tab" name="tab" checked>
-<label class="tab_item" n=4 for="rust_tab">Rust</label>
-<input id="cpp_tab" type="radio" class="tab" name="tab">
-<label class="tab_item" n=4 for="cpp_tab">C++</label>
-<input id="cs_tab" type="radio" class="tab" name="tab">
-<label class="tab_item" n=4 for="cs_tab">C#</label>
-<input id="python_tab" type="radio" class="tab" name="tab">
-<label class="tab_item" n=4 for="python_tab">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust,edition2024
 {{#include ../../../../codes/Users_Manual/stm/focus_0.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../../codes/Users_Manual/stm/focus_0.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../../codes/Users_Manual/stm/focus_0.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../../codes/Users_Manual/stm/focus_0.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 In `config`, you can specify the frequency, period, and sampling settings.
 
@@ -49,32 +45,28 @@ Using `FociSTM::into_nearest`, the nearest $N$ is selected, but note that the ac
 
 Below is an example with 2 foci.
 
-<div class="tabs">
-<input id="rust_tab_mult" type="radio" class="tab" name="tab_mult" checked>
-<label class="tab_item" n=4 for="rust_tab_mult">Rust</label>
-<input id="cpp_tab_mult" type="radio" class="tab" name="tab_mult">
-<label class="tab_item" n=4 for="cpp_tab_mult">C++</label>
-<input id="cs_tab_mult" type="radio" class="tab" name="tab_mult">
-<label class="tab_item" n=4 for="cs_tab_mult">C#</label>
-<input id="python_tab_mult" type="radio" class="tab" name="tab_mult">
-<label class="tab_item" n=4 for="python_tab_mult">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust,edition2024
 {{#include ../../../../codes/Users_Manual/stm/foci_1.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../../codes/Users_Manual/stm/foci_1.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../../codes/Users_Manual/stm/foci_1.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../../codes/Users_Manual/stm/foci_1.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 The multi-focus sound field of `FociSTM` is a simple superposition of single-focus sound fields.
 That is, for the position of the transducer $x_\text{t}$, each focus position $x_i$, ultrasonic frequency $f$, and speed of sound $c$, the phase $\theta$ is calculated as follows.

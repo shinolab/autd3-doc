@@ -8,32 +8,29 @@
 これは, アレイの中心から直上$\SI{150}{mm}$の点を中心とした半径$\SI{30}{mm}$の円周上で焦点を回すサンプルである.
 円周上を200点サンプリングし, 一周を$\SI{1}{Hz}$で回るようにしている. (すなわち, サンプリング周波数は$\SI{200}{Hz}$である.)
 
-<div class="tabs">
-<input id="rust_tab" type="radio" class="tab" name="tab" checked>
-<label class="tab_item" n=4 for="rust_tab">Rust</label>
-<input id="cpp_tab" type="radio" class="tab" name="tab">
-<label class="tab_item" n=4 for="cpp_tab">C++</label>
-<input id="cs_tab" type="radio" class="tab" name="tab">
-<label class="tab_item" n=4 for="cs_tab">C#</label>
-<input id="python_tab" type="radio" class="tab" name="tab">
-<label class="tab_item" n=4 for="python_tab">Python</label>
 
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust,edition2024
 {{#include ../../../../codes/Users_Manual/stm/focus_0.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../../codes/Users_Manual/stm/focus_0.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../../codes/Users_Manual/stm/focus_0.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../../codes/Users_Manual/stm/focus_0.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 `config`には周波数のほか, 周期やサンプリング設定を指定することができる.
 
@@ -49,33 +46,28 @@
 
 以下は2焦点の例である.
 
-
-<div class="tabs">
-<input id="rust_tab_mult" type="radio" class="tab" name="tab_mult" checked>
-<label class="tab_item" n=4 for="rust_tab_mult">Rust</label>
-<input id="cpp_tab_mult" type="radio" class="tab" name="tab_mult">
-<label class="tab_item" n=4 for="cpp_tab_mult">C++</label>
-<input id="cs_tab_mult" type="radio" class="tab" name="tab_mult">
-<label class="tab_item" n=4 for="cs_tab_mult">C#</label>
-<input id="python_tab_mult" type="radio" class="tab" name="tab_mult">
-<label class="tab_item" n=4 for="python_tab_mult">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust,edition2024
 {{#include ../../../../codes/Users_Manual/stm/foci_1.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../../codes/Users_Manual/stm/foci_1.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../../codes/Users_Manual/stm/foci_1.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../../codes/Users_Manual/stm/foci_1.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 `FociSTM`の多焦点音場は単純な単焦点音場の重ね合わせである.
 すなわち, 振動子の位置$x_\text{t}$, 各焦点位置$x_i$, 超音波周波数$f$, 音速$c$に対して, 以下の計算により位相$\theta$を求めている.

@@ -11,22 +11,13 @@ For Linux/macOS, no special preparation is required.
 
 ## Install
 
-<div class="tabs">
-<input id="rust_tab_install" type="radio" class="tab" name="tab_install" checked>
-<label class="tab_item" n=5 for="rust_tab_install">Rust</label>
-<input id="cpp_tab_install" type="radio" class="tab" name="tab_install">
-<label class="tab_item" n=5 for="cpp_tab_install">C++</label>
-<input id="cs_tab_install" type="radio" class="tab" name="tab_install">
-<label class="tab_item" n=5 for="cs_tab_install">C#</label>
-<input id="unity_tab_install" type="radio" class="tab" name="tab_install">
-<label class="tab_item" n=5 for="unity_tab_install">Unity</label>
-<input id="python_tab_install" type="radio" class="tab" name="tab_install">
-<label class="tab_item" n=5 for="python_tab_install">Python</label>
-
-```rust,name=Shell
+{{ #tabs }}
+{{ #tab name=Rust }}
+```shell
 cargo add autd3-link-soem
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp,name=CMakeLists.txt
 if(WIN32)
   FetchContent_Declare(
@@ -47,52 +38,48 @@ endif()
 FetchContent_MakeAvailable(autd3-link-soem)
 target_link_libraries(<TARGET> PRIVATE autd3::link::soem)
 ```
-
-```cs,name=Shell
+{{ #endtab }}
+{{ #tab name=C# }}
+```shell
 dotnet add package AUTD3Sharp.Link.SOEM
 ```
-
-<div class="tab_content" id="unity_code_content">
-  <p>
-    Add <code class="hljs">https://github.com/shinolab/AUTD3Sharp.Link.SOEM.git#upm/latest</code> to Unity Package Manager.
-  </p>
-</div>
-
-```python,name=Shell
+{{ #endtab }}
+{{ #tab name=Unity }}
+Add `https://github.com/shinolab/AUTD3Sharp.Link.SOEM.git#upm/latest` to Unity Package Manager.
+{{ #endtab }}
+{{ #tab name=Python }}
+```shell
 pip install pyautd3_link_soem
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 ## APIs
 
 The first argument is a callback function for errors, and the second argument specifies options.
 
-<div class="tabs">
-<input id="rust_tab_api" type="radio" class="tab" name="tab_api" checked>
-<label class="tab_item" n=4 for="rust_tab_api">Rust</label>
-<input id="cpp_tab_api" type="radio" class="tab" name="tab_api">
-<label class="tab_item" n=4 for="cpp_tab_api">C++</label>
-<input id="cs_tab_api" type="radio" class="tab" name="tab_api">
-<label class="tab_item" n=4 for="cs_tab_api">C#</label>
-<input id="python_tab_api" type="radio" class="tab" name="tab_api">
-<label class="tab_item" n=4 for="python_tab_api">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust
 {{#include ../../../../codes/Users_Manual/link/soem_0.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../../codes/Users_Manual/link/soem_0.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../../codes/Users_Manual/link/soem_0.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../../codes/Users_Manual/link/soem_0.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 The options that can be specified for the SOEM link are as follows.
 The default values are as above.

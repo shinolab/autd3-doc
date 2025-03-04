@@ -16,32 +16,28 @@ Autoモードの場合は温度が高くなると自動的にファンが起動�
 
 Autoモードの場合, `ForceFan`でファンを強制的に起動できる.
 
-<div class="tabs">
-<input id="rust_tab" type="radio" class="tab" name="tab" checked>
-<label class="tab_item" n=4 for="rust_tab">Rust</label>
-<input id="cpp_tab" type="radio" class="tab" name="tab">
-<label class="tab_item" n=4 for="cpp_tab">C++</label>
-<input id="cs_tab" type="radio" class="tab" name="tab">
-<label class="tab_item" n=4 for="cs_tab">C#</label>
-<input id="python_tab" type="radio" class="tab" name="tab">
-<label class="tab_item" n=4 for="python_tab">Python</label>
-
+{{ #tabs }}
+{{ #tab name=Rust }}
 ```rust,edition2024
 {{#include ../../../codes/Users_Manual/fan.rs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C++ }}
 ```cpp
 {{#include ../../../codes/Users_Manual/fan.cpp}}
 ```
-
+{{ #endtab }}
+{{ #tab name=C# }}
 ```cs
 {{#include ../../../codes/Users_Manual/fan.cs}}
 ```
-
+{{ #endtab }}
+{{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/fan.py}}
 ```
-</div>
+{{ #endtab }}
+{{ #endtabs }}
 
 `ForceFan`コンストラクタの引数は`Fn(&Device) -> bool`で, デバイス毎にファンを強制駆動するかどうかを指定する.
 
