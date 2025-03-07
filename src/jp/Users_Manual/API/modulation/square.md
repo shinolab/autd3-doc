@@ -1,5 +1,5 @@
 # Square
-[Source](https://github.com/shinolab/autd3-rs/blob/v30.0.1/autd3/src/datagram/modulation/square.rs)
+[Source](https://github.com/shinolab/autd3-rs/blob/v31.0.1/autd3/src/datagram/modulation/square.rs)
 
 矩形波状の`Modulation`.
 

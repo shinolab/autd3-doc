@@ -1,10 +1,10 @@
 use autd3::prelude::*;
 
-use autd3_protobuf::lightweight::LightweightClient;
+use autd3_protobuf::lightweight::Controller;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let mut autd = LightweightClient::open([AUTD3::default()], "127.0.0.1:8080".parse()?).await?;
+    let mut autd = Controller::open([AUTD3::default()], "127.0.0.1:8080".parse()?).await?;
 
     println!("======== AUTD3 firmware information ========");
     autd.firmware_version().await?.iter().for_each(|firm_info| {
@@ -12,16 +12,61 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     });
     println!("============================================");
 
-    autd.send(Sine {
+    let center = autd.center() + Vector3::new(0., 0., 150.0 * mm);
+
+    let g = Focus {
+        pos: center,
+        option: Default::default(),
+    };
+    let m = Sine {
         freq: 150. * Hz,
         option: Default::default(),
-    })
-    .await?;
-    autd.send(Focus {
-        pos: Point3::new(90. * mm, 70. * mm, 150. * mm),
+    };
+    autd.send((m, g)).await?;
+
+# {
+    // GainSTM requires `autd3_protobuf::lightweight::IntoLightweightGain::into_lightweight()`
+    use autd3_protobuf::lightweight::IntoLightweightGain;
+    let stm = GainSTM {
+        gains: vec![
+            Null {}.into_lightweight(),
+            Focus {
+                pos: center,
+                option: Default::default(),
+            }
+            .into_lightweight(),
+        ],
+        config: 1.0 * Hz,
         option: Default::default(),
-    })
+    };
+    autd.send(stm).await?;
+# }
+
+# {
+    // group_send requires `autd3_protobuf::lightweight::Datagram::into_lightweight()`
+    use autd3_protobuf::lightweight::Datagram;
+    autd.group_send(
+        |dev| Some(dev.idx()),
+        std::collections::HashMap::from([
+            (0, Null {}.into_lightweight()),
+            (
+                1,
+                (
+                    Sine {
+                        freq: 150. * Hz,
+                        option: Default::default(),
+                    },
+                    Focus {
+                        pos: center,
+                        option: Default::default(),
+                    },
+                )
+                    .into_lightweight(),
+            ),
+        ]),
+    )
     .await?;
+# }
 
     println!("Press enter to quit...");
     let mut _s = String::new();

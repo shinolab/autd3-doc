@@ -78,9 +78,6 @@ Alternatively, you can use an iterator.
   - Note that it does not stop the output, it just stops updating the data.
 - `sound_speed`: Get/set the speed of sound. The unit is mm/s. **It is recommended to set a value as close to reality as possible because it is used for phase calculation, etc.** The default speed of sound is $340\times 10^{3}\,\mathrm{mm/s}$, which corresponds to the speed of sound in air at approximately 15 degrees Celsius.
 - `set_sound_speed_from_temp(temp)`: Set the speed of sound from the temperature `temp` [℃]. Note that `Geometry` also has a function with the same name, and using it will set the speed of sound from the temperature for all enabled devices.
-- `translate(t)`: Translate by `t`
-- `rotate(r)`: Rotate by `r`
-- `affine(t, r)`: Affine transformation (translation by `t` and rotation by `r`)
 - `wavelength()`: Wavelength of the ultrasound emitted by the device
 - `wavenumber()`: Wavenumber of the ultrasound emitted by the device
 - `rotation()`: Rotation of the device
