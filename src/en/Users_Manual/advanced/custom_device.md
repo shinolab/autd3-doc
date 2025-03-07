@@ -14,4 +14,4 @@ Here, let's actually define a `CustomDevice` that can change the spacing of the 
 
 `Device` must meet the following constraints.
 - The number of transducers is up to 256
-- All transducers face the same direction (the second argument of `Device::new` represents the rotation of all transducers)
+- All transducers face the same direction (the first argument of `Device::new` represents the rotation of all transducers)

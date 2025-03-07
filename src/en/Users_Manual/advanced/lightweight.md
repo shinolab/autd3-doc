@@ -17,11 +17,15 @@ To use the lightweight mode client, you need to enable the `lightweight` feature
 cargo add autd3-protobuf --features "lightweight"
 ```
 
-On the server side, you can enable Lightweight mode with the "AUTD3 Server" option.
+On the server side, you can enable Lightweight mode with the AUTD3 Server options.
 
-Below is a sample Rust code for the client side using Lightweight mode.
+Below is a sample code for the client side in Rust using Lightweight mode.
 
-Except that data can only be sent one by one, it is the same as the normal API.
+Basically, it is the same as the normal API, but note the following points:
+
+- When using `GainSTM`, you need to use `autd3_protobuf::lightweight::IntoLightweightGain::into_lightweight()`
+- When using `group_send`, you need to use `autd3_protobuf::lightweight::Datagram::into_lightweight()`
+- Some data is not supported
 
 ```rust,edition2024
 {{#include ../../../codes/Users_Manual/advanced/lightweight.rs}}
