@@ -54,7 +54,7 @@
     - [Controller](./Users_Manual/API/controller.md)
     - [PhaseCorrection](./Users_Manual/API/phase_corr.md)
     - [PulseWidthEncoder](./Users_Manual/API/pulse_width_encoder.md)
-    - [DebugSettings](./Users_Manual/API/debug_settings.md)
+    - [GPIOOutputs](./Users_Manual/API/gpio_out.md)
     - [ForceFan](./Users_Manual/API/fan.md)
   - [Simulator](./Users_Manual/Simulator/simulator.md)
   - [Emulator](./Users_Manual/Emulator/emulator.md)

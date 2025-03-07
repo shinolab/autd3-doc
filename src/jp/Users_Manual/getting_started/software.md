@@ -16,13 +16,13 @@
 CMakeのFetchContentを使用してインストールできる.
 
 - autd3
-    - Windows: [https://github.com/shinolab/autd3-cpp/releases/download/v30.0.1/autd3-v30.0.1-win-x64.zip](https://github.com/shinolab/autd3-cpp/releases/download/v30.0.1/autd3-v30.0.1-win-x64.zip)
-    - macOS: [https://github.com/shinolab/autd3-cpp/releases/download/v30.0.1/autd3-v30.0.1-macos-aarch64.tar.gz](https://github.com/shinolab/autd3-cpp/releases/download/v30.0.1/autd3-v30.0.1-macos-aarch64.tar.gz)
-    - Linux: [https://github.com/shinolab/autd3-cpp/releases/download/v30.0.1/autd3-v30.0.1-linux-x64.tar.gz](https://github.com/shinolab/autd3-cpp/releases/download/v30.0.1/autd3-v30.0.1-linux-x64.tar.gz)
+    - Windows: [https://github.com/shinolab/autd3-cpp/releases/download/v31.0.1/autd3-v31.0.1-win-x64.zip](https://github.com/shinolab/autd3-cpp/releases/download/v31.0.1/autd3-v31.0.1-win-x64.zip)
+    - macOS: [https://github.com/shinolab/autd3-cpp/releases/download/v31.0.1/autd3-v31.0.1-macos-aarch64.tar.gz](https://github.com/shinolab/autd3-cpp/releases/download/v31.0.1/autd3-v31.0.1-macos-aarch64.tar.gz)
+    - Linux: [https://github.com/shinolab/autd3-cpp/releases/download/v31.0.1/autd3-v31.0.1-linux-x64.tar.gz](https://github.com/shinolab/autd3-cpp/releases/download/v31.0.1/autd3-v31.0.1-linux-x64.tar.gz)
 - autd3-link-soem
-    - Windows: [https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v30.0.1/autd3-link-soem-v30.0.1-win-x64.zip](https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v30.0.1/autd3-link-soem-v30.0.1-win-x64.zip)
-    - macOS: [https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v30.0.1/autd3-link-soem-v30.0.1-macos-aarch64.tar.gz](https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v30.0.1/autd3-link-soem-v30.0.1-macos-aarch64.tar.gz)
-    - Linux: [https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v30.0.1/autd3-link-soem-v30.0.1-linux-x64.tar.gz](https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v30.0.1/autd3-link-soem-v30.0.1-linux-x64.tar.gz)
+    - Windows: [https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v31.0.1/autd3-link-soem-v31.0.1-win-x64.zip](https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v31.0.1/autd3-link-soem-v31.0.1-win-x64.zip)
+    - macOS: [https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v31.0.1/autd3-link-soem-v31.0.1-macos-aarch64.tar.gz](https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v31.0.1/autd3-link-soem-v31.0.1-macos-aarch64.tar.gz)
+    - Linux: [https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v31.0.1/autd3-link-soem-v31.0.1-linux-x64.tar.gz](https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v31.0.1/autd3-link-soem-v31.0.1-linux-x64.tar.gz)
 {{ #endtab }}
 {{ #tab name=C# }}
 NuGetで公開している.

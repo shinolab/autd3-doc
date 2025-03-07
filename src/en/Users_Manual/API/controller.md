@@ -140,7 +140,7 @@ If timeout is not specified in `SenderOption`, the default values for each data 
 
 |       | Timeout Value   | 
 | ----- | -------------- | 
-| `Clear`/`DebugSettings`/<br>`ForceFan`/`PhaseCorrection`/<br>`PulseWidthEncoder`/`ReadsFPGAState`/<br>`SwapSegment`/`Silencer`/<br>`Synchronize`/`FociSTM`/<br>`GainSTM`/`Modulation` | $\SI{200}{ms}$ | 
+| `Clear`/`GPIOOutputs`/<br>`ForceFan`/`PhaseCorrection`/<br>`PulseWidthEncoder`/`ReadsFPGAState`/<br>`SwapSegment`/`Silencer`/<br>`Synchronize`/`FociSTM`/<br>`GainSTM`/`Modulation` | $\SI{200}{ms}$ | 
 | `Gain`  | $\SI{20}{ms}$ | 
 
 When sending multiple data at once, the maximum timeout value of each data is used.
@@ -155,5 +155,5 @@ In the case of `ParallelMode::Auto`, parallel computation is enabled if the numb
 
 |       | Parallel Computation Threshold Value   | 
 | ----- | -------------- | 
-| `Clear`/`DebugSettings`/<br>`ForceFan`/`PhaseCorrection`/<br>`ReadsFPGAState`/`SwapSegment`/<br>`Silencer`/`Synchronize`/<br>`FociSTM` (less than 4000 foci)/<br>`Modulation` | 18446744073709551615 | 
+| `Clear`/`GPIOOutputs`/<br>`ForceFan`/`PhaseCorrection`/<br>`ReadsFPGAState`/`SwapSegment`/<br>`Silencer`/`Synchronize`/<br>`FociSTM` (less than 4000 foci)/<br>`Modulation` | 18446744073709551615 | 
 | `PulseWidthEncoder`/<br>`FociSTM` (4000 foci or more)/<br>/`GainSTM`/`Gain` | 4 |

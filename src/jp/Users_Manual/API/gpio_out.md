@@ -1,6 +1,6 @@
-# DebugSettings
+# GPIOOutputs
 
-`DebugSettings`により, GPIOピンの出力を各デバイス・ピン毎に設定できる.
+`GPIOOutputs`により, GPIOピンの出力を各デバイス・ピン毎に設定できる.
 
 <figure>
     <img src="../../fig/Users_Manual/gpio_pin.jpg"/>
@@ -10,22 +10,22 @@
 {{ #tabs }}
 {{ #tab name=Rust }}
 ```rust,edition2024
-{{#include ../../../codes/Users_Manual/advanced/debug_setting.rs}}
+{{#include ../../../codes/Users_Manual/advanced/gpio_out.rs}}
 ```
 {{ #endtab }}
 {{ #tab name=C++ }}
 ```cpp
-{{#include ../../../codes/Users_Manual/advanced/debug_setting.cpp}}
+{{#include ../../../codes/Users_Manual/advanced/gpio_out.cpp}}
 ```
 {{ #endtab }}
 {{ #tab name=C# }}
 ```cs
-{{#include ../../../codes/Users_Manual/advanced/debug_setting.cs}}
+{{#include ../../../codes/Users_Manual/advanced/gpio_out.cs}}
 ```
 {{ #endtab }}
 {{ #tab name=Python }}
 ```python
-{{#include ../../../codes/Users_Manual/advanced/debug_setting.py}}
+{{#include ../../../codes/Users_Manual/advanced/gpio_out.py}}
 ```
 {{ #endtab }}
 {{ #endtabs }}

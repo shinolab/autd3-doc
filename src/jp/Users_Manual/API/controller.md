@@ -140,7 +140,7 @@ FPGAの状態としては, 現在以下の情報が取得できる.
 
 |       | タイムアウト値   | 
 | ----- | -------------- | 
-| `Clear`/`DebugSettings`/<br>`ForceFan`/`PhaseCorrection`/<br>`PulseWidthEncoder`/`ReadsFPGAState`/<br>`SwapSegment`/`Silencer`/<br>`Synchronize`/`FociSTM`/<br>`GainSTM`/`Modulation` | $\SI{200}{ms}$ | 
+| `Clear`/`GPIOOutputs`/<br>`ForceFan`/`PhaseCorrection`/<br>`PulseWidthEncoder`/`ReadsFPGAState`/<br>`SwapSegment`/`Silencer`/<br>`Synchronize`/`FociSTM`/<br>`GainSTM`/`Modulation` | $\SI{200}{ms}$ | 
 | `Gain`  | $\SI{20}{ms}$ | 
 
 複数をまとめて送信する場合は, それぞれのデータのタイムアウト値の最大値が使用される.
@@ -155,5 +155,5 @@ FPGAの状態としては, 現在以下の情報が取得できる.
 
 |       | 並列計算スレッショルド値   | 
 | ----- | -------------- | 
-| `Clear`/`DebugSettings`/<br>`ForceFan`/`PhaseCorrection`/<br>`ReadsFPGAState`/`SwapSegment`/<br>`Silencer`/`Synchronize`/<br>`FociSTM` (焦点数が4000未満)/<br>`Modulation` | 18446744073709551615 | 
+| `Clear`/`GPIOOutputs`/<br>`ForceFan`/`PhaseCorrection`/<br>`ReadsFPGAState`/`SwapSegment`/<br>`Silencer`/`Synchronize`/<br>`FociSTM` (焦点数が4000未満)/<br>`Modulation` | 18446744073709551615 | 
 | `PulseWidthEncoder`/<br>`FociSTM` (焦点数が4000以上)/<br>/`GainSTM`/`Gain` | 4 | 

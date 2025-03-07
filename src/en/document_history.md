@@ -2,6 +2,7 @@
 
 | Date       | Description                                   |
 | :--------  | :-------------------------------------------- |
+| 2025/03/07 | Version 31.0.1 Initial release                |
 | 2025/02/24 | Version 30.0.1 Initial release                |
 | 2025/02/10 | Version 29.0.0 Initial release                |
 | 2024/10/15 | Version 28.1.0 Initial release                |
