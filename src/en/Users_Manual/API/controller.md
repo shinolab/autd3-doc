@@ -1,6 +1,6 @@
 # Controller
 
-This section introduces the APIs available in the `Controller` class.
+This section introduces the APIs available in the `Controller`.
 
 [[_TOC_]]
 

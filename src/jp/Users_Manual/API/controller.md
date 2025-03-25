@@ -1,6 +1,6 @@
 # Controller
 
-ここでは, `Controller`クラスに存在するAPIを紹介する.
+ここでは, `Controller`に存在するAPIを紹介する.
 
 [[_TOC_]]
 

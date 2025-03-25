@@ -1,6 +1,6 @@
 # 位相補正
 
-`PhaseCorrection`により, 位相を補正することができる.
+`PhaseCorrection`を送信することで, 位相を補正することができる.
 
 {{ #tabs }}
 {{ #tab name=Rust }}

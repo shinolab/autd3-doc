@@ -6,7 +6,7 @@
 
 特に指定しない限りは, `Segment::S0`が使用される.
 
-データを書き込む`Segment`は, `WithSegment`で指定する.
+データを書き込む`Segment`を変更する場合は, `WithSegment`を送信する.
 
 {{ #tabs }}
 {{ #tab name=Rust }}
@@ -49,7 +49,7 @@
 
 ### Segmentの切り替え
 
-`Segment`を切り替えたいだけの場合は, `SwapSegment`を使用する.
+`Segment`を切り替えたいだけの場合は, `SwapSegment`を送信する.
 
 {{ #tabs }}
 {{ #tab name=Rust }}
@@ -76,7 +76,7 @@
 
 ### LoopBehavior
 
-`Modulation`と`FociSTM`, `GainSTM`は`WithLoopBehavior`でループの挙動を制御できる.
+`Modulation`と`FociSTM`, `GainSTM`は`WithLoopBehavior`を送信することでループの挙動を制御できる.
 
 **ループ挙動の指定は, セグメントを切り替えたときにのみ有効であることに注意.**
 
