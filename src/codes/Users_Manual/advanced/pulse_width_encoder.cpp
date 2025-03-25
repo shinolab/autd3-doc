@@ -6,6 +6,8 @@
 //~auto autd =
 //~Controller::open({AUTD3{}}, link::Nop{});
 PulseWidthEncoder([](const auto& dev) {
-  return [](const auto i) { return 0; };
+  return [](const auto i) {
+    return PulseWidth::from_duty(static_cast<float>(i.value()) / 510.0f);
+  };
 });
 //~return 0; }

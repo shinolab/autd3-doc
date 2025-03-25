@@ -70,6 +70,7 @@
   - [FAQ](./Users_Manual/FAQ/faq.md)
   - [Citation](./Users_Manual/Citation/citation.md)
   - [License](./Users_Manual/LICENSE.md)
+  - [Firmware v10 vs v11](./Users_Manual/firmware_v10_vs_v11.md)
   - [Release Notes](./Users_Manual/release_notes.md)
 
 - [Document History](document_history.md)

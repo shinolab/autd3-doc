@@ -24,7 +24,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     )?;
 
     // Check firmware version
-    // This code assumes that the version is v10.0.1
+    // This code assumes that the version is v11.0.0 or v10.0.1
     autd.firmware_version()?.iter().for_each(|firm_info| {
         println!("{}", firm_info);
     });

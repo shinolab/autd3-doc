@@ -7,6 +7,5 @@ Silencer {
         intensity: NonZeroU16::MIN,
         phase: NonZeroU16::MIN,
     },
-    target: SilencerTarget::Intensity,
 };
 # }

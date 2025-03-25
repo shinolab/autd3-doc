@@ -70,6 +70,7 @@
   - [FAQ](./Users_Manual/FAQ/faq.md)
   - [引用](./Users_Manual/Citation/citation.md)
   - [ライセンス](./Users_Manual/LICENSE.md)
+  - [Firmware v10 vs v11](./Users_Manual/firmware_v10_vs_v11.md)
   - [リリースノート](./Users_Manual/release_notes.md)
 
 - [デベロッパーズマニュアル](./Developer_Manual/Developer_manual.md)

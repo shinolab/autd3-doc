@@ -1,6 +1,6 @@
-~from pyautd3 import GPIOOutputs, DebugType, GPIOOut
+~from pyautd3 import GPIOOutputs, GPIOOutputType, GPIOOut
 GPIOOutputs(
     lambda _dev, gpio: (
-        DebugType.BaseSignal if gpio == GPIOOut.O0 else DebugType.NONE
+        GPIOOutputType.BaseSignal if gpio == GPIOOut.O0 else GPIOOutputType.NONE
     ),
 )

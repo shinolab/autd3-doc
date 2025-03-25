@@ -1,5 +1,5 @@
 # LM
-[Source](https://github.com/shinolab/autd3-rs/blob/v31.0.1/autd3-gain-holo/src/nls/lm.rs)
+[Source](https://github.com/shinolab/autd3-rs/blob/v32.0.0/autd3-gain-holo/src/nls/lm.rs)
 
 Levenberg-Marquardt法 (LM法) に基づく多焦点`Gain`.
 LM法はLevenberg[^levenberg1944]とMarquardt[^marquardt1963]で提案された非線形最小二乗問題の最適化法, 実装はMadsenのテキスト[^madsen2004]に基づく.
