@@ -1,6 +1,6 @@
 # GPIOOutputs
 
-`GPIOOutputs`により, GPIOピンの出力を各デバイス・ピン毎に設定できる.
+`GPIOOutputs`を送信することで, GPIOピンの出力を各デバイス・ピン毎に設定できる.
 
 <figure>
     <img src="../../fig/Users_Manual/gpio_pin.jpg"/>

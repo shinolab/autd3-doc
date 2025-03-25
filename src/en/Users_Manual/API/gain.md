@@ -1,7 +1,7 @@
 # Gain
 
 AUTD can individually control the phase/amplitude of each transducer, allowing it to generate various sound fields.
-`Gain` is the class that manages this, and the SDK provides several types of `Gain` to generate different sound fields by default.
+`Gain` is the structs that manages this, and the SDK provides several types of `Gain` to generate different sound fields by default.
 
 - [Null](./gain/null.md) ‐ No output
 - [Focus](./gain/focus.md) - Single focus
