@@ -27,8 +27,9 @@
 
 `Sine` applies AM so that the waveform of the sound pressure becomes
 $$
-    \left\lfloor\frac{\text{intensity}}{2} \times \sin(2\pi ft + \text{phase}) + \text{offset}\right\rfloor
+    \left\lfloor\frac{\text{intensity}}{2} \times \sin(2\pi \times \text{freq} \times t + \text{phase}) + \text{offset}\right\rfloor,
 $$
+where $\lfloor\cdot\rfloor$ represents the floor function.
 
 If `clamp` is `false`, it returns an error if `intensity, offset` are specified such that the above formula results in values outside the range of $[0,255]$.
 To clamp values outside the range to $[0,255]$ instead of returning an error, specify `true` for `clamp`.

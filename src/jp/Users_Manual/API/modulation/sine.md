@@ -3,7 +3,6 @@
 
 音圧をSin波状に変形するための`Modulation`.
 
-
 {{ #tabs }}
 {{ #tab name=Rust }}
 ```rust
@@ -29,9 +28,10 @@
 
 `Sine`は音圧の波形が
 $$
-    \left\lfloor\frac{\text{intensity}}{2} \times \sin(2\pi ft + \text{phase}) + \text{offset}\right\rfloor
+    \left\lfloor\frac{\text{intensity}}{2} \times \sin(2\pi \times \text{freq} \times t + \text{phase}) + \text{offset}\right\rfloor
 $$
 となるようなAMをかける.
+ここで$\lfloor\cdot\rfloor$は床関数を表す.
 
 `clamp`が`false`だと, 上記の式において$[0,255]$の範囲外の値になるような`intensity, offset`が指定された場合にエラーを返す.
 エラーを返すのではなく, 範囲外の値を$[0,255]$にクランプする場合は, `clamp`に`true`を指定する.
