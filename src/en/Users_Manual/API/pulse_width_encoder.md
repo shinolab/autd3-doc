@@ -7,6 +7,8 @@ Inside the firmware, there is a table that determines the pulse width ($0$--$511
 This table can be modified by `PulseWidthEncoder`.
 Note that the period of the PWM signal is 512.
 
+For example, if you send the following `PulseWidthEncoder`, the relationship between the intensity value and the pulse width will be linear (i.e., the intensity value and ultrasound output will be nonlinear).
+
 {{ #tabs }}
 {{ #tab name=Rust }}
 ```rust,edition2024
