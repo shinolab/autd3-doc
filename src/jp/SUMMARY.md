@@ -64,7 +64,6 @@
     - [非同期API](./Users_Manual/advanced/async.md)
     - [ロギングの有効化](./Users_Manual/advanced/logging.md)
     - [Lightweightモード](./Users_Manual/advanced/lightweight.md)
-    - [超音波周波数の変更](./Users_Manual/advanced/dynamic_freq.md)
     - [Deviceの自作](./Users_Manual/advanced/custom_device.md)
   - [バージョニング](./Users_Manual/versioning.md)
   - [FAQ](./Users_Manual/FAQ/faq.md)

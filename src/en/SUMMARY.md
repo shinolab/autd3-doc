@@ -64,7 +64,6 @@
     - [Asynchronous API](./Users_Manual/advanced/async.md)
     - [Enable Logging](./Users_Manual/advanced/logging.md)
     - [Lightweight Mode](./Users_Manual/advanced/lightweight.md)
-    - [Change Ultrasonic Frequency](./Users_Manual/advanced/dynamic_freq.md)
     - [Custom Device](./Users_Manual/advanced/custom_device.md)
   - [Versioning](./Users_Manual/versioning.md)
   - [FAQ](./Users_Manual/FAQ/faq.md)
