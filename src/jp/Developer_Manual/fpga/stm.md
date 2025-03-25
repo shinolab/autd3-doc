@@ -10,13 +10,13 @@
 | CLK                           | In     | 1     | メインクロック                                     | 
 | SETTINGS                      | In     | -     |                                                    | 
 | ├─ REQ_RD_SEGMENT             | In     | 1     | 要求読み込みセグメント                             | 
-| ├─ CYCLE[$n$]                 | In     | 13    | 第$n$セグメントの周期$-1$                          | 
+| ├─ CYCLE[$n$]                 | In     | 16    | 第$n$セグメントの周期$-1$                          | 
 | ├─ FREQ_DIV[$n$]              | In     | 16    | 第$n$セグメントの周波数分周比                      | 
 | ├─ REP[$n$]                   | In     | 16    | 第$n$セグメントの繰り返し回数$-1$                  | 
 | ├─ SOUND_SPEED[$n$]           | In     | 16    | 第$n$セグメントの音速                              | 
 | ├─ TRANSITION_MODE            | In     | 8     | 遷移モード                                         | 
 | └─ TRANSITION_VALUE           | In     | 64    | 遷移値                                             | 
-| SYS_TIME                      | In     | 56    | システム時刻                                       | 
+| SYS_TIME                      | In     | 57    | システム時刻                                       | 
 | INTENSITY                     | Out    | 8     | 強度                                               | 
 | PHASE                         | Out    | 8     | 位相                                               | 
 | DOUT_VALID                    | Out    | 1     | 強度/位相データ有効フラグ                          | 
@@ -29,10 +29,10 @@
 このサブモジュールは, システム時刻, 周期$T$, 周波数分周比$N$から, 現在読み込むべきデータのインデックスを計算する.
 変調データのインデックス$i$は
 $$\begin{align}
-    i = \left\lfloor \frac{\text{SYS\_TIME}}{256N} \right\rfloor \,\%\, T
+    i = \left\lfloor \frac{\text{SYS\_TIME}}{512N} \right\rfloor \,\%\, T
 \end{align}$$
 として計算される.
-`SYS_TIME`は$\SI{10.24}{MHz}$でカウントアップされため, データのサンプリング周波数$f$は
+`SYS_TIME`は$\SI{20.48}{MHz}$でカウントアップされため, データのサンプリング周波数$f$は
 $$\begin{align}
     f = \frac{\SI{40}{kHz}}{N}
 \end{align}$$

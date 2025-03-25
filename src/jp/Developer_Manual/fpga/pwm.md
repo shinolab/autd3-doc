@@ -7,11 +7,11 @@
 
 | Name        | In/Out | Width | Description                                        | 
 | ----------- | ------ | ----- | -------------------------------------------------- | 
-| CLK         | In     | 1     | 10.24MHzクロック                                   | 
+| CLK         | In     | 1     | 20.48MHzクロック                                   | 
 | TIME_CNT    | In     | 8     | 超音波周期カウンタ                                 | 
 | UPDATE      | In     | 1     | 超音波周期トリガ                                   | 
 | DIN_VALID   | In     | 1     | パルス幅/位相データ有効フラグ                      | 
-| PULSE_WIDTH | In     | 8     | パルス幅                                           | 
+| PULSE_WIDTH | In     | 9     | パルス幅                                           | 
 | PHASE       | In     | 8     | 位相                                               | 
 | PWM_OUT     | Out    | 1x249 | PWM信号                                            | 
 | DOUT_VALID  | Out    | 1     | 立ち上がり/立ち下がりデータ有効フラグ (デバッグ用) | 
@@ -21,11 +21,11 @@
 このサブモジュールでは, 後の処理を楽にするために, パルス幅$D$/位相$P$を信号の立ち上がり時刻$R$と立ち下がり時刻$F$に変換する.
 
 $$\begin{align*}
-R &= \left[P - \frac{D}{2}\right] \%\, T\\
-F &= \left[P + \frac{D+1}{2}\right] \%\, T
+R &= \left[2 * P - \frac{D}{2}\right] \%\, T\\
+F &= \left[2 * P + \frac{D+1}{2}\right] \%\, T
 \end{align*}$$
 
-ここで, $T(=256)$は周期である.
+ここで, $T(=512)$は周期である.
 
 > NOTE: $D+1$を計算しているのは, $D$が奇数の場合を考慮するためである.
 
