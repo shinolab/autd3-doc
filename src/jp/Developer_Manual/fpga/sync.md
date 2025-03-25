@@ -7,7 +7,7 @@
 | ├─ UPDATE                     | In     | 1     | 同期フラグ                                         | 
 | └─ ECAT_SYNC_TIME             | In     | 64    | 同期EtherCAT時刻                                   | 
 | ECAT_SYNC                     | In     | 1     | EtherCAT Sync0信号                                 | 
-| SYS_TIME                      | Out    | 56    | システム時刻                                       | 
+| SYS_TIME                      | Out    | 57    | システム時刻                                       | 
 | SKIP_ONE_ASSERT               | Out    | 1     | 1飛ばしアサート                                    | 
 
 Synchronizerはすべてのデバイスで同期した時刻`SYS_TIME`を生成するモジュールである.
@@ -22,9 +22,9 @@ Synchronizerはすべてのデバイスで同期した時刻`SYS_TIME`を生成�
 - EtherCATスレーブは一定の周期でSync0信号 (`ECAT_SYNC`) をアサートできる. この信号の発火はシステム時刻を参照しているので, すべてのデバイスで同期している.
 - Sync0信号が発火する周期は$\SI{500}{us}$の整数倍である.
 
-なお, `SYS_TIME`はEtherCATのシステム時刻に同期しているが, その単位は$1/\SI{10.24}{MHz}$で, $\SI{56}{bit}$となっている.
+なお, `SYS_TIME`はEtherCATのシステム時刻に同期しているが, その単位は$1/\SI{20.48}{MHz}$で, $\SI{57}{bit}$となっている.
 
-> NOTE: `SYS_TIME`を$\SI{56}{bit}$にしたのは可能な限り使用リソースを少なくするためである.
+> NOTE: `SYS_TIME`を$\SI{57}{bit}$にしたのは可能な限り使用リソースを少なくするためである.
 > これにより, オーバーフローまでの期限がEtherCATそのものより短く, 約223年となるが, これも事実上問題ないだろう.
 
 まず, `SYS_TIME`の初回の時刻同期はCPUファームウェアと協調して, 以下の手順で行われる.
@@ -33,7 +33,7 @@ Synchronizerはすべてのデバイスで同期した時刻`SYS_TIME`を生成�
 1. CPU: `UPDATE`フラグをFPGA内のBRAMに書き込む.
 1. FPGA: 以下の計算により, 時刻単位を変換しておく.
     $$\begin{align}
-        \frac{\text{ECAT\_SYNC\_TIME}}{\SI{500}{us}} \times (\SI{10.24}{MHz} \times \SI{500}{us}) = 32\frac{\text{ECAT\_SYNC\_TIME}}{3125} 
+        \text{ECAT\_SYNC\_TIME} \times \frac{\SI{20.48}{MHz}}{\SI{1}{GHz}} = 64\times\frac{\text{ECAT\_SYNC\_TIME}}{3125} 
     \end{align}$$
 1. FPGA: `UPDATE`フラグがアサートされている, かつ, `ECAT_SYNC`がアサートされたタイミングで, 単位変換済みの`ECAT_SYNC_TIME`を`SYS_TIME`にセットする.
 
@@ -49,21 +49,21 @@ Synchronizerはすべてのデバイスで同期した時刻`SYS_TIME`を生成�
 定期的に上記と同様のことを行って補正してもいいが, それは大変なので, Sync0信号が周期的かつ同期的に発火するという性質を用いた別の補正方法を採用した.
 
 まずは, Sync0信号が$\SI{500}{us}$の間隔で発火する場合を考えよう.
-この場合, Sync0信号が発火した際, `SYS_TIME`は前回Sync0信号が発火したときの値に$\SI{10.24}{MHz} \times \SI{500}{us} = 5120$を足した値になっているはずである.
+この場合, Sync0信号が発火した際, `SYS_TIME`は前回Sync0信号が発火したときの値に$\SI{20.48}{MHz} \times \SI{500}{us} = 10240$を足した値になっているはずである.
 したがって, Sync0信号が発火した際に, この本来あるべき値と実際の値を比較して補正できる.
 
 Sync0信号が$\SI{500}{us}\times N, N=2,3,...$の間隔で発火する場合は, $N$を推定する必要がある[^1].
 これは, Sync0信号の発火タイミングから推定できる.
-Sync0信号の発火タイミングで, カウンタ$n$を$n=\SI{10.24}{MHz} \times \SI{500}{us}/2 = 2560$で初期化した後, これをメインクロックでカウントアップする.
+Sync0信号の発火タイミングで, カウンタ$n$を$n=\SI{20.48}{MHz} \times \SI{500}{us}/2 = 5120$で初期化した後, これをメインクロックでカウントアップする.
 そして, 次にSync0信号の発火タイミングで$N$を
 $$\begin{align}
-  N = \left\lfloor \frac{n}{5120} \right\rfloor
+  N = \left\lfloor \frac{n}{10240} \right\rfloor
 \end{align}$$
 で推定する.
 この推定が正しくなる条件を求めてみる.
-FPGAの実際のクロック周波数が$\SI{10.24}{MHz} \times (1 \pm \delta), (\delta \ge 0)$であるとすると,
+FPGAの実際のクロック周波数が$\SI{20.48}{MHz} \times (1 \pm \delta), (\delta \ge 0)$であるとすると,
 $$\begin{align}
-  \left\lfloor \frac{n}{5120} \right\rfloor = \left\lfloor N + \frac{1}{2} \pm N\delta \right\rfloor
+  \left\lfloor \frac{n}{10240} \right\rfloor = \left\lfloor N + \frac{1}{2} \pm N\delta \right\rfloor
 \end{align}$$
 となる.
 これが正しく$N$になるためには,
