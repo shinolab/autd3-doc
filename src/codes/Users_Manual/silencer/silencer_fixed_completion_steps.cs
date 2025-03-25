@@ -5,6 +5,5 @@ new Silencer(
         Intensity = Duration.FromMicros(250),
         Phase = Duration.FromMicros(250),
         StrictMode = true
-    },
-    target: SilencerTarget.Intensity
+    }
 );

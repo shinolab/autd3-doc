@@ -8,6 +8,5 @@ Silencer {
         phase: Duration::from_micros(250),
         strict_mode: true,
     },
-    target: SilencerTarget::Intensity,
 };
 # }

@@ -4,6 +4,5 @@ new Silencer(
     {
         Intensity = 1,
         Phase = 1
-    },
-    target: SilencerTarget.Intensity
+    }
 );
