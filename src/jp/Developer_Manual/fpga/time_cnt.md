@@ -5,7 +5,7 @@
 | CLK                           | In     | 1     | メインクロック                                      | 
 | SYS_TIME                      | In     | 57    | システム時刻                                        | 
 | SKIP_ONE_ASSERT               | In     | 1     | [Synchonizer](./sync.md)参照                        | 
-| TIME_CNT                      | Out    | 9     | $\SI{8}{bit}$カウンタ                               | 
+| TIME_CNT                      | Out    | 9     | $\SI{9}{bit}$カウンタ                               | 
 | UPDATE                        | Out    | 1     | 超音波周期トリガ                                    | 
 
 このモジュールは, 同期システム時刻 `SYS_TIME`から, 離散時刻$t = 0, 1, ..., 511$ (`TIME_CNT`) と超音波周波数で発火する`UPDATE`を生成する.
