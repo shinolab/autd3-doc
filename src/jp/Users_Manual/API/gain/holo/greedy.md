@@ -1,5 +1,5 @@
 # Greedy
-[Source](https://github.com/shinolab/autd3-rs/blob/v32.0.0/autd3-gain-holo/src/combinatorial/greedy.rs)
+[Source](https://github.com/shinolab/autd3-rs/blob/v32.0.1/autd3-gain-holo/src/combinatorial/greedy.rs)
 
 Greedy Algorithm with Brute-Force Search, 鈴木らの論文[^suzuki2021]に基づく多焦点`Gain`.
 
