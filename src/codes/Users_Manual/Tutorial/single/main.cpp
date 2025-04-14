@@ -1,7 +1,7 @@
-#include <autd3_link_soem.hpp>
 #include <iostream>
 
 #include "autd3.hpp"
+#include "autd3_link_soem.hpp"
 
 using namespace autd3;
 
