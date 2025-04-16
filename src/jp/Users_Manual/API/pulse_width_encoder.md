@@ -40,3 +40,8 @@ $$
 {{ #endtabs }}
 
 コンストラクタの引数は各デバイスに対して, テーブルのインデックスを引数にパルス幅を返す関数を返す関数`Fn(&Device) -> Fn(EmitIntensity) -> PulseWidth`である.
+
+## v10ファームウェア使用時の注意
+
+Rust版からv10ファームウェアを使用する場合, `autd3::prelude::PulseWidthEncoder`の代わりに, `autd3::prelude::v10::PulseWidthEncoder`を使用する.
+Rust版以外はサポートしていない.

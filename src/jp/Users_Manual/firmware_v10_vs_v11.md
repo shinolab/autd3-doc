@@ -9,7 +9,7 @@
 | ------------------------------ | --------------------------------------------------------------- | -------------------------------------------------------- | 
 | [Modulation](./API/modulation.md)の最大バッファサイズ | 32768[^1]                                                           | 65536                                                    | 
 | [FociSTM](./API/stm/focus.md)の最大パターン数        | 焦点数によらず8192パターン[^1]<br>e.g., $1\times 8192$, $2\times 8192$, ..., $8\times 8192$ | 総焦点数が65536点<br>e.g., $1\times 65536$, $2\times 32768$, ..., $8\times 8192$ | 
-| [PulseWidthEncoder](./API/pulse_width_encoder.md)              | サポートしていない                                              | サポートしている                                         | 
+| [PulseWidthEncoder](./API/pulse_width_encoder.md)              | サポートしている (Rust版のみ)                                              | サポートしている                                         | 
 | [GPIOOutputType::SysTime](./API/gpio_out.md)        | サポートしていない[^2]                                              | サポートしている                                         | 
 | FPGAの推定消費電力             | $\SI{367}{mW}$                                                           | $\SI{456}{mW}$                                                    | 
 
