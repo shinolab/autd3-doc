@@ -62,7 +62,7 @@ pip install pyautd3_link_soem
 ### AUTD Server
 
 `RemoteSOEM`を使用する場合, サーバに`AUTD Server`をインストールする必要がある.
-[GitHub Releases](https://github.com/shinolab/autd3-server/releases)にてインストーラを配布しているので, これをダウンロードし, 指示に従ってインストールする.
+[GitHub](https://github.com/shinolab/autd3-server)にてインストーラを配布しているので, これをダウンロードし, 指示に従ってインストールする.
 
 `AUTD Server`を実行すると, 以下のような画面になるので, `SOEM`タブを開く.
 

@@ -5,7 +5,7 @@ AUTD Simulator (hereinafter referred to as the simulator) is a simulator for AUT
 ## AUTD Server
 
 The simulator is included with the `AUTD Server`.
-The installer is distributed on [GitHub Releases](https://github.com/shinolab/autd3-server/releases), so download it and follow the instructions to install it.
+The installer is distributed on [GitHub](https://github.com/shinolab/autd3-server), so download it and follow the instructions to install it.
 
 When you run `AUTD Server`, you will see a screen like the one below. Open the `Simulator` tab and press the `Run` button to start the simulator.
 
