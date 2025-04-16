@@ -1,5 +1,5 @@
 # Focus
-[Source](https://github.com/shinolab/autd3-rs/blob/v32.0.1/autd3/src/datagram/gain/focus.rs)
+[Source](https://github.com/shinolab/autd3-rs/blob/v32.1.0/autd3/src/datagram/gain/focus.rs)
 
 `Focus`は単一焦点を生成する.
 

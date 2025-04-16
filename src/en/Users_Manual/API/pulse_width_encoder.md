@@ -40,3 +40,8 @@ For example, if you send the following `PulseWidthEncoder`, the relationship bet
 {{ #endtabs }}
 
 The constructor argument is a function `Fn(&Device) -> Fn(EmitIntensity) -> PulseWidth` that returns a function that returns the pulse width for each device using the table index as an argument.
+
+## Note for using v10 firmware
+
+When using the v10 firmware from the Rust, use `autd3::prelude::v10::PulseWidthEncoder` instead of `autd3::prelude::PulseWidthEncoder`.
+This is not supported other than Rust.
