@@ -1,0 +1,421 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>SOEM - AUTD3 Developers Manual v32.1.0</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../../highlight.css">
+        <link rel="stylesheet" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../../css/codeblock_filename.css">
+        <link rel="stylesheet" href="../../../css/lightbox.css">
+        <link rel="stylesheet" href="../../../css/open-in.css">
+        <link rel="stylesheet" href="../../../css/no-link-summary.css">
+        <link rel="stylesheet" href="../../../css/tab.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">AUTD3 Developers Manual v32.1.0</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/shinolab/autd3-doc" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="soem"><a class="header" href="#soem">SOEM</a></h1>
+<p><a href="https://github.com/OpenEtherCATsociety/SOEM">SOEM</a> is an open-source EtherCAT Master library developed by volunteers.
+Unlike TwinCAT, real-time performance is not guaranteed.
+Therefore, it is generally recommended to use TwinCAT.
+Using SOEM should be limited to unavoidable reasons or for development purposes only.
+On the other hand, SOEM has the advantage of being cross-platform and simple to install.</p>
+<p>For Windows, install <a href="https://nmap.org/npcap/">npcap</a> in “<strong>WinPcap API compatible mode</strong>”.
+For Linux/macOS, no special preparation is required.</p>
+<h2 id="install"><a class="header" href="#install">Install</a></h2>
+<div class="mdbook-inpage-tabs"><input id="Rust-tab-0" type="radio" class="mdbook-inpage-tab" name="tab-0" checked>
+                                <label class="mdbook-inpage-tab-item" num-tabs=5 for="Rust-tab-0">Rust</label><input id="C++-tab-0" type="radio" class="mdbook-inpage-tab" name="tab-0">
+                                <label class="mdbook-inpage-tab-item" num-tabs=5 for="C++-tab-0">C++</label><input id="C#-tab-0" type="radio" class="mdbook-inpage-tab" name="tab-0">
+                                <label class="mdbook-inpage-tab-item" num-tabs=5 for="C#-tab-0">C#</label><input id="Unity-tab-0" type="radio" class="mdbook-inpage-tab" name="tab-0">
+                                <label class="mdbook-inpage-tab-item" num-tabs=5 for="Unity-tab-0">Unity</label><input id="Python-tab-0" type="radio" class="mdbook-inpage-tab" name="tab-0">
+                                <label class="mdbook-inpage-tab-item" num-tabs=5 for="Python-tab-0">Python</label><div class="mdbook-inpage-tab-content" id=Rust-content>
+<pre><code class="language-shell">cargo add autd3-link-soem
+</code></pre>
+</div><div class="mdbook-inpage-tab-content" id=C++-content>
+<pre><code class="language-cpp name=CMakeLists.txt">if(WIN32)
+  FetchContent_Declare(
+    autd3-link-soem
+    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v32.1.0/autd3-link-soem-v32.1.0-win-x64.zip
+  )
+elseif(APPLE)
+  FetchContent_Declare(
+    autd3-link-soem
+    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v32.1.0/autd3-link-soem-v32.1.0-macos-aarch64.tar.gz
+  )
+else()
+  FetchContent_Declare(
+    autd3-link-soem
+    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v32.1.0/autd3-link-soem-v32.1.0-linux-x64.tar.gz
+  )
+endif()
+FetchContent_MakeAvailable(autd3-link-soem)
+target_link_libraries(&lt;TARGET&gt; PRIVATE autd3::link::soem)
+</code></pre>
+</div><div class="mdbook-inpage-tab-content" id=C#-content>
+<pre><code class="language-shell">dotnet add package AUTD3Sharp.Link.SOEM
+</code></pre>
+</div><div class="mdbook-inpage-tab-content" id=Unity-content>
+<p>Add <code>https://github.com/shinolab/AUTD3Sharp.Link.SOEM.git#upm/latest</code> to Unity Package Manager.</p>
+</div><div class="mdbook-inpage-tab-content" id=Python-content>
+<pre><code class="language-shell">pip install pyautd3_link_soem
+</code></pre>
+</div></div>
+<h2 id="apis"><a class="header" href="#apis">APIs</a></h2>
+<p>The first argument is a callback function for errors, and the second argument specifies options.</p>
+<div class="mdbook-inpage-tabs"><input id="Rust-tab-1" type="radio" class="mdbook-inpage-tab" name="tab-1" checked>
+                                <label class="mdbook-inpage-tab-item" num-tabs=4 for="Rust-tab-1">Rust</label><input id="C++-tab-1" type="radio" class="mdbook-inpage-tab" name="tab-1">
+                                <label class="mdbook-inpage-tab-item" num-tabs=4 for="C++-tab-1">C++</label><input id="C#-tab-1" type="radio" class="mdbook-inpage-tab" name="tab-1">
+                                <label class="mdbook-inpage-tab-item" num-tabs=4 for="C#-tab-1">C#</label><input id="Python-tab-1" type="radio" class="mdbook-inpage-tab" name="tab-1">
+                                <label class="mdbook-inpage-tab-item" num-tabs=4 for="Python-tab-1">Python</label><div class="mdbook-inpage-tab-content" id=Rust-content>
+<pre><code class="language-rust">#[cfg(target_os = "windows")]
+use autd3_link_soem::ProcessPriority;
+use autd3_link_soem::{Status, SyncMode, ThreadPriority, TimerStrategy, SOEM, SOEMOption};
+<span class="boring">use std::num::NonZeroUsize;
+</span><span class="boring">use std::time::Duration;
+</span>
+<span class="boring">fn main() {
+</span><span class="boring">let _ = 
+</span>SOEM::new(
+    |slave, status| {
+        eprintln!("slave [{}]: {}", slave, status);
+        if status == Status::Lost {
+            std::process::exit(-1);
+        }
+    },
+    SOEMOption {
+        buf_size: NonZeroUsize::new(32).unwrap(),
+        timer_strategy: TimerStrategy::SpinSleep,
+        sync_mode: SyncMode::DC,
+        ifname: String::new(),
+        state_check_interval: Duration::from_millis(100),
+        sync0_cycle: Duration::from_millis(1),
+        send_cycle: Duration::from_millis(1),
+        thread_priority: ThreadPriority::Max,
+        #[cfg(target_os = "windows")]
+        process_priority: ProcessPriority::High,
+        sync_tolerance: Duration::from_micros(1),
+        sync_timeout: Duration::from_secs(10),
+    },
+);
+<span class="boring">}</span></code></pre>
+</div><div class="mdbook-inpage-tab-content" id=C++-content>
+<pre><code class="language-cpp"><span class="boring">#include &lt;iostream&gt;
+</span>#include &lt;autd3_link_soem.hpp&gt;
+
+<span class="boring">int main() {
+</span><span class="boring">using namespace autd3;
+</span>link::SOEM(
+    [](const uint16_t slave, const link::Status status) {
+      std::cout &lt;&lt; "slave [" &lt;&lt; slave &lt;&lt; "]: " &lt;&lt; status &lt;&lt; std::endl;
+      if (status == link::Status::Lost()) {
+        exit(-1);
+      }
+    },
+    link::SOEMOption{
+        .buf_size = 32,
+        .timer_strategy = link::TimerStrategy::SpinSleep,
+        .sync_mode = link::SyncMode::DC,
+        .ifname = "",
+        .state_check_interval = std::chrono::milliseconds(100),
+        .sync0_cycle = std::chrono::milliseconds(1),
+        .send_cycle = std::chrono::milliseconds(1),
+        .thread_priority = link::ThreadPriority::Max(),
+        .process_priority = link::ProcessPriority::High,
+        .sync_tolerance = std::chrono::microseconds(1),
+        .sync_timeout = std::chrono::seconds(10),
+
+    });
+<span class="boring">return 0; }
+</span></code></pre>
+</div><div class="mdbook-inpage-tab-content" id=C#-content>
+<pre><code class="language-cs"><span class="boring">using AUTD3Sharp;
+</span>using AUTD3Sharp.Link;
+
+<span class="boring">using AUTD3Sharp.Utils;
+</span>new SOEM(
+    errHandler: (slave, status) =&gt;
+    {
+        Console.Error.WriteLine($"slave [{slave}]: {status}");
+        if (status == Status.Lost)
+            Environment.Exit(-1);
+    },
+    option: new SOEMOption
+    {
+        BufSize = 32,
+        TimerStrategy = TimerStrategy.SpinSleep,
+        SyncMode = SyncMode.DC,
+        Ifname = "",
+        StateCheckInterval = Duration.FromMillis(100),
+        Sync0Cycle = Duration.FromMillis(1),
+        SendCycle = Duration.FromMillis(1),
+        ThreadPriority = AUTD3Sharp.Link.ThreadPriority.Max,
+        ProcessPriority = ProcessPriority.High,
+        SyncTolerance = Duration.FromMicros(1),
+        SyncTimeout = Duration.FromSecs(10),
+    }
+);
+</code></pre>
+</div><div class="mdbook-inpage-tab-content" id=Python-content>
+<pre><code class="language-python"><span class="boring">import os
+</span>from pyautd3 import Duration
+from pyautd3_link_soem import (
+    SOEM,
+    ProcessPriority,
+    SOEMOption,
+    Status,
+    SyncMode,
+    ThreadPriority,
+    TimerStrategy,
+)
+
+
+def err_handler(slave: int, status: Status) -&gt; None:
+    print(f"slave [{slave}]: {status}")
+    if status == Status.Lost():
+        os._exit(-1)
+
+
+SOEM(
+    err_handler=err_handler,
+    option=SOEMOption(
+        buf_size=32,
+        timer_strategy=TimerStrategy.SpinSleep,
+        sync_mode=SyncMode.DC,
+        ifname="",
+        state_check_interval=Duration.from_millis(100),
+        sync0_cycle=Duration.from_millis(1),
+        send_cycle=Duration.from_millis(1),
+        thread_priority=ThreadPriority.Max,
+        process_priority=ProcessPriority.High,  # only available on Windows
+        sync_tolerance=Duration.from_micros(1),
+        sync_timeout=Duration.from_secs(10),
+    ),
+)
+</code></pre>
+</div></div>
+<p>The options that can be specified for the SOEM link are as follows.
+The default values are as above.</p>
+<ul>
+<li><code>buf_size</code>: Transmission queue buffer size. Usually, there is no need to change this.</li>
+<li><code>timer_strategy</code>: Timer strategy
+<ul>
+<li><code>StdSleep</code>  : Uses the standard library sleep</li>
+<li><code>SpinSleep</code> : Uses the <a href="https://docs.rs/spin_sleep/latest/spin_sleep/">spin_sleep</a> crate. Combines OS native sleep (WaitableTimer on Windows) and spin loop.</li>
+<li><code>SpinWait</code>  : Uses a spin loop. High resolution but high CPU load.</li>
+</ul>
+</li>
+<li><code>sync_mode</code>: Synchronization mode</li>
+<li><code>ifname</code>: Network interface name. If empty, the network interface to which the AUTD3 device is connected is automatically selected.</li>
+<li><code>state_check_interval</code>: Interval to check for errors</li>
+<li><code>sync0_cycle</code>: Synchronization signal cycle</li>
+<li><code>send_cycle</code>: Transmission cycle
+<ul>
+<li><code>SOEM</code> may become unstable when connecting a large number of devices. In this case, increase the values of <code>sync0_cycle</code> and <code>send_cycle</code>. These values should be as small as possible without causing errors. The appropriate values depend on the number of connected devices. For example, for 9 devices, a value of about <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1.5</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord"><span class="mord">2</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathrm">ms</span></span></span></span></span></span> should work.</li>
+</ul>
+</li>
+<li><code>thread_priority</code>: Thread priority</li>
+<li><code>process_priority</code>: Process priority (Windows only)</li>
+<li><code>sync_tolerance</code>: Synchronization tolerance level. During initialization, this link waits until the system time difference of each device is below this value. If synchronization is not completed within the timeout period below, an error occurs. It is not recommended to change this value.</li>
+<li><code>sync_timeout</code>: Synchronization timeout. Timeout period for the system time difference measurement above.</li>
+</ul>
+<footer id="open-on-gh">Found a bug? <a href="https://github.com/shinolab/autd3-doc/edit/main/src/en/Users_Manual/API/link/soem.md">Edit this page on GitHub.</a></footer>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../Users_Manual/API/link/twincat.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../Users_Manual/API/link/simulator.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../Users_Manual/API/link/twincat.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../Users_Manual/API/link/simulator.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../js/codeblock_filename.js"></script>
+        <script src="../../../js/lightbox-plus-jquery.min.js"></script>
+
+
+    </div>
+    </body>
+</html>
