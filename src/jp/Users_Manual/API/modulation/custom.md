@@ -1,5 +1,5 @@
 # Custom
-[Source](https://github.com/shinolab/autd3-rs/blob/v32.1.0/autd3/src/datagram/modulation/custom.rs)
+[Source](https://github.com/shinolab/autd3-rs/blob/v32.1.1/autd3/src/datagram/modulation/custom.rs)
 
 `Custom`は指定された符号なし8bitデータ列を出力する`Modulation`である.
 

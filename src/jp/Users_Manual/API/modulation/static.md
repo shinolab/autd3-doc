@@ -1,5 +1,5 @@
 # Static
-[Source](https://github.com/shinolab/autd3-rs/blob/v32.1.0/autd3/src/datagram/modulation/static.rs)
+[Source](https://github.com/shinolab/autd3-rs/blob/v32.1.1/autd3/src/datagram/modulation/static.rs)
 
 変調なし.
 

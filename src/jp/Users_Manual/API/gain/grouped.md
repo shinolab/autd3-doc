@@ -1,5 +1,5 @@
 # Group
-[Source](https://github.com/shinolab/autd3-rs/blob/v32.1.0/autd3/src/datagram/gain/group.rs)
+[Source](https://github.com/shinolab/autd3-rs/blob/v32.1.1/autd3/src/datagram/gain/group.rs)
 
 `Group`は振動子ごとに別々の`Gain`を使用するための`Gain`である.
 
