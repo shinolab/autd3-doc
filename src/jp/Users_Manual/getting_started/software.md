@@ -14,6 +14,7 @@
 {{ #endtab }}
 {{ #tab name=C++ }}
 CMakeのFetchContentを使用してインストールできる.
+また, 依存ライブラリのダウンロードに`git`を使用するので, これもインストールしておくこと.
 
 - autd3
     - Windows: [https://github.com/shinolab/autd3-cpp/releases/download/v32.1.1/autd3-v32.1.1-win-x64.zip](https://github.com/shinolab/autd3-cpp/releases/download/v32.1.1/autd3-v32.1.1-win-x64.zip)
