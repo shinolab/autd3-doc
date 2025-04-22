@@ -47,8 +47,8 @@ def run_command(command: list[str], *, shell: bool = False) -> None:
 
 
 if __name__ == "__main__":
-    version = "32.1.0"
-    link_soem_version = "32.1.0"
+    version = "32.1.1"
+    link_soem_version = "32.1.1"
     print(f"Testing with autd3-cpp {version}")
 
     base_path = Path(os.getcwd()) / "src" / "codes"
