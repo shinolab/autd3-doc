@@ -14,8 +14,6 @@ TwinCATはWindowsのみをサポートする非常に特殊なソフトウェア
 
 ## 事前準備
 
-### TwinCATのインストール
-
 前提として, TwinCATはHyper-VやVirtual Machine Platformと共存できない.
 そのため, これらの機能を無効にする必要がある.
 これには, 例えば, PowerShellを管理者権限で起動し,
@@ -29,14 +27,16 @@ Disable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform
 
 また, Windows 11の場合, 仮想化ベースのセキュリティ機能もオフにする必要がある.
 「Windows セキュリティ」→ 「デバイス セキュリティ」→「コア分離」→「メモリ整合性」をオフにする.
+Windows 11 24H2から, レジストリで`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\DeviceGuard\EnableVirtualizationBasedSecurity`の値を0にする必要もあるかもしれない.
 
-まず, TwinCAT XAEを[公式サイト](https://www.beckhoff.com/en-en/)からダウンロードする.
-ダウンロードには登録 (無料) が必要になる.
+### TwinCATのインストール
 
-ダウンロードしたインストーラを起動し, 指示に従う.
-**この時, TwinCAT XAE Shell installにチェックを入れ, Visual Studio Integrationのチェックを外すこと.**
+[公式サイト](https://infosys.beckhoff.com/content/1033/tc3_installation/15698617995.html?id=7523796010185393366)を参照し, TwinCAT 3.1 Build 4026をインストールする.
+(インストールにはmyBeckhoffアカウントの登録 (無料) が必要になる.)
+TwinCAT Xae Shellは64bit版をインストールすること.
+Visual Studio Integrationは不要.
 
-インストール後に再起動し, `C:/TwinCAT/3.1/System/win8settick.bat`を管理者権限で実行し, 再び再起動する.
+Package Managerのインストール後, Package Managerで「TwinCAT Standard」のインストールを行えば良い.
 
 ### AUTD3 Serverのインストール
 
@@ -57,7 +57,7 @@ TwinCATのLinkを使うには, まず, `AUTD3 Server`をインストールする
 
 初回のみ, 以下の作業が必要になる.
 
-まず, 「Copy AUTD.xml」ボタンを押す.
+まず, `AUTD3 Server`を管理者として開き, `TwinCAT`タブから「Copy AUTD.xml」ボタンを押す.
 ここで, 「AUTD.xml is successfully copied」のようなメッセージが出れば成功である.
 
 次に, 「Open XAE Shell」ボタンを押し, XAE Shellを開く.
