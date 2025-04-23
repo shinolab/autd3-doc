@@ -1,0 +1,355 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>FAQ - AUTD3 Developers Manual v32.1.1</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../css/codeblock_filename.css">
+        <link rel="stylesheet" href="../../css/lightbox.css">
+        <link rel="stylesheet" href="../../css/open-in.css">
+        <link rel="stylesheet" href="../../css/no-link-summary.css">
+        <link rel="stylesheet" href="../../css/tab.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">AUTD3 Developers Manual v32.1.1</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/shinolab/autd3-doc" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="faq"><a class="header" href="#faq">FAQ</a></h1>
+<ul>
+<li><a href="#no-autd3-devices-found-is-displayed">“No AUTD3 devices found” is displayed</a></li>
+<li><a href="#one-or-more-slaves-are-not-responding-or-slow-network-was-detected-is-displayed">“One or more slaves are not responding” or “Slow network was detected” is displayed</a></li>
+<li><a href="#frequent-transmission-failures-when-using-linksoem">Frequent transmission failures when using <code>link::SOEM</code></a></li>
+<li><a href="#frequent-link-disconnections">Frequent link disconnections</a></li>
+<li><a href="#errors-when-using-remotetwincat-link">Errors when using <code>RemoteTwinCAT</code> link</a></li>
+<li><a href="#how-to-access-transducer-phaseamplitude-data">How to access transducer phase/amplitude data?</a></li>
+<li><a href="#how-to-access-am-modulation-data">How to access AM modulation data?</a></li>
+<li><a href="#others">Others</a></li>
+</ul>
+<h2 id="no-autd3-devices-found-is-displayed"><a class="header" href="#no-autd3-devices-found-is-displayed">“No AUTD3 devices found” is displayed</a></h2>
+<ul>
+<li>
+<p>When using <code>link::SOEM</code> on macOS or Linux, root privileges are required.</p>
+<ul>
+<li>
+<p>On Linux, this can be avoided by setting the following permissions with the <code>setcap</code> command:</p>
+<pre><code class="language-shell">sudo setcap cap_net_raw,cap_net_admin=eip &lt;your executable file&gt;
+</code></pre>
+</li>
+<li>
+<p>On macOS, this can be avoided by adding read permissions to the <code>/dev/bpf*</code> files:</p>
+<pre><code class="language-shell">sudo chmod +r /dev/bpf*
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>(Windows) Use the latest npcap.</p>
+</li>
+<li>
+<p>Virtual machines like WSL are not supported.</p>
+<ul>
+<li>It may work on VirtualBox, but the behavior is unstable.</li>
+</ul>
+</li>
+</ul>
+<h2 id="one-or-more-slaves-are-not-responding-or-slow-network-was-detected-is-displayed"><a class="header" href="#one-or-more-slaves-are-not-responding-or-slow-network-was-detected-is-displayed">“One or more slaves are not responding” or “Slow network was detected” is displayed</a></h2>
+<ul>
+<li>
+<p>Update the driver.</p>
+<ul>
+<li>If using Realtek on Windows, install the driver labeled <code>Win10 Auto Installation Program (NDIS)</code> from the <a href="https://www.realtek.com/en/component/zoo/category/network-interface-controllers-10-100-1000m-gigabit-ethernet-pci-express-software">official site</a> (also for Windows 11).</li>
+</ul>
+</li>
+<li>
+<p>(Windows) Use the latest npcap.</p>
+</li>
+<li>
+<p>Increase the values of <code>send_cycle</code> and <code>sync0_cycle</code>.</p>
+</li>
+<li>
+<p>(Windows) From the properties of the relevant network adapter in Device Manager, uncheck “Allow the computer to turn off this device to save power” in the “Power Management” tab.</p>
+</li>
+</ul>
+<h2 id="frequent-transmission-failures-when-using-linksoem"><a class="header" href="#frequent-transmission-failures-when-using-linksoem">Frequent transmission failures when using <code>link::SOEM</code></a></h2>
+<ul>
+<li>
+<p>This issue occurs when:</p>
+<ul>
+<li><code>sync_mode</code> is set to <code>DC</code></li>
+</ul>
+<p>and,</p>
+<ul>
+<li>The onboard ethernet interface is used</li>
+</ul>
+<p>and, it has been confirmed to occur in the following situations:</p>
+<ul>
+<li>Using RealSense, Azure Kinect, Web cameras, etc.
+<ul>
+<li>Generally occurs when the camera is activated.</li>
+</ul>
+</li>
+<li>Playing videos or audio
+<ul>
+<li>Or opening video sites (like YouTube) in an internet browser.</li>
+</ul>
+</li>
+<li>Using Unity
+<ul>
+<li>Occurs just by launching it.</li>
+</ul>
+</li>
+<li>Playing animations in Blender
+<ul>
+<li>Other operations (like modeling) are fine.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>To avoid this issue, try one of the following:</p>
+<ol>
+<li>Set <code>sync_mode</code> to <code>FreeRun</code>.</li>
+<li>Use Linux or macOS.
+<ul>
+<li>However, virtual machines are not acceptable.</li>
+</ul>
+</li>
+<li>Use <code>TwinCAT</code>, <code>RemoteTwinCAT</code>, or <code>RemoteSOEM</code> links.</li>
+<li>Use a USB to Ethernet adapter.
+<ul>
+<li>It has been confirmed to work properly with at least the “ASIX AX88179” chip.</li>
+<li>Note that this issue can occur with PCIe-connected ethernet adapters as well, not just onboard ones.</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>If this issue occurs in situations other than those listed above, or if it does not occur in the listed situations, please actively report it on GitHub Issues.</p>
+</li>
+</ul>
+<h2 id="frequent-link-disconnections"><a class="header" href="#frequent-link-disconnections">Frequent link disconnections</a></h2>
+<ul>
+<li>If this frequently occurs when outputting ultrasound, check if the power supply is sufficient.
+<ul>
+<li>Each device can consume up to 50W.</li>
+</ul>
+</li>
+</ul>
+<h2 id="errors-when-using-remotetwincat-link"><a class="header" href="#errors-when-using-remotetwincat-link">Errors when using <code>RemoteTwinCAT</code> link</a></h2>
+<ul>
+<li>It may be blocked by the firewall, so either disable the firewall or open TCP/UDP port 48898.</li>
+<li>Disconnect all LAN connections other than the server on the client PC.</li>
+</ul>
+<h2 id="how-to-access-transducer-phaseamplitude-data"><a class="header" href="#how-to-access-transducer-phaseamplitude-data">How to access transducer phase/amplitude data?</a></h2>
+<ol>
+<li>Create your desired <code>Gain</code>. Refer to <a href="../advanced/custom_gain.html">Creating Custom Gain</a>.</li>
+</ol>
+<h2 id="how-to-access-am-modulation-data"><a class="header" href="#how-to-access-am-modulation-data">How to access AM modulation data?</a></h2>
+<ol>
+<li>Create your desired <code>Modulation</code>. Refer to <a href="../advanced/custom_modulation.html">Creating Custom Modulation</a>.</li>
+</ol>
+<h2 id="others"><a class="header" href="#others">Others</a></h2>
+<ul>
+<li>Feel free to ask questions or report bugs on <a href="https://github.com/shinolab/autd3/issues">GitHub Issues</a>.</li>
+</ul>
+<footer id="open-on-gh">Found a bug? <a href="https://github.com/shinolab/autd3-doc/edit/main/src/en/Users_Manual/FAQ/faq.md">Edit this page on GitHub.</a></footer>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../Users_Manual/versioning.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../Users_Manual/Citation/citation.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../Users_Manual/versioning.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../Users_Manual/Citation/citation.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../js/codeblock_filename.js"></script>
+        <script src="../../js/lightbox-plus-jquery.min.js"></script>
+
+
+    </div>
+    </body>
+</html>

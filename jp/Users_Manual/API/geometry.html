@@ -1,0 +1,557 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Geometry - AUTD3 Developers Manual v32.1.1</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../css/codeblock_filename.css">
+        <link rel="stylesheet" href="../../css/lightbox.css">
+        <link rel="stylesheet" href="../../css/open-in.css">
+        <link rel="stylesheet" href="../../css/no-link-summary.css">
+        <link rel="stylesheet" href="../../css/tab.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">AUTD3 Developers Manual v32.1.1</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/shinolab/autd3-doc" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="geometry"><a class="header" href="#geometry">Geometry</a></h1>
+<p>GeometryはAUTD3デバイスが現実世界でどのように配置されているかを管理している.</p>
+<ul>
+<li><a href="#%E3%83%87%E3%83%90%E3%82%A4%E3%82%B9%E6%8C%AF%E5%8B%95%E5%AD%90%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9">デバイス/振動子のインデックス</a></li>
+<li><a href="#geometry%E3%81%AEapi">GeometryのAPI</a>
+<ul>
+<li><a href="#device%E3%81%AE%E5%8F%96%E5%BE%97">Deviceの取得</a></li>
+</ul>
+</li>
+<li><a href="#device%E3%81%AEapi">DeviceのAPI</a>
+<ul>
+<li><a href="#transducer%E3%81%AE%E5%8F%96%E5%BE%97">Transducerの取得</a></li>
+</ul>
+</li>
+<li><a href="#transducer%E3%81%AEapi">TransducerのAPI</a></li>
+</ul>
+<h2 id="デバイス振動子のインデックス"><a class="header" href="#デバイス振動子のインデックス">デバイス/振動子のインデックス</a></h2>
+<p>デバイスには接続された順に0から始まるインデックスが割り当てられる.</p>
+<p>また, 各デバイスは<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">249</span></span></span></span>個の振動子が配置されており, ローカルインデックスが割り振られている (<a href="../getting_started/hardware.html">はじめに/ハードウェア</a>の「AUTDの表面写真」を参照).</p>
+<h2 id="geometryのapi"><a class="header" href="#geometryのapi">GeometryのAPI</a></h2>
+<ul>
+<li><code>num_devices()</code>: 有効なデバイスの数を取得</li>
+<li><code>num_transducers()</code>: 有効な全振動子の数を取得</li>
+<li><code>center()</code>: 有効な全振動子の中心を取得</li>
+</ul>
+<p>なお, <code>Geometry</code>には<code>Controller</code>から直接アクセスできる.</p>
+<div class="mdbook-inpage-tabs"><input id="Rust-tab-0" type="radio" class="mdbook-inpage-tab" name="tab-0" checked>
+                                <label class="mdbook-inpage-tab-item" num-tabs=4 for="Rust-tab-0">Rust</label><input id="C++-tab-0" type="radio" class="mdbook-inpage-tab" name="tab-0">
+                                <label class="mdbook-inpage-tab-item" num-tabs=4 for="C++-tab-0">C++</label><input id="C#-tab-0" type="radio" class="mdbook-inpage-tab" name="tab-0">
+                                <label class="mdbook-inpage-tab-item" num-tabs=4 for="C#-tab-0">C#</label><input id="Python-tab-0" type="radio" class="mdbook-inpage-tab" name="tab-0">
+                                <label class="mdbook-inpage-tab-item" num-tabs=4 for="Python-tab-0">Python</label><div class="mdbook-inpage-tab-content" id=Rust-content>
+<pre><code class="language-rust"><span class="boring">use autd3::prelude::*;
+</span><span class="boring">#[allow(unused_variables)]
+</span><span class="boring">fn main() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
+</span><span class="boring">let autd = Controller::open([AUTD3::default()], autd3::link::Nop::new())?;
+</span>let num_dev = autd.num_devices();
+let num_tr = autd.num_transducers();
+let center = autd.center();
+<span class="boring">Ok(())
+</span><span class="boring">}</span></code></pre>
+</div><div class="mdbook-inpage-tab-content" id=C++-content>
+<pre><code class="language-cpp"><span class="boring">#include&lt;chrono&gt;
+</span><span class="boring">#include&lt;autd3.hpp&gt;
+</span><span class="boring">#include&lt;autd3/link/nop.hpp&gt;
+</span><span class="boring">int main() {
+</span><span class="boring">using namespace autd3;
+</span><span class="boring">auto autd =
+</span><span class="boring">Controller::open({AUTD3{}}, link::Nop{});
+</span>const auto num_dev = autd.num_devices();
+const auto num_tr = autd.num_transducers();
+const auto center = autd.center();
+<span class="boring">return 0; }
+</span></code></pre>
+</div><div class="mdbook-inpage-tab-content" id=C#-content>
+<pre><code class="language-cs"><span class="boring">using AUTD3Sharp;
+</span><span class="boring">using AUTD3Sharp.Link;
+</span><span class="boring">using AUTD3Sharp.Utils;
+</span><span class="boring">using var autd = Controller.Open([new AUTD3()], new Nop());
+</span>var numDevices = autd.NumDevices();
+var numTransducers = autd.NumTransducers();
+var center = autd.Center();
+</code></pre>
+</div><div class="mdbook-inpage-tab-content" id=Python-content>
+<pre><code class="language-python"><span class="boring">from pyautd3 import AUTD3, Controller
+</span><span class="boring">from pyautd3.link.nop import Nop
+</span><span class="boring">autd = Controller.open([AUTD3()], Nop())
+</span>num_devices = autd.num_devices()
+num_transducers = autd.num_transducers()
+center = autd.center()
+</code></pre>
+</div></div>
+<h3 id="deviceの取得"><a class="header" href="#deviceの取得">Deviceの取得</a></h3>
+<p><code>Geometry</code>は<code>Device</code>のコンテナになっており, <code>Device</code>が<code>Transducer</code>のコンテナになっている.</p>
+<p><code>Device</code>を取得するには, インデクサを使用する.
+あるいは, イテレータを使用することもできる.</p>
+<div class="mdbook-inpage-tabs"><input id="Rust-tab-1" type="radio" class="mdbook-inpage-tab" name="tab-1" checked>
+                                <label class="mdbook-inpage-tab-item" num-tabs=4 for="Rust-tab-1">Rust</label><input id="C++-tab-1" type="radio" class="mdbook-inpage-tab" name="tab-1">
+                                <label class="mdbook-inpage-tab-item" num-tabs=4 for="C++-tab-1">C++</label><input id="C#-tab-1" type="radio" class="mdbook-inpage-tab" name="tab-1">
+                                <label class="mdbook-inpage-tab-item" num-tabs=4 for="C#-tab-1">C#</label><input id="Python-tab-1" type="radio" class="mdbook-inpage-tab" name="tab-1">
+                                <label class="mdbook-inpage-tab-item" num-tabs=4 for="Python-tab-1">Python</label><div class="mdbook-inpage-tab-content" id=Rust-content>
+<pre><code class="language-rust"><span class="boring">use autd3::prelude::*;
+</span><span class="boring">#[allow(unused_variables)]
+</span><span class="boring">fn main() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
+</span><span class="boring">let autd = Controller::open([AUTD3::default()], autd3::link::Nop::new())?;
+</span>let dev = &amp;autd[0];
+for dev in &amp;autd {
+    // do something
+}
+<span class="boring">Ok(())
+</span><span class="boring">}</span></code></pre>
+</div><div class="mdbook-inpage-tab-content" id=C++-content>
+<pre><code class="language-cpp"><span class="boring">#include&lt;chrono&gt;
+</span><span class="boring">#include&lt;autd3.hpp&gt;
+</span><span class="boring">#include&lt;autd3/link/nop.hpp&gt;
+</span><span class="boring">int main() {
+</span><span class="boring">using namespace autd3;
+</span><span class="boring">auto autd =
+</span><span class="boring">Controller::open({AUTD3{}}, link::Nop{});
+</span><span class="boring">{
+</span>auto dev = autd[0];
+<span class="boring">}
+</span><span class="boring">{
+</span>for (auto&amp; dev : autd) {
+  // do something
+}
+<span class="boring">}
+</span><span class="boring">return 0; }
+</span></code></pre>
+</div><div class="mdbook-inpage-tab-content" id=C#-content>
+<pre><code class="language-cs"><span class="boring">using AUTD3Sharp;
+</span><span class="boring">using AUTD3Sharp.Link;
+</span><span class="boring">using AUTD3Sharp.Utils;
+</span><span class="boring">using var autd = Controller.Open([new AUTD3()], new Nop());
+</span><span class="boring">{
+</span>var dev = autd[0];
+<span class="boring">}
+</span>foreach (var dev in autd)
+{
+  // do something
+}
+</code></pre>
+</div><div class="mdbook-inpage-tab-content" id=Python-content>
+<pre><code class="language-python"><span class="boring">from pyautd3 import AUTD3, Controller
+</span><span class="boring">from pyautd3.link.nop import Nop
+</span><span class="boring">autd = Controller.open([AUTD3()], Nop())
+</span>dev = autd[0]
+for _dev in autd:
+    pass
+</code></pre>
+</div></div>
+<h2 id="deviceのapi"><a class="header" href="#deviceのapi">DeviceのAPI</a></h2>
+<ul>
+<li><code>idx()</code>: デバイスのインデックス</li>
+<li><code>enable</code>: 有効/無効フラグ. オフにすると, 以降, そのデバイスのデータは更新されなくなる.
+<ul>
+<li>更新されなくなるだけで, 出力が止まるわけではないことに注意.</li>
+</ul>
+</li>
+<li><code>sound_speed</code>: 音速の取得/設定. 単位はmm/s. <strong>位相計算などに使用されるため, 可能な限り現実に即した値を設定することをおすすめする</strong>. デフォルトの音速は<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">340</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathrm">mm/s</span></span></span></span></span>となっており, これは, およそ摂氏15度での空気の音速に相当する.</li>
+<li><code>set_sound_speed_from_temp(temp)</code>: 温度<code>temp</code> [℃]から音速を設定. なお, <code>Geometry</code>にも同名の関数があり, それを使用することですべての有効なデバイスに対して温度から音速を設定できる.</li>
+<li><code>wavelength()</code>: デバイスが放出する超音波の波長</li>
+<li><code>wavenumber()</code>: デバイスが放出する超音波の波数</li>
+<li><code>rotation()</code>: デバイスの回転</li>
+<li><code>x_direction()</code>: デバイスのx方向ベクトル</li>
+<li><code>y_direction()</code>: デバイスのy方向ベクトル</li>
+<li><code>axial_direction()</code>: デバイスの軸方向ベクトル (振動子が向く方向)</li>
+</ul>
+<div class="mdbook-inpage-tabs"><input id="Rust-tab-2" type="radio" class="mdbook-inpage-tab" name="tab-2" checked>
+                                <label class="mdbook-inpage-tab-item" num-tabs=4 for="Rust-tab-2">Rust</label><input id="C++-tab-2" type="radio" class="mdbook-inpage-tab" name="tab-2">
+                                <label class="mdbook-inpage-tab-item" num-tabs=4 for="C++-tab-2">C++</label><input id="C#-tab-2" type="radio" class="mdbook-inpage-tab" name="tab-2">
+                                <label class="mdbook-inpage-tab-item" num-tabs=4 for="C#-tab-2">C#</label><input id="Python-tab-2" type="radio" class="mdbook-inpage-tab" name="tab-2">
+                                <label class="mdbook-inpage-tab-item" num-tabs=4 for="Python-tab-2">Python</label><div class="mdbook-inpage-tab-content" id=Rust-content>
+<pre><code class="language-rust"><span class="boring">use autd3::prelude::*;
+</span><span class="boring">#[allow(unused_variables)]
+</span><span class="boring">fn main() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
+</span><span class="boring">let mut autd = Controller::open([AUTD3::default()], autd3::link::Nop::new())?;
+</span>let dev = &amp;mut autd[0];
+let idx = dev.idx();
+dev.enable = false;
+dev.sound_speed = 340e3;
+dev.set_sound_speed_from_temp(15.);
+let wavelength = dev.wavelength();
+let wavenumber = dev.wavenumber();
+let rotation = dev.rotation();
+let x_dir = dev.x_direction();
+let y_dir = dev.y_direction();
+let axial_dir = dev.axial_direction();
+<span class="boring">Ok(())
+</span><span class="boring">}</span></code></pre>
+</div><div class="mdbook-inpage-tab-content" id=C++-content>
+<pre><code class="language-cpp"><span class="boring">#include&lt;chrono&gt;
+</span><span class="boring">#include&lt;autd3.hpp&gt;
+</span><span class="boring">#include&lt;autd3/link/nop.hpp&gt;
+</span><span class="boring">int main() {
+</span><span class="boring">using namespace autd3;
+</span><span class="boring">auto autd =
+</span><span class="boring">Controller::open({AUTD3{}}, link::Nop{});
+</span>auto dev = autd[0];
+const auto idx = dev.idx();
+const auto enable = dev.enable();
+dev.set_enable(false);
+const auto sound_speed = dev.sound_speed();
+dev.set_sound_speed(340e3);
+dev.set_sound_speed_from_temp(15.);
+const auto wavelength = dev.wavelength();
+const auto wavenumber = dev.wavenumber();
+const auto rotation = dev.rotation();
+const auto x_dir = dev.x_direction();
+const auto y_dir = dev.y_direction();
+const auto axial_dir = dev.axial_direction();
+<span class="boring">return 0; }
+</span></code></pre>
+</div><div class="mdbook-inpage-tab-content" id=C#-content>
+<pre><code class="language-cs"><span class="boring">using AUTD3Sharp;
+</span><span class="boring">using AUTD3Sharp.Link;
+</span><span class="boring">using AUTD3Sharp.Utils;
+</span><span class="boring">using var autd = Controller.Open([new AUTD3()], new Nop());
+</span>var dev = autd[0];
+var idx = dev.Idx();
+dev.Enable = false;
+dev.SoundSpeed = 340e3f;
+dev.SetSoundSpeedFromTemp(15);
+var wavelength = dev.Wavelength();
+var wavenumber = dev.Wavenumber();
+var rotation = dev.Rotation();
+var xDir = dev.XDirection();
+var yDir = dev.YDirection();
+var axialDir = dev.AxialDirection();
+</code></pre>
+</div><div class="mdbook-inpage-tab-content" id=Python-content>
+<pre><code class="language-python"><span class="boring">from pyautd3 import AUTD3, Controller
+</span><span class="boring">from pyautd3.link.nop import Nop
+</span><span class="boring">autd = Controller.open([AUTD3()], Nop())
+</span>dev = autd[0]
+idx = dev.idx()
+dev.enable = False
+dev.sound_speed = 340e3
+dev.set_sound_speed_from_temp(15.0)
+wavelength = dev.wavelength()
+wavenumber = dev.wavenumber()
+rotation = dev.rotation()
+x_dir = dev.x_direction()
+y_dir = dev.y_direction()
+axial_dir = dev.axial_direction()
+</code></pre>
+</div></div>
+<h3 id="transducerの取得"><a class="header" href="#transducerの取得">Transducerの取得</a></h3>
+<p><code>Device</code>は<code>Transducer</code>のコンテナになっており, <code>Transducer</code>は各振動子の情報を格納している.</p>
+<p><code>Transducer</code>を取得するには, インデクサを使用する.
+また, イテレータを使用することもできる.</p>
+<div class="mdbook-inpage-tabs"><input id="Rust-tab-3" type="radio" class="mdbook-inpage-tab" name="tab-3" checked>
+                                <label class="mdbook-inpage-tab-item" num-tabs=4 for="Rust-tab-3">Rust</label><input id="C++-tab-3" type="radio" class="mdbook-inpage-tab" name="tab-3">
+                                <label class="mdbook-inpage-tab-item" num-tabs=4 for="C++-tab-3">C++</label><input id="C#-tab-3" type="radio" class="mdbook-inpage-tab" name="tab-3">
+                                <label class="mdbook-inpage-tab-item" num-tabs=4 for="C#-tab-3">C#</label><input id="Python-tab-3" type="radio" class="mdbook-inpage-tab" name="tab-3">
+                                <label class="mdbook-inpage-tab-item" num-tabs=4 for="Python-tab-3">Python</label><div class="mdbook-inpage-tab-content" id=Rust-content>
+<pre><code class="language-rust"><span class="boring">use autd3::prelude::*;
+</span><span class="boring">#[allow(unused_variables)] 
+</span><span class="boring">fn main() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
+</span><span class="boring">let autd = Controller::open([AUTD3::default()], autd3::link::Nop::new())?;
+</span>let tr = &amp;autd[0][0];
+for tr in &amp;autd[0] {
+    // do something
+}
+<span class="boring">Ok(())
+</span><span class="boring">}</span></code></pre>
+</div><div class="mdbook-inpage-tab-content" id=C++-content>
+<pre><code class="language-cpp"><span class="boring">#include&lt;chrono&gt;
+</span><span class="boring">#include&lt;autd3.hpp&gt;
+</span><span class="boring">#include&lt;autd3/link/nop.hpp&gt;
+</span><span class="boring">int main() {
+</span><span class="boring">using namespace autd3;
+</span><span class="boring">auto autd =
+</span><span class="boring">Controller::open({AUTD3{}}, link::Nop{});
+</span><span class="boring">{
+</span>auto tr = autd[0][0];
+<span class="boring">}
+</span><span class="boring">{
+</span>for (auto&amp; tr : autd[0]) {
+  // do something
+}
+<span class="boring">}
+</span><span class="boring">return 0; }
+</span></code></pre>
+</div><div class="mdbook-inpage-tab-content" id=C#-content>
+<pre><code class="language-cs"><span class="boring">using AUTD3Sharp;
+</span><span class="boring">using AUTD3Sharp.Link;
+</span><span class="boring">using AUTD3Sharp.Utils;
+</span><span class="boring">using var autd = Controller.Open([new AUTD3()], new Nop());
+</span><span class="boring">{
+</span>var tr = autd[0][0];
+<span class="boring">}
+</span>foreach (var tr in autd[0])
+{
+  // do something
+}
+</code></pre>
+</div><div class="mdbook-inpage-tab-content" id=Python-content>
+<pre><code class="language-python"><span class="boring">from pyautd3 import AUTD3, Controller
+</span><span class="boring">from pyautd3.link.nop import Nop
+</span><span class="boring">autd = Controller.open([AUTD3()], Nop())
+</span>tr = autd[0][0]
+for _tr in autd[0]:
+    pass
+</code></pre>
+</div></div>
+<h2 id="transducerのapi"><a class="header" href="#transducerのapi">TransducerのAPI</a></h2>
+<p>以下の情報を取得できる.</p>
+<ul>
+<li><code>idx()</code>: 振動子の(ローカル)インデックス</li>
+<li><code>dev_idx()</code>: 振動子が属するデバイスのインデックス</li>
+<li><code>position()</code>: 振動子の位置</li>
+</ul>
+<div class="mdbook-inpage-tabs"><input id="Rust-tab-4" type="radio" class="mdbook-inpage-tab" name="tab-4" checked>
+                                <label class="mdbook-inpage-tab-item" num-tabs=4 for="Rust-tab-4">Rust</label><input id="C++-tab-4" type="radio" class="mdbook-inpage-tab" name="tab-4">
+                                <label class="mdbook-inpage-tab-item" num-tabs=4 for="C++-tab-4">C++</label><input id="C#-tab-4" type="radio" class="mdbook-inpage-tab" name="tab-4">
+                                <label class="mdbook-inpage-tab-item" num-tabs=4 for="C#-tab-4">C#</label><input id="Python-tab-4" type="radio" class="mdbook-inpage-tab" name="tab-4">
+                                <label class="mdbook-inpage-tab-item" num-tabs=4 for="Python-tab-4">Python</label><div class="mdbook-inpage-tab-content" id=Rust-content>
+<pre><code class="language-rust"><span class="boring">use autd3::prelude::*;
+</span><span class="boring">#[allow(unused_variables)]
+</span><span class="boring">fn main() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
+</span><span class="boring">let autd = Controller::open([AUTD3::default()], autd3::link::Nop::new())?;
+</span>let tr = &amp;autd[0][0];
+let idx = tr.idx();
+let dev_idx = tr.dev_idx();
+let position = tr.position();
+<span class="boring">Ok(())
+</span><span class="boring">}</span></code></pre>
+</div><div class="mdbook-inpage-tab-content" id=C++-content>
+<pre><code class="language-cpp"><span class="boring">#include&lt;autd3.hpp&gt;
+</span><span class="boring">#include&lt;autd3/link/nop.hpp&gt;
+</span><span class="boring">int main() {
+</span><span class="boring">using namespace autd3;
+</span><span class="boring">auto autd =
+</span><span class="boring">Controller::open({AUTD3{}}, link::Nop{});
+</span>const auto tr = autd[0][0];
+const auto idx = tr.idx();
+const auto dev_idx = tr.dev_idx();
+const auto position = tr.position();
+<span class="boring">return 0; }
+</span></code></pre>
+</div><div class="mdbook-inpage-tab-content" id=C#-content>
+<pre><code class="language-cs"><span class="boring">using AUTD3Sharp;
+</span><span class="boring">using AUTD3Sharp.Link;
+</span><span class="boring">using AUTD3Sharp.Utils;
+</span><span class="boring">using var autd = Controller.Open([new AUTD3()], new Nop());
+</span>var tr = autd[0][0];
+var trIdx = tr.Idx();
+var devIdx = tr.DevIdx();
+var position = tr.Position();
+</code></pre>
+</div><div class="mdbook-inpage-tab-content" id=Python-content>
+<pre><code class="language-python"><span class="boring">from pyautd3 import AUTD3, Controller
+</span><span class="boring">from pyautd3.link.nop import Nop
+</span><span class="boring">autd = Controller.open([AUTD3()], Nop())
+</span>tr = autd[0][0]
+idx = tr.idx()
+dev_idx = tr.dev_idx()
+position = tr.position()
+</code></pre>
+</div></div>
+<footer id="open-on-gh">Found a bug? <a href="https://github.com/shinolab/autd3-doc/edit/main/src/jp/Users_Manual/API/geometry.md">Edit this page on GitHub.</a></footer>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../Users_Manual/concept.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../Users_Manual/API/link.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../Users_Manual/concept.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../Users_Manual/API/link.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../js/codeblock_filename.js"></script>
+        <script src="../../js/lightbox-plus-jquery.min.js"></script>
+
+
+    </div>
+    </body>
+</html>
