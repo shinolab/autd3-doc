@@ -13,8 +13,6 @@ It may work with network controllers other than those listed above, but in that 
 
 ## Prerequisites
 
-### Installing TwinCAT
-
 As a prerequisite, TwinCAT cannot coexist with Hyper-V or Virtual Machine Platform.
 Therefore, these features need to be disabled.
 For example, you can disable them by opening PowerShell with administrator privileges and typing:
@@ -26,14 +24,16 @@ Disable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform
 
 Also, for Windows 11, you need to turn off the virtualization-based security feature.
 Go to "Windows Security" → "Device Security" → "Core Isolation" → "Memory Integrity" and turn it off.
+From Windows 11 24H2, you may also need to set the registry value `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\DeviceGuard\EnableVirtualizationBasedSecurity` to 0.
 
-First, download TwinCAT XAE from the [official website](https://www.beckhoff.com/en-en/).
-Registration (free) is required to download.
+### Installing TwinCAT
 
-Run the downloaded installer and follow the instructions.
-**At this time, check "TwinCAT XAE Shell install" and uncheck "Visual Studio Integration".**
+Refer to the [official site](https://infosys.beckhoff.com/content/1033/tc3_installation/15698617995.html?id=7523796010185393366) and install TwinCAT 3.1 Build 4026.
+(You will need to register for a myBeckhoff account (free) to install it.)
+Make sure to install the 64-bit version of TwinCAT Xae Shell.
+Visual Studio Integration is not required.
 
-After installation, restart your computer and run `C:/TwinCAT/3.1/System/win8settick.bat` with administrator privileges, then restart again.
+After installing the Package Manager, you can install "TwinCAT Standard" using the Package Manager.
 
 ### Installing AUTD3 Server
 
