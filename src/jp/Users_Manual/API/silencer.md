@@ -186,7 +186,9 @@ Fixed completion time modeを設定するには, 以下のようにする.
 デフォルト値は, 位相変化が$\SI{1}{ms}$, 振幅変化が$\SI{0.25}{ms}$である.
 なお, Silencerの無効化は, 位相/振幅変化が超音波周期 ($\SI{25}{us}$) で終わることと等価である.
 
-なお, このモードでは, `Modulation`や`FociSTM`, `GainSTM`の位相/振幅がSilencerに指定した時間で完了できない場合にエラーが返される.
+#### Fixed completion time modeの注意点
+
+このモードでは, `Modulation`や`FociSTM`, `GainSTM`の位相/振幅がSilencerに指定した時間で完了できない場合にエラーが返される.
 すなわち, 以下の条件が満たされる必要がある.
 - Silencerの振幅変化完了時間 $\le$ `Modulation`のサンプリング周期
 - Silencerの振幅変化完了時間 $\le$ `FociSTM`/`GainSTM`のサンプリング周期
