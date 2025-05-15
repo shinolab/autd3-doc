@@ -1,0 +1,329 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>GainSTM - AUTD3 Developers Manual v32.1.1</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../../highlight.css">
+        <link rel="stylesheet" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../../css/codeblock_filename.css">
+        <link rel="stylesheet" href="../../../css/lightbox.css">
+        <link rel="stylesheet" href="../../../css/open-in.css">
+        <link rel="stylesheet" href="../../../css/no-link-summary.css">
+        <link rel="stylesheet" href="../../../css/tab.css">
+        <link rel="stylesheet" href="../../../css/faq.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">AUTD3 Developers Manual v32.1.1</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/shinolab/autd3-doc" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="gainstm"><a class="header" href="#gainstm">GainSTM</a></h1>
+<p><code>GainSTM</code> is different from <code>FociSTM</code> in that it can handle arbitrary <code>Gain</code>.
+However, the number of <code>Gain</code> that can be used is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1024</span></span></span></span> (in extended mode <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2048</span></span></span></span>).</p>
+<p>The usage of <code>GainSTM</code> is as follows.
+This is a sample that rotates a focus on the circumference of a circle with a radius of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord"><span class="mord">30</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathrm">mm</span></span></span></span></span></span> centered at a point <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord"><span class="mord">150</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathrm">mm</span></span></span></span></span></span> directly above the center of the array.
+The circumference is sampled at 200 points, rotating at <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord"><span class="mord">1</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathrm">Hz</span></span></span></span></span></span>. (That is, the sampling frequency is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord"><span class="mord">200</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathrm">Hz</span></span></span></span></span></span>.)</p>
+<div class="mdbook-inpage-tabs"><input id="Rust-tab-0" type="radio" class="mdbook-inpage-tab" name="tab-0" checked>
+                                <label class="mdbook-inpage-tab-item" num-tabs=4 for="Rust-tab-0">Rust</label><input id="C++-tab-0" type="radio" class="mdbook-inpage-tab" name="tab-0">
+                                <label class="mdbook-inpage-tab-item" num-tabs=4 for="C++-tab-0">C++</label><input id="C#-tab-0" type="radio" class="mdbook-inpage-tab" name="tab-0">
+                                <label class="mdbook-inpage-tab-item" num-tabs=4 for="C#-tab-0">C#</label><input id="Python-tab-0" type="radio" class="mdbook-inpage-tab" name="tab-0">
+                                <label class="mdbook-inpage-tab-item" num-tabs=4 for="Python-tab-0">Python</label><div class="mdbook-inpage-tab-content" id=Rust-content>
+<pre><code class="language-rust edition2024"><span class="boring">use autd3::prelude::*;
+</span><span class="boring">fn main() {
+</span>let center = Point3::new(0., 0., 150.0 * mm);
+let point_num = 200;
+let radius = 30.0 * mm;
+<span class="boring">let _ = 
+</span>GainSTM {
+    gains: (0..point_num)
+        .map(|i| {
+            let theta = 2.0 * PI * i as f32 / point_num as f32;
+            let p = radius * Vector3::new(theta.cos(), theta.sin(), 0.0);
+            Focus {
+                pos: center + p,
+                option: FocusOption::default(),
+            }
+        })
+        .collect::&lt;Vec&lt;_&gt;&gt;(),
+    config: 1.0 * Hz,
+    option: GainSTMOption {
+        mode: GainSTMMode::PhaseIntensityFull,
+    },
+};
+<span class="boring">}</span></code></pre>
+</div><div class="mdbook-inpage-tab-content" id=C++-content>
+<pre><code class="language-cpp"><span class="boring">#include &lt;ranges&gt;
+</span><span class="boring">#include&lt;autd3.hpp&gt;
+</span><span class="boring">#include&lt;autd3/link/nop.hpp&gt;
+</span><span class="boring">using namespace std::ranges::views;
+</span><span class="boring">int main() {
+</span><span class="boring">using namespace autd3;
+</span>const Point3 center(0, 0, 150);
+const auto points_num = 200;
+const auto radius = 30.0f;
+std::vector&lt;Focus&gt; gains;
+std::ranges::copy(iota(0) | take(points_num) | transform([&amp;](auto i) {
+                    const auto theta = 2.0f * pi * static_cast&lt;float&gt;(i) /
+                                       static_cast&lt;float&gt;(points_num);
+                    return Focus(center + radius * Vector3(std::cos(theta),
+                                                           std::sin(theta), 0),
+                                 FocusOption{});
+                  }),
+                  std::back_inserter(gains));
+GainSTM(gains, 1.0f * Hz,
+        GainSTMOption{.mode = GainSTMMode::PhaseIntensityFull});
+<span class="boring">return 0; }
+</span></code></pre>
+</div><div class="mdbook-inpage-tab-content" id=C#-content>
+<pre><code class="language-cs"><span class="boring">using AUTD3Sharp;
+</span><span class="boring">using AUTD3Sharp.Utils;
+</span><span class="boring">using AUTD3Sharp.Gain;
+</span><span class="boring">using AUTD3Sharp.Link;
+</span><span class="boring">using static AUTD3Sharp.Units;
+</span>var center = new Point3(0, 0, 150);
+const int pointNum = 200;
+const float radius = 30.0f;
+new GainSTM(
+    gains: Enumerable.Range(0, pointNum).Select(i =&gt;
+    {
+        var theta = 2.0f * MathF.PI * i / pointNum;
+        return new Focus(
+            pos: center + radius * new Vector3(MathF.Cos(theta), MathF.Sin(theta), 0),
+            option: new FocusOption()
+        );
+    }),
+    config: 1.0f * Hz,
+    option: new GainSTMOption
+    {
+        Mode = GainSTMMode.PhaseIntensityFull
+    }
+);
+</code></pre>
+</div><div class="mdbook-inpage-tab-content" id=Python-content>
+<pre><code class="language-python"><span class="boring">import numpy as np
+</span><span class="boring">from pyautd3 import Focus, FocusOption, GainSTM, GainSTMMode, GainSTMOption, Hz
+</span>center = np.array([0.0, 0.0, 150.0])
+point_num = 200
+radius = 30.0
+GainSTM(
+    gains=(
+        Focus(
+            pos=center + radius * np.array([np.cos(theta), np.sin(theta), 0]),
+            option=FocusOption(),
+        )
+        for theta in (2.0 * np.pi * i / point_num for i in range(point_num))
+    ),
+    config=1.0 * Hz,
+    option=GainSTMOption(
+        mode=GainSTMMode.PhaseIntensityFull,
+    ),
+)
+</code></pre>
+</div></div>
+<h2 id="gainstmmode"><a class="header" href="#gainstmmode">GainSTMMode</a></h2>
+<p><code>GainSTM</code> sends all phase/intensity data, resulting in high latency<sup class="footnote-reference"><a href="#fn_gain_seq">1</a></sup>.
+To address this issue, <code>GainSTM</code> has a <code>PhaseFull</code> mode that sends only the phase, reducing the transmission time by half, and a <code>PhaseHalf</code> mode that compresses the phase to 4 bits, reducing the transmission time to a quarter.
+In these two modes, the maximum intensity is used regardless of the intensity setting of <code>Gain</code>.</p>
+<p>The default mode is <code>PhaseIntensityFull</code>, which sends both intensity and phase data.</p>
+<div class="footnote-definition" id="fn_gain_seq"><sup class="footnote-definition-label">1</sup>
+<p>Approximately 75 times the latency of <code>FociSTM&lt;1&gt;</code></p>
+</div>
+<footer id="open-on-gh">Found a bug? <a href="https://github.com/shinolab/autd3-doc/edit/main/src/en/Users_Manual/API/stm/gain.md">Edit this page on GitHub.</a></footer>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../Users_Manual/API/stm/focus.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../Users_Manual/API/modulation.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../Users_Manual/API/stm/focus.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../Users_Manual/API/modulation.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../js/codeblock_filename.js"></script>
+        <script src="../../../js/lightbox-plus-jquery.min.js"></script>
+
+
+    </div>
+    </body>
+</html>
