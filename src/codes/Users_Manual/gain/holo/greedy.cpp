@@ -17,7 +17,7 @@ auto g = gain::holo::Greedy(
         {Point3(x2, y2, z2), 5e3 * Pa},
     },
     gain::holo::GreedyOption{
-        .phase_div = 16,
+        .phase_quantization_levels = 16,
         .constraint = gain::holo::EmissionConstraint::Uniform(
             std::numeric_limits<EmitIntensity>::max())});
 //~  return 0;

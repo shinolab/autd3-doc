@@ -1,4 +1,4 @@
-use autd3::gain::IntoBoxedGain;
+use autd3::gain::{self, IntoBoxedGain};
 use autd3::prelude::*;
 # use std::collections::HashMap;
 
@@ -7,7 +7,7 @@ use autd3::prelude::*;
 # let y = 0.;
 # let z = 0.;
 # let _ =
-Group {
+gain::Group {
     key_map: |_dev| {
         |tr| match tr.idx() {
             0..=100 => Some("null"),

@@ -68,10 +68,6 @@
 <details><summary><code class="hljs">SOEM</code>リンク使用時に送信が頻繁に失敗する</summary>
 
 - この問題は
-   * `sync_mode`を`DC`にしている
-
-   かつ,
-
    * オンボードのethernetインターフェースを使用している
 
   かつ, 以下のいずれかの状況で発生することが確認されている
@@ -87,7 +83,6 @@
 
 - この問題の回避策としては, 以下のいずれかを試されたい
   1. `TwinCAT`, `RemoteTwinCAT`, または, `RemoteSOEM`リンクを使用する
-  1. `sync_mode`を`FreeRun`にする
   1. Linuxやmacを使用する.
      - ただし, 仮想マシンはNG
   1. USB to Ethernetアダプターを使用する
@@ -131,12 +126,14 @@
 
 <details><summary>振動子の位相/振幅データにアクセスするには?</summary>
 
+1. [`Controller::inspect`](../API/controller.md#inspect-rustのみ)を使用する.
 1. 自分で所望の`Gain`を作成する. [Gainの自作](../advanced/custom_gain.md)を参照.
 
 </details>
 
 <details><summary>AM変調データにアクセスするには?</summary>
 
+1. [`Controller::inspect`](../API/controller.md#inspect-rustのみ)を使用する.
 1. 自分で所望の`Modulation`を作成する. [Modulationの自作](../advanced/custom_modulation.md)を参照.
 
 </details>

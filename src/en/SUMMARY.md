@@ -56,6 +56,7 @@
     - [PulseWidthEncoder](./Users_Manual/API/pulse_width_encoder.md)
     - [GPIOOutputs](./Users_Manual/API/gpio_out.md)
     - [ForceFan](./Users_Manual/API/fan.md)
+    - [Group](./Users_Manual/API/group.md)
   - [Simulator](./Users_Manual/Simulator/simulator.md)
   - [Emulator](./Users_Manual/Emulator/emulator.md)
   - [Advanced Topics](./Users_Manual/advanced.md)

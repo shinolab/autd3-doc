@@ -11,7 +11,7 @@ from pyautd3.gain.holo import Greedy, EmissionConstraint, GreedyOption, Pa
 Greedy(
     foci=[(np.array([x1, y1, z1]), 5e3 * Pa), (np.array([x2, y2, z2]), 5e3 * Pa)],
     option=GreedyOption(
-        phase_div=16,
+        phase_quantization_levels=16,
         constraint=EmissionConstraint.Uniform(EmitIntensity.MAX),
     ),
 )

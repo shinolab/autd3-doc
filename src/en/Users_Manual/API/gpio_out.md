@@ -31,7 +31,6 @@
 {{ #endtabs }}
 
 The following data can be output.
-- `None`: No output
 - `BaseSignal`: Reference signal (50% duty cycle square wave with the same frequency as ultrasound)
 - `Thermo`: Whether the temperature sensor is asserted
 - `ForceFan`: Whether the ForceFan flag is asserted

@@ -16,7 +16,7 @@ new Greedy(
     ],
     option: new GreedyOption
     {
-        PhaseDiv = 16,
+        PhaseQuantizationLevels = 16,
         EmissionConstraint = EmissionConstraint.Uniform(EmitIntensity.Max),
     }
 );

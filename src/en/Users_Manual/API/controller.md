@@ -51,42 +51,6 @@ Send data to the device.
 
 Data can be sent either individually or two at a time.
 
-## group_send
-
-Using the `group_send` function, you can group devices.
-
-{{ #tabs }}
-{{ #tab name=Rust }}
-```rust,edition2024
-{{#include ../../../codes/Users_Manual/controller_2.rs}}
-```
-{{ #endtab }}
-
-> NOTE: In the Rust version, since the values of `HashMap` must all be of the same type, `into_boxed` is used here to unify the types.
-
-{{ #tab name=C++ }}
-```cpp
-{{#include ../../../codes/Users_Manual/controller_2.cpp}}
-```
-{{ #endtab }}
-{{ #tab name=C# }}
-```cs
-{{#include ../../../codes/Users_Manual/controller_2.cs}}
-```
-{{ #endtab }}
-{{ #tab name=Python }}
-```python
-{{#include ../../../codes/Users_Manual/controller_2.py}}
-```
-{{ #endtab }}
-{{ #endtabs }}
-
-Unlike `gain::Group`, you can use any data that can be sent with the usual `send`.
-However, you can only group by device.
-
-> NOTE:
-> In this sample, strings are used as keys, but you can use anything that can be used as a key for `HashMap`.
-
 ## sender
 
 You can specify settings for sending via `sender`.
@@ -119,14 +83,15 @@ Here,
 - `receive_interval`: Receive interval
 - `timeout`: Timeout duration. See [About Timeout](#about-timeout) for details
 - `parallel`: Parallel computation mode. See [About Parallel Computation](#about-parallel-computation) for details
-- `sleeper`: Structure to adjust send/receive intervals
-    - `SpinSleeper`: Uses [`spin_sleep`](https://crates.io/crates/spin_sleep)
-    - `StdSleeper`: Uses `std::thread::sleep`
-    - `WaitableSleeper`: (Windows only) Uses [`Waitable Timer`](https://learn.microsoft.com/en-us/windows/win32/sync/waitable-timer-objects)
 
-and he default values are as above.
+and the default values are as above.
 
-Note that `Controller::send` and `Controller::group_send` are equivalent to `Sender::send` and `Sender::group_send` with the default `SenderOption`.
+The second argument is a sleeper, which is structure to adjust send/receive intervals.
+- `SpinSleeper`: Uses [`spin_sleep`](https://crates.io/crates/spin_sleep)
+- `StdSleeper`: Uses `std::thread::sleep`
+- `WaitableSleeper`: (Windows only) Uses [`Waitable Timer`](https://learn.microsoft.com/en-us/windows/win32/sync/waitable-timer-objects)
+
+Note that `Controller::send` and `Controller::group_send` are equivalent to `Sender::send` and `Sender::group_send` with the `Controller::default_sender_option` (which is configurable) and default `SpinSleeper`.
 
 ### About Timeout
 
@@ -157,3 +122,19 @@ In the case of `ParallelMode::Auto`, parallel computation is enabled if the numb
 | ----- | -------------- | 
 | `Clear`/`GPIOOutputs`/<br>`ForceFan`/`PhaseCorrection`/<br>`ReadsFPGAState`/`SwapSegment`/<br>`Silencer`/`Synchronize`/<br>`FociSTM` (less than 4000 foci)/<br>`Modulation` | 18446744073709551615 | 
 | `PulseWidthEncoder`/<br>`FociSTM` (4000 foci or more)/<br>/`GainSTM`/`Gain` | 4 |
+
+
+## `inspect` (available only in Rust)
+
+The calculations for `Gain`, `Modulation`, `GainSTM`, and `FociSTM` are lazy for parallelization and to minimize memory allocation, and the calculation results are constructed directly within the frame.
+Therefore, it is not possible to directly check these calculation results before sending.
+
+By using `Controller::inspect`, you can check these calculation results without sending.
+
+{{ #tabs }}
+{{ #tab name=Rust }}
+```rust,edition2024
+{{#include ../../../codes/Users_Manual/controller_inspect.rs}}
+```
+{{ #endtab }}
+{{ #endtabs }}

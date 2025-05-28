@@ -19,14 +19,12 @@ cargo add autd3-protobuf --features "lightweight"
 
 サーバ側は, AUTD3 ServerのオプションでLightweightモードを有効にすればいい.
 
-
 以下が, Lightweightモードを使用するクライアント側のRustのサンプルコードである.
 
 基本的に通常のAPIと同じであるが, 以下の点に注意.
 
 - `GainSTM`使用時に`autd3_protobuf::lightweight::IntoLightweightGain::into_lightweight()`を使用する必要がある
-- `group_send`使用時に`autd3_protobuf::lightweight::Datagram::into_lightweight()`を使用する必要がある
-- 一部データはサポートされていない
+- 一部機能は使用できない
 
 ```rust,edition2024
 {{#include ../../../codes/Users_Manual/advanced/lightweight.rs}}

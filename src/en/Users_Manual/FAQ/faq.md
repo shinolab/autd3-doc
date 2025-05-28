@@ -37,10 +37,6 @@
 ## Frequent transmission failures when using `link::SOEM`
 
 - This issue occurs when:
-   * `sync_mode` is set to `DC`
-
-   and,
-
    * The onboard ethernet interface is used
 
   and, it has been confirmed to occur in the following situations:
@@ -55,7 +51,6 @@
       * Other operations (like modeling) are fine.
 
 - To avoid this issue, try one of the following:
-  1. Set `sync_mode` to `FreeRun`.
   1. Use Linux or macOS.
      - However, virtual machines are not acceptable.
   1. Use `TwinCAT`, `RemoteTwinCAT`, or `RemoteSOEM` links.
@@ -77,10 +72,12 @@
 
 ## How to access transducer phase/amplitude data?
 
+1. Use [`Controller::inspect`](../API/controller.md#inspect-available-only-in-rust).
 1. Create your desired `Gain`. Refer to [Creating Custom Gain](../advanced/custom_gain.md).
 
 ## How to access AM modulation data?
 
+1. Use [`Controller::inspect`](../API/controller.md#inspect-available-only-in-rust).
 1. Create your desired `Modulation`. Refer to [Creating Custom Modulation](../advanced/custom_modulation.md).
 
 ## Others

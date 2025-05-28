@@ -1,9 +1,9 @@
 # Group
-[Source](https://github.com/shinolab/autd3-rs/blob/v32.1.1/autd3/src/datagram/gain/group.rs)
+[Source](https://github.com/shinolab/autd3-rs/blob/v33.0.0/autd3/src/datagram/gain/group.rs)
 
 `Group`は振動子ごとに別々の`Gain`を使用するための`Gain`である.
 
-> NOTE: デバイスごとの分割で良いのであれば, [Controller::group_send](../controller.md#group_send)の使用を推奨する.
+> NOTE: デバイスごとの分割で良いのであれば, [`Group`](../group.md)の使用を推奨する.
 
 `Group`では, 振動子に対してキーを割り当て, その各キーに`Gain`を紐付けて使用する.
 

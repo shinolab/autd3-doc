@@ -28,11 +28,12 @@ def substitute_in_file(
 
 
 if __name__ == "__main__":
-    autd3_version = "32.1.1"
-    autd3_emulator_version = "32.1.1"
-    autd3_link_soem_version = "32.1.1"
+    autd3_version = "33.0.0"
+    autd3_emulator_version = "33.0.0"
+    autd3_link_soem_version = "33.0.0"
     itertools_version = get_latest_version("itertools")
     tokio = get_latest_version("tokio")
+    nalgebra = get_latest_version("nalgebra")
     print(f"Testing with autd3-rs {autd3_version}")
 
     base_path = pathlib.Path(os.getcwd()) / "src" / "codes"
@@ -78,6 +79,7 @@ autd3-modulation-audio-file = {{ version = "{autd3_version}" }}
 autd3-protobuf = {{ version = "{autd3_version}", features = ["lightweight"] }}
 autd3-emulator = {{ version = "{autd3_emulator_version}", features = ["gpu"] }}
 itertools = {{ version = "{itertools_version}" }}
+nalgebra = {{ version = "{nalgebra}" }}
 tokio = {{ version = "{tokio}", features = ["rt-multi-thread", "macros"] }}
 """,
             )

@@ -1,14 +1,10 @@
-//~#include<chrono>
 //~#include<autd3.hpp>
-//~#include<autd3/link/nop.hpp>
 //~int main() {
 //~using namespace autd3;
-//~auto autd =
-//~Controller::open({AUTD3{}}, link::Nop{});
 //~const auto x = 0.0;
 //~const auto y = 0.0;
 //~const auto z = 0.0;
-autd.group_send(
+autd3::Group(
     [](const Device& dev) -> std::optional<const char*> {
       if (dev.idx() == 0) {
         return "null";

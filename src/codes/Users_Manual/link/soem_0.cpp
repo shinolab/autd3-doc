@@ -13,7 +13,6 @@ link::SOEM(
     link::SOEMOption{
         .buf_size = 32,
         .timer_strategy = link::TimerStrategy::SpinSleep,
-        .sync_mode = link::SyncMode::DC,
         .ifname = "",
         .state_check_interval = std::chrono::milliseconds(100),
         .sync0_cycle = std::chrono::milliseconds(1),

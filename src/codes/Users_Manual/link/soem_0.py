@@ -5,7 +5,6 @@ from pyautd3_link_soem import (
     ProcessPriority,
     SOEMOption,
     Status,
-    SyncMode,
     ThreadPriority,
     TimerStrategy,
 )
@@ -22,7 +21,6 @@ SOEM(
     option=SOEMOption(
         buf_size=32,
         timer_strategy=TimerStrategy.SpinSleep,
-        sync_mode=SyncMode.DC,
         ifname="",
         state_check_interval=Duration.from_millis(100),
         sync0_cycle=Duration.from_millis(1),
