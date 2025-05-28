@@ -51,42 +51,6 @@ FPGAの状態としては, 現在以下の情報が取得できる.
 
 データは単体か2つのみ同時に送信することができる.
 
-## group_send
-
-`group_send`関数を使用すると, デバイスをグルーピングすることができる.
-
-{{ #tabs }}
-{{ #tab name=Rust }}
-```rust,edition2024
-{{#include ../../../codes/Users_Manual/controller_2.rs}}
-```
-{{ #endtab }}
-
-> NOTE: Rust版は`HashMap`の値がすべて同じ型である必要があるため, ここでは`into_boxed`を使用して, 型を統一している.
-
-{{ #tab name=C++ }}
-```cpp
-{{#include ../../../codes/Users_Manual/controller_2.cpp}}
-```
-{{ #endtab }}
-{{ #tab name=C# }}
-```cs
-{{#include ../../../codes/Users_Manual/controller_2.cs}}
-```
-{{ #endtab }}
-{{ #tab name=Python }}
-```python
-{{#include ../../../codes/Users_Manual/controller_2.py}}
-```
-{{ #endtab }}
-{{ #endtabs }}
-
-`gain::Group`とは異なり, 通常の`send`で送信できるデータなら何でも使用できる.
-ただし, デバイス単位でしかグルーピングできない.
-
-> NOTE:
-> このサンプルでは, キーとして文字列を使用しているが, `HashMap`のキーとして使用できるものなら何でも良い.
-
 ## sender
 
 送信時の設定を`sender`経由で指定できる.
@@ -119,14 +83,14 @@ FPGAの状態としては, 現在以下の情報が取得できる.
 - `receive_interval`: 受信間隔
 - `timeout`: タイムアウト時間. 詳細は[タイムアウトについて](#タイムアウトについて)を参照
 - `parallel`: 並列計算モード. 詳細は[並列計算について](#並列計算について)を参照
-- `sleeper`: 送受信間隔を調整する構造体
-    - `SpinSleeper`: [`spin_sleep`](https://crates.io/crates/spin_sleep)を使用
-    - `StdSleeper`: `std::thread::sleep`を使用
-    - `WaitableSleeper`: (Windowsのみ) [`Waitable Timer`](https://learn.microsoft.com/en-us/windows/win32/sync/waitable-timer-objects)を使用
-
 であり, デフォルト値は上記の通り.
 
-なお, `Controller::send`, `Controller::group_send`はデフォルトの`SenderOption`を使用した場合と等価である.
+第2引数は送受信間隔を調整する構造体であり, 以下から選択する.
+- `SpinSleeper`: [`spin_sleep`](https://crates.io/crates/spin_sleep)を使用
+- `StdSleeper`: `std::thread::sleep`を使用
+- `WaitableSleeper`: (Windowsのみ) [`Waitable Timer`](https://learn.microsoft.com/en-us/windows/win32/sync/waitable-timer-objects)を使用
+
+なお, `Controller::send`, `Controller::group_send`は`Controller::default_sender_option` (変更可能) とデフォルトの`SpinSleeper`を使用した場合と等価である.
 
 ### タイムアウトについて
 
@@ -157,3 +121,18 @@ FPGAの状態としては, 現在以下の情報が取得できる.
 | ----- | -------------- | 
 | `Clear`/`GPIOOutputs`/<br>`ForceFan`/`PhaseCorrection`/<br>`ReadsFPGAState`/`SwapSegment`/<br>`Silencer`/`Synchronize`/<br>`FociSTM` (焦点数が4000未満)/<br>`Modulation` | 18446744073709551615 | 
 | `PulseWidthEncoder`/<br>`FociSTM` (焦点数が4000以上)/<br>/`GainSTM`/`Gain` | 4 | 
+
+## `inspect` (Rustのみ)
+
+`Gain`や`Modulation`, `GainSTM`, `FociSTM`の計算は並列化やメモリアロケーションを最小にするために遅延されており, 計算結果は送信フレーム内に直接構成される.
+そのため, これらの計算結果を送信前に直接確認することはできない.
+
+`Controller::inspect`を使用することで, 送信することなく, これらの計算結果を確認することができる.
+
+{{ #tabs }}
+{{ #tab name=Rust }}
+```rust,edition2024
+{{#include ../../../codes/Users_Manual/controller_inspect.rs}}
+```
+{{ #endtab }}
+{{ #endtabs }}

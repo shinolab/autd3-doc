@@ -56,6 +56,7 @@
     - [PulseWidthEncoder/振幅とパルス幅](./Users_Manual/API/pulse_width_encoder.md)
     - [GPIOOutputs/GPIO出力設定](./Users_Manual/API/gpio_out.md)
     - [ForceFan/ファン制御](./Users_Manual/API/fan.md)
+    - [Group](./Users_Manual/API/group.md)
   - [シミュレータ](./Users_Manual/Simulator/simulator.md)
   - [エミュレータ](./Users_Manual/Emulator/emulator.md)
   - [高度なトピック](./Users_Manual/advanced.md)

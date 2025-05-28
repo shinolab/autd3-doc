@@ -16,7 +16,7 @@ SOEM::new(
     SOEMOption {
         buf_size: NonZeroUsize::new(32).unwrap(),
         timer_strategy: TimerStrategy::SpinSleep,
-        sync_mode: SyncMode::DC,
+        sync_mode: SyncMode::DC, // DO NOT CHANGE
         ifname: String::new(),
         state_check_interval: Duration::from_millis(100),
         sync0_cycle: Duration::from_millis(1),

@@ -22,17 +22,17 @@ cargo add autd3-link-soem
 if(WIN32)
   FetchContent_Declare(
     autd3-link-soem
-    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v32.1.1/autd3-link-soem-v32.1.1-win-x64.zip
+    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v33.0.0/autd3-link-soem-v33.0.0-win-x64.zip
   )
 elseif(APPLE)
   FetchContent_Declare(
     autd3-link-soem
-    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v32.1.1/autd3-link-soem-v32.1.1-macos-aarch64.tar.gz
+    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v33.0.0/autd3-link-soem-v33.0.0-macos-aarch64.tar.gz
   )
 else()
   FetchContent_Declare(
     autd3-link-soem
-    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v32.1.1/autd3-link-soem-v32.1.1-linux-x64.tar.gz
+    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v33.0.0/autd3-link-soem-v33.0.0-linux-x64.tar.gz
   )
 endif()
 FetchContent_MakeAvailable(autd3-link-soem)
@@ -89,7 +89,6 @@ The default values are as above.
     - `StdSleep`  : Uses the standard library sleep
     - `SpinSleep` : Uses the [spin_sleep](https://docs.rs/spin_sleep/latest/spin_sleep/) crate. Combines OS native sleep (WaitableTimer on Windows) and spin loop.
     - `SpinWait`  : Uses a spin loop. High resolution but high CPU load.
-- `sync_mode`: Synchronization mode
 - `ifname`: Network interface name. If empty, the network interface to which the AUTD3 device is connected is automatically selected.
 - `state_check_interval`: Interval to check for errors
 - `sync0_cycle`: Synchronization signal cycle

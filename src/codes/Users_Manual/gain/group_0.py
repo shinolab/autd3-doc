@@ -1,4 +1,5 @@
-~from pyautd3 import Focus, FocusOption, Group, Null
+~from pyautd3 import Focus, FocusOption, Null
+from pyautd3.gain import Group
 ~x = 1.0
 ~y = 0.0
 ~z = 0.0

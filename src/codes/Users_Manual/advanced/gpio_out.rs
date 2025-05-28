@@ -3,9 +3,9 @@
 # let _ =
 GPIOOutputs::new(|_dev, gpio| {
     if gpio == GPIOOut::O0 {
-        GPIOOutputType::BaseSignal
+        Some(GPIOOutputType::BaseSignal)
     } else {
-        GPIOOutputType::None
+        None
     }
 });
 # }

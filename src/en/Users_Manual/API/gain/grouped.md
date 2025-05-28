@@ -2,7 +2,7 @@
 
 `Group` is a `Gain` that set different `Gains` for each transducer.
 
-> NOTE: If you only need to group by device, it is recommended to use [Controller::group_send](../controller.md#group_send).
+> NOTE: If you only need to group by device, it is recommended to use [`Group`](../group.md).
 
 In `Group`, keys are assigned to transducers, and each key is associated with a `Gain`.
 

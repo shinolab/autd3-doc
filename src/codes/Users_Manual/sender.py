@@ -7,8 +7,8 @@ sender = autd.sender(
         receive_interval=Duration.from_millis(1),
         timeout=None,
         parallel=ParallelMode.Auto,
-        sleeper=SpinSleeper(),
-    )
+    ),
+    SpinSleeper(),
 )
 ~d = Null()
 sender.send(d)

@@ -2,15 +2,12 @@
 use autd3::gain::IntoBoxedGain;
 
 # use std::collections::HashMap;
-# fn main() -> Result<(), Box<dyn std::error::Error>> {
-#     let mut autd = Controller::open(
-#         [AUTD3::default(), AUTD3::default()],
-#         autd3::link::Nop::new(),
-#     )?;
+# fn main() {
 #     let x = 0.;
 #     let y = 0.;
 #     let z = 0.;
-autd.group_send(
+#     let _ = 
+Group::new(
     |dev| match dev.idx() {
         0 => Some("focus"),
         1 => Some("null"),
@@ -27,6 +24,5 @@ autd.group_send(
         ),
         ("null", Null {}.into_boxed()),
     ]),
-)?;
-#     Ok(())
+);
 # }

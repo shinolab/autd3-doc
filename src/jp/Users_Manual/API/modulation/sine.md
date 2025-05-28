@@ -1,5 +1,5 @@
 # Sine
-[Source](https://github.com/shinolab/autd3-rs/blob/v32.1.1/autd3/src/datagram/modulation/sine.rs)
+[Source](https://github.com/shinolab/autd3-rs/blob/v33.0.0/autd3/src/datagram/modulation/sine.rs)
 
 音圧をSin波状に変形するための`Modulation`.
 

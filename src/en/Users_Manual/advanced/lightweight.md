@@ -24,7 +24,6 @@ Below is a sample code for the client side in Rust using Lightweight mode.
 Basically, it is the same as the normal API, but note the following points:
 
 - When using `GainSTM`, you need to use `autd3_protobuf::lightweight::IntoLightweightGain::into_lightweight()`
-- When using `group_send`, you need to use `autd3_protobuf::lightweight::Datagram::into_lightweight()`
 - Some data is not supported
 
 ```rust,edition2024
