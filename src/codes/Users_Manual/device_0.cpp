@@ -7,8 +7,6 @@
 //~Controller::open({AUTD3{}}, link::Nop{});
 auto dev = autd[0];
 const auto idx = dev.idx();
-const auto enable = dev.enable();
-dev.set_enable(false);
 const auto sound_speed = dev.sound_speed();
 dev.set_sound_speed(340e3);
 dev.set_sound_speed_from_temp(15.);

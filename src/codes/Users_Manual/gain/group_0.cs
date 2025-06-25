@@ -4,7 +4,7 @@
 ~var x = 0.0f;
 ~var y = 0.0f;
 ~var z = 0.0f;
-new Group(
+new GainGroup(
     keyMap: dev => tr => tr.Idx() <= 100 ? "null" : "focus",
     gainMap: new Dictionary<object, IGain> {
         { "null", new Null() },

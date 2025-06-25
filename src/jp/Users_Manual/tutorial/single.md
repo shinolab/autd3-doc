@@ -8,7 +8,7 @@
 Windowsを使用する場合, [Npcap](https://npcap.com/)を「**WinPcap API-compatible Mode**」でインストールしておくこと.
 
 なお, ファームウェアが古い場合, 正常な動作は保証されない.
-本文章におけるファームウェアのバージョンはv11.0.0, または, v10.0.1[^1]が想定される.
+本文章におけるファームウェアのバージョンはv10以降が想定される.
 ファームウェアのアップデートは[はじめに/ファームウェア](../getting_started/firmware.md)を参照されたい.
 
 ## サンプルコード
@@ -27,5 +27,3 @@ Windowsを使用する場合, [Npcap](https://npcap.com/)を「**WinPcap API-com
 {{#include python.md}}
 {{ #endtab }}
 {{ #endtabs }}
-
-[^1]: 一部機能は未サポート. 詳細は[Firmware v10 vs v11](./../firmware_v10_vs_v11.md)を参照.

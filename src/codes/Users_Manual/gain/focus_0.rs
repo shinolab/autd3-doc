@@ -7,7 +7,7 @@
 Focus {
     pos: Point3::new(x, y, z),
     option: FocusOption {
-        intensity: EmitIntensity::MAX,
+        intensity: Intensity::MAX,
         phase_offset: Phase::ZERO,
     },
 };

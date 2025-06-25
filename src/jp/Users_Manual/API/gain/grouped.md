@@ -1,11 +1,11 @@
-# Group
-[Source](https://github.com/shinolab/autd3-rs/blob/v33.0.0/autd3/src/datagram/gain/group.rs)
+# GainGroup
+[Source](https://github.com/shinolab/autd3-rs/blob/v34.0.0/autd3/src/datagram/gain/group.rs)
 
-`Group`は振動子ごとに別々の`Gain`を使用するための`Gain`である.
+`GainGroup`は振動子ごとに別々の`Gain`を使用するための`Gain`である.
 
 > NOTE: デバイスごとの分割で良いのであれば, [`Group`](../group.md)の使用を推奨する.
 
-`Group`では, 振動子に対してキーを割り当て, その各キーに`Gain`を紐付けて使用する.
+`GainGroup`では, 振動子に対してキーを割り当て, その各キーに`Gain`を紐付けて使用する.
 
 
 {{ #tabs }}
@@ -13,17 +13,13 @@
 ```rust
 {{#include ../../../../codes/Users_Manual/gain/group_0.rs}}
 ```
-{{ #endtab }}
-
-> NOTE: Rust版は`HashMap`の値がすべて同じ型である必要があるため, ここでは`into_boxed`を使用して, 型を統一している.
+> NOTE: Rust版は`HashMap`の値がすべて同じ型である必要があるため, ここでは`BoxedGain`を使用して, 型を統一している.
 {{ #endtab }}
 {{ #tab name=C++ }}
 ```cpp
 {{#include ../../../../codes/Users_Manual/gain/group_0.cpp}}
 ```
-{{ #endtab }}
-
-> NOTE: C++の場合, キーには`std::optional`を使用する必要がある. また, 型を統一するため, `std::shared_ptr<autd3::Gain>>`を使用している.
+> NOTE: C++の場合, キーには`std::optional`を使用する必要がある. また, 型を統一するため, `std::shared_ptr<autd3::Gain>`を使用している.
 {{ #endtab }}
 {{ #tab name=C# }}
 ```cs

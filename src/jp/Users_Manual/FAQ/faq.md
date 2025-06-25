@@ -6,12 +6,6 @@
 
 </details>
 
-<details><summary><code class="hljs">TcAdsDll not found</code>というエラーがでる</summary>
-
-- TwinCAT 3 Build 4026以降をインストールする
-
-</details>
-
 <details><summary><code class="hljs">No AUTD3 devices found</code>と表示される</summary>
 
 - macOS, linuxで`SOEM`リンクを使用する場合, root権限が必要

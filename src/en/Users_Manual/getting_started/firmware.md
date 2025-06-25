@@ -1,7 +1,7 @@
 # Firmware
 
 To update the firmware, you need a Windows 10/11 64bit PC with [Vivado](https://www.xilinx.com/products/design-tools/vivado.html) and [J-Link Software](https://www.segger.com/downloads/jlink/) installed.
-We tested with Vivado 2024.1 and J-Link Software v8.10.
+We tested with Vivado 2025.1 and J-Link Software v8.10.
 
 > NOTE: If the sole purpose is to update the firmware, it is strongly recommended to use "**Vivado Lab Edition**".
 > ML Edition requires more than 60 GB of disk space for installation. Lab Edition requires about 6 GB of disk space.

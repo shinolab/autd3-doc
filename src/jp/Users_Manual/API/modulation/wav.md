@@ -1,5 +1,5 @@
 # Wav
-[Source](https://github.com/shinolab/autd3-rs/blob/v33.0.0/autd3-modulation-audio-file/src/wav.rs)
+[Source](https://github.com/shinolab/autd3-rs/blob/v34.0.0/autd3-modulation-audio-file/src/wav.rs)
 
 `Wav`はWavファイルをもとに構成される`Modulation`である.
 

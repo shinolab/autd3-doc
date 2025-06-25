@@ -10,7 +10,7 @@
 //~const auto theta = 0.0;
 Bessel(Point3(x, y, z), Vector3(nx, ny, nz), theta* rad,
        BesselOption{
-           .intensity = std::numeric_limits<EmitIntensity>::max(),
+           .intensity = std::numeric_limits<Intensity>::max(),
            .phase_offset = Phase::zero(),
        });
 //~return 0; }

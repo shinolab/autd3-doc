@@ -15,7 +15,7 @@ impl GainCalculator for Impl {
     fn calc(&self, tr: &Transducer) -> Drive {
         Drive {
             phase: Phase::from(-(self.pos - tr.position()).norm() * self.wavenumber * rad),
-            intensity: EmitIntensity::MAX,
+            intensity: Intensity::MAX,
         }
     }
 }
@@ -34,11 +34,7 @@ impl GainCalculatorGenerator for FocalPoint {
 impl Gain for FocalPoint {
     type G = FocalPoint;
 
-    fn init(
-        self,
-        _geometry: &Geometry,
-        _filter: Option<&HashMap<usize, BitVec>>,
-    ) -> Result<Self::G, GainError> {
+    fn init(self, _geometry: &Geometry, _filter: &TransducerFilter) -> Result<Self::G, GainError> {
         Ok(self)
     }
 }

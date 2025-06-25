@@ -3,7 +3,6 @@
 ~autd = Controller.open([AUTD3()], Nop())
 dev = autd[0]
 idx = dev.idx()
-dev.enable = False
 dev.sound_speed = 340e3
 dev.set_sound_speed_from_temp(15.0)
 wavelength = dev.wavelength()

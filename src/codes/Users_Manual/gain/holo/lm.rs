@@ -23,7 +23,7 @@ LM {
         tau: 1e-3,
         k_max: NonZeroUsize::new(5).unwrap(),
         initial: vec![],
-        constraint: EmissionConstraint::Clamp(EmitIntensity::MIN, EmitIntensity::MAX),
+        constraint: EmissionConstraint::Clamp(Intensity::MIN, Intensity::MAX),
         ..Default::default()
     },
     backend,

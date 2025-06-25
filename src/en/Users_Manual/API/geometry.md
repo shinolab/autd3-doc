@@ -12,9 +12,9 @@ Each device has 249 transducers arranged, and they are assigned local indices (r
 
 ## Geometry API
 
-- `num_devices()`: Get the number of enabled devices
-- `num_transducers()`: Get the number of all enabled transducers
-- `center()`: Get the center of all enabled transducers
+- `num_devices()`: Get the number of devices
+- `num_transducers()`: Get the number of all transducers
+- `center()`: Get the center of all transducers
 
 Note that `Geometry` can be accessed directly from `Controller`.
 
@@ -74,10 +74,8 @@ Alternatively, you can use an iterator.
 ## Device API
 
 - `idx()`: Device index
-- `enable`: Enable flag. When disabled, the data of the device will not be updated.
-  - Note that it does not stop the output, it just stops updating the data.
 - `sound_speed`: Get/set the speed of sound. The unit is mm/s. **It is recommended to set a value as close to reality as possible because it is used for phase calculation, etc.** The default speed of sound is $340\times 10^{3}\,\mathrm{mm/s}$, which corresponds to the speed of sound in air at approximately 15 degrees Celsius.
-- `set_sound_speed_from_temp(temp)`: Set the speed of sound from the temperature `temp` [℃]. Note that `Geometry` also has a function with the same name, and using it will set the speed of sound from the temperature for all enabled devices.
+- `set_sound_speed_from_temp(temp)`: Set the speed of sound from the temperature `temp` [℃]. Note that `Geometry` also has a function with the same name, and using it will set the speed of sound from the temperature for all devices.
 - `wavelength()`: Wavelength of the ultrasound emitted by the device
 - `wavenumber()`: Wavenumber of the ultrasound emitted by the device
 - `rotation()`: Rotation of the device

@@ -8,7 +8,7 @@ new Plane(
     dir: new Vector3(nx, ny, nz),
     option: new PlaneOption
     {
-        Intensity = EmitIntensity.Max,
+        Intensity = Intensity.Max,
         PhaseOffset = Phase.Zero
     }
 );

@@ -22,17 +22,17 @@ cargo add autd3-link-soem
 if(WIN32)
   FetchContent_Declare(
     autd3-link-soem
-    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v33.0.0/autd3-link-soem-v33.0.0-win-x64.zip
+    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v34.0.0/autd3-link-soem-v34.0.0-win-x64.zip
   )
 elseif(APPLE)
   FetchContent_Declare(
     autd3-link-soem
-    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v33.0.0/autd3-link-soem-v33.0.0-macos-aarch64.tar.gz
+    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v34.0.0/autd3-link-soem-v34.0.0-macos-aarch64.tar.gz
   )
 else()
   FetchContent_Declare(
     autd3-link-soem
-    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v33.0.0/autd3-link-soem-v33.0.0-linux-x64.tar.gz
+    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v34.0.0/autd3-link-soem-v34.0.0-linux-x64.tar.gz
   )
 endif()
 FetchContent_MakeAvailable(autd3-link-soem)
@@ -85,10 +85,6 @@ The options that can be specified for the SOEM link are as follows.
 The default values are as above.
 
 - `buf_size`: Transmission queue buffer size. Usually, there is no need to change this.
-- `timer_strategy`: Timer strategy
-    - `StdSleep`  : Uses the standard library sleep
-    - `SpinSleep` : Uses the [spin_sleep](https://docs.rs/spin_sleep/latest/spin_sleep/) crate. Combines OS native sleep (WaitableTimer on Windows) and spin loop.
-    - `SpinWait`  : Uses a spin loop. High resolution but high CPU load.
 - `ifname`: Network interface name. If empty, the network interface to which the AUTD3 device is connected is automatically selected.
 - `state_check_interval`: Interval to check for errors
 - `sync0_cycle`: Synchronization signal cycle

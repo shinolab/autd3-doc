@@ -3,4 +3,4 @@
 using AUTD3Sharp.Gain;
 ~using static AUTD3Sharp.Units;
 
-new Custom(dev => tr => new Drive(Phase.Zero, EmitIntensity.Min));
+new Custom(dev => tr => new Drive(Phase.Zero, Intensity.Min));

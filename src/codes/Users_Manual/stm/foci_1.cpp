@@ -18,7 +18,7 @@ std::ranges::copy(iota(0) | take(points_num) | transform([&](auto i) {
                                                 .phase_offset = Phase::zero()},
                                    ControlPoint{.point = center - p,
                                                 .phase_offset = Phase::zero()}},
-                        .intensity = std::numeric_limits<EmitIntensity>::max()};
+                        .intensity = std::numeric_limits<Intensity>::max()};
                   }),
                   std::back_inserter(foci));
 FociSTM stm(foci, 1.0f * Hz);

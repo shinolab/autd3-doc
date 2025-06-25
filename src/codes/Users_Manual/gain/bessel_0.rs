@@ -13,7 +13,7 @@ Bessel {
     dir: UnitVector3::new_normalize(Vector3::new(nx, ny, nz)),
     theta,
     option: BesselOption {
-        intensity: EmitIntensity::MAX,
+        intensity: Intensity::MAX,
         phase_offset: Phase::ZERO,
     },
 };

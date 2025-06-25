@@ -1,5 +1,4 @@
 # use autd3::prelude::*;
-use autd3::gain::IntoBoxedGain;
 
 # use std::collections::HashMap;
 # fn main() {
@@ -16,13 +15,12 @@ Group::new(
     HashMap::from([
         (
             "focus",
-            Focus {
+            BoxedDatagram::new(Focus {
                 pos: Point3::new(x, y, z),
                 option: Default::default(),
-            }
-            .into_boxed(),
+            }),
         ),
-        ("null", Null {}.into_boxed()),
+        ("null", BoxedDatagram::new(Null {})),
     ]),
 );
 # }

@@ -20,7 +20,7 @@ FociSTM {
                         phase_offset: Phase::ZERO,
                     },
                 ],
-                intensity: EmitIntensity::MAX,
+                intensity: Intensity::MAX,
             }
         })
         .collect::<Vec<_>>(),

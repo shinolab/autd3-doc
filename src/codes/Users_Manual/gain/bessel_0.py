@@ -1,4 +1,4 @@
-~from pyautd3 import Bessel, BesselOption, EmitIntensity, Phase, rad
+~from pyautd3 import Bessel, BesselOption, Intensity, Phase, rad
 ~
 ~x = 0.0
 ~y = 0.0
@@ -12,7 +12,7 @@ Bessel(
     direction=[nx, ny, nz],
     theta=theta * rad,
     option=BesselOption(
-        intensity=EmitIntensity.MAX,
+        intensity=Intensity.MAX,
         phase_offset=Phase.ZERO,
     ),
 )

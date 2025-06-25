@@ -81,22 +81,27 @@ FPGAの状態としては, 現在以下の情報が取得できる.
 ここで,
 - `send_interval`: 送信間隔
 - `receive_interval`: 受信間隔
-- `timeout`: タイムアウト時間. 詳細は[タイムアウトについて](#タイムアウトについて)を参照
+- `timeout`: タイムアウト時間. 詳細は[送信データのチェックについて](#送信データのチェックについて)を参照
 - `parallel`: 並列計算モード. 詳細は[並列計算について](#並列計算について)を参照
+- `strict`: 送信データのチェックを厳密に行うかどうか. 詳細は[送信データのチェックについて](#送信データのチェックについて)を参照
 であり, デフォルト値は上記の通り.
 
 第2引数は送受信間隔を調整する構造体であり, 以下から選択する.
+- `FixedSchedule`: 送信処理にかかった時間にかかわらず, 前回の送信開始時刻から指定した間隔で次の送信を開始する.
+- `FixedDelay`: 送信処理が完了してから指定した間隔で次の送信を開始する.
+
+これらの構造体は, どのようにスレッドをスリープさせるかを指定する以下の構造体を持つ.
 - `SpinSleeper`: [`spin_sleep`](https://crates.io/crates/spin_sleep)を使用
-- `StdSleeper`: `std::thread::sleep`を使用
-- `WaitableSleeper`: (Windowsのみ) [`Waitable Timer`](https://learn.microsoft.com/en-us/windows/win32/sync/waitable-timer-objects)を使用
+- `StdSleeper`: [`std::thread::sleep`](https://doc.rust-lang.org/std/thread/fn.sleep.html)を使用
+- `SpinWait`: ビジーウェイトを使用
 
-なお, `Controller::send`, `Controller::group_send`は`Controller::default_sender_option` (変更可能) とデフォルトの`SpinSleeper`を使用した場合と等価である.
+なお, `Controller::send`は`Controller::default_sender_option` (変更可能) とデフォルトの`FixedSchedule(SpinSleeper)`を使用した場合と等価である.
 
-### タイムアウトについて
+### 送信データのチェックについて
 
 タイムアウトの値が
 - 0より大きい場合, 送信データがデバイスで処理されるか, 指定したタイムアウト時間が経過するまで待機する. 送信データがデバイスで処理されたのが確認できなかった場合にエラーを返す.
-- 0の場合, `send`関数は送信データがデバイスで処理されたかどうかのチェックを行わない.
+- 0, かつ, `strict=false`の場合, `send`関数は送信データがデバイスで処理されたか確認できなくてもエラーを返さない.
 
 確実にデータを送信したい場合はこれを適当な値に設定しておくことをおすすめする.
 
@@ -115,12 +120,12 @@ FPGAの状態としては, 現在以下の情報が取得できる.
 
 `ParallelMode::On`を指定すると並列計算を有効化, `ParallelMode::Off`を指定すると無効化する.
 
-`ParallelMode::Auto`の場合, 有効なデバイスの数が以下に示す各データの並列計算スレッショルド値を超える場合に並列計算が有効化される.
+`ParallelMode::Auto`の場合, デバイスの数が以下に示す各データの並列計算スレッショルド値を超える場合に並列計算が有効化される.
 
 |       | 並列計算スレッショルド値   | 
 | ----- | -------------- | 
 | `Clear`/`GPIOOutputs`/<br>`ForceFan`/`PhaseCorrection`/<br>`ReadsFPGAState`/`SwapSegment`/<br>`Silencer`/`Synchronize`/<br>`FociSTM` (焦点数が4000未満)/<br>`Modulation` | 18446744073709551615 | 
-| `PulseWidthEncoder`/<br>`FociSTM` (焦点数が4000以上)/<br>/`GainSTM`/`Gain` | 4 | 
+| `PulseWidthEncoder`/<br>`FociSTM` (焦点数が4000以上)/<br>/`GainSTM`/`Gain` | CPUのコア数 | 
 
 ## `inspect` (Rustのみ)
 

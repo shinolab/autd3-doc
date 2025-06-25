@@ -19,8 +19,8 @@ auto g = gain::holo::Naive(
     },
     gain::holo::NaiveOption{
         .constraint = gain::holo::EmissionConstraint::Clamp(
-            std::numeric_limits<EmitIntensity>::min(),
-            std::numeric_limits<EmitIntensity>::max()),
+            std::numeric_limits<Intensity>::min(),
+            std::numeric_limits<Intensity>::max()),
     },
     backend);
 //~return 0; }

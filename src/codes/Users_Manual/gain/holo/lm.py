@@ -1,5 +1,5 @@
 ~import numpy as np
-~from pyautd3 import EmitIntensity
+~from pyautd3 import Intensity
 from pyautd3.gain.holo import LM, EmissionConstraint, LMOption, NalgebraBackend, Pa
 
 ~x1 = 0.0
@@ -17,7 +17,7 @@ LM(
         tau=1e-3,
         k_max=5,
         initial = None,
-        constraint=EmissionConstraint.Clamp(EmitIntensity.MIN, EmitIntensity.MAX),
+        constraint=EmissionConstraint.Clamp(Intensity.MIN, Intensity.MAX),
     ),
     backend=backend,
 )

@@ -22,7 +22,7 @@ new LM(
         Tau = 1e-3f,
         KMax = 5,
         Initial = [],
-        EmissionConstraint = EmissionConstraint.Clamp(EmitIntensity.Min, EmitIntensity.Max),
+        EmissionConstraint = EmissionConstraint.Clamp(Intensity.Min, Intensity.Max),
     },
     backend: backend
 );

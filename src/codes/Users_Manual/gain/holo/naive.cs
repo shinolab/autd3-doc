@@ -17,7 +17,7 @@ new Naive(
     ],
     option: new NaiveOption
     {
-        EmissionConstraint = EmissionConstraint.Clamp(EmitIntensity.Min, EmitIntensity.Max),
+        EmissionConstraint = EmissionConstraint.Clamp(Intensity.Min, Intensity.Max),
     },
     backend: backend
 );

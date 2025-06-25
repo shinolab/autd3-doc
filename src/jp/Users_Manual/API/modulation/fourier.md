@@ -1,5 +1,5 @@
 # Fourier
-[Source](https://github.com/shinolab/autd3-rs/blob/v33.0.0/autd3/src/datagram/modulation/fourier.rs)
+[Source](https://github.com/shinolab/autd3-rs/blob/v34.0.0/autd3/src/datagram/modulation/fourier.rs)
 
 複数の周波数の正弦波を重ね合わせた波形を生成する`Modulation`.
 

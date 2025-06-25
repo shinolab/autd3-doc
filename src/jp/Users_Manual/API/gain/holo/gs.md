@@ -1,5 +1,5 @@
 # GS
-[Source](https://github.com/shinolab/autd3-rs/blob/v33.0.0/autd3-gain-holo/src/linear_synthesis/gs.rs)
+[Source](https://github.com/shinolab/autd3-rs/blob/v34.0.0/autd3-gain-holo/src/linear_synthesis/gs.rs)
 
 Gershberg-Saxon, Marzoらの論文[^marzo2019]に基づく多焦点`Gain`.
 

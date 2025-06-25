@@ -24,8 +24,8 @@ auto g = gain::holo::LM(
         .k_max = 5,
         .initial = {},
         .constraint = gain::holo::EmissionConstraint::Clamp(
-            std::numeric_limits<EmitIntensity>::min(),
-            std::numeric_limits<EmitIntensity>::max()),
+            std::numeric_limits<Intensity>::min(),
+            std::numeric_limits<Intensity>::max()),
     },
     backend);
 //~return 0; }

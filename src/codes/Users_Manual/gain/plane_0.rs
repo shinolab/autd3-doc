@@ -7,7 +7,7 @@
 Plane {
     dir: UnitVector3::new_normalize(Vector3::new(nx, ny, nz)),
     option: PlaneOption {
-        intensity: EmitIntensity::MAX,
+        intensity: Intensity::MAX,
         phase_offset: Phase::ZERO,
     },
 };

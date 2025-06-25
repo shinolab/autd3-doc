@@ -6,7 +6,7 @@
 # let radius = 30.0 * mm;
 # let num_points = 50;
 # let n = Vector3::z_axis();
-# let intensity = EmitIntensity::MAX;
+# let intensity = Intensity::MAX;
 # let _ = 
 FociSTM {
     foci: Line {

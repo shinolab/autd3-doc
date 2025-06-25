@@ -1,7 +1,7 @@
 # TwinCAT
 
 TwinCAT is the only official way to use EtherCAT on a Windows PC.
-TwinCAT is very specialized software that only supports Windows and forces Windows to operate in real-time.
+TwinCAT is specialized software that only supports Windows and forces Windows to operate in real-time.
 
 TwinCAT requires specific network controllers, so please check the [list of compatible network controllers](https://infosys.beckhoff.com/english.php?content=../content/1033/tc3_overview/9309844363.html&id=).
 
@@ -39,8 +39,6 @@ After installing the Package Manager, you can install "TwinCAT Standard" using t
 
 To use TwinCAT Link, you first need to install `AUTD3 Server`.
 The installer is distributed on [GitHub](https://github.com/shinolab/autd3-server), so download it and follow the instructions to install it.
-
-> NOTE: Be sure to use the `AUTD Server` that matches the version of the software you are using.
 
 > NOTE: There is also a [CLI version](https://github.com/shinolab/TwinCATAUTDServer/releases).
 

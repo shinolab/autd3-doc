@@ -16,9 +16,9 @@ def python_module(cmd: list[str]) -> list[str]:
 
 
 def install_pyautd3() -> None:
-    version = "33.0.0"
-    emulator_version = "33.0.0"
-    link_soem_version = "33.0.0"
+    version = "34.0.0"
+    emulator_version = "34.0.0"
+    link_soem_version = "34.0.0"
     subprocess.run(
         python_module(["pip", "install", "-U", f"pyautd3=={version}"]),
     )
