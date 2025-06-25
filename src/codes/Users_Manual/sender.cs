@@ -10,8 +10,9 @@ var sender = autd.Sender(
         ReceiveInterval = Duration.FromMillis(1),
         Timeout = null,
         Parallel = ParallelMode.Auto,
+        Strict = true,
     },
-    new SpinSleeper()
+    new FixedSchedule()
 );
 ~var d = new Null();
 sender.Send(d);

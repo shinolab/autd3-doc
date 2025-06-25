@@ -42,4 +42,5 @@
 - `IsStmMode`: FociSTM/GainSTMが使用されているかどうか
 - `PwmOut(&Transducer)`: 指定した振動子のPWM出力
 - `SysTimeEq(DcSysTime)`: 指定したシステム時間の間Highになる
+- `SyncDiff`: システム時間の補正中にHighになる
 - `Direct(bool)`: 指定した値を出力する

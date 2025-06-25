@@ -1,5 +1,5 @@
 ~import numpy as np
-~from pyautd3 import EmitIntensity
+~from pyautd3 import Intensity
 from pyautd3.gain.holo import GSPAT, EmissionConstraint, GSPATOption, NalgebraBackend, Pa
 
 ~x1 = 0.0
@@ -13,7 +13,7 @@ GSPAT(
     foci=[(np.array([x1, y1, z1]), 5e3 * Pa), (np.array([x2, y2, z2]), 5e3 * Pa)],
     option=GSPATOption(
         repeat=100,
-        constraint=EmissionConstraint.Clamp(EmitIntensity.MIN, EmitIntensity.MAX),
+        constraint=EmissionConstraint.Clamp(Intensity.MIN, Intensity.MAX),
     ),
     backend=backend,
 )

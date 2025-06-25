@@ -14,29 +14,29 @@ include(FetchContent)
 if(WIN32)
   FetchContent_Declare(
     autd3
-    URL https://github.com/shinolab/autd3-cpp/releases/download/v33.0.0/autd3-v33.0.0-win-x64.zip
+    URL https://github.com/shinolab/autd3-cpp/releases/download/v34.0.0/autd3-v34.0.0-win-x64.zip
   )
   FetchContent_Declare(
     autd3-link-soem
-    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v33.0.0/autd3-link-soem-v33.0.0-win-x64.zip
+    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v34.0.0/autd3-link-soem-v34.0.0-win-x64.zip
   )
 elseif(APPLE)
   FetchContent_Declare(
     autd3
-    URL https://github.com/shinolab/autd3-cpp/releases/download/v33.0.0/autd3-v33.0.0-macos-aarch64.tar.gz
+    URL https://github.com/shinolab/autd3-cpp/releases/download/v34.0.0/autd3-v34.0.0-macos-aarch64.tar.gz
   )
   FetchContent_Declare(
     autd3-link-soem
-    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v33.0.0/autd3-link-soem-v33.0.0-macos-aarch64.tar.gz
+    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v34.0.0/autd3-link-soem-v34.0.0-macos-aarch64.tar.gz
   )
 else()
   FetchContent_Declare(
     autd3
-    URL https://github.com/shinolab/autd3-cpp/releases/download/v33.0.0/autd3-v33.0.0-linux-x64.tar.gz
+    URL https://github.com/shinolab/autd3-cpp/releases/download/v34.0.0/autd3-v34.0.0-linux-x64.tar.gz
   )
   FetchContent_Declare(
     autd3-link-soem
-    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v33.0.0/autd3-link-soem-v33.0.0-linux-x64.tar.gz
+    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v34.0.0/autd3-link-soem-v34.0.0-linux-x64.tar.gz
   )
 endif()
 set(USE_SYSTEM_EIGEN OFF)

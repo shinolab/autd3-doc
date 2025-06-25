@@ -2,7 +2,7 @@
 # fn main() {
 # let _ = 
 Uniform {
-    intensity: EmitIntensity::MAX, 
+    intensity: Intensity::MAX, 
     phase: Phase::ZERO,
 };
 # }

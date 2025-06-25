@@ -8,7 +8,7 @@ This tutorial uses [SOEM](https://github.com/OpenEtherCATsociety/SOEM).
 If you are using Windows, install [Npcap](https://npcap.com/) in "**WinPcap API-compatible Mode**".
 
 Note that if the firmware is outdated, proper operation is not guaranteed.
-The firmware version assumed in this document is v11.0.0 or v10.0.1[^1].
+The firmware version assumed in this document is v10 or later.
 Refer to [Getting Started/Firmware](../getting_started/firmware.md) for firmware updates.
 
 ## Sample Programs
@@ -27,5 +27,3 @@ Refer to [Getting Started/Firmware](../getting_started/firmware.md) for firmware
 {{#include python.md}}
 {{ #endtab }}
 {{ #endtabs }}
-
-[^1]: Some features are not supported. See [Firmware v10 vs v11](./../firmware_v10_vs_v11.md) for details.

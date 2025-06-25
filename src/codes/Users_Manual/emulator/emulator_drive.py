@@ -1,8 +1,8 @@
 from pyautd3 import (
     AUTD3,
     Duration,
-    EmitIntensity,
     Hz,
+    Intensity,
     Phase,
     Silencer,
     Sine,
@@ -18,7 +18,7 @@ with Emulator([AUTD3()]) as emulator:
         autd.send(
             (
                 Sine(freq=200.0 * Hz, option=SineOption()),
-                Uniform(intensity=EmitIntensity.MAX, phase=Phase.ZERO),
+                Uniform(intensity=Intensity.MAX, phase=Phase.ZERO),
             ),
         )
         autd.tick(Duration.from_millis(10))

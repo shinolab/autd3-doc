@@ -19,7 +19,7 @@ GS {
     ],
     option: GSOption {
         repeat: NonZeroUsize::new(100).unwrap(),
-        constraint: EmissionConstraint::Clamp(EmitIntensity::MIN, EmitIntensity::MAX),
+        constraint: EmissionConstraint::Clamp(Intensity::MIN, Intensity::MAX),
         ..Default::default()
     },
     backend,

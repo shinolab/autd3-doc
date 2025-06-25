@@ -20,8 +20,8 @@ auto g = gain::holo::GS(
     gain::holo::GSOption{
         .repeat = 100,
         .constraint = gain::holo::EmissionConstraint::Clamp(
-            std::numeric_limits<EmitIntensity>::min(),
-            std::numeric_limits<EmitIntensity>::max()),
+            std::numeric_limits<Intensity>::min(),
+            std::numeric_limits<Intensity>::max()),
     },
     backend);
 //~return 0; }

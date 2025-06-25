@@ -18,7 +18,7 @@ new GS(
     option: new GSOption
     {
         Repeat = 100,
-        EmissionConstraint = EmissionConstraint.Clamp(EmitIntensity.Min, EmitIntensity.Max),
+        EmissionConstraint = EmissionConstraint.Clamp(Intensity.Min, Intensity.Max),
     },
     backend: backend
 );

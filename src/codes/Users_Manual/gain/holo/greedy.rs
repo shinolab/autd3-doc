@@ -17,7 +17,7 @@ Greedy::<Sphere, _> {
     ],
     option: GreedyOption {
         phase_quantization_levels: NonZeroU8::new(16).unwrap(),
-        constraint: EmissionConstraint::Uniform(EmitIntensity::MAX),
+        constraint: EmissionConstraint::Uniform(Intensity::MAX),
         objective_func: AbsGreedyObjectiveFn,
         ..Default::default()
     },

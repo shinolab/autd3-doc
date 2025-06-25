@@ -7,20 +7,22 @@ Using the `Group`, you can group devices by device, and send different data for 
 ```rust,edition2024
 {{#include ../../../codes/Users_Manual/group.rs}}
 ```
+> NOTE: In the Rust version, since the values of `HashMap` must all be of the same type, `BoxedDatagram` is used here to unify the types.
 {{ #endtab }}
-
-> NOTE: In the Rust version, since the values of `HashMap` must all be of the same type, `into_boxed` is used here to unify the types.
 
 {{ #tab name=C++ }}
 ```cpp
 {{#include ../../../codes/Users_Manual/group.cpp}}
 ```
+> NOTE: In C++, `std::optional` must be used for the keys. Also, to unify the types, `std::shared_ptr<driver::Datagram>` is used.
 {{ #endtab }}
+
 {{ #tab name=C# }}
 ```cs
 {{#include ../../../codes/Users_Manual/group.cs}}
 ```
 {{ #endtab }}
+
 {{ #tab name=Python }}
 ```python
 {{#include ../../../codes/Users_Manual/group.py}}
@@ -28,7 +30,7 @@ Using the `Group`, you can group devices by device, and send different data for 
 {{ #endtab }}
 {{ #endtabs }}
 
-Unlike [`gain::Group`](./gain/grouped.md), you can use any data that can be sent with the usual `send`.
+Unlike [`GainGroup`](./gain/grouped.md), you can use any data that can be sent with the usual `send`.
 However, you can only group by device.
 
 > NOTE:

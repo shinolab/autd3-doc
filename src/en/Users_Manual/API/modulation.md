@@ -24,7 +24,6 @@ The SDK provides several types of `Modulation` to generate AM by default.
 * [Wav](./modulation/wav.md) - Modulation based on Wav file
 * [Csv](./modulation/csv.md) - Modulation based on Csv file
 * [Custom](./modulation/custom.md) - User-defined modulation
-* [Cache](./modulation/cache.md) - Cache the calculation result of other `Modulation`
 * [RadiationPressure](./modulation/radiation.md) - Apply modulation to radiation pressure instead of sound pressure
 * [Fir](./modulation/fir.md) - Apply Fir filter
 

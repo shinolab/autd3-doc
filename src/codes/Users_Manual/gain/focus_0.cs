@@ -8,7 +8,7 @@ new Focus(
     pos: new Point3(x, y, z),
     option: new FocusOption
     {
-        Intensity = EmitIntensity.Max,
+        Intensity = Intensity.Max,
         PhaseOffset = Phase.Zero
     }
 );

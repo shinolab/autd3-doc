@@ -1,4 +1,3 @@
-use autd3::gain::{self, IntoBoxedGain};
 use autd3::prelude::*;
 # use std::collections::HashMap;
 
@@ -7,7 +6,7 @@ use autd3::prelude::*;
 # let y = 0.;
 # let z = 0.;
 # let _ =
-gain::Group {
+GainGroup {
     key_map: |_dev| {
         |tr| match tr.idx() {
             0..=100 => Some("null"),
@@ -15,14 +14,13 @@ gain::Group {
         }
     },
     gain_map: HashMap::from([
-        ("null", Null {}.into_boxed()),
+        ("null", BoxedGain::new(Null {})),
         (
             "focus",
-            Focus {
+            BoxedGain::new(Focus {
                 pos: Point3::new(x, y, z),
                 option: Default::default(),
-            }
-            .into_boxed(),
+            }),
         ),
     ]),
 };

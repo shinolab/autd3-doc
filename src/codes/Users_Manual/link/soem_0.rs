@@ -1,6 +1,6 @@
 #[cfg(target_os = "windows")]
 use autd3_link_soem::ProcessPriority;
-use autd3_link_soem::{Status, SyncMode, ThreadPriority, TimerStrategy, SOEM, SOEMOption};
+use autd3_link_soem::{Status, ThreadPriority, SOEM, SOEMOption};
 # use std::num::NonZeroUsize;
 # use std::time::Duration;
 
@@ -15,8 +15,6 @@ SOEM::new(
     },
     SOEMOption {
         buf_size: NonZeroUsize::new(32).unwrap(),
-        timer_strategy: TimerStrategy::SpinSleep,
-        sync_mode: SyncMode::DC, // DO NOT CHANGE
         ifname: String::new(),
         state_check_interval: Duration::from_millis(100),
         sync0_cycle: Duration::from_millis(1),

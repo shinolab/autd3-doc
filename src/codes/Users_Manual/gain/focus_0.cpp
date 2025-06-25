@@ -6,7 +6,7 @@
 //~const auto z = 0.0;
 Focus(Point3(x, y, z),
       FocusOption{
-          .intensity = std::numeric_limits<EmitIntensity>::max(),
+          .intensity = std::numeric_limits<Intensity>::max(),
           .phase_offset = Phase::zero(),
       });
 //~return 0; }

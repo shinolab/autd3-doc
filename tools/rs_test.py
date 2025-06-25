@@ -28,9 +28,9 @@ def substitute_in_file(
 
 
 if __name__ == "__main__":
-    autd3_version = "33.0.0"
-    autd3_emulator_version = "33.0.0"
-    autd3_link_soem_version = "33.0.0"
+    autd3_version = "34.0.0"
+    autd3_emulator_version = "34.0.0"
+    autd3_link_soem_version = "34.0.0"
     itertools_version = get_latest_version("itertools")
     tokio = get_latest_version("tokio")
     nalgebra = get_latest_version("nalgebra")
@@ -76,7 +76,6 @@ autd3-link-simulator = {{ version = "{autd3_version}", features = ["blocking", "
 autd3-link-soem = {{ version = "{autd3_link_soem_version}", features = ["remote", "blocking", "async-trait"] }}
 autd3-link-twincat = {{ version = "{autd3_version}", features = ["remote", "async-trait"] }}
 autd3-modulation-audio-file = {{ version = "{autd3_version}" }}
-autd3-protobuf = {{ version = "{autd3_version}", features = ["lightweight"] }}
 autd3-emulator = {{ version = "{autd3_emulator_version}", features = ["gpu"] }}
 itertools = {{ version = "{itertools_version}" }}
 nalgebra = {{ version = "{nalgebra}" }}

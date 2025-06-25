@@ -17,7 +17,7 @@ Naive {
         (Point3::new(x2, y2, z2), 5e3 * Pa),
     ],
     option: NaiveOption {
-        constraint: EmissionConstraint::Clamp(EmitIntensity::MIN, EmitIntensity::MAX),
+        constraint: EmissionConstraint::Clamp(Intensity::MIN, Intensity::MAX),
         ..Default::default()
     },
     backend,

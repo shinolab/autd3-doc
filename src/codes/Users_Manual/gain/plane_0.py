@@ -1,11 +1,11 @@
-~from pyautd3 import EmitIntensity, Phase, Plane, PlaneOption
+~from pyautd3 import Intensity, Phase, Plane, PlaneOption
 ~nx = 1.0
 ~ny = 0.0
 ~nz = 0.0
 Plane(
     direction=[nx, ny, nz],
     option=PlaneOption(
-        intensity=EmitIntensity.MAX,
+        intensity=Intensity.MAX,
         phase_offset=Phase.ZERO,
     ),
 )

@@ -15,7 +15,7 @@ new FociSTM(
                     new ControlPoint { Point = center + p, PhaseOffset = Phase.Zero},
                     new ControlPoint { Point = center - p, PhaseOffset = Phase.Zero}
                 ],
-                intensity: EmitIntensity.Max
+                intensity: Intensity.Max
             );
         }),
     config: 1.0f * Hz

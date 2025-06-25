@@ -1,7 +1,7 @@
 # TwinCAT
 
 TwinCATはPCでEherCATを使用する際の唯一の公式の方法である.
-TwinCATはWindowsのみをサポートする非常に特殊なソフトウェアであり, Windowsを半ば強引にリアルタイム化する.
+TwinCATはWindowsのみをサポートする特殊なソフトウェアであり, Windowsをリアルタイム化する.
 
 また, 特定のネットワークコントローラが求められるため,
 [対応するネットワークコントローラの一覧](https://infosys.beckhoff.com/english.php?content=../content/1033/tc3_overview/9309844363.html&id=)を確認すること.
@@ -31,7 +31,7 @@ Windows 11 24H2から, レジストリで`HKEY_LOCAL_MACHINE\SYSTEM\CurrentContr
 
 ### TwinCATのインストール
 
-[公式サイト](https://infosys.beckhoff.com/content/1033/tc3_installation/15698617995.html?id=7523796010185393366)を参照し, TwinCAT 3.1 Build 4026をインストールする.
+[公式サイト](https://infosys.beckhoff.com/content/1033/tc3_installation/15698617995.html?id=7523796010185393366)を参照し, TwinCAT 3.1 Build 4024/4026をインストールする.
 (インストールにはmyBeckhoffアカウントの登録 (無料) が必要になる.)
 TwinCAT Xae Shellは64bit版をインストールすること.
 Visual Studio Integrationは不要.
@@ -42,8 +42,6 @@ Package Managerのインストール後, Package Managerで「TwinCAT Standard�
 
 TwinCATのLinkを使うには, まず, `AUTD3 Server`をインストールする必要がある.
 [GitHub](https://github.com/shinolab/autd3-server)にてインストーラを配布しているので, これをダウンロードし, 指示に従ってインストールする.
-
-> NOTE: 必ず, 使用するソフトウェアのバージョンに合わせた`AUTD Server`を使用すること.
 
 > NOTE: [CLI版](https://github.com/shinolab/TwinCATAUTDServer/releases)もある.
 
@@ -57,7 +55,7 @@ TwinCATのLinkを使うには, まず, `AUTD3 Server`をインストールする
 
 初回のみ, 以下の作業が必要になる.
 
-まず, `AUTD3 Server`を管理者として開き, `TwinCAT`タブから「Copy AUTD.xml」ボタンを押す.
+まず, `AUTD3 Server`を**管理者として開き**, `TwinCAT`タブから「Copy AUTD.xml」ボタンを押す.
 ここで, 「AUTD.xml is successfully copied」のようなメッセージが出れば成功である.
 
 次に, 「Open XAE Shell」ボタンを押し, XAE Shellを開く.

@@ -5,7 +5,7 @@
 //~const auto x = 0.0;
 //~const auto y = 0.0;
 //~const auto z = 0.0;
-gain::Group(
+GainGroup(
     [](const auto& dev) {
       return [](const auto& tr) -> std::optional<const char*> {
         if (tr.idx() <= 100) return "null";

@@ -12,8 +12,6 @@ new SOEM(
     option: new SOEMOption
     {
         BufSize = 32,
-        TimerStrategy = TimerStrategy.SpinSleep,
-        SyncMode = SyncMode.DC,
         Ifname = "",
         StateCheckInterval = Duration.FromMillis(100),
         Sync0Cycle = Duration.FromMillis(1),

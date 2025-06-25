@@ -1,6 +1,6 @@
 # 開発環境構築
 
-FPGAの開発にはVivado 2024.1を使用している.
+FPGAの開発にはVivado 2025.1を使用している.
 ML Editionは無料 (要登録) なので各自インストールされたい.
 インストール時にDesign Toolsの"Vivado"とDeviceの"Artix-7", 及び, Cable Drivesをインストールすること.
 Vitisは必要ない.

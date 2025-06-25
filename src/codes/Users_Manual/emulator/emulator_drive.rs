@@ -13,7 +13,7 @@ let record = emulator.record(|autd| {
             option: Default::default(),
         },
         Uniform {
-            intensity: EmitIntensity::MAX,
+            intensity: Intensity::MAX,
             phase: Phase::ZERO,
         },
     ))?;

@@ -6,7 +6,7 @@ use autd3::gain::Custom;
 Custom::new(|_dev| {
     |_tr| Drive {
         phase: Phase::ZERO,
-        intensity: EmitIntensity::MIN,
+        intensity: Intensity::MIN,
     }
 });
 # }

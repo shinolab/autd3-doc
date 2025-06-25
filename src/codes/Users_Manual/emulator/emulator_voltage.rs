@@ -10,7 +10,7 @@ let record = emulator.record(|autd| {
     autd.send((
         Static { intensity: 0xFF },
         Uniform {
-            intensity: EmitIntensity::MAX,
+            intensity: Intensity::MAX,
             phase: Phase(0x40),
         },
     ))?;

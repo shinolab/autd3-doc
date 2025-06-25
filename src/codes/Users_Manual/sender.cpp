@@ -8,8 +8,9 @@ auto sender =
     autd.sender(SenderOption{.send_interval = std::chrono::milliseconds(1),
                              .receive_interval = std::chrono::milliseconds(1),
                              .timeout = std::nullopt,
-                             .parallel = ParallelMode::Auto},
-                SpinSleeper());
+                             .parallel = ParallelMode::Auto,
+                             .strict = true},
+                FixedSchedule{});
 //~const Null d;
 sender.send(d);
 //~return 0; }

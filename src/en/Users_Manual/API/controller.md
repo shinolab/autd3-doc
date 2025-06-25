@@ -81,19 +81,25 @@ You can specify settings for sending via `sender`.
 Here,
 - `send_interval`: Send interval
 - `receive_interval`: Receive interval
-- `timeout`: Timeout duration. See [About Timeout](#about-timeout) for details
-- `parallel`: Parallel computation mode. See [About Parallel Computation](#about-parallel-computation) for details
+- `timeout`: Timeout duration. See [About Ack check](#about-ack-check) for details.
+- `parallel`: Parallel computation mode. See [About Parallel Computation](#about-parallel-computation) for details.
+- `strict`: Whether to strictly check the data to be sent. See [About Ack check](#about-ack-check) for details.
 
 and the default values are as above.
 
-The second argument is a sleeper, which is structure to adjust send/receive intervals.
+The second argument is a structure to adjust send/receive intervals, and you can choose from the following:
+- `FixedSchedule`: Starts the next send at the specified interval from the start time of the previous send, regardless of the time taken for the send process.
+- `FixedDelay`: Starts the next send after the specified interval from the completion of the send process. 
+
+これらの構造体は, どのようにスレッドをスリープさせるかを指定する以下の構造体を持つ.
+These structures have the following structures that specify how to put the thread to sleep:
 - `SpinSleeper`: Uses [`spin_sleep`](https://crates.io/crates/spin_sleep)
-- `StdSleeper`: Uses `std::thread::sleep`
-- `WaitableSleeper`: (Windows only) Uses [`Waitable Timer`](https://learn.microsoft.com/en-us/windows/win32/sync/waitable-timer-objects)
+- `StdSleeper`: Uses [`std::thread::sleep`](https://doc.rust-lang.org/std/thread/fn.sleep.html)
+- `SpinWait`: Uses busy-waiting
 
 Note that `Controller::send` and `Controller::group_send` are equivalent to `Sender::send` and `Sender::group_send` with the `Controller::default_sender_option` (which is configurable) and default `SpinSleeper`.
 
-### About Timeout
+### About ack check
 
 If the timeout value is
 - greater than 0, the `send` function waits until the sent data is processed by the device or the specified timeout duration elapses. If it cannot confirm that the sent data was processed by the device, it returns an error.
@@ -116,7 +122,7 @@ Internal calculations for each data can be executed in parallel on a per-device 
 
 Specifying `ParallelMode::On` enables parallel computation, and `ParallelMode::Off` disables it.
 
-In the case of `ParallelMode::Auto`, parallel computation is enabled if the number of enabled devices exceeds the parallel computation threshold value for each data as shown below.
+In the case of `ParallelMode::Auto`, parallel computation is enabled if the number of devices exceeds the parallel computation threshold value for each data as shown below.
 
 |       | Parallel Computation Threshold Value   | 
 | ----- | -------------- | 

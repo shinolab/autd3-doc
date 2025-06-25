@@ -15,7 +15,7 @@ new Bessel(
     theta: theta * rad,
     option: new BesselOption
     {
-        Intensity = EmitIntensity.Max,
+        Intensity = Intensity.Max,
         PhaseOffset = Phase.Zero
     }
 );

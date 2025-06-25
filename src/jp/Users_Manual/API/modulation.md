@@ -24,7 +24,6 @@ SDKにはデフォルトでいくつかの種類のAMを生成するための`Mo
 * [Wav](./modulation/wav.md) - Wavファイルをもとにした変調
 * [Csv](./modulation/csv.md) - Csvファイルをもとにした変調
 * [Custom](./modulation/custom.md) - ユーザー定義の変調
-* [Cache](./modulation/cache.md) - 他の`Modulation`の計算結果をキャッシュする
 * [RadiationPressure](./modulation/radiation.md) - 放射圧に対して変調を適用する
 * [Fir](./modulation/fir.md) - Firフィルタを適用する
 

@@ -1,7 +1,7 @@
 # ファームウェア
 
 ファームウェアのアップデートには[Vivado](https://www.xilinx.com/products/design-tools/vivado.html), 及び, [J-Link Software](https://www.segger.com/downloads/jlink/)をインストールしたWindows 10/11 64bit PCが必要である.
-なお, Vivado 2024.1, 及び, J-Link Software v8.10での動作を確認している.
+なお, Vivado 2025.1, 及び, J-Link Software v8.10での動作を確認している.
 
 > NOTE: ファームウェアのアップデートだけが目的であれば, "**Vivado Lab Edition**"の使用を強く推奨する. 
 > ML Edition はインストールに60 GB以上のディスク容量を要求する. Lab Edition は6 GB程度のディスク容量で済む. 

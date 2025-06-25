@@ -1,4 +1,4 @@
-~from pyautd3 import AUTD3, Controller, Duration, Null, SenderOption, SpinSleeper, ParallelMode
+~from pyautd3 import AUTD3, Controller, Duration, Null, SenderOption, FixedSchedule, ParallelMode
 ~from pyautd3.link.nop import Nop
 ~autd = Controller.open([AUTD3()], Nop())
 sender = autd.sender(
@@ -7,8 +7,9 @@ sender = autd.sender(
         receive_interval=Duration.from_millis(1),
         timeout=None,
         parallel=ParallelMode.Auto,
+        strict=True
     ),
-    SpinSleeper(),
+    FixedSchedule(),
 )
 ~d = Null()
 sender.send(d)

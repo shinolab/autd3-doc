@@ -19,6 +19,6 @@ auto g = gain::holo::Greedy(
     gain::holo::GreedyOption{
         .phase_quantization_levels = 16,
         .constraint = gain::holo::EmissionConstraint::Uniform(
-            std::numeric_limits<EmitIntensity>::max())});
+            std::numeric_limits<Intensity>::max())});
 //~  return 0;
 //~}
