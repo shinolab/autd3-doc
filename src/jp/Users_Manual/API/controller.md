@@ -105,12 +105,7 @@ FPGAの状態としては, 現在以下の情報が取得できる.
 
 確実にデータを送信したい場合はこれを適当な値に設定しておくことをおすすめする.
 
-`SenderOption`で指定しない場合, 以下に示す各データのデフォルト値が使用される.
-
-|       | タイムアウト値   | 
-| ----- | -------------- | 
-| `Clear`/`GPIOOutputs`/<br>`ForceFan`/`PhaseCorrection`/<br>`PulseWidthEncoder`/`ReadsFPGAState`/<br>`SwapSegment`/`Silencer`/<br>`Synchronize`/`FociSTM`/<br>`GainSTM`/`Modulation` | $\SI{200}{ms}$ | 
-| `Gain`  | $\SI{20}{ms}$ | 
+`SenderOption`で指定しない場合, デフォルト値 ($\SI{200}{ms}$) が使用される.
 
 複数をまとめて送信する場合は, それぞれのデータのタイムアウト値の最大値が使用される.
 
