@@ -107,12 +107,7 @@ If the timeout value is
 
 If you want to ensure that the data is sent, it is recommended to set this to an appropriate value.
 
-If timeout is not specified in `SenderOption`, the default values for each data are used as shown below.
-
-|       | Timeout Value   | 
-| ----- | -------------- | 
-| `Clear`/`GPIOOutputs`/<br>`ForceFan`/`PhaseCorrection`/<br>`PulseWidthEncoder`/`ReadsFPGAState`/<br>`SwapSegment`/`Silencer`/<br>`Synchronize`/`FociSTM`/<br>`GainSTM`/`Modulation` | $\SI{200}{ms}$ | 
-| `Gain`  | $\SI{20}{ms}$ | 
+If timeout is not specified in `SenderOption`, the default value ($\SI{200}{ms}$) is used.
 
 When sending multiple data at once, the maximum timeout value of each data is used.
 
