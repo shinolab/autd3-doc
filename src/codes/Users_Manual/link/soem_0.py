@@ -18,7 +18,7 @@ def err_handler(slave: int, status: Status) -> None:
 SOEM(
     err_handler=err_handler,
     option=SOEMOption(
-        buf_size=32,
+        buf_size=16,
         ifname="",
         state_check_interval=Duration.from_millis(100),
         sync0_cycle=Duration.from_millis(1),
@@ -27,5 +27,6 @@ SOEM(
         process_priority=ProcessPriority.High,  # only available on Windows
         sync_tolerance=Duration.from_micros(1),
         sync_timeout=Duration.from_secs(10),
+        affinity=None,
     ),
 )

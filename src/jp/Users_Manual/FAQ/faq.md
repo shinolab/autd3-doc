@@ -114,7 +114,7 @@
   1. AM変調/STMのサンプリングレートをおとす
   1. [`Silencer`を無効化する](../API/silencer.md#silencerの設定)
   1. [Fixed update rateモード](../API/silencer.md#fixed-update-rate-mode)を使用する
-  1. [strict_mode](../API/silencer.md#fixed-completion-time-modeの設定)を`false`にする
+  1. [strict](../API/silencer.md#fixed-completion-time-modeの設定)を`false`にする
 
 </details>
 

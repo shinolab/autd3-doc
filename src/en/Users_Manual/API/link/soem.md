@@ -22,17 +22,17 @@ cargo add autd3-link-soem
 if(WIN32)
   FetchContent_Declare(
     autd3-link-soem
-    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v34.0.0/autd3-link-soem-v34.0.0-win-x64.zip
+    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v35.0.1/autd3-link-soem-v35.0.1-win-x64.zip
   )
 elseif(APPLE)
   FetchContent_Declare(
     autd3-link-soem
-    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v34.0.0/autd3-link-soem-v34.0.0-macos-aarch64.tar.gz
+    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v35.0.1/autd3-link-soem-v35.0.1-macos-aarch64.tar.gz
   )
 else()
   FetchContent_Declare(
     autd3-link-soem
-    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v34.0.0/autd3-link-soem-v34.0.0-linux-x64.tar.gz
+    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v35.0.1/autd3-link-soem-v35.0.1-linux-x64.tar.gz
   )
 endif()
 FetchContent_MakeAvailable(autd3-link-soem)
@@ -94,3 +94,4 @@ The default values are as above.
 - `process_priority`: Process priority (Windows only) 
 - `sync_tolerance`: Synchronization tolerance level. During initialization, this link waits until the system time difference of each device is below this value. If synchronization is not completed within the timeout period below, an error occurs. It is not recommended to change this value.
 - `sync_timeout`: Synchronization timeout. Timeout period for the system time difference measurement above.
+‐ `affinity`: CPU affinity. If `None`, it is left to the OS.

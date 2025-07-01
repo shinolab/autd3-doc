@@ -74,10 +74,6 @@ Alternatively, you can use an iterator.
 ## Device API
 
 - `idx()`: Device index
-- `sound_speed`: Get/set the speed of sound. The unit is mm/s. **It is recommended to set a value as close to reality as possible because it is used for phase calculation, etc.** The default speed of sound is $340\times 10^{3}\,\mathrm{mm/s}$, which corresponds to the speed of sound in air at approximately 15 degrees Celsius.
-- `set_sound_speed_from_temp(temp)`: Set the speed of sound from the temperature `temp` [℃]. Note that `Geometry` also has a function with the same name, and using it will set the speed of sound from the temperature for all devices.
-- `wavelength()`: Wavelength of the ultrasound emitted by the device
-- `wavenumber()`: Wavenumber of the ultrasound emitted by the device
 - `rotation()`: Rotation of the device
 - `x_direction()`: X-direction vector of the device
 - `y_direction()`: Y-direction vector of the device

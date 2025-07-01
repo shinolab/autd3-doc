@@ -28,9 +28,9 @@ def substitute_in_file(
 
 
 if __name__ == "__main__":
-    autd3_version = "34.0.0"
-    autd3_emulator_version = "34.0.0"
-    autd3_link_soem_version = "34.0.0"
+    autd3_version = "35.0.1"
+    autd3_emulator_version = "35.0.1"
+    autd3_link_soem_version = "35.0.1"
     itertools_version = get_latest_version("itertools")
     tokio = get_latest_version("tokio")
     nalgebra = get_latest_version("nalgebra")
@@ -70,7 +70,7 @@ version = "{autd3_version}"
 edition = "2021"
 
 [dependencies]
-autd3 = {{ version = "{autd3_version}", features = ["async", "async-trait"] }}
+autd3 = {{ version = "{autd3_version}", features = ["async", "async-trait", "link-nop"] }}
 autd3-gain-holo = {{ version = "{autd3_version}" }}
 autd3-link-simulator = {{ version = "{autd3_version}", features = ["blocking", "async-trait"] }}
 autd3-link-soem = {{ version = "{autd3_link_soem_version}", features = ["remote", "blocking", "async-trait"] }}

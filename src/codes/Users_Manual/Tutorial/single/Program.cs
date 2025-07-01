@@ -12,7 +12,7 @@ using var autd = Controller.Open(
             {
                 Console.Error.WriteLine($"slave [{slave}]: {status}");
                 if (status == Status.Lost)
-                    Environment.Exit(-1);
+                    System.Environment.Exit(-1);
             },
         new SOEMOption()
     )

@@ -194,6 +194,6 @@ Fixed completion time modeを設定するには, 以下のようにする.
 - Silencerの振幅変化完了時間 $\le$ `FociSTM`/`GainSTM`のサンプリング周期
 - Silencerの位相変化完了時間 $\le$ `FociSTM`/`GainSTM`のサンプリング周期
 
-`strict_mode`を`false`にすれば, この条件を満たさない場合でもエラーを返さないようになるが, 推奨はされない.
+`strict`を`false`にすれば, この条件を満たさない場合でもエラーを返さないようになるが, 推奨はされない.
 
 [^suzuki2020]: Suzuki, Shun, et al. "Reducing amplitude fluctuation by gradual phase shift in midair ultrasound haptics." IEEE transactions on haptics 13.1 (2020): 87-93.
