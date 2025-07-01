@@ -28,3 +28,9 @@
 {{ #endtabs }}
 
 `OutputMask`コンストラクタの引数は`Fn(&Device) -> Fn(&Transducer) -> bool`で, `false`に設定した振動子の出力は無効化される.
+
+なお, `OutputMask`は`Gain`, `FociSTM`, `GainSTM`の各`Segment`別に作用する.
+
+特に指定しない限りは, `Segment::S0`が使用される.
+
+マスクをかける`Segment`を変更する場合は, [`WithSegment`](./segment.md)を使用する (`transition_mode`は影響しない).
