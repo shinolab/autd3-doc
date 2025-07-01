@@ -14,7 +14,7 @@ SOEM::new(
         }
     },
     SOEMOption {
-        buf_size: NonZeroUsize::new(32).unwrap(),
+        buf_size: NonZeroUsize::new(16).unwrap(),
         ifname: String::new(),
         state_check_interval: Duration::from_millis(100),
         sync0_cycle: Duration::from_millis(1),
@@ -24,6 +24,7 @@ SOEM::new(
         process_priority: ProcessPriority::High,
         sync_tolerance: Duration::from_micros(1),
         sync_timeout: Duration::from_secs(10),
+        affinity: None
     },
 );
 # }

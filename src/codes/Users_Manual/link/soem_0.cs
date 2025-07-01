@@ -7,11 +7,11 @@ new SOEM(
     {
         Console.Error.WriteLine($"slave [{slave}]: {status}");
         if (status == Status.Lost)
-            Environment.Exit(-1);
+            System.Environment.Exit(-1);
     },
     option: new SOEMOption
     {
-        BufSize = 32,
+        BufSize = 16,
         Ifname = "",
         StateCheckInterval = Duration.FromMillis(100),
         Sync0Cycle = Duration.FromMillis(1),
@@ -20,5 +20,6 @@ new SOEM(
         ProcessPriority = ProcessPriority.High,
         SyncTolerance = Duration.FromMicros(1),
         SyncTimeout = Duration.FromSecs(10),
+        Affinity = null,
     }
 );

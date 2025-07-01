@@ -10,16 +10,16 @@ link::SOEM(
         exit(-1);
       }
     },
-    link::SOEMOption{
-        .buf_size = 32,
-        .ifname = "",
-        .state_check_interval = std::chrono::milliseconds(100),
-        .sync0_cycle = std::chrono::milliseconds(1),
-        .send_cycle = std::chrono::milliseconds(1),
-        .thread_priority = link::ThreadPriority::Max(),
-        .process_priority = link::ProcessPriority::High,
-        .sync_tolerance = std::chrono::microseconds(1),
-        .sync_timeout = std::chrono::seconds(10),
+    link::SOEMOption{.buf_size = 16,
+                     .ifname = "",
+                     .state_check_interval = std::chrono::milliseconds(100),
+                     .sync0_cycle = std::chrono::milliseconds(1),
+                     .send_cycle = std::chrono::milliseconds(1),
+                     .thread_priority = link::ThreadPriority::Max(),
+                     .process_priority = link::ProcessPriority::High,
+                     .sync_tolerance = std::chrono::microseconds(1),
+                     .sync_timeout = std::chrono::seconds(10),
+                     .affinity = std::nullopt
 
     });
 //~return 0; }

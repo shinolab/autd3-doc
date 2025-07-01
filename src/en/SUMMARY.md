@@ -51,6 +51,7 @@
     - [Segment/LoopBehavior](./Users_Manual/API/segment.md)
     - [Silencer](./Users_Manual/API/silencer.md)
     - [PhaseCorrection](./Users_Manual/API/phase_corr.md)
+    - [OutputMask](./Users_Manual/API/output_mask.md)
     - [PulseWidthEncoder](./Users_Manual/API/pulse_width_encoder.md)
     - [GPIOOutputs](./Users_Manual/API/gpio_out.md)
     - [ForceFan](./Users_Manual/API/fan.md)

@@ -188,6 +188,6 @@ Therefore, the following conditions must be met:
 - Silencer intensity change completion time $\le$ `FociSTM`/`GainSTM` sampling period
 - Silencer phase change completion time $\le$ `FociSTM`/`GainSTM` sampling period
 
-If `strict_mode` is set to `false`, no error is returned even if these conditions are not met, but it is not recommended.
+If `strict` is set to `false`, no error is returned even if these conditions are not met, but it is not recommended.
 
 [^suzuki2020]: Suzuki, Shun, et al. "Reducing amplitude fluctuation by gradual phase shift in midair ultrasound haptics." IEEE transactions on haptics 13.1 (2020): 87-93.

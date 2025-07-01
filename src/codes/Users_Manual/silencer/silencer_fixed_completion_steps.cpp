@@ -4,5 +4,5 @@
 //~using namespace autd3;
 Silencer{FixedCompletionTime{.intensity = std::chrono::microseconds(250),
                              .phase = std::chrono::microseconds(250),
-                             .strict_mode = true}};
+                             .strict = true}};
 //~return 0; }

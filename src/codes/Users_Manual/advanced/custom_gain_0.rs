@@ -6,6 +6,7 @@ pub struct FocalPoint {
     pos: Point3,
 }
 
+#[derive(Clone, Copy)]
 pub struct Impl {
     pos: Point3,
     wavenumber: f32,
@@ -20,22 +21,27 @@ impl GainCalculator for Impl {
     }
 }
 
-impl GainCalculatorGenerator for FocalPoint {
+impl GainCalculatorGenerator for Impl {
     type Calculator = Impl;
 
-    fn generate(&mut self, device: &Device) -> Self::Calculator {
-        Impl {
-            pos: self.pos,
-            wavenumber: device.wavenumber(),
-        }
+    fn generate(&mut self, _: &Device) -> Self::Calculator {
+        *self
     }
 }
 
 impl Gain for FocalPoint {
-    type G = FocalPoint;
+    type G = Impl;
 
-    fn init(self, _geometry: &Geometry, _filter: &TransducerFilter) -> Result<Self::G, GainError> {
-        Ok(self)
+    fn init(
+        self,
+        _geometry: &Geometry,
+        env: &Environment,
+        _filter: &TransducerFilter,
+    ) -> Result<Self::G, GainError> {
+        Ok(Impl {
+            pos: self.pos,
+            wavenumber: env.wavenumber(),
+        })
     }
 }
 # fn main() {}
