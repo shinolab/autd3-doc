@@ -82,6 +82,7 @@
     - [Pulse Witdth Encoder](./Developer_Manual/fpga/pulse_width_encoder.md)
     - [Silencer](./Developer_Manual/fpga/silencer.md)
     - [Modulation](./Developer_Manual/fpga/modulation.md)
+    - [Phase Correction](./Developer_Manual/fpga/phase_corr.md)
     - [STM](./Developer_Manual/fpga/stm.md)
     - [Synchronizer](./Developer_Manual/fpga/sync.md)
     - [Time Count Generator](./Developer_Manual/fpga/time_cnt.md)

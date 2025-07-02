@@ -6,6 +6,10 @@ FPGA内部のBRAMは5つに分かれている.
 書き込み時は`CPU_ADDR` ($\SI{16}{bit}$) の内, 上位$\SI{2}{bit}$ (`BRAM_SELECT`) でこれを区別する.
 
 - 0x0: Controller BRAM
+    - Controller BRAMは更に3つのセクションに分かれている. これらは, `CPU_ADDR`下位$\SI{14}{bit}$のうち, 上位$\SI{6}{bit}$によって区別される.
+        - 0x0: Controller Main BRAM
+        - 0x1: Phase Correction BRAM
+        - 0x2: Output Mask BRAM 
 - 0x1: Modulation BRAM
 - 0x2: Pulse Witdth Encoder Table BRAM
 - 0x3: STM BRAM
