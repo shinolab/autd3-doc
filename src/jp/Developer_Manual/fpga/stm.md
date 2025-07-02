@@ -20,7 +20,8 @@
 | INTENSITY                     | Out    | 8     | 強度                                               | 
 | PHASE                         | Out    | 8     | 位相                                               | 
 | DOUT_VALID                    | Out    | 1     | 強度/位相データ有効フラグ                          | 
-| STM_BUS                       | In     | -     | 位相フィルタ用メモリバス                           | 
+| STM_BUS                       | In     | -     | STMデータメモリバス                                | 
+| OUTPUT_MASK_BUS               | In     | -     | OutputMaskデータメモリバス                         | 
 
 本モジュールは, 強度/位相データを出力する.
 
@@ -110,3 +111,8 @@ $$\begin{align}
 $\sin, \cos$の計算に関しては$p_i$が$\SI{8}{bit}$の有限値であるため, あらかじめ計算済みの$\sin$テーブルを用いる.
 また, $\tan^{-1}$の計算も, 計算済みのテーブルを用いる.
 $\tan^{-1}$のテーブルはデータ量を削減するため, $\SI{8}{bit}$の$\sin(p_i)$の平均値$\displaystyle S = \frac{\sum_0^N \sin(p_i)}{N}$, $\cos(p_i)$の平均値$\displaystyle C = \frac{\sum_0^N \cos(p_i)}{N}$に対して, $\lbrace S[7:1], C[7:1]\rbrace$をキーとしている.
+
+## Output Mask
+
+`Output Mask`モジュールは`Gain`, または, `Focus`モジュールからの出力を, マスクデータに基づいて, 超音波を出力するか否か (intensityを0にするか否か) を制御する.
+`Gain`は振動子毎にintensityを設定できるため, 基本的に`Focus`モジュールからの出力を制御する目的で使用される.
