@@ -30,7 +30,10 @@ if __name__ == "__main__":
     base_path = pathlib.Path(os.getcwd()) / "src" / "codes"
 
     n_jobs = multiprocessing.cpu_count()
-    cs_srcs = list(base_path.rglob("*.cs"))
+
+    cs_srcs = (
+        sys.argv[1:] if len(sys.argv) > 1 else list(base_path.rglob("*.cs"))
+    )
     print(f"Testing {len(cs_srcs)} files:")
     for src in cs_srcs:
         print(f"{src}")

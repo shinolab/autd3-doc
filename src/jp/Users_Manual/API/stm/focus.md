@@ -12,22 +12,22 @@
 {{ #tabs }}
 {{ #tab name=Rust }}
 ```rust,edition2024
-{{#include ../../../../codes/Users_Manual/stm/focus_0.rs}}
+{{#include ../../../../codes/Users_Manual/stm/focus_stm.rs}}
 ```
 {{ #endtab }}
 {{ #tab name=C++ }}
 ```cpp
-{{#include ../../../../codes/Users_Manual/stm/focus_0.cpp}}
+{{#include ../../../../codes/Users_Manual/stm/focus_stm.cpp}}
 ```
 {{ #endtab }}
 {{ #tab name=C# }}
 ```cs
-{{#include ../../../../codes/Users_Manual/stm/focus_0.cs}}
+{{#include ../../../../codes/Users_Manual/stm/focus_stm.cs}}
 ```
 {{ #endtab }}
 {{ #tab name=Python }}
 ```python
-{{#include ../../../../codes/Users_Manual/stm/focus_0.py}}
+{{#include ../../../../codes/Users_Manual/stm/focus_stm.py}}
 ```
 {{ #endtab }}
 {{ #endtabs }}
