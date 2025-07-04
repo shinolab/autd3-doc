@@ -1,0 +1,302 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Segmentの使用 - AUTD3 Developers Manual v35.0.1</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../css/codeblock_filename.css">
+        <link rel="stylesheet" href="../../css/lightbox.css">
+        <link rel="stylesheet" href="../../css/open-in.css">
+        <link rel="stylesheet" href="../../css/no-link-summary.css">
+        <link rel="stylesheet" href="../../css/tab.css">
+        <link rel="stylesheet" href="../../css/faq.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">AUTD3 Developers Manual v35.0.1</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/shinolab/autd3-doc" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="segmentの使用"><a class="header" href="#segmentの使用">Segmentの使用</a></h1>
+<p><a href="./move_focus.html">焦点の移動</a>で説明したように, autd3において, <code>Gain</code>等は送信するたびに上書きされ, この書き込みはバッファリングされたりはしない.
+そのため, (特に<code>Gain</code>→<code>FociSTM</code>への切替時などに) 意図しない中間データが出力されてしまうことがある.
+これを防ぐために, AUTD3では, <code>Gain/GainSTM/FociSTM</code>や<code>Modulation</code>は2つのメモリ領域 (<code>Segment</code>と呼ぶ) を持っており手動で<a href="https://en.wikipedia.org/wiki/Multiple_buffering">ダブルバッファリング</a>のような制御を行うことができる.</p>
+<p><code>WithSegment</code>でデータを包むことで, 書き込む<code>Segment</code>を変更することができる.
+(デフォルトでは<code>Segment::S0</code>に書き込まれる.)</p>
+<div class="mdbook-inpage-tabs"><input id="Rust-tab-0" type="radio" class="mdbook-inpage-tab" name="tab-0" checked>
+                                <label class="mdbook-inpage-tab-item" num-tabs=4 for="Rust-tab-0">Rust</label><input id="C++-tab-0" type="radio" class="mdbook-inpage-tab" name="tab-0">
+                                <label class="mdbook-inpage-tab-item" num-tabs=4 for="C++-tab-0">C++</label><input id="C#-tab-0" type="radio" class="mdbook-inpage-tab" name="tab-0">
+                                <label class="mdbook-inpage-tab-item" num-tabs=4 for="C#-tab-0">C#</label><input id="Python-tab-0" type="radio" class="mdbook-inpage-tab" name="tab-0">
+                                <label class="mdbook-inpage-tab-item" num-tabs=4 for="Python-tab-0">Python</label><div class="mdbook-inpage-tab-content" id=Rust-content>
+<pre><code class="language-rust edition2024"><span class="boring">use autd3::prelude::*;
+</span><span class="boring">fn main() {
+</span><span class="boring">let x = 0.0;
+</span><span class="boring">let y = 0.0;
+</span><span class="boring">let z = 0.0;
+</span><span class="boring">let _ =
+</span>WithSegment {
+    inner: Focus {
+        pos: Point3::new(x, y, z),
+        option: FocusOption {
+            intensity: Intensity(0x80),
+            ..Default::default()
+        },
+    },
+    segment: Segment::S1,
+    transition_mode: Some(TransitionMode::Immediate),
+};
+<span class="boring">}</span></code></pre>
+</div><div class="mdbook-inpage-tab-content" id=C++-content>
+<pre><code class="language-cpp"><span class="boring">#include&lt;autd3.hpp&gt;
+</span><span class="boring">int main() {
+</span><span class="boring">const auto x = 0.0;
+</span><span class="boring">const auto y = 0.0;
+</span><span class="boring">const auto z = 0.0;
+</span>autd3::WithSegment{
+    autd3::Focus{autd3::Point3(x, y, z),
+                 autd3::FocusOption{.intensity = autd3::Intensity(0x80)}},
+    autd3::Segment::S1, autd3::TransitionMode::Immediate()};
+<span class="boring">return 0; }
+</span></code></pre>
+</div><div class="mdbook-inpage-tab-content" id=C#-content>
+<pre><code class="language-cs"><span class="boring">using AUTD3Sharp;
+</span><span class="boring">using AUTD3Sharp.Utils;
+</span><span class="boring">using AUTD3Sharp.Gain;
+</span><span class="boring">var x = 0.0f;
+</span><span class="boring">var y = 0.0f;
+</span><span class="boring">var z = 0.0f;
+</span>new WithSegment(
+    inner: new Focus(
+        pos: new Point3(x, y, z),
+        option: new FocusOption
+        {
+            Intensity = new Intensity(0x80),
+        }
+    ),
+    segment: Segment.S1,
+    transitionMode: TransitionMode.Immediate
+);
+</code></pre>
+</div><div class="mdbook-inpage-tab-content" id=Python-content>
+<pre><code class="language-python"><span class="boring">from pyautd3 import Intensity, Focus, FocusOption, WithSegment, Segment, TransitionMode
+</span><span class="boring">x = 1.0
+</span><span class="boring">y = 0.0
+</span><span class="boring">z = 0.0
+</span>WithSegment(
+    inner=Focus(
+        pos=[x, y, z],
+        option=FocusOption(
+            intensity=Intensity(0x80),
+        ),
+    ),
+    segment=Segment.S1,
+    transition_mode=TransitionMode.Immediate,
+)
+</code></pre>
+</div></div>
+<p>ここで, <code>TransitionMode::Immediate</code>はデータの書き込み後, 直ちに<code>Segment</code>を切り替えることを意味する.</p>
+<p><code>transition_mode</code>に<code>None</code>を指定すると, データの書き込みだけを行い<code>Segment</code>の切り替えは行われない.
+この場合は, 後に<code>SwapSegment</code>を送信することで, <code>Segment</code>を切り替えることができる.
+詳細は, <a href="../API/segment.html"><code>API/Segment</code></a>を参照されたい.</p>
+<blockquote>
+<p>NOTE: なお, <code>Gain</code>, <code>GainSTM</code>, <code>FociSTM</code>はメモリ領域を共有している. 例えば, <code>Gain</code>のデータを書き込んだあと, <code>GainSTM</code>のデータを書き込むと, <code>Gain</code>のデータは上書きされる.</p>
+</blockquote>
+<footer id="open-on-gh">Found a bug? <a href="https://github.com/shinolab/autd3-doc/edit/main/src/jp/Users_Manual/tutorial/segment.md">Edit this page on GitHub.</a></footer>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../Users_Manual/tutorial/intensity.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../Users_Manual/API/link.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../Users_Manual/tutorial/intensity.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../Users_Manual/API/link.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../js/codeblock_filename.js"></script>
+        <script src="../../js/lightbox-plus-jquery.min.js"></script>
+
+
+    </div>
+    </body>
+</html>
