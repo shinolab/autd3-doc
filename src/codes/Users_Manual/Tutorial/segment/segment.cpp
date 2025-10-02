@@ -1,10 +1,9 @@
 //~#include<autd3.hpp>
 //~int main() {
+//~using namespace autd3;
 //~const auto x = 0.0;
 //~const auto y = 0.0;
 //~const auto z = 0.0;
-autd3::WithSegment{
-    autd3::Focus{autd3::Point3(x, y, z),
-                 autd3::FocusOption{.intensity = autd3::Intensity(0x80)}},
-    autd3::Segment::S1, autd3::TransitionMode::Immediate()};
+WithSegment{Focus{Point3(x, y, z), FocusOption{.intensity = Intensity(0x80)}},
+            Segment::S1, transition_mode::Immediate()};
 //~return 0; }

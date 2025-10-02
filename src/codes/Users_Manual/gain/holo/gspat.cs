@@ -9,7 +9,6 @@ using AUTD3Sharp.Gain.Holo;
 ~var x2 = 0.0f;
 ~var y2 = 0.0f;
 ~var z2 = 0.0f;
-var backend = new NalgebraBackend();
 new GSPAT(
     foci: [
              (new Point3(x1, y1, z1), 5e3f * Pa),
@@ -19,6 +18,5 @@ new GSPAT(
     {
         Repeat = 100,
         EmissionConstraint = EmissionConstraint.Clamp(Intensity.Min, Intensity.Max),
-    },
-    backend: backend
+    }
 );

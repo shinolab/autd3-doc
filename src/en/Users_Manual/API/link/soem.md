@@ -1,5 +1,9 @@
 # SOEM
 
+> NOTE: This link is only available in Rust.
+
+> NOTE: This link is distributed under the GPLv3 license.
+
 [SOEM](https://github.com/OpenEtherCATsociety/SOEM) is an open-source EtherCAT Master library developed by volunteers.
 Unlike TwinCAT, real-time performance is not guaranteed.
 Therefore, it is generally recommended to use TwinCAT.
@@ -11,75 +15,17 @@ For Linux/macOS, no special preparation is required.
 
 ## Install
 
-{{ #tabs }}
-{{ #tab name=Rust }}
 ```shell
 cargo add autd3-link-soem
 ```
-{{ #endtab }}
-{{ #tab name=C++ }}
-```cpp,name=CMakeLists.txt
-if(WIN32)
-  FetchContent_Declare(
-    autd3-link-soem
-    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v35.0.1/autd3-link-soem-v35.0.1-win-x64.zip
-  )
-elseif(APPLE)
-  FetchContent_Declare(
-    autd3-link-soem
-    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v35.0.1/autd3-link-soem-v35.0.1-macos-aarch64.tar.gz
-  )
-else()
-  FetchContent_Declare(
-    autd3-link-soem
-    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v35.0.1/autd3-link-soem-v35.0.1-linux-x64.tar.gz
-  )
-endif()
-FetchContent_MakeAvailable(autd3-link-soem)
-target_link_libraries(<TARGET> PRIVATE autd3::link::soem)
-```
-{{ #endtab }}
-{{ #tab name=C# }}
-```shell
-dotnet add package AUTD3Sharp.Link.SOEM
-```
-{{ #endtab }}
-{{ #tab name=Unity }}
-Add `https://github.com/shinolab/AUTD3Sharp.Link.SOEM.git#upm/latest` to Unity Package Manager.
-{{ #endtab }}
-{{ #tab name=Python }}
-```shell
-pip install pyautd3_link_soem
-```
-{{ #endtab }}
-{{ #endtabs }}
 
 ## APIs
 
 The first argument is a callback function for errors, and the second argument specifies options.
 
-{{ #tabs }}
-{{ #tab name=Rust }}
 ```rust
 {{#include ../../../../codes/Users_Manual/link/soem_0.rs}}
 ```
-{{ #endtab }}
-{{ #tab name=C++ }}
-```cpp
-{{#include ../../../../codes/Users_Manual/link/soem_0.cpp}}
-```
-{{ #endtab }}
-{{ #tab name=C# }}
-```cs
-{{#include ../../../../codes/Users_Manual/link/soem_0.cs}}
-```
-{{ #endtab }}
-{{ #tab name=Python }}
-```python
-{{#include ../../../../codes/Users_Manual/link/soem_0.py}}
-```
-{{ #endtab }}
-{{ #endtabs }}
 
 The options that can be specified for the SOEM link are as follows.
 The default values are as above.

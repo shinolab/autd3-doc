@@ -1,5 +1,5 @@
 # Null
-[Source](https://github.com/shinolab/autd3-rs/blob/v35.0.1/autd3-driver/src/datagram/implements/null.rs)
+[Source](https://github.com/shinolab/autd3-rs/blob/v36.0.2/autd3-driver/src/datagram/implements/null.rs)
 
 `Null`は振幅0の`Gain`である.
 

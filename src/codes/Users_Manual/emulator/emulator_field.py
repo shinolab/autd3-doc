@@ -22,7 +22,6 @@ with Emulator([AUTD3()]) as emulator:
         InstantRecordOption(
             sound_speed=340e3,
             time_step=Duration.from_micros(1),
-            print_progress=True,
             memory_limits_hint_mb=128,
             gpu=True,
         ),

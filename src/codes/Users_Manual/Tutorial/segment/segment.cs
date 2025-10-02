@@ -1,5 +1,6 @@
 ~using AUTD3Sharp;
 ~using AUTD3Sharp.Utils;
+~using AUTD3Sharp.TransitionMode;
 ~using AUTD3Sharp.Gain;
 ~var x = 0.0f;
 ~var y = 0.0f;
@@ -13,5 +14,5 @@ new WithSegment(
         }
     ),
     segment: Segment.S1,
-    transitionMode: TransitionMode.Immediate
+    transitionMode: new Immediate()
 );

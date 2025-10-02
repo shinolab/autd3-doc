@@ -9,7 +9,6 @@ using AUTD3Sharp.Gain.Holo;
 ~var x2 = 0.0f;
 ~var y2 = 0.0f;
 ~var z2 = 0.0f;
-var backend = new NalgebraBackend();
 new Naive(
     foci: [
              (new Point3(x1, y1, z1), 5e3f * Pa),
@@ -18,6 +17,5 @@ new Naive(
     option: new NaiveOption
     {
         EmissionConstraint = EmissionConstraint.Clamp(Intensity.Min, Intensity.Max),
-    },
-    backend: backend
+    }
 );

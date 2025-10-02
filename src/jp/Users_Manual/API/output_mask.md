@@ -33,4 +33,4 @@
 
 特に指定しない限りは, `Segment::S0`が使用される.
 
-マスクをかける`Segment`を変更する場合は, [`WithSegment`](./segment.md)を使用する (`transition_mode`は影響しない).
+マスクをかける`Segment`を変更する場合は, `with_segment`を使用する.

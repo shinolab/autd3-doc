@@ -23,8 +23,7 @@ def substitute_in_file(
 
 
 if __name__ == "__main__":
-    version = "35.0.1.1"
-    link_soem_version = "35.0.1.1"
+    version = "36.0.2"
     print(f"Testing with AUTD3Sharp {version}")
 
     base_path = pathlib.Path(os.getcwd()) / "src" / "codes"
@@ -67,7 +66,6 @@ if __name__ == "__main__":
 
     <ItemGroup>
         <PackageReference Include="AUTD3Sharp" Version="{version}" />
-        <PackageReference Include="AUTD3Sharp.Link.SOEM" Version="{link_soem_version}" />
     </ItemGroup>
 
     </Project>""",

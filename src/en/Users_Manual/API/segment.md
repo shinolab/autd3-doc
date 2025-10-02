@@ -1,4 +1,4 @@
-# Segment/LoopBehavior
+# Segment/FiniteLoop
 
 ## Segment
 
@@ -43,9 +43,9 @@ The `transition_mode` specifies the conditions for switching `Segments`.
 
 > NOTE: `Gain` only supports `Immediate`.
 
-> To specify the loop behavior of the destination loop, refer to [`LoopBehavior`](#loopbehavior).
+> To specify the loop behavior of the destination loop, refer to [`FiniteLoop`](#finiteloop).
 
-To write data without switching `Segments`, specify `None` for `transition_mode`.
+To write data without switching `Segments`, specify `Later` for `transition_mode`.
 
 ### Switching Segments
 
@@ -74,9 +74,9 @@ To switch `Segments` only, use `SwapSegment`.
 {{ #endtab }}
 {{ #endtabs }}
 
-### LoopBehavior
+### FiniteLoop
 
-`Modulation`, `FociSTM`, and `GainSTM` can control loop behavior with `WithLoopBehavior`.
+`Modulation`, `FociSTM`, and `GainSTM` can control loop behavior with `WithFiniteLoop`.
 
 {{ #tabs }}
 {{ #tab name=Rust }}

@@ -1,43 +1,8 @@
 # FAQ
 
-<details><summary><code class="hljs">STATUS_DLL_NOT_FOUND</code>または<code class="hljs">FileNotFoundError: autd3capi_link_soem.dll (or one of its dependencies)</code>というエラーがでる</summary>
+<details><summary><code class="hljs">STATUS_DLL_NOT_FOUND</code>または<code class="hljs">FileNotFoundError: (or one of its dependencies)</code>というエラーがでる</summary>
 
 - [npcap](https://nmap.org/npcap/)を「**WinPcap API compatible mode**」でインストールする
-
-</details>
-
-<details><summary><code class="hljs">No AUTD3 devices found</code>と表示される</summary>
-
-- macOS, linuxで`SOEM`リンクを使用する場合, root権限が必要
-
-   - linuxの場合, `setcap`コマンドで以下の権限を設定することで回避することもできる
-   
-      ```shell
-      sudo setcap cap_net_raw,cap_net_admin=eip <your executable file>
-      ```
-
-   - macOSの場合, `/dev/bpf*`ファイルに読み取り権限を追加することで回避することもできる
-   
-      ```shell
-      sudo chmod +r /dev/bpf*
-      ```
-
-- (Windows) 最新のnpcapを使用する
-
-- WSL等の仮想マシンは対応していない
-   - VirtualBoxなどで動く場合があるが, 挙動は不安定になる
-
-</details>
-
-<details><summary><code class="hljs">One ore more slaves are not responding</code>, または, <code class="hljs">Slow network was detected</code>と表示される</summary>
-
-- デバイスドライバを更新する
-
-- (Windows) 最新のnpcapを使用する
-
-- `send_cycle`と`sync0_cycle`の値を増やす
-
-- (Windows) デバイスマネージャーの当該ネットワークアダプタのプロパティから, 「電源の管理」タブで「電力の節約のために、コンピューターでこのデバイスの電源をオフにできるようにする」のチェックを外す
 
 </details>
 
@@ -55,35 +20,7 @@
 
 <details><summary><code class="hljs">Failed to synchronize devices. Maximum system time difference exceeded the tolerance</code>というエラーがでる</summary>
 
-- [`sync_timeout`か`sync_tolerance`](../API/link/soem.md#apis)の値を増やす. ただし, 後者の変更は推奨されない.
-
-</details>
-
-<details><summary><code class="hljs">SOEM</code>リンク使用時に送信が頻繁に失敗する</summary>
-
-- この問題は
-   * オンボードのethernetインターフェースを使用している
-
-  かつ, 以下のいずれかの状況で発生することが確認されている
-
-   * RealSense, Azure Kinect, Webカメラ等を使用する
-      * 基本的にカメラをアクティブにした時点で発生
-   * 動画や音声を再生する
-      * または, インターネットブラウザで動画サイト (Youtube等) を開く
-   * Unityを使用する
-      * 起動するだけで発生
-   * Blenderでアニメーションを再生する
-      * その他の操作 (モデリング等) は問題ない
-
-- この問題の回避策としては, 以下のいずれかを試されたい
-  1. `TwinCAT`, `RemoteTwinCAT`, または, `RemoteSOEM`リンクを使用する
-  1. Linuxやmacを使用する.
-     - ただし, 仮想マシンはNG
-  1. USB to Ethernetアダプターを使用する
-     - 少なくとも「ASIX AX88179」のチップを採用しているもので正常に動作することが確認されている
-     - なお, オンボードではなくとも, PCIe接続のethernetアダプターでも同様の問題が発生する
-
-- 上記以外の状況でも発生した, 或いは, 上記状況でも発生しなかった等の報告があれば, GitHubのIssueに積極的に報告していただけると幸いである.
+- `sync_timeout`か`sync_tolerance`の値を増やす. ただし, 後者の変更は推奨されない.
 
 </details>
 
@@ -106,7 +43,6 @@
 - クライアントPCのサーバー以外とのLANをすべて切断する.
 
 </details>
-
 
 <details><summary><code class="hljs">Silencer cannot complete phase/intensity interpolation in the specified sampling period</code>というエラーがでる</summary>
 

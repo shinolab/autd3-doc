@@ -60,9 +60,9 @@ Additionally, some `Modulation` can optionally change the sampling configuration
 
 For more details on sampling configuration, refer to [About Sampling Configuration](./sampling_config.md).
 
-### LoopBehavior
+### FiniteLoop
 
 `Modulation` can control the behavior of loops.
 The default is an infinite loop.
 
-For more details, refer to [Segment/LoopBehavior](./segment.md).
+For more details, refer to [Segment/FiniteLoop](./segment.md).

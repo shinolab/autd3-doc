@@ -13,6 +13,6 @@ WithSegment {
         },
     },
     segment: Segment::S1,
-    transition_mode: Some(TransitionMode::Immediate),
+    transition_mode: transition_mode::Immediate,
 };
 # }

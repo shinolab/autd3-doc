@@ -6,14 +6,14 @@ use autd3::prelude::*;
 # let y = 0.;
 # let z = 0.;
 # let _ =
-GainGroup {
-    key_map: |_dev| {
+GainGroup::new(
+    |_dev| {
         |tr| match tr.idx() {
             0..=100 => Some("null"),
             _ => Some("focus"),
         }
     },
-    gain_map: HashMap::from([
+    HashMap::from([
         ("null", BoxedGain::new(Null {})),
         (
             "focus",
@@ -23,6 +23,6 @@ GainGroup {
             }),
         ),
     ]),
-};
+);
 # Ok(())
 # }

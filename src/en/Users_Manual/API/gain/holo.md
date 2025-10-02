@@ -33,18 +33,7 @@ Several algorithms for generating multiple focal points have been proposed, and 
 * [`Naive`](./holo/naive.md) - Superimposition of single focal point solutions
 * [`GS`](./holo/gs.md) - Gershberg-Saxon
 * [`GSPAT`](./holo/gspat.md) - Gershberg-Saxon for Phased Arrays of Transducers
-* [`LM`](./holo/lm.md) - Levenberg-Marquardt
 * [`Greedy`](./holo/greedy.md) - Greedy algorithm and Brute-force search
-
-In addition, each method allows you to choose a computation backend. (except for `Greedy`.)
-The SDK provides the following `Backends`:
-
-* `NalgebraBackend` - Uses [Nalgebra](https://nalgebra.org/)
-* `CUDABackend` - Uses CUDA, runs on GPU (Rust version only)
-* `ArrayFireBackend` - Uses [ArrayFire](https://arrayfire.com/) (Rust version only)
-
-> NOTE: `CUDABackend` and `ArrayFireBackend` are intended for speedup, but in most cases, `NalgebraBackend` is sufficient. Be sure to benchmark when using them.
-
 
 ## Emission Constraints
 

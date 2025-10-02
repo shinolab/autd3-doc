@@ -1,5 +1,3 @@
-import os
-
 import numpy as np
 from pyautd3 import (
     AUTD3,
@@ -11,19 +9,17 @@ from pyautd3 import (
     Sine,
     SineOption,
 )
-from pyautd3_link_soem import SOEM, SOEMOption, Status
+from pyautd3.link.ethercrab import EtherCrab, EtherCrabOption, Status
 
 
-def err_handler(slave: int, status: Status) -> None:
-    print(f"slave [{slave}]: {status}")
-    if status == Status.Lost():
-        os._exit(-1)
+def err_handler(idx: int, status: Status) -> None:
+    print(f"Device[{idx}]: {status}")
 
 
 if __name__ == "__main__":
     with Controller.open(
         [AUTD3(pos=[0.0, 0.0, 0.0], rot=[1, 0, 0, 0])],
-        SOEM(err_handler=err_handler, option=SOEMOption()),
+        EtherCrab(err_handler=err_handler, option=EtherCrabOption()),
     ) as autd:
         firmware_version = autd.firmware_version()
         print(

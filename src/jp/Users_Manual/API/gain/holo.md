@@ -34,17 +34,7 @@ target_link_libraries(<TARGET> PRIVATE autd3::gain::holo)
 * [`Naive`](./holo/naive.md) - 単一焦点解の重ね合わせ
 * [`GS`](./holo/gs.md) - Gershberg-Saxon
 * [`GSPAT`](./holo/gspat.md) - Gershberg-Saxon for Phased Arrays of Transducers
-* [`LM`](./holo/lm.md) - Levenberg-Marquardt
 * [`Greedy`](./holo/greedy.md) - Greedy algorithm and Brute-force search
-
-また, 各手法は計算Backendを選べるようになっている. (`Greedy`のみBackendの指定はない.)
-SDKには以下の`Backend`が用意されている
-
-* `NalgebraBackend` - [Nalgebra](https://nalgebra.org/)を使用
-* `CUDABackend` - CUDAを使用, GPUで実行 (Rust版のみ)
-* `ArrayFireBackend` - [ArrayFire](https://arrayfire.com/)を使用 (Rust版のみ)
-
-> NOTE: `CUDABackend`や`ArrayFireBackend`は高速化を目的としているが, ほとんどの場合, `NalgebraBackend`で十分である. 使用時は, 必ずベンチマークを取ること.
 
 ## 振幅制約
 

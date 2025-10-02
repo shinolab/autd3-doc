@@ -1,7 +1,7 @@
 #include <iostream>
 
 #include "autd3.hpp"
-#include "autd3_link_soem.hpp"
+#include "autd3/link/ethercrab.hpp"
 
 using namespace autd3;
 
@@ -11,12 +11,11 @@ int main() try {
           .pos = Point3::origin(),
           .rot = Quaternion::Identity(),
       }},
-      link::SOEM(
-          [](const uint16_t slave, const link::Status status) {
-            std::cout << "slave [" << slave << "]: " << status << std::endl;
-            if (status == link::Status::Lost()) exit(-1);
+      link::EtherCrab(
+          [](const uint16_t idx, const link::Status status) {
+            std::cout << "Device[" << idx << "]: " << status << std::endl;
           },
-          link::SOEMOption{}));
+          link::EtherCrabOption{}));
 
   const auto firm_version = autd.firmware_version();
   std::copy(firm_version.begin(), firm_version.end(),

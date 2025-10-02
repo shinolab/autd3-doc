@@ -30,7 +30,6 @@ let mut sound_field = record.sound_field(
     InstantRecordOption {
         sound_speed: 340e3 * mm,
         time_step: Duration::from_micros(1),
-        print_progress: true,
         memory_limits_hint_mb: 128,
         gpu: true,
     },

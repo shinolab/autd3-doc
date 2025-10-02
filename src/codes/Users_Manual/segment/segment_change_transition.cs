@@ -1,2 +1,3 @@
 ~using AUTD3Sharp;
-SwapSegment.Modulation(Segment.S1, TransitionMode.Immediate);
+~using AUTD3Sharp.TransitionMode;
+SwapSegment.Modulation(Segment.S1, new Immediate());

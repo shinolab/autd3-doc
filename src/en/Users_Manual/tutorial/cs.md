@@ -4,7 +4,6 @@ First, open a terminal, create an appropriate project, and add the AUTD3Sharp li
 dotnet new console --name autd3-sample
 cd autd3-sample
 dotnet add package AUTD3Sharp
-dotnet add package AUTD3Sharp.Link.SOEM
 ```
 
 Next, edit `Program.cs` as follows.
@@ -22,7 +21,7 @@ dotnet run -c:Release
 
 ### Notes for Linux and macOS Users
 
-On Linux and macOS, administrator privileges may be required to use SOEM.
+On Linux and macOS, administrator privileges may be required.
 In that case, run:
 ```shell
 sudo dotnet run -c:Release

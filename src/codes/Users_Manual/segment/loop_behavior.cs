@@ -1,15 +1,9 @@
 ~using AUTD3Sharp;
+~using AUTD3Sharp.TransitionMode;
 ~using AUTD3Sharp.Modulation;
-new WithLoopBehavior(
+new WithFiniteLoop(
     inner: new Static(),
-    loopBehavior: LoopBehavior.Infinite,
+    loopCount: 1,
     segment: Segment.S1,
-    transitionMode: TransitionMode.Immediate
-);
-
-new WithLoopBehavior(
-    inner: new Static(),
-    loopBehavior: LoopBehavior.Finite(1),
-    segment: Segment.S1,
-    transitionMode: TransitionMode.SyncIdx
+    transitionMode: new SyncIdx()
 );

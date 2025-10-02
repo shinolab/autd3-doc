@@ -29,7 +29,6 @@ let mut sound_field = record.sound_field(
     },
     RmsRecordOption {
         sound_speed: 340e3 * mm,
-        print_progress: true,
         gpu: true,
     },
 )?;
