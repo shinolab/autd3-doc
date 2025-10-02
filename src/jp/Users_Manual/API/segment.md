@@ -1,4 +1,4 @@
-# Segment/LoopBehavior
+# Segment/FiniteLoop
 
 ## Segment
 
@@ -43,9 +43,9 @@
 
 > NOTE: `Gain`は`Immediate`のみサポートしている.
 
-> 遷移先のループの挙動を指定する場合は, [`LoopBehavior`](#loopbehavior)を参照されたい.
+> 遷移先のループの挙動を指定する場合は, [`FiniteLoop`](#finiteloop)を参照されたい.
 
-データの書き込みのみを行い, `Segment`を切り替えたくない場合は`transition_mode`に`None`を指定する.
+データの書き込みのみを行い, `Segment`を切り替えたくない場合は`transition_mode`に`Later`を指定する.
 
 ### Segmentの切り替え
 
@@ -74,9 +74,9 @@
 {{ #endtab }}
 {{ #endtabs }}
 
-### LoopBehavior
+### FiniteLoop
 
-`Modulation`と`FociSTM`, `GainSTM`は`WithLoopBehavior`を送信することでループの挙動を制御できる.
+`Modulation`と`FociSTM`, `GainSTM`は`WithFiniteLoop`を送信することでループの挙動を制御できる.
 
 **ループ挙動の指定は, セグメントを切り替えたときにのみ有効であることに注意.**
 

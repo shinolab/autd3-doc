@@ -61,9 +61,9 @@ SDKにはデフォルトでいくつかの種類のAMを生成するための`Mo
 
 サンプリング設定についての詳細は[サンプリング設定について](./sampling_config.md)を参照されたい.
 
-### LoopBehavior
+### FiniteLoop
 
 `Modulation`はループの挙動を制御できる.
 デフォルトは無限ループである.
 
-詳細は[Segment/LoopBehavior](./segment.md)を参照.
+詳細は[Segment/FiniteLoop](./segment.md)を参照.

@@ -4,7 +4,7 @@
 
 ## 依存プログラムのインストール
 
-本チュートリアルでは[SOEM](https://github.com/OpenEtherCATsociety/SOEM)を利用する.
+本チュートリアルでは[EtherCrab](https://github.com/ethercrab-rs/ethercrab)を利用する.
 Windowsを使用する場合, [Npcap](https://npcap.com/)を「**WinPcap API-compatible Mode**」でインストールしておくこと.
 
 なお, ファームウェアが古い場合, 正常な動作は保証されない.

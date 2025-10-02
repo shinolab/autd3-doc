@@ -1,5 +1,5 @@
 # Uniform
-[Source](https://github.com/shinolab/autd3-rs/blob/v35.0.1/autd3/src/datagram/gain/uniform.rs)
+[Source](https://github.com/shinolab/autd3-rs/blob/v36.0.2/autd3/src/datagram/gain/uniform.rs)
 
 `Uniform`はすべての振動子に同じ位相/振幅を設定する.
 

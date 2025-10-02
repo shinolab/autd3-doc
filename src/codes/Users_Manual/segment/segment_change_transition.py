@@ -1,2 +1,2 @@
-~from pyautd3 import Segment, SwapSegment, TransitionMode
-SwapSegment.Modulation(Segment.S1, TransitionMode.Immediate)
+~from pyautd3 import Segment, SwapSegmentModulation, transition_mode
+SwapSegmentModulation(Segment.S1, transition_mode.Immediate())

@@ -1,5 +1,5 @@
 # Greedy
-[Source](https://github.com/shinolab/autd3-rs/blob/v35.0.1/autd3-gain-holo/src/combinatorial/greedy.rs)
+[Source](https://github.com/shinolab/autd3-rs/blob/v36.0.2/autd3-gain-holo/src/combinatorial/greedy.rs)
 
 Greedy Algorithm with Brute-Force Search, 鈴木らの論文[^suzuki2021]に基づく多焦点`Gain`.
 
@@ -31,10 +31,6 @@ Greedy Algorithm with Brute-Force Search, 鈴木らの論文[^suzuki2021]に基�
 パラメータの詳細は論文[^suzuki2021]を参照されたい.
 
 Rust版のみ, 目的関数を変更できる.
-デフォルトは以下のように, 目標音圧との絶対誤差を使用する.
-
-```rust
-{{#include ../../../../../codes/Users_Manual/gain/holo/greedy_obj.rs}}
-```
+デフォルトは目標音圧との絶対誤差を使用する.
 
 [^suzuki2021]: Suzuki, Shun, et al. "Radiation Pressure Field Reconstruction for Ultrasound Midair Haptics by Greedy Algorithm with Brute-Force Search." IEEE Transactions on Haptics (2021).

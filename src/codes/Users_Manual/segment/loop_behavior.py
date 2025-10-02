@@ -1,14 +1,8 @@
-~from pyautd3 import Segment, Static, TransitionMode, LoopBehavior, WithLoopBehavior
-WithLoopBehavior(
-    inner=Static(),
-    loop_behavior=LoopBehavior.Infinite,
-    segment=Segment.S1,
-    transition_mode=TransitionMode.Immediate,
-)
+~from pyautd3 import Segment, Static, transition_mode, WithFiniteLoop
 
-WithLoopBehavior(
+WithFiniteLoop(
     inner=Static(),
-    loop_behavior=LoopBehavior.Finite(1),
+    loop_count=1,
     segment=Segment.S1,
-    transition_mode=TransitionMode.SyncIdx,
+    transition_mode=transition_mode.SyncIdx(),
 )

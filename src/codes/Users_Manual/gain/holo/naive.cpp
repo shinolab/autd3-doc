@@ -11,7 +11,6 @@ using gain::holo::Pa;
 //~const auto x2 = 0.0;
 //~const auto y2 = 0.0;
 //~const auto z2 = 0.0;
-const auto backend = std::make_shared<gain::holo::NalgebraBackend>();
 auto g = gain::holo::Naive(
     std::vector<std::pair<Point3, gain::holo::Amplitude>>{
         {Point3(x1, y1, z1), 5e3 * Pa},
@@ -21,6 +20,5 @@ auto g = gain::holo::Naive(
         .constraint = gain::holo::EmissionConstraint::Clamp(
             std::numeric_limits<Intensity>::min(),
             std::numeric_limits<Intensity>::max()),
-    },
-    backend);
+    });
 //~return 0; }

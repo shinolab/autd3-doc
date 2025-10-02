@@ -47,8 +47,7 @@ def run_command(command: list[str], *, shell: bool = False) -> None:
 
 
 if __name__ == "__main__":
-    version = "35.0.1"
-    link_soem_version = "35.0.1"
+    version = "36.0.2"
     print(f"Testing with autd3-cpp {version}")
 
     base_path = Path(os.getcwd()) / "src" / "codes"
@@ -97,36 +96,24 @@ if(WIN32)
     autd3
     URL https://github.com/shinolab/autd3-cpp/releases/download/v{version}/autd3-v{version}-win-x64.zip
   )
-  FetchContent_Declare(
-    autd3-link-soem
-    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v{link_soem_version}/autd3-link-soem-v{link_soem_version}-win-x64.zip
-  )
 elseif(APPLE)
   FetchContent_Declare(
     autd3
     URL https://github.com/shinolab/autd3-cpp/releases/download/v{version}/autd3-v{version}-macos-aarch64.tar.gz
-  )
-  FetchContent_Declare(
-    autd3-link-soem
-    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v{link_soem_version}/autd3-link-soem-v{link_soem_version}-macos-aarch64.tar.gz
   )
 else()
   FetchContent_Declare(
     autd3
     URL https://github.com/shinolab/autd3-cpp/releases/download/v{version}/autd3-v{version}-linux-x64.tar.gz
   )
-  FetchContent_Declare(
-    autd3-link-soem
-    URL https://github.com/shinolab/autd3-cpp-link-soem/releases/download/v{link_soem_version}/autd3-link-soem-v{link_soem_version}-linux-x64.tar.gz
-  )
 endif()
 set(USE_SYSTEM_EIGEN ON)
-FetchContent_MakeAvailable(autd3 autd3-link-soem)
+FetchContent_MakeAvailable(autd3)
 
 add_executable(main main.cpp)
 
 target_link_libraries(main PRIVATE autd3::autd3)
-target_link_libraries(main PRIVATE autd3::link::soem)
+target_link_libraries(main PRIVATE autd3::link::ethercrab)
 target_link_libraries(main PRIVATE autd3::link::twincat)
 target_link_libraries(main PRIVATE autd3::link::simulator)
 target_link_libraries(main PRIVATE autd3::gain::holo)

@@ -1,5 +1,5 @@
 # Static
-[Source](https://github.com/shinolab/autd3-rs/blob/v35.0.1/autd3-driver/src/datagram/implements/static.rs)
+[Source](https://github.com/shinolab/autd3-rs/blob/v36.0.2/autd3-driver/src/datagram/implements/static.rs)
 
 変調なし.
 

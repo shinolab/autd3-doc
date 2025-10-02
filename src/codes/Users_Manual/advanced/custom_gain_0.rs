@@ -12,7 +12,7 @@ pub struct Impl {
     wavenumber: f32,
 }
 
-impl GainCalculator for Impl {
+impl GainCalculator<'_> for Impl {
     fn calc(&self, tr: &Transducer) -> Drive {
         Drive {
             phase: Phase::from(-(self.pos - tr.position()).norm() * self.wavenumber * rad),
@@ -21,7 +21,7 @@ impl GainCalculator for Impl {
     }
 }
 
-impl GainCalculatorGenerator for Impl {
+impl GainCalculatorGenerator<'_> for Impl {
     type Calculator = Impl;
 
     fn generate(&mut self, _: &Device) -> Self::Calculator {
@@ -29,14 +29,14 @@ impl GainCalculatorGenerator for Impl {
     }
 }
 
-impl Gain for FocalPoint {
+impl Gain<'_> for FocalPoint {
     type G = Impl;
 
     fn init(
         self,
         _geometry: &Geometry,
         env: &Environment,
-        _filter: &TransducerFilter,
+        _mask: &TransducerMask,
     ) -> Result<Self::G, GainError> {
         Ok(Impl {
             pos: self.pos,

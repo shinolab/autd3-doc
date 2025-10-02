@@ -1,5 +1,5 @@
 use autd3::prelude::*;
-use autd3_link_soem::{SOEM, SOEMOption, Status};
+use autd3_link_ethercrab::{EtherCrab, EtherCrabOption};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -8,14 +8,11 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             pos: Point3::origin(),
             rot: UnitQuaternion::identity(),
         }],
-        SOEM::new(
-            |slave, status| {
-                eprintln!("slave[{}]: {}", slave, status);
-                if status == Status::Lost {
-                    std::process::exit(-1);
-                }
+        EtherCrab::new(
+            |idx, status| {
+                eprintln!("Device[{}]: {}", idx, status);
             },
-            SOEMOption::default(),
+            EtherCrabOption::default(),
         ),
     )
     .await?;

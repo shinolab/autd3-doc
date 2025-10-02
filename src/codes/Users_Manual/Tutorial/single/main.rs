@@ -1,25 +1,21 @@
 use autd3::prelude::*;
-use autd3_link_soem::{SOEMOption, Status, SOEM};
+use autd3_link_ethercrab::{EtherCrab, EtherCrabOption};
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    // Open controller with SOEM link
+    // Open controller with EtherCrab link
     // Here, the AUTD3 device is placed at the origin
     let mut autd = Controller::open(
         [AUTD3 {
             pos: Point3::origin(),
             rot: UnitQuaternion::identity(),
         }],
-        SOEM::new(
+        EtherCrab::new(
             // The first argument is a callback that is called when error occurs
-            |slave, status| {
-                eprintln!("slave[{}]: {}", slave, status);
-                if status == Status::Lost {
-                    // You can also wait for the link to recover, without exitting the process
-                    std::process::exit(-1);
-                }
+            |idx, status| {
+                eprintln!("Device[{}]: {}", idx, status);
             },
-            // The second argument is a option of SOEM link.
-            SOEMOption::default(),
+            // The second argument is a option of EtherCrab link.
+            EtherCrabOption::default(),
         ),
     )?;
 

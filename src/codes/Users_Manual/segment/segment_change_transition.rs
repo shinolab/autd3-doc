@@ -1,4 +1,4 @@
 # use autd3::prelude::*;
 # fn main() {
-SwapSegment::Modulation(Segment::S1, TransitionMode::Immediate);
+SwapSegmentModulation(Segment::S1, transition_mode::Immediate);
 # }

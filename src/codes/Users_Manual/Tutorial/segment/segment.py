@@ -1,4 +1,4 @@
-~from pyautd3 import Intensity, Focus, FocusOption, WithSegment, Segment, TransitionMode
+~from pyautd3 import Intensity, Focus, FocusOption, WithSegment, Segment, transition_mode
 ~x = 1.0
 ~y = 0.0
 ~z = 0.0
@@ -10,5 +10,5 @@ WithSegment(
         ),
     ),
     segment=Segment.S1,
-    transition_mode=TransitionMode.Immediate,
+    transition_mode=transition_mode.Immediate(),
 )

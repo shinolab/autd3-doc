@@ -14,25 +14,19 @@ cargo add autd3 --features "async"
 
 また, 各Linkに対して, `async` featureを有効にする必要がある場合がある.
 
-- SOEM
-
-    ```shell
-    cargo add autd3-link-soem --features "async"
-    ```
-    
-- TwinCAT
+- `TwinCAT`
 
     ```shell
     cargo add autd3-link-twincat --features "async"
     ```
     
-- RemoteTwinCAT
+- `RemoteTwinCAT`
 
     ```shell
     cargo add autd3-link-twincat --features "remote async"
     ```
 
-- RemoteSOEM, Simulator
+- `EtherCrab`, `Simulator`
   - デフォルトで有効 
 
 

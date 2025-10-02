@@ -36,12 +36,12 @@ You can get the sampling configuration with `sampling_config`.
 {{ #endtab }}
 {{ #endtabs }}
 
-### LoopBehavior
+### FiniteLoop
 
 In `FociSTM`/`GainSTM`, you can control the loop behavior.
 The default is an infinite loop.
 
-For details, refer to [Segment/LoopBehavior](./segment.md).
+For details, refer to [Segment/FiniteLoop](./segment.md).
 
 ### Utilities
 

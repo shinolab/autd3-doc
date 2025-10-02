@@ -7,4 +7,3 @@ You need to choose one from the following.
 - [SOEM](./link/soem.md)
 - [Simulator](./link/simulator.md)
 - [RemoteTwinCAT](./link/remote_twincat.md)
-- [RemoteSOEM](./link/remote_soem.md)

@@ -28,9 +28,9 @@ def substitute_in_file(
 
 
 if __name__ == "__main__":
-    autd3_version = "35.0.1"
-    autd3_emulator_version = "35.0.1"
-    autd3_link_soem_version = "35.0.1"
+    autd3_version = "36.0.2"
+    autd3_emulator_version = "36.0.2"
+    autd3_link_soem_version = "36.0.1"
     itertools_version = get_latest_version("itertools")
     tokio = get_latest_version("tokio")
     nalgebra = get_latest_version("nalgebra")
@@ -70,11 +70,13 @@ version = "{autd3_version}"
 edition = "2021"
 
 [dependencies]
-autd3 = {{ version = "{autd3_version}", features = ["async", "async-trait", "link-nop"] }}
+autd3 = {{ version = "{autd3_version}", features = ["async", "link-nop"] }}
 autd3-gain-holo = {{ version = "{autd3_version}" }}
-autd3-link-simulator = {{ version = "{autd3_version}", features = ["blocking", "async-trait"] }}
-autd3-link-soem = {{ version = "{autd3_link_soem_version}", features = ["remote", "blocking", "async-trait"] }}
-autd3-link-twincat = {{ version = "{autd3_version}", features = ["remote", "async-trait"] }}
+autd3-link-simulator = {{ version = "{autd3_version}", features = ["blocking"] }}
+autd3-link-remote = {{ version = "{autd3_version}", features = ["blocking"] }}
+autd3-link-ethercrab = {{ version = "{autd3_version}" }}
+autd3-link-soem = {{ version = "{autd3_link_soem_version}", features = ["remote", "blocking"] }}
+autd3-link-twincat = {{ version = "{autd3_version}", features = ["remote"] }}
 autd3-modulation-audio-file = {{ version = "{autd3_version}" }}
 autd3-emulator = {{ version = "{autd3_emulator_version}", features = ["gpu"] }}
 itertools = {{ version = "{itertools_version}" }}

@@ -4,7 +4,7 @@ This section explains how to drive a single device.
 
 ## Installing Dependencies
 
-This tutorial uses [SOEM](https://github.com/OpenEtherCATsociety/SOEM).
+This tutorial uses [EtherCrab](https://github.com/ethercrab-rs/ethercrab).
 If you are using Windows, install [Npcap](https://npcap.com/) in "**WinPcap API-compatible Mode**".
 
 Note that if the firmware is outdated, proper operation is not guaranteed.

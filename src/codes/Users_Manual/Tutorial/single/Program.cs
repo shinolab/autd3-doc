@@ -7,14 +7,12 @@ using static AUTD3Sharp.Units;
 
 using var autd = Controller.Open(
     [new AUTD3(pos: Point3.Origin, rot: Quaternion.Identity)],
-    new SOEM(
-        (slave, status) =>
+    new EtherCrab(
+        (idx, status) =>
             {
-                Console.Error.WriteLine($"slave [{slave}]: {status}");
-                if (status == Status.Lost)
-                    Environment.Exit(-1);
+                Console.Error.WriteLine($"Device[{idx}]: {status}");
             },
-        new SOEMOption()
+        new EtherCrabOption()
     )
 );
 
