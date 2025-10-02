@@ -9,7 +9,6 @@ link::EtherCrab(
     },
     link::EtherCrabOption{
         .ifname = std::nullopt,
-        .buf_size = 16,
         .state_check_period = std::chrono::milliseconds(100),
         .sync0_period = std::chrono::milliseconds(2),
         .sync_tolerance = std::chrono::microseconds(1),
