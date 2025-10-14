@@ -14,8 +14,12 @@ TwinCATはWindowsのみをサポートする特殊なソフトウェアであり
 
 ## 事前準備
 
-前提として, TwinCATはHyper-VやVirtual Machine Platformと共存できない.
-そのため, これらの機能を無効にする必要がある.
+TwinCATは仮想化ベースのセキュリティ機能が有効になっていると動かない.
+仮想化ベースのセキュリティ機能が有効かどうかは「システム情報」(Win+R → msinfo32で起動できる) から確認できる.
+
+### 仮想化ベースのセキュリティ機能の無効化
+
+仮想化ベースのセキュリティ機能を無効にするにはHyper-VやVirtual Machine Platformを無効化する.
 これには, 例えば, PowerShellを管理者権限で起動し,
 
 ```PowerShell
@@ -27,7 +31,11 @@ Disable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform
 
 また, Windows 11の場合, 仮想化ベースのセキュリティ機能もオフにする必要がある.
 「Windows セキュリティ」→ 「デバイス セキュリティ」→「コア分離」→「メモリ整合性」をオフにする.
+
 Windows 11 24H2から, レジストリで`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\DeviceGuard\EnableVirtualizationBasedSecurity`の値を0にする必要もあるかもしれない.
+
+なお, MicrosoftアカウントでWindowsにログインしている場合, これらの設定をしても仮想化ベースのセキュリティを無効化できないという報告もある.
+その場合はローカルアカウントで試してほしい.
 
 ### TwinCATのインストール
 
