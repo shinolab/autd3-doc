@@ -25,6 +25,7 @@ TwinCATは仮想化ベースのセキュリティ機能が有効になってい�
 ```PowerShell
 Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-Hypervisor
 Disable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform
+bcdedit /set hypervisorlaunchtype off
 ```
 
 と打ち込めば良い.
