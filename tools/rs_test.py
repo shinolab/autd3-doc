@@ -76,18 +76,19 @@ ethercrab = ["autd3-link-ethercrab"]
 [dependencies]
 autd3 = {{ version = "{autd3_version}", features = ["link-nop"] }}
 autd3-gain-holo = {{ version = "{autd3_version}" }}
-autd3-link-remote = {{ version = "{autd3_version}" }}
+autd3-link-remote = {{ version = "{autd3_version}", features = ["server"] }}
 autd3-link-ethercrab = {{ version = "{autd3_version}", optional = true }}
 autd3-link-soem = {{ version = "{autd3_link_soem_version}", optional = true }}
 autd3-link-twincat = {{ version = "{autd3_version}", features = ["remote"] }}
 autd3-emulator = {{ version = "{autd3_emulator_version}", features = ["gpu"] }}
 itertools = {{ version = "{itertools_version}" }}
 nalgebra = {{ version = "{nalgebra}" }}
-tokio = {{ version = "{tokio}", features = ["rt-multi-thread", "macros"] }}
+tokio = {{ version = "{tokio}", features = ["rt-multi-thread", "macros", "signal"] }}
 """,
             )
 
         for src in srcs[start:end]:
+            src = str(src)
             substitute_in_file(
                 src,
                 "# ",
@@ -95,7 +96,7 @@ tokio = {{ version = "{tokio}", features = ["rt-multi-thread", "macros"] }}
                 src_dir / "main.rs",
             )
             try:
-                if "ethercrab" in src:
+                if "ethercrab" in src or "Tutorial" in src:
                     subprocess.run(
                         ["cargo", "rustc", "--features", "ethercrab", "--", "-D", "warnings"],
                         cwd=test_dir,
