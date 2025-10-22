@@ -15,7 +15,7 @@ impl Burst {
 }
 
 impl Modulation for Burst {
-    fn calc(self, _: &FirmwareLimits) -> Result<Vec<u8>, ModulationError> {
+    fn calc(self) -> Result<Vec<u8>, ModulationError> {
         Ok((0..4000)
             .map(|i| if i == 3999 { u8::MAX } else { u8::MIN })
             .collect())

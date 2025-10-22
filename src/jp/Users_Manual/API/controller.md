@@ -82,20 +82,13 @@ FPGAの状態としては, 現在以下の情報が取得できる.
 - `send_interval`: 送信間隔
 - `receive_interval`: 受信間隔
 - `timeout`: タイムアウト時間. 詳細は[送信データのチェックについて](#送信データのチェックについて)を参照
-- `parallel`: 並列計算モード. 詳細は[並列計算について](#並列計算について)を参照
-- `strict`: 送信データのチェックを厳密に行うかどうか. 詳細は[送信データのチェックについて](#送信データのチェックについて)を参照
+- `parallel`: 並列計算モード (Rust版のみ). 詳細は[並列計算について](#並列計算について)を参照
+
 であり, デフォルト値は上記の通り.
 
-第2引数は送受信間隔を調整する構造体であり, 以下から選択する.
-- `FixedSchedule`: 送信処理にかかった時間にかかわらず, 前回の送信開始時刻から指定した間隔で次の送信を開始する.
-- `FixedDelay`: 送信処理が完了してから指定した間隔で次の送信を開始する.
+Rust版のみ第2引数に送受信間隔をどのように調整するかを指定する構造体を指定する. 通常は標準ライブラリの`sleep`を使用する`StdSleeper`で十分である.
 
-これらの構造体は, どのようにスレッドをスリープさせるかを指定する以下の構造体を持つ.
-- `SpinSleeper`: [`spin_sleep`](https://crates.io/crates/spin_sleep)を使用
-- `StdSleeper`: [`std::thread::sleep`](https://doc.rust-lang.org/std/thread/fn.sleep.html)を使用
-- `SpinWait`: ビジーウェイトを使用
-
-なお, `Controller::send`は`Controller::default_sender_option` (変更可能) とデフォルトの`FixedSchedule(SpinSleeper)`を使用した場合と等価である.
+なお, `Controller::send`は`Controller::default_sender_option` (変更可能) と`StdSleeper`を使用した場合と等価である.
 
 ### 送信データのチェックについて
 
@@ -109,7 +102,7 @@ FPGAの状態としては, 現在以下の情報が取得できる.
 
 複数をまとめて送信する場合は, それぞれのデータのタイムアウト値の最大値が使用される.
 
-### 並列計算について
+### 並列計算について (Rust版のみ)
 
 各データの内部での計算は, デバイス単位で並列に実行することができる.
 

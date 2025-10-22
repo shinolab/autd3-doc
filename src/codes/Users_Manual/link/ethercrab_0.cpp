@@ -1,5 +1,5 @@
 //~#include <iostream>
-#include <autd3/link/ethercrab.hpp>
+#include <autd3_link_ethercrab.hpp>
 
 //~int main() {
 //~using namespace autd3;

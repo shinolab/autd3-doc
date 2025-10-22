@@ -5,6 +5,6 @@ LinkはAUTD3デバイスとのインターフェースである.
 
 - [TwinCAT](./link/twincat.md)
 - [EtherCrab](./link/ethercrab.md)
-- [Simulator](./link/simulator.md)
+- [Remote](./link/remote.md)
 - [RemoteTwinCAT](./link/remote_twincat.md)
 - [SOEM](./link/soem.md)

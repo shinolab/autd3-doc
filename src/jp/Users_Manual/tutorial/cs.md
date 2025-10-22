@@ -4,6 +4,7 @@
 dotnet new console --name autd3-sample
 cd autd3-sample
 dotnet add package AUTD3Sharp
+dotnet add package AUTD3Sharp.Link.EtherCrab
 ```
 
 次に, `Program.cs`を以下のようにする.

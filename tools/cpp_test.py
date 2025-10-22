@@ -47,7 +47,7 @@ def run_command(command: list[str], *, shell: bool = False) -> None:
 
 
 if __name__ == "__main__":
-    version = "36.0.2"
+    version = "37.0.0"
     print(f"Testing with autd3-cpp {version}")
 
     base_path = Path(os.getcwd()) / "src" / "codes"
@@ -107,17 +107,32 @@ else()
     URL https://github.com/shinolab/autd3-cpp/releases/download/v{version}/autd3-v{version}-linux-x64.tar.gz
   )
 endif()
-set(USE_SYSTEM_EIGEN ON)
-FetchContent_MakeAvailable(autd3)
+if(WIN32)
+  FetchContent_Declare(
+    autd3-link-ethercrab
+    URL https://github.com/shinolab/autd3-cpp-link-ethercrab/releases/download/v{version}/autd3-link-ethercrab-v{version}-win-x64.zip
+  )
+elseif(APPLE)
+  FetchContent_Declare(
+    autd3-link-ethercrab
+    URL https://github.com/shinolab/autd3-cpp-link-ethercrab/releases/download/v{version}/autd3-link-ethercrab-v{version}-macos-aarch64.tar.gz
+  )
+else()
+  FetchContent_Declare(
+    autd3-link-ethercrab
+    URL https://github.com/shinolab/autd3-cpp-link-ethercrab/releases/download/v{version}/autd3-link-ethercrab-v{version}-linux-x64.tar.gz
+  )
+endif()
+set(USE_SYSTEM_EIGEN OFF)
+FetchContent_MakeAvailable(autd3 autd3-link-ethercrab)
 
 add_executable(main main.cpp)
 
 target_link_libraries(main PRIVATE autd3::autd3)
 target_link_libraries(main PRIVATE autd3::link::ethercrab)
 target_link_libraries(main PRIVATE autd3::link::twincat)
-target_link_libraries(main PRIVATE autd3::link::simulator)
+target_link_libraries(main PRIVATE autd3::link::remote)
 target_link_libraries(main PRIVATE autd3::gain::holo)
-target_link_libraries(main PRIVATE autd3::modulation::audio_file)
 """,
             )
 

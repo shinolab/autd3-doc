@@ -1,5 +1,5 @@
 from pyautd3 import Duration
-from pyautd3.link.ethercrab import (
+from pyautd3_link_ethercrab import (
     EtherCrab,
     EtherCrabOption,
     Status,

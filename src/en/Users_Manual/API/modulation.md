@@ -21,8 +21,6 @@ The SDK provides several types of `Modulation` to generate AM by default.
 * [Sine](./modulation/sine.md) - Sine wave
   * [Fourier](./modulation/fourier.md) - Superposition of sine waves
 * [Square](./modulation/square.md) - Square wave
-* [Wav](./modulation/wav.md) - Modulation based on Wav file
-* [Csv](./modulation/csv.md) - Modulation based on Csv file
 * [Custom](./modulation/custom.md) - User-defined modulation
 * [RadiationPressure](./modulation/radiation.md) - Apply modulation to radiation pressure instead of sound pressure
 * [Fir](./modulation/fir.md) - Apply Fir filter

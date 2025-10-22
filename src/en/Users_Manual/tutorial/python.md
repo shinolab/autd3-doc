@@ -1,9 +1,10 @@
 ### Installing the pyautd3 Library
 
-First, install the `pyautd3` libraries via pip.
+First, install the `pyautd3` and `pyautd3_link_ethercrab` libraries via pip.
 
 ```shell
 pip install pyautd3
+pip install pyautd3_link_ethercrab
 ```
 
 Next, create `main.py` and edit it as follows.
