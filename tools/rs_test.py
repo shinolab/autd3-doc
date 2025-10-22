@@ -28,9 +28,9 @@ def substitute_in_file(
 
 
 if __name__ == "__main__":
-    autd3_version = "36.0.2"
-    autd3_emulator_version = "36.0.2"
-    autd3_link_soem_version = "36.0.1"
+    autd3_version = "37.0.0"
+    autd3_emulator_version = "37.0.1"
+    autd3_link_soem_version = "37.0.0"
     itertools_version = get_latest_version("itertools")
     tokio = get_latest_version("tokio")
     nalgebra = get_latest_version("nalgebra")
@@ -67,17 +67,19 @@ if __name__ == "__main__":
                 f"""[package]
 name = "thirdparties"
 version = "{autd3_version}"
-edition = "2021"
+edition = "2024"
+
+[features]
+soem = ["autd3-link-soem"]
+ethercrab = ["autd3-link-ethercrab"]
 
 [dependencies]
-autd3 = {{ version = "{autd3_version}", features = ["async", "link-nop"] }}
+autd3 = {{ version = "{autd3_version}", features = ["link-nop"] }}
 autd3-gain-holo = {{ version = "{autd3_version}" }}
-autd3-link-simulator = {{ version = "{autd3_version}", features = ["blocking"] }}
-autd3-link-remote = {{ version = "{autd3_version}", features = ["blocking"] }}
-autd3-link-ethercrab = {{ version = "{autd3_version}" }}
-autd3-link-soem = {{ version = "{autd3_link_soem_version}", features = ["remote", "blocking"] }}
+autd3-link-remote = {{ version = "{autd3_version}" }}
+autd3-link-ethercrab = {{ version = "{autd3_version}", optional = true }}
+autd3-link-soem = {{ version = "{autd3_link_soem_version}", optional = true }}
 autd3-link-twincat = {{ version = "{autd3_version}", features = ["remote"] }}
-autd3-modulation-audio-file = {{ version = "{autd3_version}" }}
 autd3-emulator = {{ version = "{autd3_emulator_version}", features = ["gpu"] }}
 itertools = {{ version = "{itertools_version}" }}
 nalgebra = {{ version = "{nalgebra}" }}
@@ -93,10 +95,21 @@ tokio = {{ version = "{tokio}", features = ["rt-multi-thread", "macros"] }}
                 src_dir / "main.rs",
             )
             try:
-                subprocess.run(
-                    ["cargo", "rustc", "--", "-D", "warnings"],
-                    cwd=test_dir,
-                ).check_returncode()
+                if "ethercrab" in src:
+                    subprocess.run(
+                        ["cargo", "rustc", "--features", "ethercrab", "--", "-D", "warnings"],
+                        cwd=test_dir,
+                    ).check_returncode()
+                elif "soem" in src:
+                    subprocess.run(
+                        ["cargo", "rustc", "--features", "soem", "--", "-D", "warnings"],
+                        cwd=test_dir,
+                    ).check_returncode()
+                else:
+                    subprocess.run(
+                        ["cargo", "rustc", "--", "-D", "warnings"],
+                        cwd=test_dir,
+                    ).check_returncode()
             except subprocess.CalledProcessError:
                 print(f"Error: {src}")
                 error_files.append(src)

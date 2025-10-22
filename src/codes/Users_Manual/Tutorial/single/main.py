@@ -9,7 +9,7 @@ from pyautd3 import (
     Sine,
     SineOption,
 )
-from pyautd3.link.ethercrab import EtherCrab, EtherCrabOption, Status
+from pyautd3_link_ethercrab import EtherCrab, EtherCrabOption, Status
 
 
 def err_handler(idx: int, status: Status) -> None:

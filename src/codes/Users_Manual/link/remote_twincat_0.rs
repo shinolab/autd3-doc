@@ -1,9 +1,14 @@
-use autd3_link_twincat::remote::{RemoteTwinCAT, RemoteTwinCATOption};
+use autd3_link_twincat::{RemoteTwinCAT, RemoteTwinCATOption, Source, Timeouts};
 
-# fn main() {
-# let _ = 
-RemoteTwinCAT::new("172.16.99.111.1.1", RemoteTwinCATOption {
-    server_ip: "172.16.99.104".to_string(),
-    client_ams_net_id: "172.16.99.62.1.1".to_string(),
-});
+# fn main() -> Result<(), Box<dyn std::error::Error>> {
+#     let _ = 
+RemoteTwinCAT::new(
+    "0.0.0.0".parse()?,
+    "1.1.1.1.1.1".parse()?,
+    RemoteTwinCATOption {
+        timeouts: Timeouts::none(),
+        source: Source::Auto,
+    },
+);
+# Ok(())
 # }

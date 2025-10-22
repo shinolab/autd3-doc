@@ -4,4 +4,4 @@
 
 - [Gainの自作](./advanced/custom_gain.md)
 - [Modulationの自作](./advanced/custom_modulation.md)
-- [非同期API](./advanced/async.md)
+- [リモートサーバの構築](./advanced/remote_server.md)

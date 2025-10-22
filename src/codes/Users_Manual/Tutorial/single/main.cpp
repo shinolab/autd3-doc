@@ -1,7 +1,7 @@
 #include <iostream>
 
 #include "autd3.hpp"
-#include "autd3/link/ethercrab.hpp"
+#include "autd3_link_ethercrab.hpp"
 
 using namespace autd3;
 

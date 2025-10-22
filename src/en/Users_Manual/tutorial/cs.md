@@ -4,6 +4,7 @@ First, open a terminal, create an appropriate project, and add the AUTD3Sharp li
 dotnet new console --name autd3-sample
 cd autd3-sample
 dotnet add package AUTD3Sharp
+dotnet add package AUTD3Sharp.Link.EtherCrab
 ```
 
 Next, edit `Program.cs` as follows.

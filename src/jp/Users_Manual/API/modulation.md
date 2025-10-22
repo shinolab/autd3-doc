@@ -21,8 +21,6 @@ SDKにはデフォルトでいくつかの種類のAMを生成するための`Mo
 * [Sine](./modulation/sine.md) - 正弦波
   * [Fourier](./modulation/fourier.md) - 正弦波の重ね合わせ
 * [Square](./modulation/square.md) - 矩形波
-* [Wav](./modulation/wav.md) - Wavファイルをもとにした変調
-* [Csv](./modulation/csv.md) - Csvファイルをもとにした変調
 * [Custom](./modulation/custom.md) - ユーザー定義の変調
 * [RadiationPressure](./modulation/radiation.md) - 放射圧に対して変調を適用する
 * [Fir](./modulation/fir.md) - Firフィルタを適用する

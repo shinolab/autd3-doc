@@ -1,5 +1,5 @@
 # GSPAT
-[Source](https://github.com/shinolab/autd3-rs/blob/v36.0.2/autd3-gain-holo/src/linear_synthesis/gspat.rs)
+[Source](https://github.com/shinolab/autd3-rs/blob/v37.0.0/autd3-gain-holo/src/linear_synthesis/gspat.rs)
 
 Gershberg-Saxon for Phased Arrays of Transducers, Plasenciaらの論文[^plasencia2020]に基づく多焦点`Gain`.
 

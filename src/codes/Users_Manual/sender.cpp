@@ -7,10 +7,7 @@
 auto sender =
     autd.sender(SenderOption{.send_interval = std::chrono::milliseconds(1),
                              .receive_interval = std::chrono::milliseconds(1),
-                             .timeout = std::nullopt,
-                             .parallel = ParallelMode::Auto,
-                             .strict = true},
-                FixedSchedule{});
+                             .timeout = std::nullopt});
 //~const Null d;
 sender.send(d);
 //~return 0; }

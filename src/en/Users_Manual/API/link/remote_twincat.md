@@ -1,31 +1,15 @@
 # RemoteTwinCAT
 
+> NOTE: This link is only available from Rust. Equivalent functionality is provided by [`Remote`](./remote.md).
+
 As mentioned earlier, using AUTD3 with TwinCAT requires a Windows OS and a specific network adapter.
 If you want to develop on a non-Windows PC, you can use the `RemoteTwinCAT` link to remotely operate TwinCAT from Linux/macOS.
 
 ## Install
 
-{{ #tabs }}
-{{ #tab name=Rust }}
 ```shell
 cargo add autd3-link-twincat --features remote
 ```
-{{ #endtab }}
-{{ #tab name=C++ }}
-```cpp,name=CMakeLists.txt
-target_link_libraries(<TARGET> PRIVATE autd3::link::twincat)
-```
-{{ #endtab }}
-{{ #tab name=C# }}
-Included in the main library.
-{{ #endtab }}
-{{ #tab name=Unity }}
-Included in the main library.
-{{ #endtab }}
-{{ #tab name=Python }}
-Included in the main library.
-{{ #endtab }}
-{{ #endtabs }}
 
 ## Setup
 
@@ -54,33 +38,13 @@ The "Server AmsNetId" and "Client AmsNetId" will be displayed on the right side 
 
 ## APIs
 
-In the constructor of `RemoteTwinCAT`, specify the "Server AmsNetId".
+In the constructor of `RemoteTwinCAT`, specify the ip address and AmsNetId of the server.
 
-You can also specify the server's IP address and the client's NetId with `server_ip` and `client_ams_net_id`.
-These can be omitted, but it is generally recommended to specify them.
+You can also specify the timeout and source address as options.
 
-{{ #tabs }}
-{{ #tab name=Rust }}
 ```rust
 {{#include ../../../../codes/Users_Manual/link/remote_twincat_0.rs}}
 ```
-{{ #endtab }}
-{{ #tab name=C++ }}
-```cpp
-{{#include ../../../../codes/Users_Manual/link/remote_twincat_0.cpp}}
-```
-{{ #endtab }}
-{{ #tab name=C# }}
-```cs
-{{#include ../../../../codes/Users_Manual/link/remote_twincat_0.cs}}
-```
-{{ #endtab }}
-{{ #tab name=Python }}
-```python
-{{#include ../../../../codes/Users_Manual/link/remote_twincat_0.py}}
-```
-{{ #endtab }}
-{{ #endtabs }}
 
 ### Firewall
 

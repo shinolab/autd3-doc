@@ -2,6 +2,7 @@
 
 ```shell
 pip install pyautd3
+pip install pyautd3_link_ethercrab
 ```
 
 次に, `main.py`を作成し, 以下のようにする.

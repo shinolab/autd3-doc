@@ -9,10 +9,7 @@ var sender = autd.Sender(
         SendInterval = Duration.FromMillis(1),
         ReceiveInterval = Duration.FromMillis(1),
         Timeout = null,
-        Parallel = ParallelMode.Auto,
-        Strict = true,
-    },
-    new FixedSchedule()
+    }
 );
 ~var d = new Null();
 sender.Send(d);

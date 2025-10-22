@@ -16,10 +16,13 @@ def python_module(cmd: list[str]) -> list[str]:
 
 
 def install_pyautd3() -> None:
-    version = "36.0.2"
-    emulator_version = "36.0.2"
+    version = "37.0.0"
+    emulator_version = "37.0.0"
     subprocess.run(
         python_module(["pip", "install", "-U", f"pyautd3=={version}"]),
+    )
+    subprocess.run(
+        python_module(["pip", "install", "-U", f"pyautd3_link_ethercrab=={version}"]),
     )
     subprocess.run(
         python_module(

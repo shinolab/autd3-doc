@@ -21,7 +21,6 @@ with Emulator([AUTD3()]) as emulator:
         ),
         RmsRecordOption(
             sound_speed=340e3,
-            gpu=False,
         ),
     )
 

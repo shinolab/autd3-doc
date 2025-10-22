@@ -23,7 +23,6 @@ with Emulator([AUTD3()]) as emulator:
             sound_speed=340e3,
             time_step=Duration.from_micros(1),
             memory_limits_hint_mb=128,
-            gpu=True,
         ),
     )
 

@@ -8,9 +8,8 @@ let mut sender = autd.sender(
         receive_interval: Duration::from_millis(1),
         timeout: None,
         parallel: ParallelMode::Auto,
-        strict: true
     },
-    FixedSchedule::default(),
+    StdSleeper,
 );
 # let d = Null {};
 sender.send(d)?;

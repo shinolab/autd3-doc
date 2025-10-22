@@ -19,7 +19,7 @@ When the simulator starts, it will be in a waiting state.
   <img src="../../fig/sim_waiting.jpg"/>
 </figure>
 
-In this state, when you open the `Controller` using the `Simulator` link, circles representing the positions of the transducers and a black panel in the center of the screen will be displayed on the simulator.
+In this state, when you open the `Controller` using the `Remote` link, circles representing the positions of the transducers and a black panel in the center of the screen will be displayed on the simulator.
 
 <figure>
   <img src="../../fig/sim_init.jpg"/>
