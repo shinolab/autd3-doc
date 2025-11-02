@@ -78,9 +78,14 @@ Note that TwinCAT will disconnect when the PC is powered off, enters sleep mode,
 
 ### License
 
-The first time, a license-related error will appear, so open "Solution Explorer" → "SYSTEM" → "License" in XAE Shell, click "7 Days Trial License ...", and enter the characters displayed on the screen.
-Note that the license is a 7-day trial license, but you can reissue it by performing the same operation again after it expires.
-After issuing the license, close "TwinCAT XAE Shell" and run it again.
+If you encounter license-related errors, set the license.
+After setting the license, close "TwinCAT XAE Shell" and run it again.
+
+If you have not set the license yet, you can issue a 7-day trial license using the following method.
+
+#### Issuing a Trial License
+
+Open "Solution Explorer" → "SYSTEM" → "License" in XAE Shell, click "7 Days Trial License ...", and enter the characters displayed on the screen.
 
 ## TwinCAT Link
 
