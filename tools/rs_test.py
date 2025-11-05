@@ -30,7 +30,7 @@ def substitute_in_file(
 if __name__ == "__main__":
     autd3_version = "37.0.1"
     autd3_emulator_version = "37.0.1"
-    autd3_link_soem_version = "37.0.1"
+    autd3_link_soem_version = "37.0.0"
     itertools_version = get_latest_version("itertools")
     tokio = get_latest_version("tokio")
     nalgebra = get_latest_version("nalgebra")
@@ -98,12 +98,28 @@ tokio = {{ version = "{tokio}", features = ["rt-multi-thread", "macros", "signal
             try:
                 if "ethercrab" in src or "Tutorial" in src:
                     subprocess.run(
-                        ["cargo", "rustc", "--features", "ethercrab", "--", "-D", "warnings"],
+                        [
+                            "cargo",
+                            "rustc",
+                            "--features",
+                            "ethercrab",
+                            "--",
+                            "-D",
+                            "warnings",
+                        ],
                         cwd=test_dir,
                     ).check_returncode()
                 elif "soem" in src:
                     subprocess.run(
-                        ["cargo", "rustc", "--features", "soem", "--", "-D", "warnings"],
+                        [
+                            "cargo",
+                            "rustc",
+                            "--features",
+                            "soem",
+                            "--",
+                            "-D",
+                            "warnings",
+                        ],
                         cwd=test_dir,
                     ).check_returncode()
                 else:
