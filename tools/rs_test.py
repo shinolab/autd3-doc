@@ -28,9 +28,9 @@ def substitute_in_file(
 
 
 if __name__ == "__main__":
-    autd3_version = "37.0.0"
+    autd3_version = "37.0.1"
     autd3_emulator_version = "37.0.1"
-    autd3_link_soem_version = "37.0.0"
+    autd3_link_soem_version = "37.0.1"
     itertools_version = get_latest_version("itertools")
     tokio = get_latest_version("tokio")
     nalgebra = get_latest_version("nalgebra")

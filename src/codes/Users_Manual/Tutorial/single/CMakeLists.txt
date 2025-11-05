@@ -14,33 +14,33 @@ include(FetchContent)
 if(WIN32)
   FetchContent_Declare(
     autd3
-    URL https://github.com/shinolab/autd3-cpp/releases/download/v37.0.0/autd3-v37.0.0-win-x64.zip
+    URL https://github.com/shinolab/autd3-cpp/releases/download/v37.0.1/autd3-v37.0.1-win-x64.zip
   )
 elseif(APPLE)
   FetchContent_Declare(
     autd3
-    URL https://github.com/shinolab/autd3-cpp/releases/download/v37.0.0/autd3-v37.0.0-macos-aarch64.tar.gz
+    URL https://github.com/shinolab/autd3-cpp/releases/download/v37.0.1/autd3-v37.0.1-macos-aarch64.tar.gz
   )
 else()
   FetchContent_Declare(
     autd3
-    URL https://github.com/shinolab/autd3-cpp/releases/download/v37.0.0/autd3-v37.0.0-linux-x64.tar.gz
+    URL https://github.com/shinolab/autd3-cpp/releases/download/v37.0.1/autd3-v37.0.1-linux-x64.tar.gz
   )
 endif()
 if(WIN32)
   FetchContent_Declare(
     autd3-link-ethercrab
-    URL https://github.com/shinolab/autd3-cpp-link-ethercrab/releases/download/v37.0.0/autd3-link-ethercrab-v37.0.0-win-x64.zip
+    URL https://github.com/shinolab/autd3-cpp-link-ethercrab/releases/download/v37.0.1/autd3-link-ethercrab-v37.0.1-win-x64.zip
   )
 elseif(APPLE)
   FetchContent_Declare(
     autd3-link-ethercrab
-    URL https://github.com/shinolab/autd3-cpp-link-ethercrab/releases/download/v37.0.0/autd3-link-ethercrab-v37.0.0-macos-aarch64.tar.gz
+    URL https://github.com/shinolab/autd3-cpp-link-ethercrab/releases/download/v37.0.1/autd3-link-ethercrab-v37.0.1-macos-aarch64.tar.gz
   )
 else()
   FetchContent_Declare(
     autd3-link-ethercrab
-    URL https://github.com/shinolab/autd3-cpp-link-ethercrab/releases/download/v37.0.0/autd3-link-ethercrab-v37.0.0-linux-x64.tar.gz
+    URL https://github.com/shinolab/autd3-cpp-link-ethercrab/releases/download/v37.0.1/autd3-link-ethercrab-v37.0.1-linux-x64.tar.gz
   )
 endif()
 set(USE_SYSTEM_EIGEN OFF)
