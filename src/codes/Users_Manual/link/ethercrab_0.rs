@@ -13,7 +13,6 @@ EtherCrab::new(
         sync0_period: Duration::from_millis(2),
         sync_tolerance: Duration::from_micros(1),
         sync_timeout: Duration::from_secs(10),
-        ..Default::default()
     },
 );
 # }

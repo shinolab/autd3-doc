@@ -40,6 +40,9 @@ target_link_libraries(<TARGET> PRIVATE autd3::link::ethercrab)
 ```rust
 {{#include ../../../../codes/Users_Manual/link/ethercrab_0.rs}}
 ```
+
+> NOTE: [`EtherCrabOptionFull`](https://docs.rs/autd3-link-ethercrab/latest/autd3_link_ethercrab/struct.EtherCrabOptionFull.html)でより詳細なオプションを指定することも可能.
+
 {{ #endtab }}
 {{ #tab name=C++ }}
 ```cpp
