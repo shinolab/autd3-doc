@@ -28,7 +28,7 @@ cargo add autd3 --features link-nop
 
 次に, `src/main.rs`を以下のように編集する.
 
-`RemoteServer::new`の第1引数には使用するポート番号を, 第2引数には使用するLinkを指定する.
+`RemoteServer::new`の第1引数には使用するポート番号を, 第2引数には使用するLinkを生成する関数を指定する.
 
 ```rust,no_run
 {{#include ../../../codes/Users_Manual/advanced/remote_server.rs}}

@@ -86,8 +86,6 @@ FPGAの状態としては, 現在以下の情報が取得できる.
 
 であり, デフォルト値は上記の通り.
 
-Rust版のみ第2引数に送受信間隔をどのように調整するかを指定する構造体を指定する. 通常は標準ライブラリの`sleep`を使用する`StdSleeper`で十分である.
-
 なお, `Controller::send`は`Controller::default_sender_option` (変更可能) と`StdSleeper`を使用した場合と等価である.
 
 ### 送信データのチェックについて

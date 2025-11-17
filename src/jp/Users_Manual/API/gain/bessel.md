@@ -1,5 +1,5 @@
 # Bessel
-[Source](https://github.com/shinolab/autd3-rs/blob/v37.0.1/autd3/src/datagram/gain/bessel.rs)
+[Source](https://github.com/shinolab/autd3-rs/blob/v38.0.0/autd3/src/datagram/gain/bessel.rs)
 
 `Bessel`ではBessel beamを生成する.
 この`Gain`は長谷川らの論文[^hasegawa2017]に基づく.
@@ -27,7 +27,7 @@
 {{ #endtab }}
 {{ #endtabs }}
 
-ここで, `pos`はビームを生成する仮想円錐 (下図の点線) の頂点であり, `dir`はビームの方向, `theta`はビームに垂直な面とビームを生成する仮想円錐の側面となす角度である (下図の$\theta_z$).
+ここで, `apex`はビームを生成する仮想円錐 (下図の点線) の頂点であり, `dir`はビームの方向, `theta`はビームに垂直な面とビームを生成する仮想円錐の側面となす角度である (下図の$\theta_z$).
 
 <figure>
   <img src="../../../fig/Users_Manual/1.4985159.figures.online.f1.jpg"/>

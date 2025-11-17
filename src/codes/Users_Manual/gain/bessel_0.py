@@ -8,7 +8,7 @@
 ~nz = 0.0
 ~theta = 0.0
 Bessel(
-    pos=[x, y, z],
+    apex=[x, y, z],
     direction=[nx, ny, nz],
     theta=theta * rad,
     option=BesselOption(

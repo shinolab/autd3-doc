@@ -23,7 +23,7 @@ def substitute_in_file(
 
 
 if __name__ == "__main__":
-    version = "37.0.1"
+    version = "38.0.0"
     print(f"Testing with AUTD3Sharp {version}")
 
     base_path = pathlib.Path(os.getcwd()) / "src" / "codes"

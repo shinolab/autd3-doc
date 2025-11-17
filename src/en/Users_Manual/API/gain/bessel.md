@@ -26,7 +26,7 @@ This `Gain` is based on the paper by Hasegawa et al. [^hasegawa2017].
 {{ #endtab }}
 {{ #endtabs }}
 
-Here, `pos` is the apex of the virtual cone (dotted line in the figure below) that generates the beam, `dir` is the direction of the beam, and `theta` is the angle between the plane perpendicular to the beam and the side of the virtual cone that generates the beam ($\theta_z$ in the figure below).
+Here, `apex` is the apex of the virtual cone (dotted line in the figure below) that generates the beam, `dir` is the direction of the beam, and `theta` is the angle between the plane perpendicular to the beam and the side of the virtual cone that generates the beam ($\theta_z$ in the figure below).
 
 <figure>
   <img src="../../../fig/Users_Manual/1.4985159.figures.online.f1.jpg"/>
