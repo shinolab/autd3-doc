@@ -9,7 +9,7 @@
 # let theta = 0. * rad;
 # let _ = 
 Bessel {
-    pos: Point3::new(x, y, z),
+    apex: Point3::new(x, y, z),
     dir: UnitVector3::new_normalize(Vector3::new(nx, ny, nz)),
     theta,
     option: BesselOption {

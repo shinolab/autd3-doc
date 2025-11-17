@@ -28,7 +28,7 @@ cargo add autd3 --features link-nop
 
 Next, edit `src/main.rs` as follows.
 
-In the first argument of `RemoteServer::new`, specify the port number to use, and in the second argument, specify the Link to use.
+In the first argument of `RemoteServer::new`, specify the port number to use, and in the second argument, specify the Link factory to use.
 
 ```rust,no_run
 {{#include ../../../codes/Users_Manual/advanced/remote_server.rs}}

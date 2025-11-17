@@ -10,7 +10,7 @@
 ~var nz = 1.0f;
 ~var theta = 0.0f;
 new Bessel(
-    pos: new Point3(x, y, z),
+    apex: new Point3(x, y, z),
     dir: new Vector3(nx, ny, nz),
     theta: theta * rad,
     option: new BesselOption

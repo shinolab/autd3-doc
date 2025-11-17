@@ -4,12 +4,11 @@
 # let mut autd = Controller::open([AUTD3::default()], autd3::link::Nop::new())?;
 let mut sender = autd.sender(
     SenderOption {
-        send_interval: Duration::from_millis(1),
-        receive_interval: Duration::from_millis(1),
+        send_interval: Some(Duration::from_millis(1)),
+        receive_interval: Some(Duration::from_millis(1)),
         timeout: None,
         parallel: ParallelMode::Auto,
     },
-    StdSleeper,
 );
 # let d = Null {};
 sender.send(d)?;
