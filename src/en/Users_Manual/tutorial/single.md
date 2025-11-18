@@ -8,7 +8,7 @@ This tutorial uses [EtherCrab](https://github.com/ethercrab-rs/ethercrab).
 If you are using Windows, install [Npcap](https://npcap.com/) in "**WinPcap API-compatible Mode**".
 
 Note that if the firmware is outdated, proper operation is not guaranteed.
-The firmware version assumed in this document is v10 or later.
+The firmware version assumed in this document is v12.1.0.
 Refer to [Getting Started/Firmware](../getting_started/firmware.md) for firmware updates.
 
 ## Sample Programs
