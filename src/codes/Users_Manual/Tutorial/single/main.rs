@@ -14,13 +14,13 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             |idx, status| {
                 eprintln!("Device[{}]: {}", idx, status);
             },
-            // The second argument is a option of EtherCrab link.
+            // The second argument is a option of EtherCrab link, here we use default option
             EtherCrabOption::default(),
         ),
     )?;
 
     // Check firmware version
-    // This code assumes that the version is v10 or later.
+    // This code assumes that the version is v12.1.0
     autd.firmware_version()?.iter().for_each(|firm_info| {
         println!("{}", firm_info);
     });

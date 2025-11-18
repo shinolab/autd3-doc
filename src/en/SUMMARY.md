@@ -64,7 +64,6 @@
   - [FAQ](./Users_Manual/FAQ/faq.md)
   - [Citation](./Users_Manual/Citation/citation.md)
   - [License](./Users_Manual/LICENSE.md)
-  - [Firmware version](./Users_Manual/firmware_version.md)
   - [Release Notes](./Users_Manual/release_notes.md)
 
 - [Document History](document_history.md)
