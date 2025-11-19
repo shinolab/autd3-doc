@@ -1,7 +1,7 @@
 FROM rust:1.70-alpine
 
 ARG mdbook_dir=/home
-ARG mdbook_url=https://github.com/rust-lang/mdBook/releases/download/v0.4.48/mdbook-v0.4.48-x86_64-unknown-linux-musl.tar.gz
+ARG mdbook_url=https://github.com/rust-lang/mdBook/releases/download/v0.4.52/mdbook-v0.4.52-x86_64-unknown-linux-musl.tar.gz
 ARG mdbook_toc_url=https://github.com/badboy/mdbook-toc/releases/download/0.14.2/mdbook-toc-0.14.2-x86_64-unknown-linux-musl.tar.gz
 ARG mdbook_katex_url=https://github.com/lzanini/mdbook-katex/releases/download/0.9.3-binaries/mdbook-katex-v0.9.3-x86_64-unknown-linux-musl.tar.gz
 ARG mdbook_open_on_gh_url=https://github.com/badboy/mdbook-open-on-gh/releases/download/2.4.3/mdbook-open-on-gh-2.4.3-x86_64-unknown-linux-musl.tar.gz
