@@ -1,11 +1,8 @@
 [book]
 authors = ["shun suzuki"]
 language = "en"
-multilingual = true
 title = "AUTD3 Developers Manual v38.0.0"
-
 src = "src"
-destination = "book"
 
 [preprocessor.index]
 [preprocessor.links]
@@ -42,14 +39,6 @@ level = 2
 after = ["links"]
 macros = "katex_macro.txt"
 fleqn = true
-
-[language-en]
-src = "src/en"
-destination = "book/en"
-
-[language-jp]
-src = "src/jp"
-destination = "book/jp"
 
 [output.html.code.hidelines]
 cs = "~"
