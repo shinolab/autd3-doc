@@ -12,6 +12,7 @@ runs:
         tool: cargo-make
     - uses: cargo-bins/cargo-binstall@main
     - name: Install mdbook
+      shell: bash
       run: cargo binstall mdbook@0.4.52 mdbook-toc@0.14.2 mdbook-open-on-gh@2.4.3
     - name: Setup mdbook-katex
       shell: bash
