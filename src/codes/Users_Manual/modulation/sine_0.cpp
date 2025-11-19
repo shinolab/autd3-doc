@@ -6,6 +6,6 @@ Sine(150 * Hz, SineOption{
                    .offset = 0x80,
                    .phase = 0.0f * rad,
                    .clamp = false,
-                   .sampling_config = SamplingConfig::freq_4k(),
+                   .sampling_config = SamplingConfig::FREQ_4K,
                });
 //~return 0; }
