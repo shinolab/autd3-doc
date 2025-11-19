@@ -28,7 +28,8 @@ runs:
       run: |
         mkdir -p mdbook-inpage-tab
         cd mdbook-inpage-tab
-        curl -L https://github.com/shinolab/mdbook-inpage-tab/releases/download/v0.2.0/mdbook-inpage-tab-v0.2.0-linux-x64.tar.gz -o mdbook-inpage-tab.tar.gz
+        curl -L 
+        https://github.com/shinolab/mdbook-inpage-tab/releases/download/v0.1.2/mdbook-inpage-tab-v0.1.2-x86_64-unknown-linux-gnu.tar.gz -o mdbook-inpage-tab.tar.gz
         tar -xvf mdbook-inpage-tab.tar.gz
         chmod +x mdbook-inpage-tab
         sudo ln -s $PWD/mdbook-inpage-tab /usr/local/bin/mdbook-inpage-tab
