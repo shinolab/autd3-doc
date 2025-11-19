@@ -5,6 +5,6 @@ Square(150 * Hz, SquareOption{
                      .low = 0x00,
                      .high = 0xFF,
                      .duty = 0.5f,
-                     .sampling_config = SamplingConfig::freq_4k(),
+                     .sampling_config = SamplingConfig::FREQ_4K,
                  });
 //~return 0; }
