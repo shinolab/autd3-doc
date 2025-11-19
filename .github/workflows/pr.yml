@@ -18,9 +18,9 @@ jobs:
       py: ${{ steps.changed-files-yaml.outputs.py_any_changed }}
       rs: ${{ steps.changed-files-yaml.outputs.rs_any_changed }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - id: changed-files-yaml
-        uses: tj-actions/changed-files@v46
+        uses: tj-actions/changed-files@v47
         with:
           files_yaml: |
             cs:
@@ -47,14 +47,14 @@ jobs:
     name: test-cs
     runs-on: ubuntu-latest
     steps: 
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.14"
       - uses: taiki-e/install-action@v2
         with:
           tool: cargo-make
-      - uses: actions/setup-dotnet@v4
+      - uses: actions/setup-dotnet@v5
         with:
           dotnet-version: '8.0.x'
       - run: |
@@ -67,8 +67,8 @@ jobs:
     name: test-cpp
     runs-on: ubuntu-latest
     steps: 
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.14"
       - uses: taiki-e/install-action@v2
@@ -86,8 +86,8 @@ jobs:
     name: test-python
     runs-on: ubuntu-latest
     steps: 
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.14"
       - uses: taiki-e/install-action@v2
@@ -103,8 +103,8 @@ jobs:
     name: test-rust
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.14"
       - uses: taiki-e/install-action@v2
