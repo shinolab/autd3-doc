@@ -10,19 +10,18 @@
 autd.send(autd3::Silencer::disable());
 
 const autd3::Point3 center = autd.center() + autd3::Vector3(0., 0., 150.);
-const auto points_num = 20;
-const auto radius = 30.0f;
-std::vector<autd3::Point3> foci;
-std::ranges::copy(iota(0) | take(points_num) | transform([&](auto i) {
-                    const auto theta = 2.0f * autd3::pi *
-                                       static_cast<float>(i) /
-                                       static_cast<float>(points_num);
-                    autd3::Point3 p =
-                        center + radius * autd3::Vector3(std::cos(theta),
-                                                         std::sin(theta), 0);
-                    return p;
-                  }),
-                  std::back_inserter(foci));
-autd.send(autd3::FociSTM(foci, 50.0f * autd3::Hz));
+constexpr auto points_num = 20;
+constexpr auto radius = 30.0f;
+autd.send(autd3::FociSTM(iota(0) | take(points_num) | transform([&](auto i) {
+                           const auto theta = 2.0f * autd3::pi *
+                                              static_cast<float>(i) /
+                                              static_cast<float>(points_num);
+                           autd3::Point3 p =
+                               center + radius * autd3::Vector3(std::cos(theta),
+                                                                std::sin(theta),
+                                                                0);
+                           return p;
+                         }) | std::ranges::to<std::vector<autd3::Point3>>(),
+                         50.0f * autd3::Hz));
 //~return 0;
 //~}

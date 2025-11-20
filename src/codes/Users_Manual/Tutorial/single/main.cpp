@@ -6,20 +6,19 @@
 using namespace autd3;
 
 int main() try {
-  auto autd = Controller::open(
-      {AUTD3{
-          .pos = Point3::origin(),
-          .rot = Quaternion::Identity(),
-      }},
-      link::EtherCrab(
-          [](const uint16_t idx, const link::Status status) {
-            std::cout << "Device[" << idx << "]: " << status << std::endl;
-          },
-          link::EtherCrabOption{}));
+  auto autd =
+      Controller::open({AUTD3{
+                           .pos = Point3::origin(),
+                           .rot = Quaternion::Identity(),
+                       }},
+                       link::EtherCrab(
+                           [](const uint16_t idx, const link::Status status) {
+                             std::cout << std::format("Device[{}]: ", idx)
+                                       << status << std::endl;
+                           },
+                           link::EtherCrabOption{}));
 
-  const auto firm_version = autd.firmware_version();
-  std::copy(firm_version.begin(), firm_version.end(),
-            std::ostream_iterator<FirmwareVersion>(std::cout, "\n"));
+  for (auto&& firm : autd.firmware_version()) std::cout << firm << std::endl;
 
   autd.send(Silencer{});
 
