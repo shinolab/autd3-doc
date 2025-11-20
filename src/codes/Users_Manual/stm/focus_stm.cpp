@@ -4,7 +4,12 @@
 //~using namespace std::ranges::views;
 //~int main() {
 //~using namespace autd3;
-const Point3 center(0, 0, 150);
+//~auto autd = Controller::open({AUTD3{
+//~                                 .pos = Point3::origin(),
+//~                                 .rot = Quaternion::Identity(),
+//~                             }},
+//~                             link::Nop{});
+const Point3 center = autd.center() + Vector3(0, 0, 150);
 constexpr auto points_num = 200;
 constexpr auto radius = 30.0f;
 FociSTM(iota(0) | take(points_num) | transform([&](auto i) {

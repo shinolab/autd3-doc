@@ -1,6 +1,8 @@
 ~import numpy as np
-~from pyautd3 import ControlPoint, ControlPoints, Intensity, FociSTM, Hz, Phase
-center = np.array([0.0, 0.0, 150.0])
+~from pyautd3 import AUTD3, Controller, ControlPoint, ControlPoints, Intensity, FociSTM, Hz, Phase
+~from pyautd3.link.nop import Nop
+~autd = Controller.open([AUTD3(pos=[0.0, 0.0, 0.0], rot=[1, 0, 0, 0])], Nop())
+center = autd.center() + np.array([0.0, 0.0, 150.0])
 point_num = 200
 radius = 30.0
 FociSTM(
