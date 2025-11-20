@@ -18,6 +18,6 @@ GainSTM(iota(0) | take(points_num) | transform([&](auto i) {
           return Focus(
               center + radius * Vector3(std::cos(theta), std::sin(theta), 0),
               FocusOption{});
-        }) | std::ranges::to<std::vector<Focus> >(),
+        }) | std::ranges::to<std::vector<Focus>>(),
         1.0f * Hz, GainSTMOption{.mode = GainSTMMode::PhaseIntensityFull});
 //~return 0; }
