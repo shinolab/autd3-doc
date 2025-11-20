@@ -78,7 +78,7 @@ jobs:
           sudo apt-get update
           sudo apt-get -y install libeigen3-dev
           pip install joblib
-          cargo make cpp-test
+          CC=gcc-14 CXX=g++-14 cargo make cpp-test
 
   test-python:
     needs: [changed-files]
