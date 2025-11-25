@@ -83,21 +83,10 @@ Here,
 - `receive_interval`: Receive interval
 - `timeout`: Timeout duration. See [About Ack check](#about-ack-check) for details.
 - `parallel`: Parallel computation mode. See [About Parallel Computation](#about-parallel-computation) for details.
-- `strict`: Whether to strictly check the data to be sent. See [About Ack check](#about-ack-check) for details.
 
 and the default values are as above.
 
-The second argument is a structure to adjust send/receive intervals, and you can choose from the following:
-- `FixedSchedule`: Starts the next send at the specified interval from the start time of the previous send, regardless of the time taken for the send process.
-- `FixedDelay`: Starts the next send after the specified interval from the completion of the send process. 
-
-これらの構造体は, どのようにスレッドをスリープさせるかを指定する以下の構造体を持つ.
-These structures have the following structures that specify how to put the thread to sleep:
-- `SpinSleeper`: Uses [`spin_sleep`](https://crates.io/crates/spin_sleep)
-- `StdSleeper`: Uses [`std::thread::sleep`](https://doc.rust-lang.org/std/thread/fn.sleep.html)
-- `SpinWait`: Uses busy-waiting
-
-Note that `Controller::send` and `Controller::group_send` are equivalent to `Sender::send` and `Sender::group_send` with the `Controller::default_sender_option` (which is configurable) and default `SpinSleeper`.
+Note that `Controller::send` is equivalent to `Sender::send` with the `Controller::default_sender_option` (which is configurable).
 
 ### About ack check
 
