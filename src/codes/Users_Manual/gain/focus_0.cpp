@@ -4,9 +4,8 @@
 //~const auto x = 0.0;
 //~const auto y = 0.0;
 //~const auto z = 0.0;
-Focus(Point3(x, y, z),
-      FocusOption{
-          .intensity = std::numeric_limits<Intensity>::max(),
-          .phase_offset = Phase::zero(),
-      });
+Focus(Point3(x, y, z), FocusOption{
+                           .intensity = std::numeric_limits<Intensity>::max(),
+                           .phase_offset = Phase::ZERO,
+                       });
 //~return 0; }

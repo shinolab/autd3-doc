@@ -11,6 +11,6 @@
 Bessel(Point3(x, y, z), Vector3(nx, ny, nz), theta* rad,
        BesselOption{
            .intensity = std::numeric_limits<Intensity>::max(),
-           .phase_offset = Phase::zero(),
+           .phase_offset = Phase::ZERO,
        });
 //~return 0; }

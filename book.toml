@@ -1,7 +1,7 @@
 [book]
 authors = ["shun suzuki"]
 language = "en"
-title = "AUTD3 Developers Manual v38.0.0"
+title = "AUTD3 Developers Manual v38.0.1"
 src = "src"
 
 [preprocessor.index]

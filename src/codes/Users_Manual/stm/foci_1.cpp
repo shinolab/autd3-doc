@@ -18,9 +18,9 @@ FociSTM stm(iota(0) | take(points_num) | transform([&](auto i) {
               Vector3 p = radius * Vector3(std::cos(theta), std::sin(theta), 0);
               return ControlPoints<2>{
                   .points = {ControlPoint{.point = center + p,
-                                          .phase_offset = Phase::zero()},
+                                          .phase_offset = Phase::ZERO},
                              ControlPoint{.point = center - p,
-                                          .phase_offset = Phase::zero()}},
+                                          .phase_offset = Phase::ZERO}},
                   .intensity = std::numeric_limits<Intensity>::max()};
             }) | std::ranges::to<std::vector<ControlPoints<2>>>(),
             1.0f * Hz);
