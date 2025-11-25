@@ -56,7 +56,7 @@ jobs:
           tool: cargo-make
       - uses: actions/setup-dotnet@v5
         with:
-          dotnet-version: '8.0.x'
+          dotnet-version: '10.0.x'
       - run: |
           pip install joblib
           cargo make cs-test

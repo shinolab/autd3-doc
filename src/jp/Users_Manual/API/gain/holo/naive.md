@@ -1,5 +1,5 @@
 # Naive
-[Source](https://github.com/shinolab/autd3-rs/blob/v38.0.0/autd3-gain-holo/src/linear_synthesis/naive.rs)
+[Source](https://github.com/shinolab/autd3-rs/blob/v38.0.1/autd3-gain-holo/src/linear_synthesis/naive.rs)
 
 単一焦点解の重ね合わせによる多焦点`Gain`.
 

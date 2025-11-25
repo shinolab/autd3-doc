@@ -23,7 +23,7 @@ def substitute_in_file(
 
 
 if __name__ == "__main__":
-    version = "38.0.0"
+    version = "38.0.1"
     print(f"Testing with AUTD3Sharp {version}")
 
     base_path = pathlib.Path(os.getcwd()) / "src" / "codes"
@@ -57,7 +57,7 @@ if __name__ == "__main__":
 
     <PropertyGroup>
         <OutputType>Exe</OutputType>
-        <TargetFramework>net8.0</TargetFramework>
+        <TargetFramework>net10.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>

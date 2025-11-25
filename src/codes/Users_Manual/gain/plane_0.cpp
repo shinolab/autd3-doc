@@ -7,6 +7,6 @@
 Plane(Vector3(nx, ny, nz),
       PlaneOption{
           .intensity = std::numeric_limits<Intensity>::max(),
-          .phase_offset = Phase::zero(),
+          .phase_offset = Phase::ZERO,
       });
 //~return 0; }

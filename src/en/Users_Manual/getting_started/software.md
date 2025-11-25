@@ -17,13 +17,13 @@ Basically, it supports the standard package managers for each language.
 Can be installed using CMake's FetchContent.
 
 - autd3
-    - Windows: [https://github.com/shinolab/autd3-cpp/releases/download/v38.0.0/autd3-v38.0.0-win-x64.zip](https://github.com/shinolab/autd3-cpp/releases/download/v38.0.0/autd3-v38.0.0-win-x64.zip)
-    - macOS: [https://github.com/shinolab/autd3-cpp/releases/download/v38.0.0/autd3-v38.0.0-macos-aarch64.tar.gz](https://github.com/shinolab/autd3-cpp/releases/download/v38.0.0/autd3-v38.0.0-macos-aarch64.tar.gz)
-    - Linux: [https://github.com/shinolab/autd3-cpp/releases/download/v38.0.0/autd3-v38.0.0-linux-x64.tar.gz](https://github.com/shinolab/autd3-cpp/releases/download/v38.0.0/autd3-v38.0.0-linux-x64.tar.gz)
+    - Windows: [https://github.com/shinolab/autd3-cpp/releases/download/v38.0.1/autd3-v38.0.1-win-x64.zip](https://github.com/shinolab/autd3-cpp/releases/download/v38.0.1/autd3-v38.0.1-win-x64.zip)
+    - macOS: [https://github.com/shinolab/autd3-cpp/releases/download/v38.0.1/autd3-v38.0.1-macos-aarch64.tar.gz](https://github.com/shinolab/autd3-cpp/releases/download/v38.0.1/autd3-v38.0.1-macos-aarch64.tar.gz)
+    - Linux: [https://github.com/shinolab/autd3-cpp/releases/download/v38.0.1/autd3-v38.0.1-linux-x64.tar.gz](https://github.com/shinolab/autd3-cpp/releases/download/v38.0.1/autd3-v38.0.1-linux-x64.tar.gz)
 - autd3-link-ethercrab
-    - Windows: [https://github.com/shinolab/autd3-cpp-link-ethercrab/releases/download/v38.0.0/autd3-link-ethercrab-v38.0.0-win-x64.zip](https://github.com/shinolab/autd3-cpp-link-ethercrab/releases/download/v38.0.0/autd3-link-ethercrab-v38.0.0-win-x64.zip)
-    - macOS: [https://github.com/shinolab/autd3-cpp-link-ethercrab/releases/download/v38.0.0/autd3-link-ethercrab-v38.0.0-macos-aarch64.tar.gz](https://github.com/shinolab/autd3-cpp-link-ethercrab/releases/download/v38.0.0/autd3-link-ethercrab-v38.0.0-macos-aarch64.tar.gz)
-    - Linux: [https://github.com/shinolab/autd3-cpp-link-ethercrab/releases/download/v38.0.0/autd3-link-ethercrab-v38.0.0-linux-x64.tar.gz](https://github.com/shinolab/autd3-cpp-link-ethercrab/releases/download/v38.0.0/autd3-link-ethercrab-v38.0.0-linux-x64.tar.gz)
+    - Windows: [https://github.com/shinolab/autd3-cpp-link-ethercrab/releases/download/v38.0.1/autd3-link-ethercrab-v38.0.1-win-x64.zip](https://github.com/shinolab/autd3-cpp-link-ethercrab/releases/download/v38.0.1/autd3-link-ethercrab-v38.0.1-win-x64.zip)
+    - macOS: [https://github.com/shinolab/autd3-cpp-link-ethercrab/releases/download/v38.0.1/autd3-link-ethercrab-v38.0.1-macos-aarch64.tar.gz](https://github.com/shinolab/autd3-cpp-link-ethercrab/releases/download/v38.0.1/autd3-link-ethercrab-v38.0.1-macos-aarch64.tar.gz)
+    - Linux: [https://github.com/shinolab/autd3-cpp-link-ethercrab/releases/download/v38.0.1/autd3-link-ethercrab-v38.0.1-linux-x64.tar.gz](https://github.com/shinolab/autd3-cpp-link-ethercrab/releases/download/v38.0.1/autd3-link-ethercrab-v38.0.1-linux-x64.tar.gz)
 {{ #endtab }}
 {{ #tab name=C# }}
 Published on NuGet.

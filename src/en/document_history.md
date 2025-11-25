@@ -2,6 +2,7 @@
 
 | Date       | Description                                   |
 | :--------  | :-------------------------------------------- |
+| 2025/11/25 | Version 38.0.1 Initial release                |
 | 2025/11/17 | Version 38.0.0 Initial release                |
 | 2025/11/05 | Version 37.0.1 Initial release                |
 | 2025/10/22 | Version 37.0.0 Initial release                |
