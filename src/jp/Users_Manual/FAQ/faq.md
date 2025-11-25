@@ -48,7 +48,7 @@
 
 - [`Silencer`のこの条件](../API/silencer.md#fixed-completion-time-modeの注意点)を満たしていない. 以下のいずれかの方法で修正できる. (おすすめは上から順に)
   1. AM変調/STMのサンプリングレートをおとす
-  1. [`Silencer`を無効化する](../API/silencer.md#silencerの設定)
+  1. 上記条件を満たすように[`Silencer`を弱める](../API/silencer.md#fixed-completion-time-mode), または, [`Silencer`を無効化する](../API/silencer.md#silencerの設定)
   1. [Fixed update rateモード](../API/silencer.md#fixed-update-rate-mode)を使用する
   1. [strict](../API/silencer.md#fixed-completion-time-modeの設定)を`false`にする
 
