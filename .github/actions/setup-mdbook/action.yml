@@ -13,13 +13,13 @@ runs:
     - uses: cargo-bins/cargo-binstall@main
     - name: Install mdbook
       shell: bash
-      run: cargo binstall mdbook@0.4.52 mdbook-toc@0.14.2 mdbook-open-on-gh@2.4.3
+      run: cargo binstall mdbook@0.5.1 mdbook-toc@0.15.1 mdbook-open-on-gh@3.0.0
     - name: Setup mdbook-katex
       shell: bash
       run: |
         mkdir -p mdbook-katex
         cd mdbook-katex
-        curl -L https://github.com/lzanini/mdbook-katex/releases/download/0.9.3-binaries/mdbook-katex-v0.9.3-x86_64-unknown-linux-gnu.tar.gz -o mdbook-katex.tar.gz
+        curl -L https://github.com/lzanini/mdbook-katex/releases/download/0.10.0-alpha-binaries/mdbook-katex-v0.10.0-alpha-x86_64-unknown-linux-gnu.tar.gz -o mdbook-katex.tar.gz
         tar -xvf mdbook-katex.tar.gz
         chmod +x mdbook-katex
         sudo ln -s $PWD/mdbook-katex /usr/local/bin/mdbook-katex
@@ -28,7 +28,7 @@ runs:
       run: |
         mkdir -p mdbook-inpage-tab
         cd mdbook-inpage-tab
-        curl -L https://github.com/shinolab/mdbook-inpage-tab/releases/download/v0.1.2/mdbook-inpage-tab-v0.1.2-x86_64-unknown-linux-gnu.tar.gz -o mdbook-inpage-tab.tar.gz
+        curl -L https://github.com/shinolab/mdbook-inpage-tab/releases/download/v0.2.0/mdbook-inpage-tab-v0.2.0-x86_64-unknown-linux-gnu.tar.gz -o mdbook-inpage-tab.tar.gz
         tar -xvf mdbook-inpage-tab.tar.gz
         chmod +x mdbook-inpage-tab
         sudo ln -s $PWD/mdbook-inpage-tab /usr/local/bin/mdbook-inpage-tab
