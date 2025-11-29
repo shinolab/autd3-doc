@@ -215,7 +215,7 @@ Each row corresponds to the rows in the [Transducer Table](#transducer-table).
 ```rust,edition2024
 {{#include ../../../codes/Users_Manual/emulator/emulator_field.rs}}
 ```
->NOTE: The `gpu` option is only available if the `gpu` feature is enabled.</p>
+>NOTE: The `gpu` option is only available if the `gpu` feature is enabled. Enabling the `gpu` option will execute the calculation on the GPU.
 {{ #endtab }}
 {{ #tab name=Python }}
 ```python
@@ -226,9 +226,6 @@ Each row corresponds to the rows in the [Transducer Table](#transducer-table).
 
 > NOTE: In Rust, besides `RangeXYZ`, you can use `RangeZXY`, `RangeXY` for 2D, `RangeX` for 1D and so on, or `Vec<Vector3>` to specify arbitrary points.
 > In Python, only `RangeXYZ` is available.
-
-Enabling the `print_progress` option will display the calculation progress.
-Enabling the `gpu` option will execute the calculation on the GPU.
 
 Due to the potential for high memory consumption, the `next` function is used to retrieve only specific times.
 The `skip` function can be used to skip a specified amount of time.
@@ -283,7 +280,7 @@ Each row corresponds to the observation points obtained with `observe_points`.
 ```rust,edition2024
 {{#include ../../../codes/Users_Manual/emulator/emulator_rms.rs}}
 ```
->NOTE: The `gpu` option is only available if the `gpu` feature is enabled.</p>
+>NOTE: The `gpu` option is only available if the `gpu` feature is enabled.
 {{ #endtab }}
 {{ #tab name=Python }}
 ```python

@@ -1,11 +1,11 @@
-FROM rust:1.70-alpine
+FROM rust:1.91-alpine
 
 ARG mdbook_dir=/home
-ARG mdbook_url=https://github.com/rust-lang/mdBook/releases/download/v0.4.52/mdbook-v0.4.52-x86_64-unknown-linux-musl.tar.gz
-ARG mdbook_toc_url=https://github.com/badboy/mdbook-toc/releases/download/0.14.2/mdbook-toc-0.14.2-x86_64-unknown-linux-musl.tar.gz
-ARG mdbook_katex_url=https://github.com/lzanini/mdbook-katex/releases/download/0.9.3-binaries/mdbook-katex-v0.9.3-x86_64-unknown-linux-musl.tar.gz
-ARG mdbook_open_on_gh_url=https://github.com/badboy/mdbook-open-on-gh/releases/download/2.4.3/mdbook-open-on-gh-2.4.3-x86_64-unknown-linux-musl.tar.gz
-ARG mdbook_inpage_tab=https://github.com/shinolab/mdbook-inpage-tab/releases/download/v0.1.2/mdbook-inpage-tab-v0.1.2-x86_64-unknown-linux-musl.tar.gz
+ARG mdbook_url=https://github.com/rust-lang/mdBook/releases/download/v0.5.1/mdbook-v0.5.1-x86_64-unknown-linux-musl.tar.gz
+ARG mdbook_toc_url=https://github.com/badboy/mdbook-toc/releases/download/0.15.1/mdbook-toc-0.15.1-x86_64-unknown-linux-musl.tar.gz
+ARG mdbook_katex_url=https://github.com/lzanini/mdbook-katex/releases/download/0.10.0-alpha-binaries/mdbook-katex-v0.10.0-alpha-x86_64-unknown-linux-gnu.tar.gz
+ARG mdbook_open_on_gh_url=https://github.com/badboy/mdbook-open-on-gh/releases/download/3.0.0/mdbook-open-on-gh-3.0.0-x86_64-unknown-linux-musl.tar.gz
+ARG mdbook_inpage_tab=https://github.com/shinolab/mdbook-inpage-tab/releases/download/v0.2.0/mdbook-inpage-tab-v0.2.0-x86_64-unknown-linux-musl.tar.gz
 
 WORKDIR ${mdbook_dir}
 RUN wget ${mdbook_url} -O mdbook.tar.gz && \

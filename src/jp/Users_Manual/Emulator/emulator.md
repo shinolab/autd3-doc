@@ -218,7 +218,7 @@ pip install pyautd3_emulator
 ```rust,edition2024
 {{#include ../../../codes/Users_Manual/emulator/emulator_field.rs}}
 ```
-> NOTE: `gpu`オプションは, `gpu` featureを有効にしている場合のみ使用可能である.
+> NOTE: `gpu`オプションは, `gpu` featureを有効にしている場合のみ使用可能である. `gpu`オプションを有効にすると, 計算がGPU上で実行される.
 {{ #endtab }}
 {{ #tab name=Python }}
 ```python
@@ -231,8 +231,6 @@ pip install pyautd3_emulator
 > あるいは, 任意の点を指定するために, `Vec<Vector3>`が使用できる.
 > Python版は, `RangeXYZ`のみが使用できる.
 
-`print_progress`オプションを有効にすると計算の進捗が表示される.
-また, `gpu`オプションを有効にすると, 計算がGPU上で実行される.
 
 膨大なメモリが消費される可能性があるため, `next`関数によって, 一部時刻のみを取得するようになっている.
 なお, `skip`関数を使用することで, 指定した時間だけスキップすることができる.
