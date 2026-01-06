@@ -1,5 +1,5 @@
 # Fir
-[Source](https://github.com/shinolab/autd3-rs/blob/v38.0.1/autd3/src/datagram/modulation/fir.rs)
+[Source](https://github.com/shinolab/autd3-rs/blob/v38.0.1/autd3/src/modulation/fir.rs)
 
 `Fir`では任意の`Modulation`FIRフィルタを適用することができる.
 
