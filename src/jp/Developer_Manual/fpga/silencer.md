@@ -49,7 +49,7 @@ $\Delta$の決定方法に2つのモードがある.
     $$\begin{align}
         \Delta_I = \frac{|D_t \times 256 - D_c|}{S_I}, \quad \Delta_P = \frac{|P_t \times 256 - P_c|}{S_P},
     \end{align}$$
-    を, 目標値が変化したタイミングでここの振動子に対して設定する.
+    を, 目標値が変化したタイミングで個々の振動子に対して設定する.
 
 これらのモードは`FLAG`にて切り替える.
 
