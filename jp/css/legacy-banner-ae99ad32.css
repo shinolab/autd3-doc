@@ -1,0 +1,36 @@
+.legacy-banner {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75em;
+    margin: 0 0 2em 0;
+    padding: 0.9em 1.1em;
+    border: 1px solid rgba(200, 130, 40, 0.55);
+    border-left: 4px solid #d08c30;
+    border-radius: 4px;
+    background: rgba(208, 140, 48, 0.12);
+    font-size: 0.95em;
+    line-height: 1.6;
+}
+
+.legacy-banner__icon {
+    flex: 0 0 auto;
+    font-size: 1.15em;
+    line-height: 1.4;
+}
+
+.legacy-banner__body {
+    flex: 1 1 auto;
+}
+
+.legacy-banner__body p {
+    margin: 0;
+}
+
+.legacy-banner__body p + p {
+    margin-top: 0.4em;
+}
+
+.legacy-banner a {
+    font-weight: 600;
+    text-decoration: underline;
+}
