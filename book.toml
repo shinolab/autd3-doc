@@ -25,8 +25,8 @@ default-theme = "navy"
 preferred-dark-theme = "navy"
 git-repository-url = "https://github.com/shinolab/autd3-doc"
 smart-punctuation = true
-additional-js = ["js/codeblock_filename.js", "js/lightbox-plus-jquery.min.js"]
-additional-css = ["css/codeblock_filename.css", "css/lightbox.css", "css/open-in.css", "css/no-link-summary.css", "css/tab.css", "css/faq.css"]
+additional-js = ["js/codeblock_filename.js", "js/lightbox-plus-jquery.min.js", "js/legacy-banner.js"]
+additional-css = ["css/codeblock_filename.css", "css/lightbox.css", "css/open-in.css", "css/no-link-summary.css", "css/tab.css", "css/faq.css", "css/legacy-banner.css"]
 
 [output.html.playground]
 runnable = false
