@@ -101,7 +101,7 @@
     - [逆伝搬法](./Theory/holo/back_prop.md)
     - [非線形最小二乗法](./Theory/holo/nlsp.md)
     - [音響パワー最適化法](./Theory/holo/apo.md)
-    - [貪欲法](./Theory/holo/greedy.md)
+    - [組合せ最適化法](./Theory/holo/greedy.md)
   - [複数周波数の応用](./Theory/multi-freq.md)
   - [音響放射圧](./Theory/radiation_pressure.md)
 - [ドキュメント履歴](document_history.md)

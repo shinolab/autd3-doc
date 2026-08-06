@@ -65,4 +65,4 @@ $$\begin{aligned}
 - [逆伝搬法](./back_prop.md)
 - [非線形最小二乗法](./nlsp.md)
 - [音響パワー最適化法](./apo.md)
-- [貪欲法](./greedy.md)
+- [組合せ最適化法](./greedy.md)

@@ -1,4 +1,4 @@
-# 貪欲法
+# 組合せ最適化法
 
 Author: Shun Suzuki
 
@@ -51,7 +51,7 @@ $$\begin{aligned}
 ### 焦点位相に対する貪欲法 (LSSGreedy)
 
 上記のアルゴリズムでは振動子の振幅/位相を離散化したが, 焦点の位相を離散化し, 単一焦点の重ね合わせ解において最適な焦点の位相を貪欲法と全探索で求める方法もある[^chen2022sound].
-なお, 現状このアルゴリズムを使用するメリットは特になく, Greedyのほうが基本的に性能は良いのでSDKには実装されていない.
+なお, 現状このアルゴリズムはSDKには実装されていない.
 
 [^suzuki2021radiation]: Suzuki, Shun, et al. "Radiation pressure field reconstruction for ultrasound midair haptics by Greedy algorithm with brute-force search." IEEE Transactions on Haptics 14.4 (2021): 914-921.
 
